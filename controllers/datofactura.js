@@ -21,7 +21,7 @@ function save(req,res) {
     });
 }
 function show(req, res) {
-    DatoFactura.find((error, response) => {
+    DatoFactura.find().populate('created_by').exec((error, response) => {
         if (error) return res.status(500).send({Message: 'Error al contactar con la base de datos', Error: error});
         if (!response) return resstatus(404).send({Message: 'No se ha podido Obtener el dato de facturación'});
         return res.status(200).send({Message: 'Exito al Obtener los datos de facturación', datoFactura: response});

@@ -403,7 +403,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid row\">\n  <div class=\"col-md-5\">\n    <div class=\"card card-blue\">\n      <div class=\"card-header\">\n        <h3 class=\"card-title\">\n          {{title}}\n        </h3>\n        <div class=\"card-tools\">\n          <div class=\"toolbox\">\n\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\">&nbsp;Regresar</i></button>\n          </div>\n        </div>\n      </div>\n      <form action=\"\" class=\"form\">\n        <div class=\"card-body\" *ngIf=\"cargando == true\">\n          <app-my-loader></app-my-loader>\n        </div>\n        <div class=\"card-body\" *ngIf=\"cargando == false\">\n          <div class=\"row\">\n            <button class=\"btn btn-sm btn-info float-right\">\n              aqui va el botón de ver\n            </button>\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Fecha de Emisión\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              Formato ddmmaaaa\n            </span>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"label-form col-sm-6\">\n              Tipo de Comprobante:\n            </label>\n            <select name=\"tipoComp\" id=\"tipoComp\" #tipoComp [(ngModel)]=\"datoFactura.tipoComp\" class=\"form-control col-sm-6\">\n              <option value=\"01\">Factura</option>\n              <option value=\"03\">Liquidación de Compra y Prestación de Servicios</option>\n              <option value=\"04\">Nota de Crédito</option>\n              <option value=\"05\">Nota de Débito</option>\n              <option value=\"06\">Guía de Remisión</option>\n              <option value=\"07\">Comprobante de Retención</option>\n            </select>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">RUC:</label>\n            <input type=\"text\"  placeholder=\"__________-___\" mask=\"0000000000-000\" class=\"form-control col-sm-6\"\n            title=\"El formato de RUC es: xxxxxxxxxx-xxx, ejem: 1600567890-000\" (change)=\"verificarRuc(ruc.value)\"\n            (keyup)=\"verificarRuc(ruc.value)\" [class.is-valid]=\"rucCorrecto == true\" [class.is-warning]=\"rucCorrecto == null\"\n            [class.is-invalid]=\"rucCorrecto == false\"  maxlength=\"14\" id=\"ruc\" name=\"ruc\" #ruc >\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Nombres:</label>\n            <input type=\"text\"  placeholder=\"Primero Segundo\" class=\"form-control col-sm-6\"\n            title=\"El formato de Nombres es: Primero Segundo\"\n            maxlength=\"26\" id=\"nombres\" name=\"nombres\" #nombres [(ngModel)]=\"datoFactura.nombres\" >\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Apellidos:</label>\n            <input type=\"text\"  placeholder=\"Primero Segundo\" class=\"form-control col-sm-6\"\n            title=\"El formato de Apellidos es: Primero Segundo\"\n            maxlength=\"26\" id=\"apellidos\" name=\"apellidos\" #apellidos [(ngModel)]=\"datoFactura.apellidos\" >\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Tipo de Ambiente:</label>\n            <select name=\"tipAm\" id=\"tipAm\" #tipAm [(ngModel)]=\"datoFactura.tipoAmb\" class=\"form-control col-sm-6 \">\n              <option value=\"1\">Pruebas</option>\n              <option value=\"2\">Producción</option>\n            </select>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Serie: </label>\n            <input type=\"text\" placeholder=\"000000\" #serie id=\"serie\" name=\"serie\" [(ngModel)]=\"datoFactura.serie\" mask=\"000000\" maxlength=\"6\" class=\"form-control col-sm-6\">\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Número del comprobante\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              Formato 9 dígitos\n            </span>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">\n              Código Numérico\n            </label>\n            <input type=\"text\" #codNum id=\"codNum\" name=\"codNum\" [(ngModel)]=\"datoFactura.codNum\" mask=\"00000000\" class=\"form-control col-sm-6\">\n            <!-- <span class=\"col-sm-6 form-control\">\n              Formato 6 dígitos\n            </span> -->\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Tipo de Emisión\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              Emisión Normal\n            </span>\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Dígito Verificador\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              1 dígito\n            </span>\n          </div>\n          <br  *ngIf=\"datoFactura.tipoComp && datoFactura.ruc && datoFactura.tipoAmb && datoFactura.serie && datoFactura.tipEmi && datoFactura.codNum\">\n          <div class=\"row\" *ngIf=\"datoFactura.tipoComp && datoFactura.ruc && datoFactura.tipoAmb && datoFactura.serie && datoFactura.tipEmi && datoFactura.codNum\">\n            <label for=\"\">Ejemplo de Clave de Acceso: </label>\n            <span class=\"form-control\">\n              {{today}}-{{datoFactura.tipoComp}}-{{datoFactura.ruc}}-{{datoFactura.tipoAmb}}-{{datoFactura.serie}}-{{datoFactura.tipEmi}}-{{datoFactura.codNum}}\n            </span>\n            <br>\n            <label>Ruc: {{datoFactura.ruc}}</label>\n            <label>Nombres: {{datoFactura.apellidos + datoFactura.nombres}}</label>\n          </div>\n        </div>\n        <div class=\"card-footer\">\n          <button class=\"btn btn-sm btn-success\" (click)=\"onSubmit()\"[disabled]=\"!datoFactura.tipoComp || !datoFactura.ruc || !datoFactura.tipoAmb || !datoFactura.serie || !datoFactura.tipEmi || !datoFactura.codNum\">\n            Guardar Datos\n          </button>\n          <button class=\"btn btn-sm btn-primary float-right\">\n            Limpiar\n          </button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid row\">\n  <div class=\"col-md-5\">\n    <div class=\"card card-blue\">\n      <div class=\"card-header\">\n        <h3 class=\"card-title\">\n          {{title}}\n        </h3>\n        \n      </div>\n      <form action=\"\" class=\"form\">\n        <div class=\"card-body\" *ngIf=\"cargando == true\">\n          <app-my-loader></app-my-loader>\n        </div>\n        <div class=\"card-body\" *ngIf=\"cargando == false\">\n          <!-- <div class=\"row\">\n            <button class=\"btn btn-sm btn-info float-right\">\n              aqui va el botón de ver\n            </button>\n          </div> -->\n          <!-- <br> -->\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Fecha de Emisión\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              Formato ddmmaaaa\n            </span>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"label-form col-sm-6\">\n              Tipo de Comprobante:\n            </label>\n            <select name=\"tipoComp\" id=\"tipoComp\" #tipoComp [(ngModel)]=\"datoFactura.tipoComp\"\n              class=\"form-control col-sm-6\">\n              <option value=\"01\">Factura</option>\n              <option value=\"03\">Liquidación de Compra y Prestación de Servicios</option>\n              <option value=\"04\">Nota de Crédito</option>\n              <option value=\"05\">Nota de Débito</option>\n              <option value=\"06\">Guía de Remisión</option>\n              <option value=\"07\">Comprobante de Retención</option>\n            </select>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">RUC:</label>\n            <input type=\"text\" placeholder=\"__________-___\" mask=\"0000000000-000\" class=\"form-control col-sm-6\"\n              title=\"El formato de RUC es: xxxxxxxxxx-xxx, ejem: 1600567890-000\" (change)=\"verificarRuc(ruc.value)\"\n              (keyup)=\"verificarRuc(ruc.value)\" [class.is-valid]=\"rucCorrecto == true\"\n              [class.is-warning]=\"rucCorrecto == null\" [class.is-invalid]=\"rucCorrecto == false\" maxlength=\"14\" id=\"ruc\"\n              name=\"ruc\" #ruc>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Nombres:</label>\n            <input type=\"text\" placeholder=\"Primero Segundo\" class=\"form-control col-sm-6\"\n              title=\"El formato de Nombres es: Primero Segundo\" maxlength=\"26\" id=\"nombres\" name=\"nombres\" #nombres\n              [(ngModel)]=\"datoFactura.nombres\">\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Apellidos:</label>\n            <input type=\"text\" placeholder=\"Primero Segundo\" class=\"form-control col-sm-6\"\n              title=\"El formato de Apellidos es: Primero Segundo\" maxlength=\"26\" id=\"apellidos\" name=\"apellidos\"\n              #apellidos [(ngModel)]=\"datoFactura.apellidos\">\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Tipo de Ambiente:</label>\n            <select name=\"tipAm\" id=\"tipAm\" #tipAm [(ngModel)]=\"datoFactura.tipoAmb\" class=\"form-control col-sm-6 \">\n              <option value=\"1\">Pruebas</option>\n              <option value=\"2\">Producción</option>\n            </select>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">Serie: </label>\n            <input type=\"text\" placeholder=\"000000\" #serie id=\"serie\" name=\"serie\" [(ngModel)]=\"datoFactura.serie\"\n              mask=\"000-000\" maxlength=\"6\" class=\"form-control col-sm-6\">\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Número del comprobante\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              Formato 9 dígitos\n            </span>\n          </div>\n          <br>\n          <div class=\"row\">\n            <label for=\"\" class=\"col-sm-6\">\n              Código Numérico\n            </label>\n            <input type=\"text\" #codNum id=\"codNum\" name=\"codNum\" [(ngModel)]=\"datoFactura.codNum\" mask=\"00000000\"\n              class=\"form-control col-sm-6\">\n            <!-- <span class=\"col-sm-6 form-control\">\n              Formato 6 dígitos\n            </span> -->\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Tipo de Emisión\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              Emisión Normal\n            </span>\n          </div>\n          <br>\n          <div class=\"row\" title=\"Rellenos al momento de Emitir el Comprobante. (factura electrónica)\">\n            <label for=\"\" class=\"col-sm-6\">\n              Dígito Verificador\n            </label>\n            <span class=\"col-sm-6 form-control\">\n              1 dígito\n            </span>\n          </div>\n          <br\n            *ngIf=\"datoFactura.tipoComp && datoFactura.ruc && datoFactura.tipoAmb && datoFactura.serie && datoFactura.tipEmi && datoFactura.codNum\">\n          <div class=\"row\"\n            *ngIf=\"datoFactura.tipoComp && datoFactura.ruc && datoFactura.tipoAmb && datoFactura.serie && datoFactura.tipEmi && datoFactura.codNum\">\n            <label for=\"\">Ejemplo de Clave de Acceso: </label>\n            <span class=\"form-control\">\n              {{today}}-{{datoFactura.tipoComp}}-{{datoFactura.ruc}}-{{datoFactura.tipoAmb}}-{{datoFactura.serie}}-{{datoFactura.tipEmi}}-{{datoFactura.codNum}}\n            </span>\n            <br>\n            <label>Ruc: {{datoFactura.ruc}}</label>\n            <label>Nombres: {{datoFactura.apellidos + datoFactura.nombres}}</label>\n          </div>\n        </div>\n        <div class=\"card-footer\">\n          <button class=\"btn btn-sm btn-success\" (click)=\"onSubmit()\"\n            [disabled]=\"!datoFactura.tipoComp || !datoFactura.ruc || !datoFactura.tipoAmb || !datoFactura.serie || !datoFactura.tipEmi || !datoFactura.codNum\">\n            Guardar Datos\n          </button>\n          <button class=\"btn btn-sm btn-primary float-right\">\n            Limpiar\n          </button>\n        </div>\n      </form>\n    </div>\n  </div>\n  <div class=\"col-md-7\">\n    <div class=\"card card-blue\">\n      <div class=\"card-header\">\n        <h3 class=\"card-title\">Registro de Datos de Facturación</h3>\n        <div class=\"card-tools\">\n          <div class=\"toolbox\">\n            <button class=\"btn btn-info btn-sm\" (click)=\"return()\"><i class=\"fa fa-arrow-left\">&nbsp;Regresar</i></button>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table table-striped\">\n            <thead>\n              <tr>\n                <th>\n                  Fecha\n                </th>\n                <th>\n                  Tipo de Comprobante\n                </th>\n                <th>\n                  R.U.C.\n                </th>\n                <th>\n                  Serie\n                </th>\n                <th>\n                  Tipo de Emisión\n                </th>\n                <th>\n                  Código Numérico\n                </th>\n                <th>\n                  Tipo de Ambiente\n                </th>\n                <th>\n                  Info.\n                </th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let datofactura of datosFacturas\">\n                <td>\n                  {{(datofactura.created_at | amFromUnix) | date: 'short'}}\n                </td>\n                <td>\n                  <span *ngIf=\"datofactura.tipoComp == '01'\">Factura</span>\n                  <span *ngIf=\"datofactura.tipoComp == '03'\">Liquidación de Compra y Prestación de Servicios</span>\n                  <span *ngIf=\"datofactura.tipoComp == '04'\">Nota de Crédito</span>\n                  <span *ngIf=\"datofactura.tipoComp == '05'\">Nota de Débito</span>\n                  <span *ngIf=\"datofactura.tipoComp == '06'\">Guía de Remisión</span>\n                  <span *ngIf=\"datofactura.tipoComp == '07'\">Comprobante de Retención</span>\n                </td>\n                <td>\n                  {{datofactura.ruc | mask: '0000000000-000'}}\n                </td>\n                <td>\n                  {{datofactura.serie | mask: '000-000'}}\n                </td>\n                <td>\n                  Normal\n                </td>\n                <td>\n                  {{datofactura.codNum}}\n                </td>\n                <td>\n                  <span *ngIf=\"datofactura.tipoAmb == '1'\">Pruebas</span>\n                  <span *ngIf=\"datofactura.tipoAmb == '2'\">Producción</span>\n                </td>\n                <td>\n                 <ul class=\"navbar-nav ml-auto\">\n                   <li class=\"nav-item dropdown\">\n                     <a data-toggle=\"dropdown\" class=\"nav-link btn btn-secondary btn-sm\">\n                       <i class=\"fas fa-info\"></i>\n                     </a>\n                     <div class=\"dropdown-menu dropdown-menu-right\">\n                       <span class=\"dropdown-item dropdown-header\">\n                         Ingresado por:\n                       </span>\n                       <span class=\"dropdown-item\">\n                         <i>{{datofactura.created_by.cuenta}}</i>\n                          {{datofactura.created_by.nombre + ' ' + datofactura.created_by.apellido}} - {{datofactura.created_by.cedula}}\n                       </span>\n                     </div>\n                   </li>\n                 </ul>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -503,7 +503,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader style=\"margin-top: 500px;\"></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === false\">\r\n        <div class=\"form-group row\">\r\n          <label class=\"form-control\">{{description}}</label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <label class=\"col-sm-5\">\r\n            <h3 class=\"text-success\">Ingreso</h3>\r\n          </label>\r\n          <label class=\"col-sm-7\">\r\n            <h3 class=\"text-info\">Vista</h3>\r\n          </label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-sm-5\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Nombre del Importe</label>\r\n              <div class=\"col-sm-7\">\r\n                <input type=\"text\" #nombre name=\"nombre\" id=\"nombre\" [(ngModel)]=\"importe.nombre\"\r\n                  class=\"form-control\" />\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Costo</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\"  *ngIf=\"!importe.percent || (importe.percent == 'false' || importe.percent == false)\">\r\n                    <span class=\"input-group-text\">$</span>\r\n                  </div>\r\n                  <input type=\"number\" #costo name=\"costo\" id=\"costo\" [(ngModel)]=\"importe.costo\" class=\"form-control\"\r\n                    style=\"text-align:right\">\r\n                  <div class=\"input-group-append\" *ngIf=\"importe.percent && (importe.percent == 'true' || importe.percent == true)\">\r\n                      <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Porcentaje del total?</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\">\r\n                    <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                  <select name=\"percent\" id=\"percent\" #percent [(ngModel)]=\"importe.percent\" class=\"form-control\">\r\n                    <option value=\"true\">S&iacute;</option>\r\n                    <option value=\"false\">No</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Tipo: </label>\r\n              <div class=\"col-sm-7\">\r\n                <select name=\"descuento\" id=\"descuento\" #descuento [(ngModel)]=\"importe.descuento\" class=\"form-control\">\r\n                  <option value=\"true\">Descuento</option>\r\n                  <option value=\"false\">Importe</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-5 offset-1\">\r\n                <button class=\"btn btn-success form-control\" (click)=\"onSubmit()\"><i *ngIf=\"editing===true\">Editar</i><i\r\n                    *ngIf=\"editing===false\">Guardar</i></button>\r\n              </div>\r\n              <div class=\"col-sm-5\">\r\n                <button class=\"btn btn-info  form-control\" (click)=\"onClear()\"><i *ngIf=\"editing===true\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"editing===false\">Limpiar</i></button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7\" *ngIf=\"reload==false\">\r\n            <app-show-importes (importEdit)=\"onEdit($event)\"></app-show-importes>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader style=\"margin-top: 500px;\"></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === false\">\r\n        <div class=\"form-group row\">\r\n          <label class=\"form-control\">{{description}}</label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <label class=\"col-sm-5\">\r\n            <h3 class=\"text-success\">Ingreso</h3>\r\n          </label>\r\n          <label class=\"col-sm-7\">\r\n            <h3 class=\"text-info\">Vista</h3>\r\n          </label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-sm-5\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Nombre del Importe</label>\r\n              <div class=\"col-sm-7\">\r\n                <input type=\"text\" #nombre name=\"nombre\" id=\"nombre\" [(ngModel)]=\"importe.nombre\"\r\n                  class=\"form-control\" />\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Costo</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\"  *ngIf=\"!importe.percent || (importe.percent == 'false' || importe.percent == false)\">\r\n                    <span class=\"input-group-text\">$</span>\r\n                  </div>\r\n                  <input type=\"number\" #costo name=\"costo\" id=\"costo\" [(ngModel)]=\"importe.costo\" class=\"form-control\"\r\n                    style=\"text-align:right\">\r\n                  <div class=\"input-group-append\" *ngIf=\"importe.percent && (importe.percent == 'true' || importe.percent == true)\">\r\n                      <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Porcentaje del total?</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\">\r\n                    <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                  <select name=\"percent\" id=\"percent\" #percent [disabled]=\"importe.descuento && importe.descuento.toString() == 'true'\"  (click)=\"onDescuento()\" (change)=\"onDescuento()\" [(ngModel)]=\"importe.percent\" class=\"form-control\">\r\n                    <option value=\"true\">S&iacute;</option>\r\n                    <option value=\"false\">No</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Tipo: </label>\r\n              <div class=\"col-sm-7\">\r\n                <select name=\"descuento\" id=\"descuento\" (click)=\"onDescuento()\" (change)=\"onDescuento()\" #descuento [(ngModel)]=\"importe.descuento\" class=\"form-control\">\r\n                  <option value=\"true\">Descuento</option>\r\n                  <option value=\"false\">Importe</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-5 offset-1\">\r\n                <button class=\"btn btn-success form-control\" [disabled]=\"(importe.descuento && importe.descuento.toString() == 'true') && importe.costo > 75\" (click)=\"onSubmit()\"><i *ngIf=\"editing===true\">Editar</i><i\r\n                    *ngIf=\"editing===false\">Guardar</i></button>\r\n              </div>\r\n              <div class=\"col-sm-5\">\r\n                <button class=\"btn btn-info  form-control\" (click)=\"onClear()\"><i *ngIf=\"editing===true\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"editing===false\">Limpiar</i></button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7\" *ngIf=\"reload==false\">\r\n            <app-show-importes (importEdit)=\"onEdit($event)\"></app-show-importes>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -1103,7 +1103,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"card-body\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-lg-4\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Ingreso | Edicion de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmit(registerForm)\" class=\"col-lg-12 of form-horizontal\">\r\n                <p>\r\n                  <label for=\"nombre\" class=\"Font Dark-Mode\">Nombre</label>\r\n                  <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\"\r\n                    [(ngModel)]=\"user.nombre\"\r\n                    (change)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    (keyup)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Nombre es Obligatorio\" required />\r\n                  <span *ngIf=\"!nombre.valid && nombre.touched || nombreCorrecto == false\" class=\"text-danger\">\r\n                    Nombre Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"apellido\" class=\"Font Dark-Mode\">Apellido</label>\r\n                  <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\"\r\n                    (change)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    (keyup)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    [(ngModel)]=\"user.apellido\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Apellido es Obligatorio\" required />\r\n                  <span *ngIf=\"!apellido.valid && apellido.touched || apellidoCorrecto == false\" class=\"text-danger\">\r\n                    Apellido Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <div class=\"form-group\">\r\n                  <label>Cédula de Identidad</label>\r\n                  <div class=\"input-group clickMe\" (click)=\"verifyEditCedula()\">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\">\r\n                        <i class=\"fa fa-address-card\" *ngIf=\"cedulaWarning === false\"></i>\r\n                        <i class=\"fas fa-edit clickMe\" *ngIf=\"cedulaWarning === true\"></i>\r\n                      </span>\r\n                    </div>\r\n                    <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\" class=\"form-control\"\r\n                      placeholder=\"_________-_\" mask=\"000000000-0 0000\"\r\n                      (keyup)=\"verifyCedula(cedula.value)\" (change)=\"verifyCedula(cedula.value)\"\r\n                      title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\"\r\n                      [disabled]=\"cedulaWarning === true\" required />\r\n                  </div>\r\n                  <label class=\"col-sm-12\" [class.text-success]=\"cedulaCorrecta == true\"\r\n                    *ngIf=\"cedulaCorrecta == true\">Cédula o RUC Correcta!</label>\r\n                  <label class=\"col-sm-12\" [class.text-danger]=\"cedulaCorrecta == false\"\r\n                    *ngIf=\"cedulaCorrecta == false\">Cédula o RUC Incorrecta!, por favor revisela</label>\r\n                  <!-- /.input group -->\r\n                </div>\r\n                <p>\r\n                  <label for=\"fecha_nacimiento\" class=\"Font Dark-Mode\">Fecha de Nacimiento</label>\r\n                  <input type=\"date\" name=\"fecha_nacimiento\" #fecha_nacimiento=\"ngModel\"\r\n                    [(ngModel)]=\"user.fecha_nacimiento\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!fecha_nacimiento.valid && fecha_nacimiento.touched\" class=\"text-danger\">\r\n                    Fecha de Nacimiento Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"direccion\" class=\"Font Dark-Mode\">Dirección</label>\r\n                  <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" (change)=\"comprobarCadena(direccion.value, 'direccion')\" (keyup)=\"comprobarCadena(direccion.value, 'direccion')\" [(ngModel)]=\"user.direccion\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"text-danger\">\r\n                    Dirección Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <input type=\"submit\" class=\"btn btn-success\" value=\"Registrarse\"\r\n                  [disabled]=\"!registerForm.form.valid || apellidoCorrecto == false || nombreCorrecto == false || direccionCorrecta == false\" />\r\n                <button type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"reset()\"><i *ngIf=\"onEdit\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"!onEdit\">Cancelar | Limpiar</i></button>\r\n              </form>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"col-lg-8\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Lista de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <app-users (EnvioDeUsuario)=\"editarUser($event)\"></app-users>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"card-body\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-lg-4\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Ingreso | Edicion de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmit(registerForm)\" class=\"col-lg-12 of form-horizontal\">\r\n                <p>\r\n                  <label for=\"nombre\" class=\"Font Dark-Mode\">Nombre</label>\r\n                  <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\"\r\n                    [(ngModel)]=\"user.nombre\"\r\n                    (change)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    (keyup)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Nombre es Obligatorio\" required />\r\n                  <span *ngIf=\"(!nombre.valid && nombre.touched || nombreCorrecto == false) && user.nombre\" class=\"text-danger\">\r\n                    Nombre Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"apellido\" class=\"Font Dark-Mode\">Apellido</label>\r\n                  <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\"\r\n                    (change)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    (keyup)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    [(ngModel)]=\"user.apellido\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Apellido es Obligatorio\" required />\r\n                  <span *ngIf=\"(!apellido.valid && apellido.touched || apellidoCorrecto == false ) && user.apellido\" class=\"text-danger\">\r\n                    Apellido Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <div class=\"form-group\">\r\n                  <label>Cédula de Identidad</label>\r\n                  <div class=\"input-group clickMe\" (click)=\"verifyEditCedula()\">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\">\r\n                        <i class=\"fa fa-address-card\" *ngIf=\"cedulaWarning === false || !cedulaWarning\"></i>\r\n                        <i class=\"fas fa-edit clickMe\" *ngIf=\"cedulaWarning === true\"></i>\r\n                      </span>\r\n                    </div>\r\n                    <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\" class=\"form-control\"\r\n                      placeholder=\"_________-_\" mask=\"000000000-0 0000\"\r\n                      (keyup)=\"verifyCedula(cedula.value)\" (change)=\"verifyCedula(cedula.value)\"\r\n                      title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\"\r\n                      [disabled]=\"cedulaWarning === true\" required />\r\n                  </div>\r\n                  <label class=\"col-sm-12\" [class.text-success]=\"cedulaCorrecta == true\"\r\n                    *ngIf=\"cedulaCorrecta == true && user.cedula \">Cédula o RUC Correcta!</label>\r\n                  <label class=\"col-sm-12\" [class.text-danger]=\"cedulaCorrecta == false\"\r\n                    *ngIf=\"cedulaCorrecta == false && user.cedula \">Cédula o RUC Incorrecta!, por favor revisela</label>\r\n                  <!-- /.input group -->\r\n                </div>\r\n                <p>\r\n                  <label for=\"fecha_nacimiento\" class=\"Font Dark-Mode\">Fecha de Nacimiento</label>\r\n                  <input type=\"date\" name=\"fecha_nacimiento\" #fecha_nacimiento=\"ngModel\"\r\n                    [(ngModel)]=\"user.fecha_nacimiento\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"(!fecha_nacimiento.valid && fecha_nacimiento.touched) && user.fecha_nacimiento\" class=\"text-danger\">\r\n                    Fecha de Nacimiento Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"direccion\" class=\"Font Dark-Mode\">Dirección</label>\r\n                  <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" (change)=\"comprobarCadena(direccion.value, 'direccion')\" (keyup)=\"comprobarCadena(direccion.value, 'direccion')\" [(ngModel)]=\"user.direccion\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"(!direccion.valid && direccion.touched) && user.direccion\" class=\"text-danger\">\r\n                    Dirección Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <input type=\"submit\" class=\"btn btn-success\" value=\"Registrarse\"\r\n                  [disabled]=\"!registerForm.form.valid || apellidoCorrecto == false || nombreCorrecto == false || direccionCorrecta == false\" />\r\n                <button type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"reset()\"><i *ngIf=\"onEdit\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"!onEdit\">Cancelar | Limpiar</i></button>\r\n              </form>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"col-lg-8\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Lista de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <app-users (EnvioDeUsuario)=\"editarUser($event)\"></app-users>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -1163,7 +1163,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"dataTables_wrapper dt-bootstrap4\">\r\n\r\n  <table *ngIf=\"usuarios\" id=\"example1\" class=\"table table-bordered table-hover table-striped\">\r\n    <thead>\r\n      <tr class=\"text-center\">\r\n        <th><i class=\"fa fa-redo clickMe\" (click)=\"ngOnChanges()\" title=\"Actualizar Lista de Usuarios\"> &nbsp; &nbsp;\r\n          </i> Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"usuarios\">\r\n      <tr\r\n        *ngFor=\"let user of usuarios | paginate: { id: 'users', itemsPerPage: 7, currentPage: page }; let i = index\">\r\n        <td class=\"nickname\" style=\"font-weight: bold\">\r\n\r\n          {{user.cedula}}\r\n        </td>\r\n        <td>\r\n          <span *ngIf=\"user.updated_at && user.updated_by\" title=\"Usuario Editado\">\r\n            *\r\n          </span>\r\n          <span *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">({{getRoleUser(user.role_user)}})&nbsp;-&nbsp;</span>{{ user.apellido + ' ' + user.nombre}}\r\n        </td>\r\n        <td *ngIf=\"employees\">\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'simple'\">Consumidor</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'common'\">Consumidor</span>\r\n          <span\r\n            *ngIf=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"><span *ngIf=\"user.role_user === 'admin'\">Administrador</span> <span *ngIf=\"user.role_user !== 'admin'\">{{user.role_user}}</span> </span>\r\n        </td>\r\n        <!-- <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label>Creado por:\r\n            <span *ngIf=\"user.created_by\">\r\n              {{'(' + user.created_by.cuenta + ') ' + user.created_by.apellido + ' ' + (user.created_by.nombre)}}\r\n            </span>\r\n            <span *ngIf=\"!user.created_by\">\r\n              Sin Datos de Creador\r\n            </span>\r\n          </label>\r\n          <label>Creado el\r\n            <span *ngIf=\"user.created_at\">\r\n              {{(user.created_at  | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.created_at | amFromUnix) | date: 'HH:mm'}} horas\r\n            </span>\r\n            <span *ngIf=\"!user.created_at\">\r\n              Sin Fecha de Creaci&oacute;n\r\n            </span>\r\n          </label>\r\n        </td>\r\n        <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label *ngIf=\"user.updated_at\">\r\n            <span>Editado por: ({{user.updated_by.cuenta}}) {{user.updated_by.apellido}} {{user.updated_by.nombre}}. El {{(user.updated_at | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.updated_at | amFromUnix) | date: 'HH:mm'}} horas </span>\r\n          </label>\r\n          <label *ngIf=\"!user.updated_at\">No editado A&uacute;n</label>\r\n        </td> -->\r\n        <td class=\"text-center\">\r\n          <div class=\"row text-center\"  style=\"place-content: center !important;\">\r\n            <div class=\"text-center\" title=\"Ver Datos Completos del Usuario\">\r\n                <a class=\" btn btn-primary btn-sm\" (click)=\"showUser(user._id)\"><i\r\n                  class=\"fa fa-info-circle\"></i></a>\r\n            </div>\r\n            <div\r\n              *ngIf=\"role_user.toLowerCase() !== 'common' && role_user.toLowerCase() !== 'operador'\"\r\n              [hidden]=\"role_user.toLowerCase() == 'operador'\">\r\n              <label class=\"btn btn-sm clickMe\"\r\n              [class.btn-warning] = \"user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple'\"\r\n              [class.btn-danger] = \"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"\r\n              (click)=\"editarUser(user)\">\r\n                <i class=\"far fa-edit\"\r\n                  style=\"color: white;\"></i></label>\r\n            </div>\r\n          </div>\r\n          <!-- <label class=\"badge badge-info\" *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</label> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n    <tfoot>\r\n      <tr>\r\n        <th>Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </tfoot>\r\n  </table>\r\n  <pagination-controls id=\"users\" (pageChange)=\"page=$event\" maxSize=\"9\" directionLinks=\"true\" autoHide=\"true\"\r\n    responsive=\"true\" previousLabel=\"Anterior\" nextLabel=\"Siguiente\" screenReaderPaginationLabel=\"Usuarios\"\r\n    screenReaderPageLabel=\"Pagina\" screenReaderCurrentLabel=\"Estas en la Pagina \">\r\n  </pagination-controls>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"dataTables_wrapper dt-bootstrap4\">\r\n\r\n  <table *ngIf=\"usuarios\" id=\"example1\" class=\"table table-bordered table-hover table-striped\">\r\n    <thead>\r\n      <tr class=\"text-center\">\r\n        <th><i class=\"fa fa-redo clickMe\" (click)=\"ngOnChanges()\" title=\"Actualizar Lista de Usuarios\"> &nbsp; &nbsp;\r\n          </i> Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"usuarios\">\r\n      <tr\r\n        *ngFor=\"let user of usuarios | paginate: { id: 'users', itemsPerPage: 7, currentPage: page }; let i = index\">\r\n        <td class=\"nickname\" style=\"font-weight: bold\">\r\n\r\n          {{user.cedula | mask: '000000000-0'}}\r\n        </td>\r\n        <td>\r\n          <span *ngIf=\"user.updated_at && user.updated_by\" title=\"Usuario Editado\">\r\n            *\r\n          </span>\r\n          <span *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n            <span *ngIf=\"user.role_user.toLowerCase() === 'simple' || user.role_user.toLowerCase() === 'common'\">\r\n              <i class=\"fas fa-user\"></i>\r\n            </span>\r\n            <span *ngIf=\"user.role_user.toLowerCase() != 'simple' && user.role_user.toLowerCase() != 'common'\">\r\n              <i class=\"fas fa-user-tie\"></i>\r\n            </span>\r\n            <!-- {{getRoleUser(user.role_user)}} -->\r\n            &nbsp;-&nbsp;</span>{{ user.apellido + ' ' + user.nombre}}\r\n        </td>\r\n        <td *ngIf=\"employees\">\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'simple'\">Consumidor</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'common'\">Consumidor</span>\r\n          <span\r\n            *ngIf=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"><span *ngIf=\"user.role_user === 'admin'\">Administrador</span> <span *ngIf=\"user.role_user !== 'admin'\">{{user.role_user}}</span> </span>\r\n        </td>\r\n        <!-- <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label>Creado por:\r\n            <span *ngIf=\"user.created_by\">\r\n              {{'(' + user.created_by.cuenta + ') ' + user.created_by.apellido + ' ' + (user.created_by.nombre)}}\r\n            </span>\r\n            <span *ngIf=\"!user.created_by\">\r\n              Sin Datos de Creador\r\n            </span>\r\n          </label>\r\n          <label>Creado el\r\n            <span *ngIf=\"user.created_at\">\r\n              {{(user.created_at  | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.created_at | amFromUnix) | date: 'HH:mm'}} horas\r\n            </span>\r\n            <span *ngIf=\"!user.created_at\">\r\n              Sin Fecha de Creaci&oacute;n\r\n            </span>\r\n          </label>\r\n        </td>\r\n        <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label *ngIf=\"user.updated_at\">\r\n            <span>Editado por: ({{user.updated_by.cuenta}}) {{user.updated_by.apellido}} {{user.updated_by.nombre}}. El {{(user.updated_at | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.updated_at | amFromUnix) | date: 'HH:mm'}} horas </span>\r\n          </label>\r\n          <label *ngIf=\"!user.updated_at\">No editado A&uacute;n</label>\r\n        </td> -->\r\n        <td class=\"text-center\">\r\n          <div class=\"row text-center\"  style=\"place-content: center !important;\">\r\n            <div class=\"text-center\" title=\"Ver Datos Completos del Usuario\">\r\n                <a class=\" btn btn-primary btn-sm\" (click)=\"showUser(user._id)\"><i\r\n                  class=\"fa fa-info-circle\"></i></a>\r\n            </div>\r\n            <div\r\n              *ngIf=\"role_user.toLowerCase() !== 'common' && role_user.toLowerCase() !== 'operador'\"\r\n              [hidden]=\"role_user.toLowerCase() == 'operador'\">\r\n              <label class=\"btn btn-sm clickMe\"\r\n              [class.btn-warning] = \"user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple'\"\r\n              [class.btn-danger] = \"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"\r\n              (click)=\"editarUser(user)\">\r\n                <i class=\"far fa-edit\"\r\n                  style=\"color: white;\"></i></label>\r\n            </div>\r\n          </div>\r\n          <!-- <label class=\"badge badge-info\" *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</label> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n    <tfoot>\r\n      <tr>\r\n        <th>Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </tfoot>\r\n  </table>\r\n  <pagination-controls id=\"users\" (pageChange)=\"page=$event\" maxSize=\"9\" directionLinks=\"true\" autoHide=\"true\"\r\n    responsive=\"true\" previousLabel=\"Anterior\" nextLabel=\"Siguiente\" screenReaderPaginationLabel=\"Usuarios\"\r\n    screenReaderPageLabel=\"Pagina\" screenReaderCurrentLabel=\"Estas en la Pagina \">\r\n  </pagination-controls>\r\n</div>\r\n";
     /***/
   },
 
@@ -1263,7 +1263,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"mt-2\">\r\n  <!-- >> Menu Lateral -->\r\n  <ul class=\"nav nav-pills nav-sidebar flex-column nav-child-indent\" data-widget=\"treeview\" role=\"menu\"\r\n    data-accordion=\"false\">\r\n    <!-- >>> Usuarios -->\r\n    <li class=\"nav-item has-treeview\">\r\n      <a href=\"#\" class=\"nav-link\" [routerLinkActive]=\"['active']\">\r\n        <i class=\"fa fa-users nav-icon\"></i>\r\n        <p>\r\n          Usuarios\r\n          <i class=\"fas fa-angle-left right\"></i>\r\n          <!-- <span class=\"badge badge-info right\">6</span> -->\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() !== 'operador'\">\r\n          <a [routerLink]=\"['/registro-simple']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-user-plus nav-icon\"></i>\r\n            <p>Ingresar</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/usuarios']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-list-alt nav-icon\"></i>\r\n            <p>Ver Todo</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n    <!-- <<< Usuarios -->\r\n\r\n    <!-- >>> Tarifa -->\r\n    <li class=\"nav-item has-treeview\" *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n      <a href=\"#\" class=\"nav-link\">\r\n        <!-- <i class=\"fa fa-table nav-icon\"></i> -->\r\n        <i class=\"fas fa-funnel-dollar nav-icon\"></i>\r\n        <p>\r\n          Tarifas\r\n          <i class=\"right fas fa-angle-left\"></i>\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/nueva-tarifa']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fa fa-plus nav-icon\"></i>\r\n            <p>Ingresar</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/listar-tarifas']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-list-alt nav-icon\"></i>\r\n            <p>Ver Todas</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n    <!-- <<< Tarifa -->\r\n\r\n    <!-- >>> Medidores -->\r\n    <li class=\"nav-item  has-treeview\">\r\n      <a href=\"#\" class=\"nav-link\">\r\n        <i class=\"nav-icon fas fa-tachometer-alt\"></i>\r\n        <!-- <i class=\"nav-icon fas fa-th\"></i> -->\r\n        <p>\r\n          Medidores\r\n          <i class=\"right fas fa-angle-left\"></i>\r\n          <!-- <span class=\"right badge badge-danger\">New</span> -->\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/nuevo-medidor']\" class=\"nav-link\" [routerLinkActive]=\"['active']\">\r\n            <i class=\"fa fa-plus nav-icon\"></i>\r\n            <p>Ingresar Nuevo</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/ver-medidor']\" class=\"nav-link\" [routerLinkActive]=\"['active']\">\r\n            <i class=\"fas fa-list-alt nav-icon\"></i>\r\n            <p>Ver Todos</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n    <!-- <<< Medidores -->\r\n\r\n    <!-- >>> Consumo -->\r\n    <li class=\"nav-item\">\r\n      <a [routerLink]=\"['/nuevo-registro']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"nav-icon fas fa-file-contract\"></i>\r\n        <p>\r\n          Ingresar Lecturas\r\n        </p>\r\n      </a>\r\n    </li>\r\n    <!-- <<< Consumo -->\r\n\r\n    <!-- >>> Facturas -->\r\n    <li class=\"nav-item\" *ngIf=\"\r\n        identity.role_user.toLowerCase() === 'admin' ||\r\n        identity.role_user.toLowerCase() === 'secretario'\r\n      \">\r\n      <a [routerLink]=\"['/facturar']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"nav-icon fas fa-file-invoice\"></i>\r\n        <p>\r\n          Factura\r\n        </p>\r\n      </a>\r\n    </li>\r\n    <li class=\"nav-item\" *ngIf=\"\r\n        lastBill == true &&\r\n        (identity.role_user.toLowerCase() === 'admin' ||\r\n          identity.role_user.toLowerCase() === 'secretario')\r\n      \">\r\n      <a [routerLink]=\"['/factura']\" target=\"blank\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"nav-icon fa fa-print\"></i>\r\n        <p>\r\n          Ultima Factura\r\n        </p>\r\n      </a>\r\n    </li>\r\n    <!-- <<< Facturas -->\r\n    \r\n    <!-- >>> Importes -->\r\n    <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin' || identity.role_user.toLowerCase() === 'secretario'\">\r\n      <a [routerLink]=\"['/importes']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"fa fa-balance-scale nav-icon\"></i>\r\n        <p>Importes Y Descuentos</p>\r\n      </a>\r\n    </li>\r\n    <!-- <<< Importes -->\r\n    \r\n    <li class=\"nav-item has-treeview\"\r\n      *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\">\r\n      <a href=\"#\" class=\"nav-link\">\r\n        <i class=\"fas fa-tools nav-icon\"></i>\r\n        <p>\r\n          Administrar\r\n          <i class=\"fas fa-angle-left right\"></i>\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <!-- >>> Reportes Facturas -->\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/reportes']\" [routerLinkActive]=\"['active']\" routerLinkActive=\"router-link-active\" class=\"nav-link\">\r\n            <i class=\"nav-icon fas fa-chart-line\"></i>\r\n            <p>\r\n              Reportes de Facturas\r\n            </p>\r\n          </a>\r\n        </li>\r\n        <!-- <<< Reportes -->\r\n        <!-- >>> Reportes -->\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/records']\" [routerLinkActive]=\"['active']\" routerLinkActive=\"router-link-active\" class=\"nav-link\">\r\n            <i class=\"nav-icon fas fa-chart-line\"></i>\r\n            <p>\r\n              Reportes\r\n            </p>\r\n          </a>\r\n        </li>\r\n        <!-- <<< Reportes -->\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/registro-empleado']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-user-tie nav-icon\"></i>\r\n            <p>Empleados</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/extras']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fa fa-money-bill nav-icon\"></i>\r\n            <p>R.M.U.V.</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/sector']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-map-marked-alt nav-icon\"></i>\r\n            <p>Sectores</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/numeros']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-calculator nav-icon\"></i>\r\n            <p>Datos de Facturaci&oacute;n</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/test']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-bug nav-icon\"></i>\r\n            <p>Pruebas</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n\r\n\r\n    <!-- >>> Noticias -->\r\n    <!-- <li class=\"nav-item has-treeview\">\r\n        <a href=\"#\" class=\"nav-link\">\r\n            <i class=\"fa fa-newspaper nav-icon\"></i>\r\n            <p>\r\n                Noticias\r\n                <i class=\"fas fa-angle-left right\"></i>\r\n            </p>\r\n        </a>\r\n        <ul class=\"nav nav-treeview\">\r\n            <li class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link\">\r\n                    <i class=\"fa fa-eye nav-icon\"></i>\r\n                    <p>Ver Noticias</p>\r\n                </a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a [routerLink]=\"['noticia']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n                    <i class=\"fas fa-plus nav-icon\"></i>\r\n                    <p>Ingresar Nueva</p>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </li> -->\r\n    <!-- <<< Noticias -->\r\n  </ul>\r\n  <!-- << Menu Lateral -->\r\n</nav>\r\n";
+    __webpack_exports__["default"] = "<nav class=\"mt-2\">\r\n  <!-- >> Menu Lateral -->\r\n  <ul class=\"nav nav-pills nav-sidebar flex-column nav-child-indent\" data-widget=\"treeview\" role=\"menu\"\r\n    data-accordion=\"false\">\r\n    <!-- >>> Usuarios -->\r\n    <li class=\"nav-item has-treeview\">\r\n      <a href=\"#\" class=\"nav-link\" [routerLinkActive]=\"['active']\">\r\n        <i class=\"fa fa-users nav-icon\"></i>\r\n        <p>\r\n          Usuarios\r\n          <i class=\"fas fa-angle-left right\"></i>\r\n          <!-- <span class=\"badge badge-info right\">6</span> -->\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() !== 'operador'\">\r\n          <a [routerLink]=\"['/registro-simple']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-user-plus nav-icon\"></i>\r\n            <p>Ingresar</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/usuarios']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-list-alt nav-icon\"></i>\r\n            <p>Ver Todo</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n    <!-- <<< Usuarios -->\r\n\r\n    <!-- >>> Tarifa -->\r\n    <li class=\"nav-item has-treeview\" *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n      <a href=\"#\" class=\"nav-link\">\r\n        <!-- <i class=\"fa fa-table nav-icon\"></i> -->\r\n        <i class=\"fas fa-funnel-dollar nav-icon\"></i>\r\n        <p>\r\n          Tarifas\r\n          <i class=\"right fas fa-angle-left\"></i>\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/nueva-tarifa']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fa fa-plus nav-icon\"></i>\r\n            <p>Ingresar</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/listar-tarifas']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-list-alt nav-icon\"></i>\r\n            <p>Ver Todas</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n    <!-- <<< Tarifa -->\r\n\r\n    <!-- >>> Medidores -->\r\n    <li class=\"nav-item  has-treeview\">\r\n      <a href=\"#\" class=\"nav-link\">\r\n        <i class=\"nav-icon fas fa-tachometer-alt\"></i>\r\n        <!-- <i class=\"nav-icon fas fa-th\"></i> -->\r\n        <p>\r\n          Medidores\r\n          <i class=\"right fas fa-angle-left\"></i>\r\n          <!-- <span class=\"right badge badge-danger\">New</span> -->\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/nuevo-medidor']\" class=\"nav-link\" [routerLinkActive]=\"['active']\">\r\n            <i class=\"fa fa-plus nav-icon\"></i>\r\n            <p>Ingresar Nuevo</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/ver-medidor']\" class=\"nav-link\" [routerLinkActive]=\"['active']\">\r\n            <i class=\"fas fa-list-alt nav-icon\"></i>\r\n            <p>Ver Todos</p>\r\n          </a>\r\n        </li>\r\n      </ul>\r\n    </li>\r\n    <!-- <<< Medidores -->\r\n\r\n    <!-- >>> Consumo -->\r\n    <li class=\"nav-item\">\r\n      <a [routerLink]=\"['/nuevo-registro']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"nav-icon fas fa-file-contract\"></i>\r\n        <p>\r\n          Ingresar Lecturas\r\n        </p>\r\n      </a>\r\n    </li>\r\n    <!-- <<< Consumo -->\r\n\r\n    <!-- >>> Facturas -->\r\n    <li class=\"nav-item\" *ngIf=\"\r\n        identity.role_user.toLowerCase() === 'admin' ||\r\n        identity.role_user.toLowerCase() === 'secretario'\r\n      \">\r\n      <a [routerLink]=\"['/facturar']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"nav-icon fas fa-file-invoice\"></i>\r\n        <p>\r\n          Factura\r\n        </p>\r\n      </a>\r\n    </li>\r\n    <li class=\"nav-item\" *ngIf=\"\r\n        lastBill == true &&\r\n        (identity.role_user.toLowerCase() === 'admin' ||\r\n          identity.role_user.toLowerCase() === 'secretario')\r\n      \">\r\n      <a [routerLink]=\"['/factura']\" target=\"blank\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"nav-icon fa fa-print\"></i>\r\n        <p>\r\n          Ultima Factura\r\n        </p>\r\n      </a>\r\n    </li>\r\n    <!-- <<< Facturas -->\r\n    \r\n    <!-- >>> Importes -->\r\n    <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin' || identity.role_user.toLowerCase() === 'secretario'\">\r\n      <a [routerLink]=\"['/importes']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n        <i class=\"fa fa-balance-scale nav-icon\"></i>\r\n        <p>Importes Y Descuentos</p>\r\n      </a>\r\n    </li>\r\n    <!-- <<< Importes -->\r\n    \r\n    <li class=\"nav-item has-treeview\"\r\n      *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\">\r\n      <a href=\"#\" class=\"nav-link\">\r\n        <i class=\"fas fa-tools nav-icon\"></i>\r\n        <p>\r\n          Administrar\r\n          <i class=\"fas fa-angle-left right\"></i>\r\n        </p>\r\n      </a>\r\n      <ul class=\"nav nav-treeview\">\r\n        <!-- >>> Reportes Facturas -->\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/reportes']\" [routerLinkActive]=\"['active']\" routerLinkActive=\"router-link-active\" class=\"nav-link\">\r\n            <i class=\"nav-icon fas fa-chart-line\"></i>\r\n            <p>\r\n              Reportes de Facturas\r\n            </p>\r\n          </a>\r\n        </li>\r\n        <!-- <<< Reportes -->\r\n        <!-- >>> Reportes -->\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/records']\" [routerLinkActive]=\"['active']\" routerLinkActive=\"router-link-active\" class=\"nav-link\">\r\n            <i class=\"nav-icon fas fa-chart-line\"></i>\r\n            <p>\r\n              Reportes\r\n            </p>\r\n          </a>\r\n        </li>\r\n        <!-- <<< Reportes -->\r\n        <li class=\"nav-item\" *ngIf=\"identity.role_user.toLowerCase() === 'admin'\">\r\n          <a [routerLink]=\"['/registro-empleado']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-user-tie nav-icon\"></i>\r\n            <p>Empleados</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\">\r\n          <a [routerLink]=\"['/extras']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fa fa-money-bill nav-icon\"></i>\r\n            <p>R.M.U.V.</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/sector']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-map-marked-alt nav-icon\"></i>\r\n            <p>Sectores</p>\r\n          </a>\r\n        </li>\r\n        <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/numeros']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-calculator nav-icon\"></i>\r\n            <p>Datos de Facturaci&oacute;n</p>\r\n          </a>\r\n        </li>\r\n        <!-- <li class=\"nav-item\" *ngIf=\"\r\n            identity.role_user.toLowerCase() === 'admin' ||\r\n            identity.role_user.toLowerCase() === 'secretario'\r\n          \">\r\n          <a [routerLink]=\"['/test']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n            <i class=\"fas fa-bug nav-icon\"></i>\r\n            <p>Pruebas</p>\r\n          </a>\r\n        </li> -->\r\n      </ul>\r\n    </li>\r\n\r\n\r\n    <!-- >>> Noticias -->\r\n    <!-- <li class=\"nav-item has-treeview\">\r\n        <a href=\"#\" class=\"nav-link\">\r\n            <i class=\"fa fa-newspaper nav-icon\"></i>\r\n            <p>\r\n                Noticias\r\n                <i class=\"fas fa-angle-left right\"></i>\r\n            </p>\r\n        </a>\r\n        <ul class=\"nav nav-treeview\">\r\n            <li class=\"nav-item\">\r\n                <a href=\"#\" class=\"nav-link\">\r\n                    <i class=\"fa fa-eye nav-icon\"></i>\r\n                    <p>Ver Noticias</p>\r\n                </a>\r\n            </li>\r\n            <li class=\"nav-item\">\r\n                <a [routerLink]=\"['noticia']\" [routerLinkActive]=\"['active']\" class=\"nav-link\">\r\n                    <i class=\"fas fa-plus nav-icon\"></i>\r\n                    <p>Ingresar Nueva</p>\r\n                </a>\r\n            </li>\r\n        </ul>\r\n    </li> -->\r\n    <!-- <<< Noticias -->\r\n  </ul>\r\n  <!-- << Menu Lateral -->\r\n</nav>\r\n";
     /***/
   },
 
@@ -2075,7 +2075,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
   /***/
   function packageJson(module) {
-    module.exports = JSON.parse("{\"name\":\"meragua\",\"version\":\"3.2.5-7b\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~8.2.9\",\"@angular/cdk\":\"~8.2.3\",\"@angular/common\":\"~8.2.9\",\"@angular/compiler\":\"~8.2.9\",\"@angular/core\":\"~8.2.9\",\"@angular/forms\":\"~8.2.9\",\"@angular/material\":\"^8.2.3\",\"@angular/material-moment-adapter\":\"^8.2.3\",\"@angular/platform-browser\":\"~8.2.9\",\"@angular/platform-browser-dynamic\":\"~8.2.9\",\"@angular/router\":\"~8.2.9\",\"@swimlane/ngx-datatable\":\"^16.0.3\",\"@types/html2canvas\":\"0.0.35\",\"@types/jquery\":\"^3.3.31\",\"angular-barcode\":\"^2.0.1\",\"angular-barcode-febraban\":\"^1.0.0\",\"angular2-moment\":\"^1.9.0\",\"bootstrap\":\"3.3.6\",\"chart.js\":\"^2.9.3\",\"hammerjs\":\"^2.0.8\",\"html-to-image\":\"^0.1.1\",\"html2canvas\":\"^1.0.0-rc.5\",\"jquery\":\"^1.12.4\",\"jspdf\":\"^1.5.3\",\"ng2-charts\":\"^2.3.0\",\"ngx-barcode\":\"^0.2.4\",\"ngx-mask\":\"^6.5.18\",\"ngx-pagination\":\"^3.2.1\",\"rxjs\":\"~6.4.0\",\"rxjs-compat\":\"^6.5.3\",\"sweetalert2\":\"^9.4.0\",\"tslib\":\"^1.10.0\",\"zone.js\":\"~0.9.1\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.803.8\",\"@angular/cli\":\"~8.3.8\",\"@angular/compiler-cli\":\"~8.2.9\",\"@angular/language-service\":\"~8.2.9\",\"@types/jasmine\":\"~3.3.8\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/jspdf\":\"^1.3.1\",\"@types/node\":\"~8.9.4\",\"codelyzer\":\"^5.0.0\",\"jasmine-core\":\"~3.4.0\",\"jasmine-spec-reporter\":\"~4.2.1\",\"karma\":\"~4.1.0\",\"karma-chrome-launcher\":\"~2.2.0\",\"karma-coverage-istanbul-reporter\":\"~2.0.1\",\"karma-jasmine\":\"~2.0.1\",\"karma-jasmine-html-reporter\":\"^1.4.0\",\"protractor\":\"~5.4.0\",\"ts-node\":\"~7.0.0\",\"tslint\":\"~5.15.0\",\"typescript\":\"~3.5.3\"}}");
+    module.exports = JSON.parse("{\"name\":\"meragua\",\"version\":\"3.2.6-3b\",\"scripts\":{\"ng\":\"ng\",\"start\":\"ng serve\",\"build\":\"ng build\",\"test\":\"ng test\",\"lint\":\"ng lint\",\"e2e\":\"ng e2e\"},\"private\":true,\"dependencies\":{\"@angular/animations\":\"~8.2.9\",\"@angular/cdk\":\"~8.2.3\",\"@angular/common\":\"~8.2.9\",\"@angular/compiler\":\"~8.2.9\",\"@angular/core\":\"~8.2.9\",\"@angular/forms\":\"~8.2.9\",\"@angular/material\":\"^8.2.3\",\"@angular/material-moment-adapter\":\"^8.2.3\",\"@angular/platform-browser\":\"~8.2.9\",\"@angular/platform-browser-dynamic\":\"~8.2.9\",\"@angular/router\":\"~8.2.9\",\"@swimlane/ngx-datatable\":\"^16.0.3\",\"@types/html2canvas\":\"0.0.35\",\"@types/jquery\":\"^3.3.31\",\"angular-barcode\":\"^2.0.1\",\"angular-barcode-febraban\":\"^1.0.0\",\"angular2-moment\":\"^1.9.0\",\"bootstrap\":\"3.3.6\",\"chart.js\":\"^2.9.3\",\"hammerjs\":\"^2.0.8\",\"html-to-image\":\"^0.1.1\",\"html2canvas\":\"^1.0.0-rc.5\",\"jquery\":\"^1.12.4\",\"jspdf\":\"^1.5.3\",\"ng2-charts\":\"^2.3.0\",\"ngx-barcode\":\"^0.2.4\",\"ngx-mask\":\"^6.5.18\",\"ngx-pagination\":\"^3.2.1\",\"rxjs\":\"~6.4.0\",\"rxjs-compat\":\"^6.5.3\",\"sweetalert2\":\"^9.4.0\",\"tslib\":\"^1.10.0\",\"zone.js\":\"~0.9.1\"},\"devDependencies\":{\"@angular-devkit/build-angular\":\"~0.803.8\",\"@angular/cli\":\"~8.3.8\",\"@angular/compiler-cli\":\"~8.2.9\",\"@angular/language-service\":\"~8.2.9\",\"@types/jasmine\":\"~3.3.8\",\"@types/jasminewd2\":\"~2.0.3\",\"@types/jspdf\":\"^1.3.1\",\"@types/node\":\"~8.9.4\",\"codelyzer\":\"^5.0.0\",\"jasmine-core\":\"~3.4.0\",\"jasmine-spec-reporter\":\"~4.2.1\",\"karma\":\"~4.1.0\",\"karma-chrome-launcher\":\"~2.2.0\",\"karma-coverage-istanbul-reporter\":\"~2.0.1\",\"karma-jasmine\":\"~2.0.1\",\"karma-jasmine-html-reporter\":\"^1.4.0\",\"protractor\":\"~5.4.0\",\"ts-node\":\"~7.0.0\",\"tslint\":\"~5.15.0\",\"typescript\":\"~3.5.3\"}}");
     /***/
   },
 
@@ -3625,6 +3625,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _service_datoFactura_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../../../../service/datoFactura.service */
     "./src/app/service/datoFactura.service.ts");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! sweetalert2 */
+    "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default =
+    /*#__PURE__*/
+    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
 
     var DatosFacturasComponent =
     /*#__PURE__*/
@@ -3637,9 +3649,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.title = 'Cargando';
         this.cargando = true;
         this.initDatoFactura();
+        this.initDatosFacturas();
       }
 
       _createClass(DatosFacturasComponent, [{
+        key: "initDatosFacturas",
+        value: function initDatosFacturas() {
+          var _this4 = this;
+
+          this._datoFacturaService.gets().subscribe(function (response) {
+            console.log(response);
+            _this4.datosFacturas = response.datoFactura;
+          });
+        }
+      }, {
         key: "initDatoFactura",
         value: function initDatoFactura() {
           var hoy = new Date();
@@ -3670,6 +3693,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             apellidos: null
           };
           this.cargando = false;
+          this.initDatosFacturas();
           this.title = 'Ingresar Datos de Facturación';
         }
       }, {
@@ -3735,7 +3759,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "onSubmit",
         value: function onSubmit() {
           this._datoFacturaService.save(this.datoFactura).subscribe(function (response) {
-            console.log(response);
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default.a.fire({
+              position: 'top-end',
+              icon: 'success',
+              grow: 'row',
+              title: response.Message,
+              showConfirmButton: false,
+              timer: 1500
+            });
           });
         }
       }, {
@@ -3949,7 +3980,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(AddElectronicaComponent, [{
         key: "initDatoFactura",
         value: function initDatoFactura() {
-          var _this4 = this;
+          var _this5 = this;
 
           this._datoFacturaService.gets().subscribe(function (response) {
             if (response.datoFactura) {
@@ -3959,7 +3990,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 });
               }
 
-              _this4.datoActual = response.datoFactura[0];
+              _this5.datoActual = response.datoFactura[0];
               console.log(response.datoFactura[0]);
             }
           });
@@ -3967,28 +3998,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getFactura",
         value: function getFactura() {
-          var _this5 = this;
+          var _this6 = this;
 
           this._billService.getFacturaByRegistro(localStorage.getItem('invoice')).subscribe(function (response) {
             console.log(response);
 
             if (response.factura) {
-              _this5.initDatoFactura();
+              _this6.initDatoFactura();
 
-              _this5.factura = response.factura;
-              _this5.register = response.factura.registro;
-              _this5.cargando = false;
+              _this6.factura = response.factura;
+              _this6.register = response.factura.registro;
+              _this6.cargando = false;
 
-              _this5.getNumeros();
+              _this6.getNumeros();
 
               if (response.factura.datoFacturado) {
-                _this5.datoRegistrado = response.factura.datoFacturado;
-                console.log(_this5.datoRegistrado);
+                _this6.datoRegistrado = response.factura.datoFacturado;
+                console.log(_this6.datoRegistrado);
               }
 
-              _this5.pagoActual = _this5.factura.pago;
+              _this6.pagoActual = _this6.factura.pago;
 
-              _this5._detalleService.getDetalle(_this5.factura._id).subscribe(function (response) {
+              _this6._detalleService.getDetalle(_this6.factura._id).subscribe(function (response) {
                 console.log(response);
 
                 if (response.Detalles) {
@@ -3996,18 +4027,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   detTemp.sort(function (a, b) {
                     return a.index - b.index;
                   });
-                  _this5.base = detTemp[0];
-                  _this5.detalles = [];
+                  _this6.base = detTemp[0];
+                  _this6.detalles = [];
 
                   for (var i = 1; i < detTemp.length; i++) {
                     var detalle = detTemp[i];
 
-                    _this5.detalles.push(detalle);
+                    _this6.detalles.push(detalle);
                   }
                 }
               });
             } else {
-              _this5._location.back();
+              _this6._location.back();
             }
 
             localStorage.removeItem('invoice');
@@ -4016,23 +4047,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getRegister",
         value: function getRegister() {
-          var _this6 = this;
+          var _this7 = this;
 
           this._registerService.getOne(localStorage.getItem('register')).subscribe(function (response) {
             console.log(response);
 
             if (response.Register) {
               localStorage.removeItem('register');
-              _this6.register = response.Register;
-              _this6.extra = response.Register.extra;
-              _this6.medidor = response.Register.meter;
-              _this6.tarifa = response.Register.meter.rate;
-              _this6.usuario = response.Register.meter.user;
-              _this6.cargando = false;
+              _this7.register = response.Register;
+              _this7.extra = response.Register.extra;
+              _this7.medidor = response.Register.meter;
+              _this7.tarifa = response.Register.meter.rate;
+              _this7.usuario = response.Register.meter.user;
+              _this7.cargando = false;
 
-              _this6.initBill();
+              _this7.initBill();
             } else {
-              _this6._location.back();
+              _this7._location.back();
             }
           });
         }
@@ -4378,11 +4409,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getNumeros",
         value: function getNumeros() {
-          var _this7 = this;
+          var _this8 = this;
 
           this._statisticsService.getBillsNumbers().subscribe(function (response) {
             if (response.numeros) {
-              _this7.numeros = [];
+              _this8.numeros = [];
               var _iteratorNormalCompletion5 = true;
               var _didIteratorError5 = false;
               var _iteratorError5 = undefined;
@@ -4392,7 +4423,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   var factura = _step5.value;
 
                   if (factura.numero && factura.numero != null) {
-                    _this7.numeros.push(factura);
+                    _this8.numeros.push(factura);
                   }
                 }
               } catch (err) {
@@ -4410,12 +4441,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
             } else if (!response.numeros) {
-              _this7.numeros = [{
+              _this8.numeros = [{
                 numero: 0
               }];
             }
 
-            _this7.launchAlert('success', response.Message, null, null, false, 3200, null, 'top-end', 'row', true);
+            _this8.launchAlert('success', response.Message, null, null, false, 3200, null, 'top-end', 'row', true);
           }, function (error) {
             console.log(error);
           }); // this.factura.numero = this.asignar();
@@ -4424,14 +4455,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initImportes",
         value: function initImportes() {
-          var _this8 = this;
+          var _this9 = this;
 
           this._importService.getImportes().subscribe(function (response) {
             if (response.Importes) {
-              _this8.importes = response.Importes;
-              _this8.bufferImportes = JSON.parse(JSON.stringify(response.Importes));
+              _this9.importes = response.Importes;
+              _this9.bufferImportes = JSON.parse(JSON.stringify(response.Importes));
             } else {
-              _this8.launchAlert('error', response.Message, null, null, false, 3500, false, 'top-end', 'row', true);
+              _this9.launchAlert('error', response.Message, null, null, false, 3500, false, 'top-end', 'row', true);
             }
           });
         }
@@ -4459,30 +4490,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSave",
         value: function onSave() {
-          var _this9 = this;
+          var _this10 = this;
 
           this._billService.save(this.factura).subscribe(function (response) {
             if (response.Factura) {
-              _this9.factura = response.Factura;
+              _this10.factura = response.Factura;
               var tempDetalles = [];
-              _this9.base.factura = response.Factura._id;
-              localStorage.setItem('invoice', _this9.factura.registro);
-              tempDetalles.push(_this9.base);
+              _this10.base.factura = response.Factura._id;
+              localStorage.setItem('invoice', _this10.factura.registro);
+              tempDetalles.push(_this10.base);
 
-              if (_this9.exceso) {
-                _this9.exceso.factura = response.Factura._id;
-                tempDetalles.push(_this9.exceso);
+              if (_this10.exceso) {
+                _this10.exceso.factura = response.Factura._id;
+                tempDetalles.push(_this10.exceso);
               }
 
-              _this9.register = response.Registro;
-              console.log(_this9.register);
-              _this9.register.facturado = true;
+              _this10.register = response.Registro;
+              console.log(_this10.register);
+              _this10.register.facturado = true;
               var _iteratorNormalCompletion6 = true;
               var _didIteratorError6 = false;
               var _iteratorError6 = undefined;
 
               try {
-                for (var _iterator6 = _this9.detalles[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+                for (var _iterator6 = _this10.detalles[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
                   var detalle = _step6.value;
                   detalle.factura = response.Factura._id;
                   tempDetalles.push(detalle);
@@ -4505,12 +4536,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               for (var _i2 = 0, _tempDetalles = tempDetalles; _i2 < _tempDetalles.length; _i2++) {
                 var _detalle = _tempDetalles[_i2];
 
-                _this9._detalleService.save(_detalle).subscribe(function (response) {
+                _this10._detalleService.save(_detalle).subscribe(function (response) {
                   console.log(response);
                 });
               }
 
-              _this9.launchAlert('success', 'Exito al Guardar la Factura!', null, null, false, 3200, false, 'top', 'row', true);
+              _this10.launchAlert('success', 'Exito al Guardar la Factura!', null, null, false, 3200, false, 'top', 'row', true);
             }
           });
         }
@@ -4597,7 +4628,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onPay",
         value: function onPay() {
-          var _this10 = this;
+          var _this11 = this;
 
           if (!this.pagoActual || this.pagoActual == '' || this.pagoActual == null || this.pagoActual == 'debe') {
             this.launchAlert('error', 'Error', 'Seleccionar un metodo de pago', null, false, 3500, false, 'center', 'row', true);
@@ -4646,17 +4677,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this._billService.pay(this.factura).subscribe(function (response) {
               if (response.registro && response.factura) {
                 console.log('cobrado correctamente');
-                _this10.factura = response.factura;
-                _this10.register = response.registro;
-                _this10.register.cancelado = true;
-                _this10.register.facturado = true;
+                _this11.factura = response.factura;
+                _this11.register = response.registro;
+                _this11.register.cancelado = true;
+                _this11.register.facturado = true;
                 localStorage.removeItem('register');
-                localStorage.setItem('invoice', _this10.register._id);
+                localStorage.setItem('invoice', _this11.register._id);
               }
 
-              _this10.getFactura();
+              _this11.getFactura();
 
-              _this10.launchAlert('success', 'Factura', response.Message, false, false, 3500, null, 'top', 'row', true);
+              _this11.launchAlert('success', 'Factura', response.Message, false, false, 3500, null, 'top', 'row', true);
             });
           }
         }
@@ -4926,37 +4957,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "uniqueBill",
         value: function uniqueBill() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.registrada = false;
           this.route.params.subscribe(function (params) {
             var registro = params.id;
 
-            _this11.billService.getFacturaByRegistro(registro).subscribe(function (response) {
-              _this11.bill = response.factura;
-              _this11.registrada = true;
+            _this12.billService.getFacturaByRegistro(registro).subscribe(function (response) {
+              _this12.bill = response.factura;
+              _this12.registrada = true;
               console.log(response);
 
-              _this11.detalleService.getDetalle(_this11.bill._id).subscribe(function (responseDetalle) {
+              _this12.detalleService.getDetalle(_this12.bill._id).subscribe(function (responseDetalle) {
                 console.log(responseDetalle);
-                _this11.detalles = responseDetalle.Detalles;
+                _this12.detalles = responseDetalle.Detalles;
 
-                _this11.getLastRange();
+                _this12.getLastRange();
 
-                _this11.asignNumber();
+                _this12.asignNumber();
               });
             });
 
-            _this11.getLastRange();
+            _this12.getLastRange();
           });
         }
       }, {
         key: "initImportes",
         value: function initImportes() {
-          var _this12 = this;
+          var _this13 = this;
 
           this.importeService.getImportes().subscribe(function (response) {
-            _this12.importes = response.Importes;
+            _this13.importes = response.Importes;
           }, function (error) {
             console.log(error);
           });
@@ -5008,43 +5039,43 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initRegister",
         value: function initRegister() {
-          var _this13 = this;
+          var _this14 = this;
 
           this.title = 'Facturar Registro del consumo del medidor';
           this.title = 'Registro de la Factura en base al consumo del medidor';
           this.route.params.subscribe(function (params) {
             var id = params.id;
 
-            _this13.registerService.getOne(id).subscribe(function (response) {
-              _this13.registro = response.Register;
-              _this13.descripcion = [{
-                nombre: 'Lectura: ' + _this13.registro.lectura + '. Consumo: ' + _this13.registro.consumo,
+            _this14.registerService.getOne(id).subscribe(function (response) {
+              _this14.registro = response.Register;
+              _this14.descripcion = [{
+                nombre: 'Lectura: ' + _this14.registro.lectura + '. Consumo: ' + _this14.registro.consumo,
                 detalle: 'Tarifa Base',
-                valor: '$' + _this13.registro.base.toFixed(2),
-                subtotal: '$' + _this13.registro.base.toFixed(2)
+                valor: '$' + _this14.registro.base.toFixed(2),
+                subtotal: '$' + _this14.registro.base.toFixed(2)
               }, {
-                nombre: 'Exceso: ' + _this13.registro.excessConsumo,
-                detalle: 'Costo por Metro: $' + _this13.registro.excessM3.toFixed(2),
-                valor: '$' + _this13.registro.excessCosto.toFixed(2),
-                subtotal: '$' + _this13.registro.subtotal.toFixed(2)
+                nombre: 'Exceso: ' + _this14.registro.excessConsumo,
+                detalle: 'Costo por Metro: $' + _this14.registro.excessM3.toFixed(2),
+                valor: '$' + _this14.registro.excessCosto.toFixed(2),
+                subtotal: '$' + _this14.registro.subtotal.toFixed(2)
               }];
 
-              _this13.initUsuario(_this13.registro.meter.user);
+              _this14.initUsuario(_this14.registro.meter.user);
 
-              _this13.initRate(_this13.registro.meter.rate);
+              _this14.initRate(_this14.registro.meter.rate);
 
-              _this13.initImportes();
+              _this14.initImportes();
 
-              _this13.getTotal();
+              _this14.getTotal();
             }, function (error) {
               console.error(error);
 
               if (error.status === 404) {
                 alert('No se encuentra el registro de consumo!');
-                _this13.noRegister = true;
+                _this14.noRegister = true;
               }
 
-              _this13.loading = false;
+              _this14.loading = false;
             });
           });
         }
@@ -5058,29 +5089,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initRate",
         value: function initRate(id) {
-          var _this14 = this;
+          var _this15 = this;
 
           this.rateService.findRate(id).subscribe(function (response) {
-            _this14.tarifa = response.Rate;
-            _this14.loading = false;
+            _this15.tarifa = response.Rate;
+            _this15.loading = false;
           }, function (error) {
             console.error(error);
-            _this14.loading = false;
+            _this15.loading = false;
           });
         }
       }, {
         key: "initUsuario",
         value: function initUsuario(id) {
-          var _this15 = this;
+          var _this16 = this;
 
           this.userService.getUser(id).subscribe(function (response) {
-            _this15.usuario = response.user; // this.bill.cli_apellido = this.usuario.apellido;
+            _this16.usuario = response.user; // this.bill.cli_apellido = this.usuario.apellido;
             // this.bill.cli_nombre = this.usuario.nombre;
             // this.bill.cli_telefono = this.usuario.telefono;
             // this.bill.cli_direccion = this.usuario.direccion;
             // this.bill.cli_cedula = this.usuario.cedula;
 
-            _this15.fechaActual.getDate();
+            _this16.fechaActual.getDate();
           }, function (error) {
             console.error(error);
           });
@@ -5095,7 +5126,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this16 = this;
+          var _this17 = this;
 
           if (this.bill.pago === null) {
             this.bill.pago = 'debe';
@@ -5112,18 +5143,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.bill.fecha = this.fechaActual.toString();
           this.bill.medidor = this.registro.meter._id;
           this.billService.save(this.bill).subscribe(function (response) {
-            if (_this16.detalles.length >= 1) {
+            if (_this17.detalles.length >= 1) {
               var _iteratorNormalCompletion7 = true;
               var _didIteratorError7 = false;
               var _iteratorError7 = undefined;
 
               try {
-                for (var _iterator7 = _this16.detalles[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+                for (var _iterator7 = _this17.detalles[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
                   var importe = _step7.value;
                   console.log(importe);
                   var detalle = {
                     index: null,
-                    detalle: 'detalle: ' + _this16.bill.numero,
+                    detalle: 'detalle: ' + _this17.bill.numero,
                     factura: response.Factura._id,
                     importe: importe._id,
                     costo: importe.costo,
@@ -5134,7 +5165,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     total: importe.total
                   };
 
-                  _this16.saveDetalles(detalle); // const detalle: DetalleFactura = {
+                  _this17.saveDetalles(detalle); // const detalle: DetalleFactura = {
                   //   detalle: 'detalle: ' + this.bill.numero,
                   //   factura: response.Factura._id,
                   //   importe: importe._id
@@ -5155,52 +5186,52 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   }
                 }
               }
-            } else if (_this16.detalles.length <= 1) {
-              _this16.detalles = [{
+            } else if (_this17.detalles.length <= 1) {
+              _this17.detalles = [{
                 detalle: 'Sin detalle',
                 factura: response.Factura._id,
                 importe: null
               }];
 
-              _this16.saveDetalles(_this16.detalles[0]);
+              _this17.saveDetalles(_this17.detalles[0]);
             }
 
-            _this16.getLastRange(); // for (const detalle of this.detalles) {
+            _this17.getLastRange(); // for (const detalle of this.detalles) {
             // }
             // alert(response.Message);
 
 
-            _this16.launchAlert('success', 'Factura Guardada!', 'La factura ha sido guardada correctamente!', null, false, 1500, null, 'top', 'top-end', true);
+            _this17.launchAlert('success', 'Factura Guardada!', 'La factura ha sido guardada correctamente!', null, false, 1500, null, 'top', 'top-end', true);
 
-            _this16.detalles = [];
+            _this17.detalles = [];
             setTimeout(function () {
-              _this16.uniqueBill();
+              _this17.uniqueBill();
             }, 130);
           }, function (error) {
             console.error(error);
 
             if (error.status === 304) {
               // alert('La factura ingresada ya existe');
-              _this16.launchAlert('error', 'Error al Facturar', 'La factura ingresada ya existe', null, false, 1500, null, 'top', 'top-end', true);
+              _this17.launchAlert('error', 'Error al Facturar', 'La factura ingresada ya existe', null, false, 1500, null, 'top', 'top-end', true);
             } else {
               // alert('Error al ingresar la factura');
-              _this16.launchAlert('error', 'Error al Facturar', 'Se ha producido un error al ingresar la factura!', null, false, 1500, null, 'top', 'top-end', true);
+              _this17.launchAlert('error', 'Error al Facturar', 'Se ha producido un error al ingresar la factura!', null, false, 1500, null, 'top', 'top-end', true);
             }
           });
         }
       }, {
         key: "getLastRange",
         value: function getLastRange() {
-          var _this17 = this;
+          var _this18 = this;
 
           this.numerosService.showRaw().subscribe(function (response) {
             console.log(response);
             var reorden = response.Numeros.sort(function (a, b) {
               return b.num_min - a.num_min;
             });
-            _this17.lastRange = reorden[0];
+            _this18.lastRange = reorden[0];
 
-            _this17.asignNumber();
+            _this18.asignNumber();
           });
         }
       }, {
@@ -5353,18 +5384,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onPay",
         value: function onPay() {
-          var _this18 = this;
+          var _this19 = this;
 
           console.log(this.bill);
           this.billService.pay(this.bill).subscribe(function (response) {
-            console.log(_this18.bill);
-            localStorage.setItem('factura', _this18.bill._id); // alert(response.Message);
+            console.log(_this19.bill);
+            localStorage.setItem('factura', _this19.bill._id); // alert(response.Message);
 
-            _this18.launchAlert('success', 'Factura Guardada Correctamente!', response.Message, null, true, 1500, null, 'center', null, true);
+            _this19.launchAlert('success', 'Factura Guardada Correctamente!', response.Message, null, true, 1500, null, 'center', null, true);
 
             window.open('factura');
 
-            _this18.router.navigate(['/facturar']);
+            _this19.router.navigate(['/facturar']);
           }, function (error) {
             console.error(error);
           });
@@ -5373,7 +5404,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initNumeros",
         value: function initNumeros() {
-          var _this19 = this;
+          var _this20 = this;
 
           this.numeros = [];
           this.statisticsService.getBillsNumbers().subscribe(function (response) {
@@ -5387,7 +5418,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   var factura = _step10.value;
 
                   if (factura.numero != null) {
-                    _this19.numeros.push(factura.numero);
+                    _this20.numeros.push(factura.numero);
                   }
                 }
               } catch (err) {
@@ -5405,7 +5436,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
             } else if (!response.numeros) {
-              _this19.numeros = [{
+              _this20.numeros = [{
                 numero: 0
               }];
             }
@@ -5771,7 +5802,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initFacturaChart",
         value: function initFacturaChart() {
-          var _this20 = this;
+          var _this21 = this;
 
           this._billService.getAll().subscribe(function (response) {
             console.log(response.Bill);
@@ -5827,10 +5858,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               pago.tipo = pago.tipo.toLocaleUpperCase() + ': ' + count;
               counters.push(count);
 
-              _this20.facturaChart.barChartLabels.push(pago.tipo);
+              _this21.facturaChart.barChartLabels.push(pago.tipo);
             }
 
-            _this20.facturaChart.barChartData.push({
+            _this21.facturaChart.barChartData.push({
               data: counters,
               label: 'Facturas'
             }); // this.facturaChart.barChartData = [
@@ -5840,8 +5871,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             // ];
 
 
-            _this20.facturaChart.barChartType = 'polarArea';
-            console.log('opciones del chart', _this20.facturaChart);
+            _this21.facturaChart.barChartType = 'polarArea';
+            console.log('opciones del chart', _this21.facturaChart);
           });
         }
       }, {
@@ -5893,11 +5924,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initStatistics",
         value: function initStatistics() {
-          var _this21 = this;
+          var _this22 = this;
 
           this._statisticService.getGlobals().subscribe(function (response) {
             console.log(response);
-            _this21.statistics = response.statistics;
+            _this22.statistics = response.statistics;
           });
         }
       }, {
@@ -6044,6 +6075,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }
 
       _createClass(ImportesComponent, [{
+        key: "onDescuento",
+        value: function onDescuento() {
+          if (this.importe.descuento && this.importe.descuento.toString() == 'true') {
+            this.importe.percent = true;
+          }
+        }
+      }, {
         key: "initImporte",
         value: function initImporte() {
           this.importe = {
@@ -6071,18 +6109,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save() {
-          var _this22 = this;
+          var _this23 = this;
 
           if (this.editing === false) {
             this.importeService.save(this.importe).subscribe(function (response) {
-              console.log(response);
               alert(response.Message);
+
+              _this23.initImporte();
             }, function (error) {
               console.log(error);
             });
           } else if (this.editing === true) {
             this.importeService.updateImporte(this.importe).subscribe(function (response) {
-              console.log(response);
               alert(response.Message);
             }, function (error) {
               console.log(error);
@@ -6091,7 +6129,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.reload = true;
           setTimeout(function () {
-            _this22.reload = false;
+            _this23.reload = false;
           }, 250);
         }
       }, {
@@ -6107,7 +6145,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "onEdit",
         value: function onEdit(event) {
           this.editing = true;
-          console.log(event);
           var importe = JSON.parse(event);
           this.importe = importe;
         }
@@ -6256,12 +6293,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initPreviousMoras",
         value: function initPreviousMoras() {
-          var _this23 = this;
+          var _this24 = this;
 
           this.moraService.gets().subscribe(function (response) {
-            _this23.previousMoras = response.Mora;
+            _this24.previousMoras = response.Mora;
 
-            _this23.previousMoras.sort(function (a, b) {
+            _this24.previousMoras.sort(function (a, b) {
               return a.cantidad_meses - b.cantidad_meses;
             });
 
@@ -6270,11 +6307,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var _iteratorError13 = undefined;
 
             try {
-              for (var _iterator13 = _this23.previousMoras[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
+              for (var _iterator13 = _this24.previousMoras[Symbol.iterator](), _step13; !(_iteratorNormalCompletion13 = (_step13 = _iterator13.next()).done); _iteratorNormalCompletion13 = true) {
                 var previousMora = _step13.value;
 
                 if (previousMora.corte === true) {
-                  _this23.noMore = true;
+                  _this24.noMore = true;
                   alert('Los importes por mora ingresados ya han registrado un valor por corte. Si desea agregar mas por favor, elimine o edite uno de los valores actuales');
                 }
               }
@@ -6293,7 +6330,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
 
-            console.log(_this23.previousMoras);
+            console.log(_this24.previousMoras);
           }, function (error) {
             console.error(error);
           });
@@ -6365,16 +6402,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save() {
-          var _this24 = this;
+          var _this25 = this;
 
           if (this.editing === false) {
             console.log('guardando nuevo');
             this.moraService.save(this.mora).subscribe(function (response) {
               console.info(response);
               alert(response.Message);
-              _this24.changes = true;
+              _this25.changes = true;
 
-              _this24.initPreviousMoras();
+              _this25.initPreviousMoras();
             }, function (error) {
               console.error(error);
               alert('Error al Ingresar el Impuesto por Mora, ese mes ya se Ingreso.');
@@ -6383,9 +6420,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log('guardando cambios');
             this.moraService.update(this.mora).subscribe(function (response) {
               alert(response.Message);
-              _this24.changes = true;
+              _this25.changes = true;
 
-              _this24.initPreviousMoras();
+              _this25.initPreviousMoras();
             }, function (error) {
               console.error(error);
               alert('Error al Ingresar el Impuesto por Mora, ese mes ya se Ingreso.');
@@ -6542,10 +6579,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMoras",
         value: function initMoras() {
-          var _this25 = this;
+          var _this26 = this;
 
           this.moraService.gets().subscribe(function (response) {
-            _this25.moras = response.Mora;
+            _this26.moras = response.Mora;
           }, function (error) {
             console.error(error);
           });
@@ -6564,7 +6601,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onDelete",
         value: function onDelete(id) {
-          var _this26 = this;
+          var _this27 = this;
 
           var deleteMora = confirm('Desea borrar este Impuesto por Mora?. Recuerde que una vez borrados, los datos no pueden volver a recuperarse.');
 
@@ -6572,9 +6609,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.moraService.deleteMora(id).subscribe(function (response) {
               alert(response.Message);
 
-              _this26.initMoras();
+              _this27.initMoras();
 
-              _this26.noLimit.emit(true);
+              _this27.noLimit.emit(true);
             }, function (error) {
               console.error(error);
             });
@@ -6684,11 +6721,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initImportes",
         value: function initImportes() {
-          var _this27 = this;
+          var _this28 = this;
 
           console.log('cargando datos....');
           this.importeService.getImportes().subscribe(function (response) {
-            _this27.importes = response.Importes;
+            _this28.importes = response.Importes;
           }, function (error) {
             console.log(error);
           });
@@ -6915,20 +6952,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "InitClaves",
         value: function InitClaves() {
-          var _this28 = this;
+          var _this29 = this;
 
           this._statisticsService.getMetersNumbers().subscribe(function (response) {
-            if (response.Claves) _this28.claves = response.Claves;
-            if (!response.Claves) _this28.launchAlert('warning', response.Message, null, null, false, 1500, false, 'top', 'row', true);
+            if (response.Claves) _this29.claves = response.Claves;
+            if (!response.Claves) _this29.launchAlert('warning', response.Message, null, null, false, 1500, false, 'top', 'row', true);
           });
         }
       }, {
         key: "InitSectores",
         value: function InitSectores() {
-          var _this29 = this;
+          var _this30 = this;
 
           this._sectorService.getSectores().subscribe(function (response) {
-            _this29.sectores = [];
+            _this30.sectores = [];
             var _iteratorNormalCompletion15 = true;
             var _didIteratorError15 = false;
             var _iteratorError15 = undefined;
@@ -6938,7 +6975,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var sector = _step15.value;
 
                 if (sector.activa) {
-                  _this29.sectores.push(sector);
+                  _this30.sectores.push(sector);
                 }
               }
             } catch (err) {
@@ -7000,10 +7037,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMeters",
         value: function getMeters() {
-          var _this30 = this;
+          var _this31 = this;
 
           this.meterService.showMeters().subscribe(function (response) {
-            _this30.medidores = response.Medidores;
+            _this31.medidores = response.Medidores;
           }, function (error) {
             console.error(error);
           });
@@ -7011,12 +7048,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this31 = this;
+          var _this32 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this31.usuarios = response.Usuarios; // if (this.users.length <=0) {
+            _this32.usuarios = response.Usuarios; // if (this.users.length <=0) {
 
-            _this31.users = response.Usuarios; // }
+            _this32.users = response.Usuarios; // }
           }, function (error) {
             console.log(error);
           });
@@ -7024,11 +7061,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getRates",
         value: function getRates() {
-          var _this32 = this;
+          var _this33 = this;
 
           this.rateService.getRate().subscribe(function (response) {
             console.log(response);
-            _this32.tarifas = response.Rates;
+            _this33.tarifas = response.Rates;
           }, function (error) {
             console.log(error);
           });
@@ -7036,7 +7073,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "busquedaUsuario",
         value: function busquedaUsuario(termino, porNombre, porCedula) {
-          var _this33 = this;
+          var _this34 = this;
 
           var busqueda;
           termino = termino.toLowerCase();
@@ -7056,10 +7093,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             if (porNombre === false && porCedula === false) {
-              _this33.getUsers();
+              _this34.getUsers();
             } else {
               if (busqueda.indexOf(termino, 0) >= 0) {
-                _this33.users.push(item);
+                _this34.users.push(item);
 
                 conteo = conteo + 1;
               }
@@ -7161,38 +7198,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this34 = this;
+          var _this35 = this;
 
           this.meterService.save(this.token, this.medidor).subscribe(function (response) {
             if (response.meter && response.meter._id) {
-              _this34.status = true;
-              _this34.title = 'Medidor Agregado Correctamente';
+              _this35.status = true;
+              _this35.title = 'Medidor Agregado Correctamente';
 
-              if (_this34.filesToUpload) {
-                _this34.uploadService.makeFileRequest(_this34.url + 'image/' + response.meter._id, [], _this34.filesToUpload, _this34.token, 'image').then(function (result) {
+              if (_this35.filesToUpload) {
+                _this35.uploadService.makeFileRequest(_this35.url + 'image/' + response.meter._id, [], _this35.filesToUpload, _this35.token, 'image').then(function (result) {
                   console.log(result);
                 }).catch(function (error) {
                   console.log(error);
                 });
               }
 
-              _this34.launchAlert('success', 'Exito al ingresar el Medidor' + response.meter.clave, null, null, null, 3500, false, 'top', 'row', true);
+              _this35.launchAlert('success', 'Exito al ingresar el Medidor' + response.meter.clave, null, null, null, 3500, false, 'top', 'row', true);
 
-              _this34.initMedidor();
+              _this35.initMedidor();
 
-              _this34.medidorOk = null;
+              _this35.medidorOk = null;
 
-              _this34.getMeters();
+              _this35.getMeters();
 
               setTimeout(function () {
-                return _this34.title = 'Agregar Nuevo Medidor';
+                return _this35.title = 'Agregar Nuevo Medidor';
               }, 5000);
               form.form.reset();
             } else {
-              _this34.status = false;
+              _this35.status = false;
             }
           }, function (error) {
-            _this34.status = false;
+            _this35.status = false;
             alert(error.error.message);
             console.log('error');
             console.log(error);
@@ -7403,7 +7440,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /*#__PURE__*/
     function () {
       function EditMedidorComponent(meterService, uploadService, userService, rateService, route, _sectorService, _statisticsService) {
-        var _this35 = this;
+        var _this36 = this;
 
         _classCallCheck(this, EditMedidorComponent);
 
@@ -7436,9 +7473,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.route.params.subscribe(function (params) {
           var id = params.id;
 
-          _this35.meterService.getMeterSimple(id).subscribe(function (response) {
+          _this36.meterService.getMeterSimple(id).subscribe(function (response) {
             console.log('medidor Obtenido!');
-            _this35.medidor = response.meter;
+            _this36.medidor = response.meter;
           }, function (error) {
             console.log(error);
           });
@@ -7450,12 +7487,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(EditMedidorComponent, [{
         key: "InitClaves",
         value: function InitClaves() {
-          var _this36 = this;
+          var _this37 = this;
 
           this._statisticsService.getMetersNumbers().subscribe(function (response) {
             console.log(response);
-            if (response.Claves) _this36.claves = response.Claves;
-            if (!response.Claves) _this36.launchAlert('alert', response.Message, null, null, false, 1500, false, 'top', 'row', true);
+            if (response.Claves) _this37.claves = response.Claves;
+            if (!response.Claves) _this37.launchAlert('alert', response.Message, null, null, false, 1500, false, 'top', 'row', true);
           });
         }
       }, {
@@ -7530,10 +7567,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "InitSectores",
         value: function InitSectores() {
-          var _this37 = this;
+          var _this38 = this;
 
           this._sectorService.getSectores().subscribe(function (response) {
-            _this37.sectores = [];
+            _this38.sectores = [];
             var _iteratorNormalCompletion18 = true;
             var _didIteratorError18 = false;
             var _iteratorError18 = undefined;
@@ -7543,7 +7580,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var sector = _step18.value;
 
                 if (sector.activa) {
-                  _this37.sectores.push(sector);
+                  _this38.sectores.push(sector);
                 }
               }
             } catch (err) {
@@ -7572,16 +7609,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this38 = this;
+          var _this39 = this;
 
           this.meterService.updateMeter(this.medidor).subscribe(function (response) {
             if (!response.meter) {
-              _this38.error = true;
+              _this39.error = true;
               alert(response.Message);
             } else {
-              _this38.error = null;
+              _this39.error = null;
 
-              _this38.uploadService.makeFileRequest(_this38.url + 'image/' + _this38.medidor._id, [], _this38.filesToUpload, _this38.token, 'image').then(function (result) {
+              _this39.uploadService.makeFileRequest(_this39.url + 'image/' + _this39.medidor._id, [], _this39.filesToUpload, _this39.token, 'image').then(function (result) {
                 console.log('subiendo la imagen');
                 console.log(result);
               }).catch(function (error) {
@@ -7610,13 +7647,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this39 = this;
+          var _this40 = this;
 
           console.log('Cargando Datos de Usuarios');
           this.userService.showRaw().subscribe(function (response) {
-            _this39.usuarios = response.Usuarios; // if (this.users.length <=0) {
+            _this40.usuarios = response.Usuarios; // if (this.users.length <=0) {
 
-            _this39.users = response.Usuarios; // }
+            _this40.users = response.Usuarios; // }
           }, function (error) {
             console.log(error);
           });
@@ -7624,11 +7661,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getRates",
         value: function getRates() {
-          var _this40 = this;
+          var _this41 = this;
 
           console.log('Cargando datos de Tarifas');
           this.rateService.getRate().subscribe(function (response) {
-            _this40.tarifas = response.Rates;
+            _this41.tarifas = response.Rates;
           }, function (error) {
             console.log(error);
           });
@@ -7636,7 +7673,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "busquedaUsuario",
         value: function busquedaUsuario(termino, porNombre, porCedula) {
-          var _this41 = this;
+          var _this42 = this;
 
           var busqueda;
           termino = termino.toLowerCase();
@@ -7653,10 +7690,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             if (porNombre == false && porCedula == false) {
-              _this41.getUsers();
+              _this42.getUsers();
             } else {
               if (busqueda.indexOf(termino, 0) >= 0) {
-                _this41.users.push(item);
+                _this42.users.push(item);
 
                 conteo = conteo + 1;
               }
@@ -7821,7 +7858,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(GetMedidorComponent, [{
         key: "initExtras",
         value: function initExtras() {
-          var _this42 = this;
+          var _this43 = this;
 
           this._extraService.getExtra().subscribe(function (response) {
             response.extra.sort(function (menor, mayor) {
@@ -7840,7 +7877,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 return 0;
               }
             });
-            _this42.extra = response.extra[0];
+            _this43.extra = response.extra[0];
           });
         }
       }, {
@@ -7883,28 +7920,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getMedidores",
         value: function getMedidores() {
-          var _this43 = this;
+          var _this44 = this;
 
           this.meterService.showMeters().subscribe(function (response) {
             if (response.Medidores.length >= 1) {
-              _this43.title = 'Listado de Medidores';
-              _this43.medidores = response.Medidores;
-              _this43.loading = false;
+              _this44.title = 'Listado de Medidores';
+              _this44.medidores = response.Medidores;
+              _this44.loading = false;
             } else {
-              _this43.loading = false;
-              _this43.descripcion = 'No existen registros de medidores en la base de datos....';
-              _this43.title = 'Aun no se han registrado medidores';
+              _this44.loading = false;
+              _this44.descripcion = 'No existen registros de medidores en la base de datos....';
+              _this44.title = 'Aun no se han registrado medidores';
             }
           }, function (error) {
             console.log(error);
-            _this43.errorCatched.description = error.toString();
-            _this43.errorCatched.table = 'Meter';
-            _this43.errorCatched.action = 'showMeter';
-            _this43.errorCatched.title = 'Error al mostrar los Medidores';
-            _this43.errorCatched.zone = 'show-meter';
-            _this43.errorCatched.code = _this43.errorCatched.zone + '-' + _this43.errorCatched.action + '-' + _this43.errorCatched.table;
+            _this44.errorCatched.description = error.toString();
+            _this44.errorCatched.table = 'Meter';
+            _this44.errorCatched.action = 'showMeter';
+            _this44.errorCatched.title = 'Error al mostrar los Medidores';
+            _this44.errorCatched.zone = 'show-meter';
+            _this44.errorCatched.code = _this44.errorCatched.zone + '-' + _this44.errorCatched.action + '-' + _this44.errorCatched.table;
 
-            _this43.errorCatcherService.saveError(_this43.errorCatched).subscribe(function (response) {
+            _this44.errorCatcherService.saveError(_this44.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -8123,13 +8160,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ListarNumerosComponent, [{
         key: "initNumeros",
         value: function initNumeros() {
-          var _this44 = this;
+          var _this45 = this;
 
           this._numerosService.showRaw().subscribe(function (response) {
             console.log(response);
-            _this44.numeros = response.Numeros;
-            _this44.cargando = false;
-            _this44.title = 'Rangos en el Sistema';
+            _this45.numeros = response.Numeros;
+            _this45.cargando = false;
+            _this45.title = 'Rangos en el Sistema';
           });
         }
       }, {
@@ -8264,25 +8301,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initExsistNumeros",
         value: function initExsistNumeros() {
-          var _this45 = this;
+          var _this46 = this;
 
           this._numerosService.showRaw().subscribe(function (response) {
             console.log(response);
 
             if (!response.Numeros) {
-              _this45.launchAlert('warning', 'Aun no existen rangos de facturas', null, null, null, 3500, null, 'top', 'row', true);
+              _this46.launchAlert('warning', 'Aun no existen rangos de facturas', null, null, null, 3500, null, 'top', 'row', true);
             } else {
-              _this45.existingNumeros = response.Numeros;
+              _this46.existingNumeros = response.Numeros;
 
-              _this45.existingNumeros.sort(function (a, b) {
+              _this46.existingNumeros.sort(function (a, b) {
                 return b.num_min - a.num_min;
               });
 
-              var siguiente = _this45.existingNumeros[0].num_max + 1;
-              _this45.numeros.num_min = siguiente;
-              _this45.numeros.num_max = siguiente + 99;
-              _this45.anterior = true;
-              console.log(_this45.numeros);
+              var siguiente = _this46.existingNumeros[0].num_max + 1;
+              _this46.numeros.num_min = siguiente;
+              _this46.numeros.num_max = siguiente + 99;
+              _this46.anterior = true;
+              console.log(_this46.numeros);
             }
           });
         }
@@ -8458,15 +8495,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSave",
         value: function onSave() {
-          var _this46 = this;
+          var _this47 = this;
 
           this._numerosService.save(this.numeros).subscribe(function (response) {
-            _this46.initExsistNumeros();
+            _this47.initExsistNumeros();
 
-            _this46.launchAlert('success', response.Message, null, null, null, 3500, null, 'top', 'row', true);
+            _this47.launchAlert('success', response.Message, null, null, null, 3500, null, 'top', 'row', true);
 
-            _this46.mostrarNumeros = false;
-            _this46.mostrarNumeros = true;
+            _this47.mostrarNumeros = false;
+            _this47.mostrarNumeros = true;
             console.log(response);
           });
         }
@@ -8627,7 +8664,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this47 = this;
+          var _this48 = this;
 
           this.publicationService.addNoticia(this.token, this.publication).subscribe(function (response) {
             if (response.publication) {
@@ -8635,21 +8672,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               form.reset();
               console.log('success ' + response.publication);
               console.log(response.publication);
-              _this47.status = 'success';
-              _this47.imagen = null; // subir imagen para la publicacion
+              _this48.status = 'success';
+              _this48.imagen = null; // subir imagen para la publicacion
 
-              if (_this47.filesToUpload) {
-                _this47.uploadService.makeFileRequest(_this47.urlPublication + 'upload-image/' + response.publication._id, [], _this47.filesToUpload, _this47.token, 'image').then(function (result) {
-                  _this47.publication.file = result.image;
+              if (_this48.filesToUpload) {
+                _this48.uploadService.makeFileRequest(_this48.urlPublication + 'upload-image/' + response.publication._id, [], _this48.filesToUpload, _this48.token, 'image').then(function (result) {
+                  _this48.publication.file = result.image;
                 });
               }
             } else if (!response.publication) {
               console.log('error' + response.publication);
-              _this47.status = 'error';
+              _this48.status = 'error';
             }
           }, function (error) {
             console.log(error);
-            _this47.status = 'error';
+            _this48.status = 'error';
           });
         }
       }, {
@@ -8811,37 +8848,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPublications",
         value: function getPublications(page) {
-          var _this48 = this;
+          var _this49 = this;
 
           var adding = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
           this.publicationService.getPublication(this.token, page).subscribe(function (response) {
             if (response.publications) {
-              _this48.pages = response.total_pages;
-              _this48.total = response.total_items;
-              _this48.itemsPerPage = response.items_per_Page;
+              _this49.pages = response.total_pages;
+              _this49.total = response.total_items;
+              _this49.itemsPerPage = response.items_per_Page;
 
-              if (_this48.total <= 0) {
-                _this48.title = 'TimeLines - Noticias: No hay publicaciones que mostrar..';
+              if (_this49.total <= 0) {
+                _this49.title = 'TimeLines - Noticias: No hay publicaciones que mostrar..';
               } else {
-                _this48.title = 'TimeLines - Noticias';
+                _this49.title = 'TimeLines - Noticias';
               }
 
               if (adding == false) {
-                _this48.publications = response.publications;
+                _this49.publications = response.publications;
               } else if (adding == true) {
-                var arrayA = _this48.publications;
+                var arrayA = _this49.publications;
                 var arrayB = response.publications;
-                _this48.publications = arrayA.concat(arrayB);
+                _this49.publications = arrayA.concat(arrayB);
                 $("html, body").animate({
                   scrollTop: $('body').prop("scrollHeight")
                 }, 500);
               }
 
-              if (page > _this48.pages) {
-                _this48.router.navigate(['/inicio']);
+              if (page > _this49.pages) {
+                _this49.router.navigate(['/inicio']);
               }
             } else {
-              _this48.status = 'error';
+              _this49.status = 'error';
             }
           }, function (error) {
             console.log('Error: ' + error);
@@ -8874,10 +8911,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "deletePublication",
         value: function deletePublication() {
-          var _this49 = this;
+          var _this50 = this;
 
           this.publicationService.deletePublication(this.token, this.publication._id).subscribe(function (response) {
-            _this49.refresh();
+            _this50.refresh();
 
             console.log('publicacion borrada');
           }, function (error) {
@@ -8894,10 +8931,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "clearPub",
         value: function clearPub() {
-          var _this50 = this;
+          var _this51 = this;
 
           setTimeout(function () {
-            _this50.publication = null;
+            _this51.publication = null;
           }, 1500);
         }
       }]);
@@ -9043,44 +9080,44 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPublications",
         value: function getPublications(user, page) {
-          var _this51 = this;
+          var _this52 = this;
 
           var adding = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
           this.publicationService.getPublicationUser(this.token, user, page).subscribe(function (response) {
-            console.log(_this51.token, page);
+            console.log(_this52.token, page);
             console.log('dentro de getpublicationUser' + response);
 
             if (response.publications) {
-              _this51.pages = response.total_pages;
-              _this51.total = response.total_items;
-              _this51.itemsPerPage = response.items_per_Page;
+              _this52.pages = response.total_pages;
+              _this52.total = response.total_items;
+              _this52.itemsPerPage = response.items_per_Page;
 
-              if (_this51.pages = 1) {
-                _this51.noMore = true;
+              if (_this52.pages = 1) {
+                _this52.noMore = true;
               }
 
-              if (_this51.total <= 0) {
-                _this51.title = 'El usuario no tiene publicaciones que mostrar..';
+              if (_this52.total <= 0) {
+                _this52.title = 'El usuario no tiene publicaciones que mostrar..';
               } else {
-                _this51.title = 'Publicaciones del Usuario';
+                _this52.title = 'Publicaciones del Usuario';
               }
 
               if (adding == false) {
-                _this51.publications = response.publications;
+                _this52.publications = response.publications;
               } else if (adding == true) {
-                var arrayA = _this51.publications;
+                var arrayA = _this52.publications;
                 var arrayB = response.publications;
-                _this51.publications = arrayA.concat(arrayB);
+                _this52.publications = arrayA.concat(arrayB);
                 $('html, body').animate({
                   scrollTop: $('body').prop('scrollHeight')
                 }, 500);
               }
 
-              if (page > _this51.pages) {
+              if (page > _this52.pages) {
                 console.log('exceso de paginas... depurar'); // this.router.navigate(['/home']);
               }
             } else {
-              _this51.status = 'error';
+              _this52.status = 'error';
             }
           }, function (error) {
             console.log('Error: ' + error);
@@ -9268,15 +9305,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "limpiar",
         value: function limpiar() {
           var _ref2,
-              _this52 = this;
+              _this53 = this;
 
           this.limits = (_ref2 = [], _ref2);
           this.noMoreLimits = null;
           setTimeout(function () {
-            _this52.limitAnterior = null;
-            _this52.nextLimit.limit_to = 1;
-            _this52.nextLimit.limit_from = 0;
-            _this52.nextLimit.cost = 0;
+            _this53.limitAnterior = null;
+            _this53.nextLimit.limit_to = 1;
+            _this53.nextLimit.limit_from = 0;
+            _this53.nextLimit.cost = 0;
           }, 1);
           console.log(this.nextLimit);
         }
@@ -9299,7 +9336,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges() {
-          var _this53 = this;
+          var _this54 = this;
 
           if (this.rateEdit) {
             this.rate = this.rateEdit;
@@ -9312,15 +9349,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
 
               if (response.Limits.length <= 0) {
-                _this53.limitsEditeds = true;
-                _this53.newLimits = true;
+                _this54.limitsEditeds = true;
+                _this54.newLimits = true;
               } else {
-                _this53.limits = response.Limits;
-                _this53.noMoreLimits = true;
-                _this53.nextLimit.limit_to = null;
-                _this53.nextLimit.limit_from = null;
-                _this53.nextLimit.cost = null;
-                _this53.nextLimit.percent_cost = _this53.limits[0].percent_cost;
+                _this54.limits = response.Limits;
+                _this54.noMoreLimits = true;
+                _this54.nextLimit.limit_to = null;
+                _this54.nextLimit.limit_from = null;
+                _this54.nextLimit.cost = null;
+                _this54.nextLimit.percent_cost = _this54.limits[0].percent_cost;
               }
             });
           }
@@ -9412,7 +9449,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this54 = this;
+          var _this55 = this;
 
           if (!this.rateEdit) {
             this.rateService.save(this.rate).subscribe(function (response) {
@@ -9420,10 +9457,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               alert(response.Message);
               var id = response.Tarifa._id;
 
-              _this54.saveLimits(id);
+              _this55.saveLimits(id);
 
               form.reset();
-              _this54.limits = [], [];
+              _this55.limits = [], [];
             }, function (error) {
               console.log(error);
             });
@@ -9435,7 +9472,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               console.log('respuesta del servidor', response);
               var id = response.Tarifa._id;
 
-              _this54.dropOldLimits(response.Tarifa._id); // if (this.limitsEditeds && !this.newLimits) {
+              _this55.dropOldLimits(response.Tarifa._id); // if (this.limitsEditeds && !this.newLimits) {
               //   this.limitService.deleteLimits(this.rate._id).subscribe(
               //     responseLimits => {
               //       console.log('limites borrados');
@@ -9454,7 +9491,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           setTimeout(function () {
-            _this54.devolverCambios.emit();
+            _this55.devolverCambios.emit();
           }, 500);
         }
       }, {
@@ -9465,13 +9502,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "dropOldLimits",
         value: function dropOldLimits(id) {
-          var _this55 = this;
+          var _this56 = this;
 
           console.log('borrando limites');
           this.limitService.deleteLimits(id).subscribe(function (response) {
             console.log(response);
 
-            _this55.saveLimits(id);
+            _this56.saveLimits(id);
           }, function (error) {
             console.log(error);
           });
@@ -9617,7 +9654,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this56 = this;
+          var _this57 = this;
 
           console.log(this.rate);
           console.log(form);
@@ -9626,14 +9663,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             alert(response.Message);
           }, function (error) {
             console.log(error);
-            _this56.errorCatched.description = error.toString();
-            _this56.errorCatched.table = 'Rate';
-            _this56.errorCatched.action = 'editRate';
-            _this56.errorCatched.title = 'Error al editar la Tarifa';
-            _this56.errorCatched.zone = 'edit-rate';
-            _this56.errorCatched.code = _this56.errorCatched.zone + '-' + _this56.errorCatched.action + '-' + _this56.errorCatched.table;
+            _this57.errorCatched.description = error.toString();
+            _this57.errorCatched.table = 'Rate';
+            _this57.errorCatched.action = 'editRate';
+            _this57.errorCatched.title = 'Error al editar la Tarifa';
+            _this57.errorCatched.zone = 'edit-rate';
+            _this57.errorCatched.code = _this57.errorCatched.zone + '-' + _this57.errorCatched.action + '-' + _this57.errorCatched.table;
 
-            _this56.errorCatcherService.saveError(_this56.errorCatched).subscribe(function (response) {
+            _this57.errorCatcherService.saveError(_this57.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -9799,20 +9836,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadExtras",
         value: function loadExtras() {
-          var _this57 = this;
+          var _this58 = this;
 
           this.extraService.getExtra().subscribe(function (response) {
-            _this57.extras = response.extra; // this.extras.sort((a: any, b: any) =>
+            _this58.extras = response.extra; // this.extras.sort((a: any, b: any) =>
             // new Date(a.date).getTime() - new Date(b.date).getTime())
 
-            _this57.loading = false;
+            _this58.loading = false;
 
             if (response.extra.length <= 0) {
-              _this57.title = 'Aun no hay Registros de RMUV Ingresados....';
-              _this57.description = 'Por favor, para continuar Ingresar los registros de la "Remuneracion Mensual Unificada Vigente [R.M.U.V]"';
+              _this58.title = 'Aun no hay Registros de RMUV Ingresados....';
+              _this58.description = 'Por favor, para continuar Ingresar los registros de la "Remuneracion Mensual Unificada Vigente [R.M.U.V]"';
             } else {
-              _this57.description = 'Recuerde ingresar los datos de la "Remuneracion Mensual Unificade Vigente [R.M.U.V]" de forma periodica';
-              _this57.title = 'Registros de RMUV Ingresados....';
+              _this58.description = 'Recuerde ingresar los datos de la "Remuneracion Mensual Unificade Vigente [R.M.U.V]" de forma periodica';
+              _this58.title = 'Registros de RMUV Ingresados....';
             }
           });
         }
@@ -9824,7 +9861,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(event) {
-          var _this58 = this;
+          var _this59 = this;
 
           // this.extra.date = event.year+'-'+event.monthIndex;
           this.extra.date = new Date(event.year, event.monthIndex);
@@ -9834,17 +9871,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var _iteratorError22 = undefined;
 
             try {
-              for (var _iterator22 = _this58.extras[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
+              for (var _iterator22 = _this59.extras[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
                 var extra = _step22.value;
                 var date1 = moment__WEBPACK_IMPORTED_MODULE_3___default()(new Date(extra.date));
-                var date2 = moment__WEBPACK_IMPORTED_MODULE_3___default()(_this58.extra.date);
+                var date2 = moment__WEBPACK_IMPORTED_MODULE_3___default()(_this59.extra.date);
                 var diferencia = date2.diff(date1, 'months');
 
                 if (diferencia <= 0) {
-                  _this58.noChange = true;
+                  _this59.noChange = true;
                   return alert('fecha ya ingresada');
                 } else if (diferencia >= 1) {
-                  _this58.noChange = false;
+                  _this59.noChange = false;
                 }
               }
             } catch (err) {
@@ -9866,14 +9903,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this59 = this;
+          var _this60 = this;
 
           this.extraService.save(this.extra).subscribe(function (response) {
-            _this59.launchAlert('success', 'Valores Guardados Correctamente!', response.Message, null, null, 3500, false, 'top', 'row', true);
+            _this60.launchAlert('success', 'Valores Guardados Correctamente!', response.Message, null, null, 3500, false, 'top', 'row', true);
 
-            _this59.loadExtras();
+            _this60.loadExtras();
           }, function (error) {
-            _this59.launchAlert('error', 'Errorl Al Guardar los Valores', error, null, null, 3500, false, 'top', 'row', true);
+            _this60.launchAlert('error', 'Errorl Al Guardar los Valores', error, null, null, 3500, false, 'top', 'row', true);
           });
         }
       }, {
@@ -10008,7 +10045,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ListRateComponent, [{
         key: "initRates",
         value: function initRates() {
-          var _this60 = this;
+          var _this61 = this;
 
           var tempRates;
 
@@ -10023,7 +10060,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var _loop = function _loop() {
                   var rate = _step23.value;
 
-                  _this60._limitService.getLimits(rate._id).subscribe(function (response) {
+                  _this61._limitService.getLimits(rate._id).subscribe(function (response) {
                     rate.limits = response.Limits;
                     rate.limits.sort(function (menor, mayor) {
                       return menor.limit_from - mayor.limit_from;
@@ -10052,10 +10089,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
 
-              _this60.rates = tempRates;
-              _this60.title = 'Lista de Tarifas Registradas:';
+              _this61.rates = tempRates;
+              _this61.title = 'Lista de Tarifas Registradas:';
             } else {
-              _this60.title = 'Lista de Tarifas Registradas: Aun no hay tarifas';
+              _this61.title = 'Lista de Tarifas Registradas: Aun no hay tarifas';
             }
           }, function (error) {
             console.log(error);
@@ -10212,7 +10249,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initExtras",
         value: function initExtras() {
-          var _this61 = this;
+          var _this62 = this;
 
           this._extraService.getExtra().subscribe(function (response) {
             response.extra.sort(function (menor, mayor) {
@@ -10231,7 +10268,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 return 0;
               }
             });
-            _this61.extra = response.extra[0];
+            _this62.extra = response.extra[0];
           });
         }
       }, {
@@ -10268,19 +10305,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLimits",
         value: function getLimits() {
-          var _this62 = this;
+          var _this63 = this;
 
           this.limitService.getAllLimits().subscribe(function (response) {
             if (response.Limits.length >= 1) {
-              _this62.description = 'Lista de tarifas Ingresadas en el sistema.';
-              _this62.loading = false;
-              _this62.limits = response.Limits;
+              _this63.description = 'Lista de tarifas Ingresadas en el sistema.';
+              _this63.loading = false;
+              _this63.limits = response.Limits;
 
-              _this62.limits.sort(function (a, b) {
+              _this63.limits.sort(function (a, b) {
                 return a.limit_from - b.limit_from;
               });
 
-              _this62.limits.sort(function (a, b) {
+              _this63.limits.sort(function (a, b) {
                 if (a.rate_id > b.rate_id) {
                   return 1;
                 }
@@ -10292,8 +10329,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 return 0;
               });
             } else {
-              _this62.description = 'Aun no existen tarifas ingresadas.';
-              _this62.loading = false;
+              _this63.description = 'Aun no existen tarifas ingresadas.';
+              _this63.loading = false;
             }
           }, function (error) {
             console.log(error);
@@ -10302,39 +10339,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getData",
         value: function getData() {
-          var _this63 = this;
+          var _this64 = this;
 
           this.rateService.getRate().subscribe(function (response) {
-            _this63.rates = response.Rates;
+            _this64.rates = response.Rates;
           }, function (error) {
             console.log(error);
-            _this63.errorCatched.description = error.toString();
-            _this63.errorCatched.table = 'Rate';
-            _this63.errorCatched.action = 'showRate';
-            _this63.errorCatched.title = 'Error al mostrar las Tarifas';
-            _this63.errorCatched.zone = 'show-rate';
-            _this63.errorCatched.code = _this63.errorCatched.zone + '-' + _this63.errorCatched.action + '-' + _this63.errorCatched.table;
+            _this64.errorCatched.description = error.toString();
+            _this64.errorCatched.table = 'Rate';
+            _this64.errorCatched.action = 'showRate';
+            _this64.errorCatched.title = 'Error al mostrar las Tarifas';
+            _this64.errorCatched.zone = 'show-rate';
+            _this64.errorCatched.code = _this64.errorCatched.zone + '-' + _this64.errorCatched.action + '-' + _this64.errorCatched.table;
 
-            _this63.errorCatcherService.saveError(_this63.errorCatched).subscribe(function (response) {
+            _this64.errorCatcherService.saveError(_this64.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
           this.limitService.getAllLimits().subscribe(function (response) {
             if (response.Limits.length >= 1) {
-              _this63.limits = response.Limits;
+              _this64.limits = response.Limits;
             } else {
-              _this63.limits = null;
+              _this64.limits = null;
             }
           }, function (error) {
             console.log(error);
-            _this63.errorCatched.description = error.toString();
-            _this63.errorCatched.table = 'Limits';
-            _this63.errorCatched.action = 'showAllLimits';
-            _this63.errorCatched.title = 'Error al mostrar los Limites';
-            _this63.errorCatched.zone = 'show-rate';
-            _this63.errorCatched.code = _this63.errorCatched.zone + '-' + _this63.errorCatched.action + '-' + _this63.errorCatched.table;
+            _this64.errorCatched.description = error.toString();
+            _this64.errorCatched.table = 'Limits';
+            _this64.errorCatched.action = 'showAllLimits';
+            _this64.errorCatched.title = 'Error al mostrar los Limites';
+            _this64.errorCatched.zone = 'show-rate';
+            _this64.errorCatched.code = _this64.errorCatched.zone + '-' + _this64.errorCatched.action + '-' + _this64.errorCatched.table;
 
-            _this63.errorCatcherService.saveError(_this63.errorCatched).subscribe(function (response) {
+            _this64.errorCatcherService.saveError(_this64.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -10488,7 +10525,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(RecordsComponent, [{
         key: "initFacturaChart",
         value: function initFacturaChart() {
-          var _this64 = this;
+          var _this65 = this;
 
           this._billService.getAll().subscribe(function (response) {
             console.log(response.Bill);
@@ -10544,10 +10581,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               pago.tipo = pago.tipo.toLocaleUpperCase() + ': ' + count;
               counters.push(count);
 
-              _this64.facturaChart.barChartLabels.push(pago.tipo);
+              _this65.facturaChart.barChartLabels.push(pago.tipo);
             }
 
-            _this64.facturaChart.barChartData.push({
+            _this65.facturaChart.barChartData.push({
               data: counters,
               label: 'Facturas'
             }); // this.facturaChart.barChartData = [
@@ -10557,8 +10594,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             // ];
 
 
-            _this64.facturaChart.barChartType = 'polarArea';
-            console.log('opciones del chart', _this64.facturaChart);
+            _this65.facturaChart.barChartType = 'polarArea';
+            console.log('opciones del chart', _this65.facturaChart);
           });
         }
       }, {
@@ -10573,17 +10610,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initStatistics",
         value: function initStatistics() {
-          var _this65 = this;
+          var _this66 = this;
 
           this._statisticService.getGlobals().subscribe(function (response) {
             console.log(response);
-            _this65.statistics = response.statistics;
+            _this66.statistics = response.statistics;
           });
 
           this._statisticService.getGlobalStatistics().subscribe(function (responseGlobal) {
             var tarifas;
-            _this65.globals = responseGlobal.globals;
-            tarifas = _this65.globals.tarifas;
+            _this66.globals = responseGlobal.globals;
+            tarifas = _this66.globals.tarifas;
             tarifas.medidores = [];
             var medidores = [];
             var _iteratorNormalCompletion25 = true;
@@ -10591,7 +10628,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var _iteratorError25 = undefined;
 
             try {
-              for (var _iterator25 = _this65.globals.medidores[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
+              for (var _iterator25 = _this66.globals.medidores[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
                 var medidor = _step25.value;
                 medidor.registros = [];
                 medidor.consumo = 0;
@@ -10601,7 +10638,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var _iteratorError27 = undefined;
 
                 try {
-                  for (var _iterator27 = _this65.globals.registros[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
+                  for (var _iterator27 = _this66.globals.registros[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
                     var registro = _step27.value;
 
                     if (medidor._id == registro.meter) {
@@ -10657,7 +10694,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var _iteratorError28 = undefined;
 
                 try {
-                  for (var _iterator28 = _this65.globals.medidores[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
+                  for (var _iterator28 = _this66.globals.medidores[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
                     var _medidor = _step28.value;
 
                     if (_medidor.rate == tarifa._id) {
@@ -10697,12 +10734,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
 
-            _this65.rateStatistics = tarifas;
-            _this65.rateStatistics.consumoTotal = consumoTotal;
-            _this65.rateStatistics = _this65.rateStatistics.sort(function (a, b) {
+            _this66.rateStatistics = tarifas;
+            _this66.rateStatistics.consumoTotal = consumoTotal;
+            _this66.rateStatistics = _this66.rateStatistics.sort(function (a, b) {
               return a.consumoTotal - b.consumoTotal;
             });
-            console.log('estadisticas', _this65.globals);
+            console.log('estadisticas', _this66.globals);
           }, function (error) {
             console.error(error);
           });
@@ -10979,16 +11016,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByMeter",
         value: function orderByMeter() {
-          var _this66 = this;
+          var _this67 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this66.byMeter) {
+            if (_this67.byMeter) {
               aM = parseInt(a.medidor.clave);
               bM = parseInt(b.medidor.clave);
-            } else if (!_this66.byMeter) {
+            } else if (!_this67.byMeter) {
               bM = parseInt(a.medidor.clave);
               aM = parseInt(b.medidor.clave);
             }
@@ -11003,7 +11040,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByNumber",
         value: function orderByNumber() {
-          var _this67 = this;
+          var _this68 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
@@ -11011,10 +11048,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (!a.numero || a.numero == null) a.numero = 0;
             if (!b.numero || b.numero == null) b.numero = 0;
 
-            if (_this67.byNum) {
+            if (_this68.byNum) {
               aM = parseInt(a.numero);
               bM = parseInt(b.numero);
-            } else if (!_this67.byNum) {
+            } else if (!_this68.byNum) {
               bM = parseInt(a.numero);
               aM = parseInt(b.numero);
             }
@@ -11029,16 +11066,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByUser",
         value: function orderByUser() {
-          var _this68 = this;
+          var _this69 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this68.byUser) {
+            if (_this69.byUser) {
               aM = a.usuario.nombre;
               bM = b.usuario.nombre;
-            } else if (!_this68.byUser) {
+            } else if (!_this69.byUser) {
               bM = a.usuario.nombre;
               aM = b.usuario.nombre;
             }
@@ -11053,16 +11090,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByValue",
         value: function orderByValue() {
-          var _this69 = this;
+          var _this70 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this69.byVal) {
+            if (_this70.byVal) {
               aM = parseInt(a.total);
               bM = parseInt(b.total);
-            } else if (!_this69.byVal) {
+            } else if (!_this70.byVal) {
               bM = parseInt(a.total);
               aM = parseInt(b.total);
             }
@@ -11077,17 +11114,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByEmitt",
         value: function orderByEmitt() {
-          var _this70 = this;
+          var _this71 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
             var diff;
 
-            if (_this70.byEmit) {
+            if (_this71.byEmit) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(a.fecha);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(b.fecha);
-            } else if (!_this70.byEmit) {
+            } else if (!_this71.byEmit) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(b.fecha);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(a.fecha);
             }
@@ -11103,7 +11140,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByCons",
         value: function orderByCons() {
-          var _this71 = this;
+          var _this72 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
@@ -11112,10 +11149,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var fecha1String = a.registro.month + 1 + '-01-' + a.registro.year;
             var fecha2String = b.registro.month + 1 + '-01-' + b.registro.year;
 
-            if (_this71.byCons) {
+            if (_this72.byCons) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha1String);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha2String);
-            } else if (!_this71.byCons) {
+            } else if (!_this72.byCons) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha2String);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha1String);
             }
@@ -11169,20 +11206,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initFacturas",
         value: function initFacturas() {
-          var _this72 = this;
+          var _this73 = this;
 
           this._billService.getAll().subscribe(function (response) {
             console.log(response);
 
             if (response.Bill) {
-              _this72.bufferFacturas = response.Bill;
-              _this72.facturas = []; //  this.facturas = response.Bill;
+              _this73.bufferFacturas = response.Bill;
+              _this73.facturas = []; //  this.facturas = response.Bill;
 
               for (var i = 0; i < response.Bill.length; i++) {
                 var factura = response.Bill[i];
                 factura.index = i + 1;
 
-                _this72.facturas.push(factura);
+                _this73.facturas.push(factura);
               }
             }
           });
@@ -11501,33 +11538,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initExtras",
         value: function initExtras() {
-          var _this73 = this;
+          var _this74 = this;
 
           this._extraService.getExtra().subscribe(function (response) {
-            _this73.extras = response.extra;
+            _this74.extras = response.extra;
 
             if (response.extra.length <= 0) {
-              _this73.fatalError = true;
-              _this73.loading = false;
+              _this74.fatalError = true;
+              _this74.loading = false;
 
-              _this73.launchAlert('info', 'Sin Datos de RMUV', 'Al parecer no existen datos de la Remuneracion Unificada Vigente, por favor, Ingresarlos antes de continuar', '<a href="/extras" target="blank">Ingresar Ahora!!<a>', true, null, null, null, null, null); // alert('no existen los datos de RMUV... por favor ingresarlos antes de continuar con los registros de consumo');
+              _this74.launchAlert('info', 'Sin Datos de RMUV', 'Al parecer no existen datos de la Remuneracion Unificada Vigente, por favor, Ingresarlos antes de continuar', '<a href="/extras" target="blank">Ingresar Ahora!!<a>', true, null, null, null, null, null); // alert('no existen los datos de RMUV... por favor ingresarlos antes de continuar con los registros de consumo');
 
             } else if (response.extra.length >= 1) {
-              _this73.fatalError = false;
-              _this73.loading = false;
+              _this74.fatalError = false;
+              _this74.loading = false;
             }
           }, function (error) {
-            _this73.loading = false;
+            _this74.loading = false;
             console.log(error);
-            _this73.errorCatched.description = error.toString();
-            _this73.errorCatched.table = 'Extra';
-            _this73.errorCatched.action = 'getExtras';
-            _this73.errorCatched.title = 'Error en la Obtencion de Los datos Extras';
-            _this73.errorCatched.zone = 'addRegister';
-            _this73.errorCatched.code = _this73.errorCatched.zone + '-' + _this73.errorCatched.action + '-' + _this73.errorCatched.table;
+            _this74.errorCatched.description = error.toString();
+            _this74.errorCatched.table = 'Extra';
+            _this74.errorCatched.action = 'getExtras';
+            _this74.errorCatched.title = 'Error en la Obtencion de Los datos Extras';
+            _this74.errorCatched.zone = 'addRegister';
+            _this74.errorCatched.code = _this74.errorCatched.zone + '-' + _this74.errorCatched.action + '-' + _this74.errorCatched.table;
 
-            _this73.errorCatcherService.saveError(_this73.errorCatched).subscribe(function (response) {
-              _this73.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de la RMUV' + response.Message, '<a href="/errores" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this74.errorCatcherService.saveError(_this74.errorCatched).subscribe(function (response) {
+              _this74.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de la RMUV' + response.Message, '<a href="/errores" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11539,21 +11576,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMedidores",
         value: function initMedidores() {
-          var _this74 = this;
+          var _this75 = this;
 
           this.meterService.showMeters().subscribe(function (response) {
-            _this74.medidores = response.Medidores;
+            _this75.medidores = response.Medidores;
           }, function (error) {
             console.log(error);
-            _this74.errorCatched.description = error.toString();
-            _this74.errorCatched.table = 'Meter';
-            _this74.errorCatched.action = 'showMeters';
-            _this74.errorCatched.title = 'Error en la Obtencion de Medidores';
-            _this74.errorCatched.zone = 'addRegister';
-            _this74.errorCatched.code = _this74.errorCatched.zone + '-' + _this74.errorCatched.action + '-' + _this74.errorCatched.table;
+            _this75.errorCatched.description = error.toString();
+            _this75.errorCatched.table = 'Meter';
+            _this75.errorCatched.action = 'showMeters';
+            _this75.errorCatched.title = 'Error en la Obtencion de Medidores';
+            _this75.errorCatched.zone = 'addRegister';
+            _this75.errorCatched.code = _this75.errorCatched.zone + '-' + _this75.errorCatched.action + '-' + _this75.errorCatched.table;
 
-            _this74.errorCatcherService.saveError(_this74.errorCatched).subscribe(function (response) {
-              _this74.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this75.errorCatcherService.saveError(_this75.errorCatched).subscribe(function (response) {
+              _this75.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11565,21 +11602,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this75 = this;
+          var _this76 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this75.usuarios = response.Usuarios;
+            _this76.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
-            _this75.errorCatched.description = error.toString();
-            _this75.errorCatched.table = 'User';
-            _this75.errorCatched.action = 'getUsers';
-            _this75.errorCatched.title = 'Error en la Obtencion de Usuarios';
-            _this75.errorCatched.zone = 'addRegister';
-            _this75.errorCatched.code = _this75.errorCatched.zone + '-' + _this75.errorCatched.action + '-' + _this75.errorCatched.table;
+            _this76.errorCatched.description = error.toString();
+            _this76.errorCatched.table = 'User';
+            _this76.errorCatched.action = 'getUsers';
+            _this76.errorCatched.title = 'Error en la Obtencion de Usuarios';
+            _this76.errorCatched.zone = 'addRegister';
+            _this76.errorCatched.code = _this76.errorCatched.zone + '-' + _this76.errorCatched.action + '-' + _this76.errorCatched.table;
 
-            _this75.errorCatcherService.saveError(_this75.errorCatched).subscribe(function (response) {
-              _this75.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los Usuarios' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this76.errorCatcherService.saveError(_this76.errorCatched).subscribe(function (response) {
+              _this76.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los Usuarios' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11641,25 +11678,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initLimits",
         value: function initLimits(rate) {
-          var _this76 = this;
+          var _this77 = this;
 
           this.limitService.getLimits(rate).subscribe(function (response) {
-            _this76.limites = response.Limits;
+            _this77.limites = response.Limits;
 
-            _this76.limites.sort(function (b, a) {
+            _this77.limites.sort(function (b, a) {
               return b.limit_from - a.limit_from;
             });
           }, function (error) {
             console.log(error);
-            _this76.errorCatched.description = error.toString();
-            _this76.errorCatched.table = 'Limit';
-            _this76.errorCatched.action = 'GetLimits';
-            _this76.errorCatched.title = 'Error en la Obtencion de los Limites';
-            _this76.errorCatched.zone = 'addRegister';
-            _this76.errorCatched.code = _this76.errorCatched.zone + '-' + _this76.errorCatched.action + '-' + _this76.errorCatched.table;
+            _this77.errorCatched.description = error.toString();
+            _this77.errorCatched.table = 'Limit';
+            _this77.errorCatched.action = 'GetLimits';
+            _this77.errorCatched.title = 'Error en la Obtencion de los Limites';
+            _this77.errorCatched.zone = 'addRegister';
+            _this77.errorCatched.code = _this77.errorCatched.zone + '-' + _this77.errorCatched.action + '-' + _this77.errorCatched.table;
 
-            _this76.errorCatcherService.saveError(_this76.errorCatched).subscribe(function (response) {
-              _this76.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los limites de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this77.errorCatcherService.saveError(_this77.errorCatched).subscribe(function (response) {
+              _this77.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los limites de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11801,35 +11838,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadRegisters",
         value: function loadRegisters(id) {
-          var _this77 = this;
+          var _this78 = this;
 
           this.dateMessage = null;
 
           this._registerService.getRegisters(id).subscribe(function (response) {
             if (!response.registers) {
-              _this77.isRegistered = null;
-              _this77.registroAnterior = null;
-              _this77.nuevoRegistro = true;
-              _this77.registros = null;
+              _this78.isRegistered = null;
+              _this78.registroAnterior = null;
+              _this78.nuevoRegistro = true;
+              _this78.registros = null;
             } else {
               console.log(response);
-              _this77.registros = response.registers;
+              _this78.registros = response.registers;
 
-              _this77.registros.sort(function (a, b) {
+              _this78.registros.sort(function (a, b) {
                 return b.month - a.month;
               });
 
-              _this77.registros.sort(function (a, b) {
+              _this78.registros.sort(function (a, b) {
                 return b.year - a.year;
               });
 
-              _this77.registroAnterior = _this77.registros[0];
-              console.log(_this77.registroAnterior);
-              _this77.registro.lecturaAnterior = _this77.registroAnterior.lectura;
-              _this77.registroAnterior._id = null;
-              _this77.isRegistered = new Date(_this77.registroAnterior.year, _this77.registroAnterior.month);
+              _this78.registroAnterior = _this78.registros[0];
+              console.log(_this78.registroAnterior);
+              _this78.registro.lecturaAnterior = _this78.registroAnterior.lectura;
+              _this78.registroAnterior._id = null;
+              _this78.isRegistered = new Date(_this78.registroAnterior.year, _this78.registroAnterior.month);
 
-              _this77.valiDate();
+              _this78.valiDate();
             }
           });
         }
@@ -11965,7 +12002,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this78 = this;
+          var _this79 = this;
 
           console.log('guardando registro');
           console.log(this.registro);
@@ -11975,25 +12012,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._registerService.save(this.registro).subscribe(function (response) {
             console.log(response); // alert(response.Message);
 
-            _this78.launchAlert('success', 'Registro Guardado Con Exito!', null, null, true, 1500, false, 'top-end', 'row', true);
+            _this79.launchAlert('success', 'Registro Guardado Con Exito!', null, null, true, 1500, false, 'top-end', 'row', true);
 
-            _this78.clave_medidor = null;
+            _this79.clave_medidor = null;
 
-            _this78.limpiar();
+            _this79.limpiar();
           }, function (error) {
             console.log(error);
             setTimeout(function () {
-              _this78.errorCatched.description = error.toString();
-              _this78.errorCatched.table = 'Registers';
-              _this78.errorCatched.action = 'saveRegisters';
-              _this78.errorCatched.title = 'Error al Guardar el Registro';
-              _this78.errorCatched.zone = 'addRegister';
-              _this78.errorCatched.code = _this78.errorCatched.zone + '-' + _this78.errorCatched.action + '-' + _this78.errorCatched.table;
+              _this79.errorCatched.description = error.toString();
+              _this79.errorCatched.table = 'Registers';
+              _this79.errorCatched.action = 'saveRegisters';
+              _this79.errorCatched.title = 'Error al Guardar el Registro';
+              _this79.errorCatched.zone = 'addRegister';
+              _this79.errorCatched.code = _this79.errorCatched.zone + '-' + _this79.errorCatched.action + '-' + _this79.errorCatched.table;
 
-              _this78.errorCatcherService.saveError(_this78.errorCatched).subscribe(function (response) {
+              _this79.errorCatcherService.saveError(_this79.errorCatched).subscribe(function (response) {
                 alert(response.Message);
 
-                _this78.launchAlert('error', 'Error al Guardar', 'Error: ' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+                _this79.launchAlert('error', 'Error al Guardar', 'Error: ' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
               });
             }, 500);
           });
@@ -12324,16 +12361,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchRegisters",
         value: function searchRegisters() {
-          var _this79 = this;
+          var _this80 = this;
 
           this.registerList = null;
           this.registerList = [];
 
           if (!this.userList || this.userList.length <= 0) {
             this.meterService.getMeter(this.medidorActual).subscribe(function (response) {
-              _this79.userList = [];
+              _this80.userList = [];
 
-              _this79.userList.push(response.meter.user);
+              _this80.userList.push(response.meter.user);
             });
           }
 
@@ -12345,10 +12382,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var registro = response.Registros[i];
                 registro.numero = i + 1;
 
-                _this79.registerList.push(registro);
+                _this80.registerList.push(registro);
               }
 
-              _this79.registerList.sort(function (a, b) {
+              _this80.registerList.sort(function (a, b) {
                 var fecha1 = moment__WEBPACK_IMPORTED_MODULE_8__(a.month + 1 + '-01-' + a.year);
                 var fecha2 = moment__WEBPACK_IMPORTED_MODULE_8__(b.month + 1 + '-01-' + b.year);
                 var difference = fecha1.diff(fecha2, 'months');
@@ -12357,9 +12394,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (difference == 0) return 0;
               });
 
-              _this79.bufferRegisters = _this79.registerList;
+              _this80.bufferRegisters = _this80.registerList;
             } else {
-              _this79.registerList = null;
+              _this80.registerList = null;
             }
           });
         }
@@ -12452,11 +12489,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMeters",
         value: function initMeters() {
-          var _this80 = this;
+          var _this81 = this;
 
           this.loading = false;
           this.meterService.showMeters().subscribe(function (response) {
-            _this80.meters = response.Medidores;
+            _this81.meters = response.Medidores;
           }, function (error) {
             console.log(error);
           });
@@ -12483,20 +12520,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this81 = this;
+          var _this82 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this81.usuarios = response.Usuarios;
+            _this82.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
-            _this81.errorCatched.description = error.toString();
-            _this81.errorCatched.table = 'User';
-            _this81.errorCatched.action = 'getUsers';
-            _this81.errorCatched.title = 'Error en la Obtencion de Usuarios';
-            _this81.errorCatched.zone = 'addRegister';
-            _this81.errorCatched.code = _this81.errorCatched.zone + '-' + _this81.errorCatched.action + '-' + _this81.errorCatched.table;
+            _this82.errorCatched.description = error.toString();
+            _this82.errorCatched.table = 'User';
+            _this82.errorCatched.action = 'getUsers';
+            _this82.errorCatched.title = 'Error en la Obtencion de Usuarios';
+            _this82.errorCatched.zone = 'addRegister';
+            _this82.errorCatched.code = _this82.errorCatched.zone + '-' + _this82.errorCatched.action + '-' + _this82.errorCatched.table;
 
-            _this81.errorCatcherService.saveError(_this81.errorCatched).subscribe(function (response) {
+            _this82.errorCatcherService.saveError(_this82.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -12629,15 +12666,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "findRegisters",
         value: function findRegisters() {
-          var _this82 = this;
+          var _this83 = this;
 
           if (this.meterId) {
             this._registerService.getRegisters(this.meterId).subscribe(function (response) {
               if (response.registers) {
                 console.log(response.registers);
-                _this82.registers = response.registers;
+                _this83.registers = response.registers;
               } else {
-                _this82.registers = null;
+                _this83.registers = null;
               }
             }, function (error) {
               console.log(error);
@@ -12973,31 +13010,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onNew",
         value: function onNew(form) {
-          var _this83 = this;
+          var _this84 = this;
 
           this._sectorService.saveSectores(this.sector).subscribe(function (response) {
             // response.Message y response.sector
             if (response.sector && response.sector._id) {
-              _this83.editar = false;
+              _this84.editar = false;
 
-              _this83.launchAlert('success', 'Ingreso de Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
+              _this84.launchAlert('success', 'Ingreso de Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
             }
 
-            _this83.initSector();
+            _this84.initSector();
 
-            _this83.codigo = _this83.codigoAutom();
+            _this84.codigo = _this84.codigoAutom();
           }, function (error) {
             console.error(error);
           });
 
           setTimeout(function () {
-            _this83.showSectores = true;
+            _this84.showSectores = true;
           }, 1000);
         }
       }, {
         key: "onEdit",
         value: function onEdit(form) {
-          var _this84 = this;
+          var _this85 = this;
 
           console.log(this.sector);
 
@@ -13006,18 +13043,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(response);
 
             if (response.sector && response.sector._id) {
-              _this84.editar = false;
+              _this85.editar = false;
 
-              _this84.launchAlert('success', 'Edición del Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
+              _this85.launchAlert('success', 'Edición del Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
             }
 
-            _this84.initSector();
+            _this85.initSector();
           }, function (error) {
             console.error(error);
           });
 
           setTimeout(function () {
-            _this84.showSectores = true;
+            _this85.showSectores = true;
           }, 1000);
         }
       }, {
@@ -13185,7 +13222,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onChange",
         value: function onChange(sector) {
-          var _this85 = this;
+          var _this86 = this;
 
           var tempSector = sector;
           var estado;
@@ -13201,13 +13238,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (sector.activa) estado = 'Reactivar';
             if (!sector.activa) estado = 'Desactivar';
 
-            _this85.launchAlert('success', 'Cambio Estado', 'Exito al ' + estado + ' el sector', null, null, 3500, false, 'top', 'row', true);
+            _this86.launchAlert('success', 'Cambio Estado', 'Exito al ' + estado + ' el sector', null, null, 3500, false, 'top', 'row', true);
           }, function (error) {
             if (sector.activa) estado = 'Reactivar';
             if (!sector.activa) estado = 'Desactivar';
             sector = tempSector;
 
-            _this85.launchAlert('error', 'Error al ' + estado + ' el sector', error, null, null, 3500, false, 'top', 'row', true);
+            _this86.launchAlert('error', 'Error al ' + estado + ' el sector', error, null, null, 3500, false, 'top', 'row', true);
           });
         }
       }, {
@@ -13223,7 +13260,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initSectores",
         value: function initSectores() {
-          var _this86 = this;
+          var _this87 = this;
 
           this._sectorService.getSectores().subscribe(function (response) {
             console.log(response);
@@ -13235,7 +13272,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var _loop2 = function _loop2() {
                 var sector = _step33.value;
 
-                _this86._statisticService.getMedidoresSector(sector._id).subscribe(function (responseCounters) {
+                _this87._statisticService.getMedidoresSector(sector._id).subscribe(function (responseCounters) {
                   sector.meters = responseCounters.meters;
                 });
               };
@@ -13258,7 +13295,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
 
-            _this86.sectores = response.sectores;
+            _this87.sectores = response.sectores;
           }, function (error) {
             console.error(error);
           });
@@ -13571,18 +13608,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this87 = this;
+          var _this88 = this;
 
           // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
           this.userService.showRaw().subscribe( // respuesta del servidor //
           function (response) {
             console.log(response); // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
-            _this87.usuarios = response.Usuarios; // bifurcador if para comprobar si la variable local "users" esta vacia //
+            _this88.usuarios = response.Usuarios; // bifurcador if para comprobar si la variable local "users" esta vacia //
 
-            if (_this87.users.length <= 0) {
+            if (_this88.users.length <= 0) {
               // en caso de que "users" este vacia se procede a llenar con la coleccion "Usuarios" almacenada en "response" //
-              _this87.users = response.Usuarios;
+              _this88.users = response.Usuarios;
             }
           }, // error del servidor //
           function (error) {
@@ -13605,7 +13642,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "busqueda",
         value: function busqueda(termino, parametro) {
-          var _this88 = this;
+          var _this89 = this;
 
           // preparacion de variables //
           // ------ Uso de la funcion to lower case [a minusculas] para evitar confuciones en el proceso
@@ -13626,7 +13663,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               case 'null':
                 {
                   // Se hace un llamado a la funcion "getUsers" que carga los usuarios almacenados en el servidor //
-                  _this88.getUsers(); // Se termina la Ejecucion del bifurcador Switch //
+                  _this89.getUsers(); // Se termina la Ejecucion del bifurcador Switch //
 
 
                   break;
@@ -13642,7 +13679,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this88.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13665,7 +13702,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this88.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13687,7 +13724,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this88.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13709,7 +13746,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this88.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13731,7 +13768,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this88.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13840,14 +13877,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onChange",
         value: function onChange(event) {
-          var _this89 = this;
+          var _this90 = this;
 
           this.selectedYearAsText = event.year.toString();
           this.selectedMonthIndex = event.monthIndex;
           this.selectedMonthAsText = moment__WEBPACK_IMPORTED_MODULE_4___default()().month(event.monthIndex).format('MMMM');
           setTimeout(function () {
-            _this89.year = event.year;
-            _this89.month = event.monthIndex + 1;
+            _this90.year = event.year;
+            _this90.month = event.monthIndex + 1;
           }, 75);
         }
       }, {
@@ -13858,18 +13895,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initNumeros",
         value: function initNumeros() {
-          var _this90 = this;
+          var _this91 = this;
 
           this.numerosService.showRaw().subscribe(function (response) {
-            _this90.numeros = response.Numeros;
+            _this91.numeros = response.Numeros;
 
-            _this90.aumentarNumero();
+            _this91.aumentarNumero();
           });
         }
       }, {
         key: "aumentarNumero",
         value: function aumentarNumero() {
-          var _this91 = this;
+          var _this92 = this;
 
           this.numeros.sort(function (a, b) {
             return b.num_min - a.num_min;
@@ -13907,7 +13944,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(numerosValidos);
           this.statisticsService.getBillsNumbers().subscribe(function (response) {
             console.log(response);
-            _this91.numero = numerosValidos[0].num_min;
+            _this92.numero = numerosValidos[0].num_min;
 
             if (response.numeros) {
               var nuevo = false;
@@ -13921,9 +13958,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   for (var _iterator35 = response.numeros[Symbol.iterator](), _step35; !(_iteratorNormalCompletion35 = (_step35 = _iterator35.next()).done); _iteratorNormalCompletion35 = true) {
                     var numero = _step35.value;
 
-                    if (_this91.numero == numero.numero) {
+                    if (_this92.numero == numero.numero) {
                       nuevo = false;
-                      _this91.numero++;
+                      _this92.numero++;
                     } else {
                       nuevo = true;
                     }
@@ -14108,27 +14145,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this92 = this;
+          var _this93 = this;
 
           if (!this.SearchedUsers) {
             // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
             this.userService.showRaw().subscribe( // respuesta del servidor //
             function (response) {
-              if (_this92.employees) {
-                _this92.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
+              if (_this93.employees) {
+                _this93.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
 
                 for (var index = 0; index < response.Usuarios.length; index++) {
                   var usuario = response.Usuarios[index];
 
                   if (usuario.role_user.toLowerCase() !== 'simple' && usuario.role_user.toLowerCase() !== 'common') {
-                    _this92.usuarios.push(usuario);
+                    _this93.usuarios.push(usuario);
                   }
                 }
-              } else if (!_this92.employees) {
+              } else if (!_this93.employees) {
                 var users = JSON.stringify(response.Usuarios);
-                _this92.usuarios = response.Usuarios;
+                _this93.usuarios = response.Usuarios;
 
-                _this92.EnvioDeUsuarios.emit(users);
+                _this93.EnvioDeUsuarios.emit(users);
               } // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
             }, // error del servidor //
@@ -14315,11 +14352,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MyProfileComponent, [{
         key: "initStatistics",
         value: function initStatistics(id) {
-          var _this93 = this;
+          var _this94 = this;
 
           this._statisticsService.getUserStatistics(id).subscribe(function (response) {
             console.log(response);
-            _this93.statistics = response;
+            _this94.statistics = response;
           });
         }
       }, {
@@ -14330,7 +14367,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "desactivarCuenta",
         value: function desactivarCuenta(pass) {
-          var _this94 = this;
+          var _this95 = this;
 
           var userpass = {
             contrase: pass
@@ -14341,22 +14378,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (response.check == true) {
               var user;
-              if (_this94.identity.activa == true) user = {
+              if (_this95.identity.activa == true) user = {
                 activa: false
               };
-              if (_this94.identity.activa == false) user = {
+              if (_this95.identity.activa == false) user = {
                 activa: true
               };
 
-              _this94._userService.changeActiva(_this94.identity, _this94.identity._id).subscribe(function (response) {
-                _this94.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
+              _this95._userService.changeActiva(_this95.identity, _this95.identity._id).subscribe(function (response) {
+                _this95.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
 
-                _this94.identity = response.user;
+                _this95.identity = response.user;
                 localStorage.clear();
 
-                _this94._router.navigate(['/login']);
+                _this95._router.navigate(['/login']);
 
-                console.log(_this94.identity);
+                console.log(_this95.identity);
               });
             }
           });
@@ -14575,7 +14612,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUser",
         value: function initUser() {
-          var _this95 = this;
+          var _this96 = this;
 
           this.route.params.subscribe(function (params) {
             var id;
@@ -14583,35 +14620,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (params.id) id = params.id;
 
             if (id != undefined) {
-              _this95.userService.getUser(id).subscribe(function (response) {
+              _this96.userService.getUser(id).subscribe(function (response) {
                 if (response.user) {
-                  _this95.user = response.user;
-                  _this95.title = 'Perfil del Usuario ';
+                  _this96.user = response.user;
+                  _this96.title = 'Perfil del Usuario ';
 
-                  _this95.initMedidores(id);
+                  _this96.initMedidores(id);
 
-                  _this95.initFacturas(id);
+                  _this96.initFacturas(id);
 
-                  console.log(_this95.user);
+                  console.log(_this96.user);
 
-                  if (_this95.user.fecha_nacimiento) {
-                    var convertAge = new Date(_this95.user.fecha_nacimiento);
+                  if (_this96.user.fecha_nacimiento) {
+                    var convertAge = new Date(_this96.user.fecha_nacimiento);
                     var timeDiff = Math.abs(Date.now() - convertAge.getTime());
-                    _this95.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
-                    console.log(_this95.age);
+                    _this96.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
+                    console.log(_this96.age);
                   }
                 } else {
-                  _this95.title = 'No se encuentra el perfil del usuario';
-                  _this95.loading = false;
+                  _this96.title = 'No se encuentra el perfil del usuario';
+                  _this96.loading = false;
                   alert('no se encuentra el usuario....');
                 }
               }, function (error) {
-                _this95.loading = false;
-                _this95.title = 'Error al buscar el usuario';
+                _this96.loading = false;
+                _this96.title = 'Error al buscar el usuario';
                 console.log(error);
               });
             } else {
-              _this95.loading = false;
+              _this96.loading = false;
             }
           });
         }
@@ -14630,22 +14667,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initFacturas",
         value: function initFacturas(id) {
-          var _this96 = this;
+          var _this97 = this;
 
           this.billService.getFacturaByUser(id).subscribe(function (response) {
             console.log(response);
 
             if (response.bills) {
-              _this96.bills = response.bills;
-              _this96.sinFacturas = false;
+              _this97.bills = response.bills;
+              _this97.sinFacturas = false;
 
-              _this96.initDetails();
+              _this97.initDetails();
             } else {
-              _this96.sinFacturas = true;
-              _this96.loadingFacturas = false;
+              _this97.sinFacturas = true;
+              _this97.loadingFacturas = false;
             }
 
-            _this96.launchAlert('success', 'Carga de Facturas Exitosa!', response.Message, null, false, 3500, false, 'top-end', 'row', true);
+            _this97.launchAlert('success', 'Carga de Facturas Exitosa!', response.Message, null, false, 3500, false, 'top-end', 'row', true);
           }, function (error) {
             console.log(error);
           });
@@ -14653,7 +14690,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initDetails",
         value: function initDetails() {
-          var _this97 = this;
+          var _this98 = this;
 
           var _iteratorNormalCompletion36 = true;
           var _didIteratorError36 = false;
@@ -14678,7 +14715,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 subtotal: bill.registro.subtotal.toFixed(2)
               }];
 
-              _this97.detailService.getDetalle(id).subscribe(function (response) {
+              _this98.detailService.getDetalle(id).subscribe(function (response) {
                 if (response.Detalles) {
                   details = response.Detalles;
                   bill.detalles = details;
@@ -14710,16 +14747,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMedidores",
         value: function initMedidores(id) {
-          var _this98 = this;
+          var _this99 = this;
 
           this.meterService.getUsersMeters(id).subscribe(function (response) {
-            _this98.meters = response.Medidores; // this.meters.sort((a, b) => (a.clave - b.clave));
+            _this99.meters = response.Medidores; // this.meters.sort((a, b) => (a.clave - b.clave));
 
-            _this98.loading = false;
-            console.log(_this98.meters);
+            _this99.loading = false;
+            console.log(_this99.meters);
           }, function (error) {
             console.error(error);
-            _this98.loading = false;
+            _this99.loading = false;
           });
         }
       }, {
@@ -14908,24 +14945,34 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         if (this.identity.role_user.toLowerCase() == 'operador') this.router.navigate(['/inicio']);
         this.employees = true;
         this.cedulaWarning = false;
-        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_3__["User"]('', // "_id"
-        '', // "cuenta"
-        '', // "contrase"
-        '', // "correo"
-        '', // "nombre"
-        '', // "image"
-        '', // "apellido"
-        '', // "cedula"
-        '', // "direccion"
-        '', // "telefono"
-        '', // "fecha_nacimiento"
-        '', // "sexo"
-        '', // "role_user"
+        this.initUsuarios();
+        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_3__["User"](null, // "_id"
+        null, // "cuenta"
+        null, // "contrase"
+        null, // "correo"
+        null, // "nombre"
+        null, // "image"
+        null, // "apellido"
+        null, // "cedula"
+        null, // "direccion"
+        null, // "telefono"
+        null, // "fecha_nacimiento"
+        null, // "sexo"
+        null, // "role_user"
         true, // "activa"
-        '');
+        null);
       }
 
       _createClass(RegisterEmployeesComponent, [{
+        key: "initUsuarios",
+        value: function initUsuarios() {
+          var _this100 = this;
+
+          this.userService.showRaw().subscribe(function (response) {
+            _this100.usuarios = response.Usuarios;
+          });
+        }
+      }, {
         key: "return",
         value: function _return() {
           this.location.back();
@@ -14968,7 +15015,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function onSubmit(form) {
           console.log(this.user);
 
-          if (this.onEdit) {
+          if (this.onEdit || this.transformando) {
             this.update(form);
           } else if (!this.onEdit) {
             this.save(form);
@@ -14977,39 +15024,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this99 = this;
+          var _this101 = this;
 
           this.userService.register(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this99.status = true;
+              _this101.status = true;
               form.reset(); // alert(response.Message);
 
-              _this99.launchAlert('success', 'Se ha ingresado el nuevo Empleado!', 'Nombres: ' + response.User.nombre + ' ' + response.User.apellido + ', Cuenta: ' + response.User.cuenta, null, false, 1500, null, 'top', 'row', true);
+              _this101.launchAlert('success', 'Se ha ingresado el nuevo Empleado!', 'Nombres: ' + response.User.nombre + ' ' + response.User.apellido + ', Cuenta: ' + response.User.cuenta, null, false, 1500, null, 'top', 'row', true);
 
-              _this99.status = null; // this.ingresado = true;
+              _this101.status = null; // this.ingresado = true;
               // this.user = response.User;
             } else {
               alert('No se pudo ingresar este usuario');
-              _this99.status = false;
+              _this101.status = false;
             }
           }, function (error) {
             console.log(error.Message);
             alert(error.error.Message);
-            _this99.status = false;
+            _this101.status = false;
             console.log(error);
           });
         }
       }, {
         key: "update",
         value: function update(form) {
-          var _this100 = this;
+          var _this102 = this;
 
-          this.userService.updateCommons(this.user).subscribe(function (response) {
+          this.userService.updateUser(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this100.status = true;
+              _this102.status = true;
               alert(response.Message);
-              _this100.user = response.User;
-              _this100.onEdit = null;
+              _this102.user = response.User;
+              _this102.onEdit = null;
             } else {
               alert(response.Message);
             }
@@ -15021,16 +15068,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadTables",
         value: function loadTables() {
-          var _this101 = this;
+          var _this103 = this;
 
           this.tableService.getTables().subscribe(function (response) {
-            _this101.tablas = response.Tabla;
-            _this101.permisos = [], [];
+            _this103.tablas = response.Tabla;
+            _this103.permisos = [], [];
 
-            for (var index = 0; index < _this101.tablas.length; index++) {
-              var element = _this101.tablas[index];
+            for (var index = 0; index < _this103.tablas.length; index++) {
+              var element = _this103.tablas[index];
 
-              _this101.permisos.push({
+              _this103.permisos.push({
                 _id: null,
                 tabla: element._id,
                 crear: false,
@@ -15052,6 +15099,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "verifyCedula",
         value: function verifyCedula(cedula) {
+          var _this104 = this;
+
           this.cedulaCorrecta = false;
 
           if (cedula.length === 10) {
@@ -15094,8 +15143,70 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 this.cedulaCorrecta = false;
               }
             }
+
+            if (this.cedulaCorrecta == true) {
+              var _iteratorNormalCompletion37 = true;
+              var _didIteratorError37 = false;
+              var _iteratorError37 = undefined;
+
+              try {
+                var _loop4 = function _loop4() {
+                  var usuario = _step37.value;
+
+                  if (cedula == usuario.cedula) {
+                    _this104.transformando = false;
+
+                    if (usuario.role_user.toLowerCase() != 'common' && usuario.role_user.toLowerCase() != 'simple') {
+                      sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                        title: 'Empleado existente!',
+                        text: 'Actualmente existe un empleado registrado con esa cédula.',
+                        icon: 'error'
+                      });
+                    } else {
+                      sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                        title: 'Usuario existente!',
+                        text: 'Actualmente existe un usuario con esa cédula. Ascenderlo a empleado?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí!, Hacerlo Empleado',
+                        cancelButtonText: 'No, Ingresar otro.'
+                      }).then(function (result) {
+                        if (result.value) {
+                          _this104.transformando = true;
+                          _this104.user = usuario;
+                        } else if (!result.value) {
+                          _this104.user.cedula = null;
+                        }
+                      });
+                    }
+                  }
+                };
+
+                for (var _iterator37 = this.usuarios[Symbol.iterator](), _step37; !(_iteratorNormalCompletion37 = (_step37 = _iterator37.next()).done); _iteratorNormalCompletion37 = true) {
+                  _loop4();
+                }
+              } catch (err) {
+                _didIteratorError37 = true;
+                _iteratorError37 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion37 && _iterator37.return != null) {
+                    _iterator37.return();
+                  }
+                } finally {
+                  if (_didIteratorError37) {
+                    throw _iteratorError37;
+                  }
+                }
+              }
+            }
           }
         }
+      }, {
+        key: "cedulaUnica",
+        value: function cedulaUnica() {}
       }, {
         key: "comprobarContrase",
         value: function comprobarContrase(pass, passConf) {
@@ -15105,7 +15216,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "desactivarCuenta",
         value: function desactivarCuenta(pass) {
-          var _this102 = this;
+          var _this105 = this;
 
           var userpass = {
             contrase: pass
@@ -15115,18 +15226,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (response.check == true) {
               var user;
-              if (_this102.user.activa == true) user = {
+              if (_this105.user.activa == true) user = {
                 activa: false
               };
-              if (_this102.user.activa == false) user = {
+              if (_this105.user.activa == false) user = {
                 activa: true
               };
 
-              _this102.userService.changeActiva(user, _this102.user._id).subscribe(function (response) {
-                _this102.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
+              _this105.userService.changeActiva(user, _this105.user._id).subscribe(function (response) {
+                _this105.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
 
-                _this102.user = response.user;
-                console.log(_this102.user);
+                _this105.user = response.user;
+                console.log(_this105.user);
               });
             }
           });
@@ -15134,14 +15245,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cambiarContrase",
         value: function cambiarContrase(pass) {
-          var _this103 = this;
+          var _this106 = this;
 
           console.log(pass);
           var userpass = {
             contrase: pass
           };
           this.userService.updatePassword(userpass, this.user._id).subscribe(function (response) {
-            _this103.launchAlert('success', 'Clave del usuario Cambiada!', response.Message, null, false, 1500, null, 'top', 'row', true);
+            _this106.launchAlert('success', 'Clave del usuario Cambiada!', response.Message, null, false, 1500, null, 'top', 'row', true);
           });
         }
       }, {
@@ -15381,27 +15492,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this104 = this;
+          var _this107 = this;
 
           // llamado al servicio del usuario para enviar el nuevo objeto [user] a la base de datos
           this.userService.registerSimple(this.user).subscribe(function (response) {
             // en caso de que el backend responda con los datos del usuario editado se presenta un mensaje de correcto
             if (response.user && response.user._id) {
-              _this104.status = true;
+              _this107.status = true;
               form.reset();
 
-              _this104.launchAlert('success', 'Se ha Ingresado un Nuevo Usuario!', 'El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', Ha sido ingresado exitosamente!', null, false, 1500, null, 'top', 'row', true); // si el servidor no ha respondido con los parametros correctos (hubo un error), se presenta un mensaje de error
+              _this107.launchAlert('success', 'Se ha Ingresado un Nuevo Usuario!', 'El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', Ha sido ingresado exitosamente!', null, false, 1500, null, 'top', 'row', true); // si el servidor no ha respondido con los parametros correctos (hubo un error), se presenta un mensaje de error
 
             } else {
-              _this104.status = false;
+              _this107.status = false;
 
-              _this104.launchAlert('error', 'No se ha podido ingresar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this107.launchAlert('error', 'No se ha podido ingresar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
             }
           }, function (error) {
             // en caso de que el backend no responda o directamente arroje un error se presenta un mensaje de error
-            _this104.launchAlert('error', 'No se ha podido ingresar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
+            _this107.launchAlert('error', 'No se ha podido ingresar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
 
-            _this104.status = false;
+            _this107.status = false;
             console.log(error);
           });
         } // metodo de actualizacion de los datos del usuario
@@ -15409,26 +15520,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "update",
         value: function update(form) {
-          var _this105 = this;
+          var _this108 = this;
 
           // subscripcion al servicio de usuario para enviar los datos a editar
           this.userService.updateCommons(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this105.status = true;
+              _this108.status = true;
               form.reset();
 
-              _this105.launchAlert('success', 'Se ha Editado el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this108.launchAlert('success', 'Se ha Editado el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
 
-              _this105.onEdit = null;
+              _this108.onEdit = null;
             } else {
               console.log(response);
 
-              _this105.launchAlert('error', 'No se ha podido editar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this108.launchAlert('error', 'No se ha podido editar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
             }
           }, function (error) {
             console.log(error);
 
-            _this105.launchAlert('error', 'No se ha podido editar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
+            _this108.launchAlert('error', 'No se ha podido editar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
           });
         } // Metodo para conformar la edicion de la cedula
 
@@ -15500,13 +15611,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ComprobarCedula",
         value: function ComprobarCedula(cedula) {
           var count = 0;
-          var _iteratorNormalCompletion37 = true;
-          var _didIteratorError37 = false;
-          var _iteratorError37 = undefined;
+          var _iteratorNormalCompletion38 = true;
+          var _didIteratorError38 = false;
+          var _iteratorError38 = undefined;
 
           try {
-            for (var _iterator37 = this.cedulas[Symbol.iterator](), _step37; !(_iteratorNormalCompletion37 = (_step37 = _iterator37.next()).done); _iteratorNormalCompletion37 = true) {
-              var almacenada = _step37.value;
+            for (var _iterator38 = this.cedulas[Symbol.iterator](), _step38; !(_iteratorNormalCompletion38 = (_step38 = _iterator38.next()).done); _iteratorNormalCompletion38 = true) {
+              var almacenada = _step38.value;
               almacenada.cedula = almacenada.cedula.replace(/-/gi, '');
 
               if (almacenada.cedula == cedula) {
@@ -15514,16 +15625,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError37 = true;
-            _iteratorError37 = err;
+            _didIteratorError38 = true;
+            _iteratorError38 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion37 && _iterator37.return != null) {
-                _iterator37.return();
+              if (!_iteratorNormalCompletion38 && _iterator38.return != null) {
+                _iterator38.return();
               }
             } finally {
-              if (_didIteratorError37) {
-                throw _iteratorError37;
+              if (_didIteratorError38) {
+                throw _iteratorError38;
               }
             }
           }
@@ -15546,10 +15657,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initCedulas",
         value: function initCedulas() {
-          var _this106 = this;
+          var _this109 = this;
 
           this.statisticsService.getCedulas().subscribe(function (response) {
-            _this106.cedulas = response.cedulas;
+            _this109.cedulas = response.cedulas;
             console.log(response.Message);
           });
         }
@@ -15563,29 +15674,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (origen == 'direccion') this.direccionCorrecta = true;
 
           if (cadena && cadena.length && cadena.length >= 3 && cadena.length <= 24) {
-            var _iteratorNormalCompletion38 = true;
-            var _didIteratorError38 = false;
-            var _iteratorError38 = undefined;
+            var _iteratorNormalCompletion39 = true;
+            var _didIteratorError39 = false;
+            var _iteratorError39 = undefined;
 
             try {
-              for (var _iterator38 = cadena[Symbol.iterator](), _step38; !(_iteratorNormalCompletion38 = (_step38 = _iterator38.next()).done); _iteratorNormalCompletion38 = true) {
-                var caracter = _step38.value;
+              for (var _iterator39 = cadena[Symbol.iterator](), _step39; !(_iteratorNormalCompletion39 = (_step39 = _iterator39.next()).done); _iteratorNormalCompletion39 = true) {
+                var caracter = _step39.value;
 
                 if (numeros.indexOf(caracter) != -1) {
                   hasNumbers = true;
                 }
               }
             } catch (err) {
-              _didIteratorError38 = true;
-              _iteratorError38 = err;
+              _didIteratorError39 = true;
+              _iteratorError39 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion38 && _iterator38.return != null) {
-                  _iterator38.return();
+                if (!_iteratorNormalCompletion39 && _iterator39.return != null) {
+                  _iterator39.return();
                 }
               } finally {
-                if (_didIteratorError38) {
-                  throw _iteratorError38;
+                if (_didIteratorError39) {
+                  throw _iteratorError39;
                 }
               }
             }
@@ -15791,33 +15902,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this107 = this;
+          var _this110 = this;
 
           this.userService.updateUser(this.user).subscribe(function (response) {
             if (!response.user) {
-              _this107.status = 'error';
+              _this110.status = 'error';
             } else {
-              _this107.status = 'success'; // localStorage.setItem('identity', JSON.stringify(this.user));
+              _this110.status = 'success'; // localStorage.setItem('identity', JSON.stringify(this.user));
 
-              _this107.uploadService.makeFileRequest(_this107.url + 'image/' + _this107.user._id, [], _this107.filesToUpload, _this107.token, 'image').then(function (result) {
+              _this110.uploadService.makeFileRequest(_this110.url + 'image/' + _this110.user._id, [], _this110.filesToUpload, _this110.token, 'image').then(function (result) {
                 console.log('dentro de makeFileRequest');
-                _this107.user.image = result.user.image;
-                _this107.identity = _this107.user;
-                localStorage.setItem('identity', JSON.stringify(_this107.identity));
+                _this110.user.image = result.user.image;
+                _this110.identity = _this110.user;
+                localStorage.setItem('identity', JSON.stringify(_this110.identity));
               }).catch(function (result) {
                 console.log('error' + result);
               });
             }
           }, function (error) {
             console.log(error);
-            _this107.errorCatched.description = error.toString();
-            _this107.errorCatched.table = 'User';
-            _this107.errorCatched.action = 'editUser';
-            _this107.errorCatched.title = 'Error al editar el usuario';
-            _this107.errorCatched.zone = 'user-edit';
-            _this107.errorCatched.code = _this107.errorCatched.zone + '-' + _this107.errorCatched.action + '-' + _this107.errorCatched.table;
+            _this110.errorCatched.description = error.toString();
+            _this110.errorCatched.table = 'User';
+            _this110.errorCatched.action = 'editUser';
+            _this110.errorCatched.title = 'Error al editar el usuario';
+            _this110.errorCatched.zone = 'user-edit';
+            _this110.errorCatched.code = _this110.errorCatched.zone + '-' + _this110.errorCatched.action + '-' + _this110.errorCatched.table;
 
-            _this107.errorCatcherService.saveError(_this107.errorCatched).subscribe(function (response) {
+            _this110.errorCatcherService.saveError(_this110.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -15962,13 +16073,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           localSearch = [], [];
 
           if (this.users) {
-            var _iteratorNormalCompletion39 = true;
-            var _didIteratorError39 = false;
-            var _iteratorError39 = undefined;
+            var _iteratorNormalCompletion40 = true;
+            var _didIteratorError40 = false;
+            var _iteratorError40 = undefined;
 
             try {
-              for (var _iterator39 = this.users[Symbol.iterator](), _step39; !(_iteratorNormalCompletion39 = (_step39 = _iterator39.next()).done); _iteratorNormalCompletion39 = true) {
-                var user = _step39.value;
+              for (var _iterator40 = this.users[Symbol.iterator](), _step40; !(_iteratorNormalCompletion40 = (_step40 = _iterator40.next()).done); _iteratorNormalCompletion40 = true) {
+                var user = _step40.value;
                 var datos = user.nombre + user.apellido + user.direccion + user.cedula;
 
                 if (user.cuenta) {
@@ -15983,16 +16094,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
             } catch (err) {
-              _didIteratorError39 = true;
-              _iteratorError39 = err;
+              _didIteratorError40 = true;
+              _iteratorError40 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion39 && _iterator39.return != null) {
-                  _iterator39.return();
+                if (!_iteratorNormalCompletion40 && _iterator40.return != null) {
+                  _iterator40.return();
                 }
               } finally {
-                if (_didIteratorError39) {
-                  throw _iteratorError39;
+                if (_didIteratorError40) {
+                  throw _iteratorError40;
                 }
               }
             }
@@ -16181,27 +16292,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this108 = this;
+          var _this111 = this;
 
           if (!this.SearchedUsers) {
             // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
             this.userService.showRaw().subscribe( // respuesta del servidor //
             function (response) {
-              if (_this108.employees) {
-                _this108.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
+              if (_this111.employees) {
+                _this111.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
 
                 for (var index = 0; index < response.Usuarios.length; index++) {
                   var usuario = response.Usuarios[index];
 
                   if (usuario.role_user.toLowerCase() !== 'simple' && usuario.role_user.toLowerCase() !== 'common') {
-                    _this108.usuarios.push(usuario);
+                    _this111.usuarios.push(usuario);
                   }
                 }
-              } else if (!_this108.employees) {
+              } else if (!_this111.employees) {
                 var users = JSON.stringify(response.Usuarios);
-                _this108.usuarios = response.Usuarios;
+                _this111.usuarios = response.Usuarios;
 
-                _this108.EnvioDeUsuarios.emit(users);
+                _this111.EnvioDeUsuarios.emit(users);
               } // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
             }, // error del servidor //
@@ -16622,16 +16733,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getShortMessages",
         value: function getShortMessages() {
-          var _this109 = this;
+          var _this112 = this;
 
           this.messageService.getMyMessage(this.token, 1).subscribe(function (response) {
             if (response.Pages >= 5) {
-              _this109.more = true;
+              _this112.more = true;
             }
 
-            _this109.total.emit(response.Total + '.' + response.Messages[0].created_at);
+            _this112.total.emit(response.Total + '.' + response.Messages[0].created_at);
 
-            _this109.messages = response.Messages;
+            _this112.messages = response.Messages;
           }, function (error) {
             console.log(error);
           });
@@ -17697,13 +17808,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "filterByDate",
         value: function filterByDate() {
           this.registerList = [];
-          var _iteratorNormalCompletion40 = true;
-          var _didIteratorError40 = false;
-          var _iteratorError40 = undefined;
+          var _iteratorNormalCompletion41 = true;
+          var _didIteratorError41 = false;
+          var _iteratorError41 = undefined;
 
           try {
-            for (var _iterator40 = this.bufferRegisters[Symbol.iterator](), _step40; !(_iteratorNormalCompletion40 = (_step40 = _iterator40.next()).done); _iteratorNormalCompletion40 = true) {
-              var registro = _step40.value;
+            for (var _iterator41 = this.bufferRegisters[Symbol.iterator](), _step41; !(_iteratorNormalCompletion41 = (_step41 = _iterator41.next()).done); _iteratorNormalCompletion41 = true) {
+              var registro = _step41.value;
               var fechaDesde = moment__WEBPACK_IMPORTED_MODULE_6__(this.desde);
               var fechaHasta = moment__WEBPACK_IMPORTED_MODULE_6__(this.hasta);
               var fechaFactura = void 0;
@@ -17718,16 +17829,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError40 = true;
-            _iteratorError40 = err;
+            _didIteratorError41 = true;
+            _iteratorError41 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion40 && _iterator40.return != null) {
-                _iterator40.return();
+              if (!_iteratorNormalCompletion41 && _iterator41.return != null) {
+                _iterator41.return();
               }
             } finally {
-              if (_didIteratorError40) {
-                throw _iteratorError40;
+              if (_didIteratorError41) {
+                throw _iteratorError41;
               }
             }
           }
@@ -17833,29 +17944,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "searchMeters",
         value: function searchMeters() {
           this.meterList = [];
-          var _iteratorNormalCompletion41 = true;
-          var _didIteratorError41 = false;
-          var _iteratorError41 = undefined;
+          var _iteratorNormalCompletion42 = true;
+          var _didIteratorError42 = false;
+          var _iteratorError42 = undefined;
 
           try {
-            for (var _iterator41 = this.meters[Symbol.iterator](), _step41; !(_iteratorNormalCompletion41 = (_step41 = _iterator41.next()).done); _iteratorNormalCompletion41 = true) {
-              var medidor = _step41.value;
+            for (var _iterator42 = this.meters[Symbol.iterator](), _step42; !(_iteratorNormalCompletion42 = (_step42 = _iterator42.next()).done); _iteratorNormalCompletion42 = true) {
+              var medidor = _step42.value;
 
               if (medidor.user._id == this.usuarioActual) {
                 this.meterList.push(medidor);
               }
             }
           } catch (err) {
-            _didIteratorError41 = true;
-            _iteratorError41 = err;
+            _didIteratorError42 = true;
+            _iteratorError42 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion41 && _iterator41.return != null) {
-                _iterator41.return();
+              if (!_iteratorNormalCompletion42 && _iterator42.return != null) {
+                _iterator42.return();
               }
             } finally {
-              if (_didIteratorError41) {
-                throw _iteratorError41;
+              if (_didIteratorError42) {
+                throw _iteratorError42;
               }
             }
           }
@@ -17868,16 +17979,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchRegisters",
         value: function searchRegisters() {
-          var _this110 = this;
+          var _this113 = this;
 
           this.registerList = null;
           this.registerList = [];
 
           if (!this.userList || this.userList.length <= 0) {
             this.meterService.getMeterForConsulting(this.medidorActual).subscribe(function (response) {
-              _this110.userList = [];
+              _this113.userList = [];
 
-              _this110.userList.push(response.meter.user);
+              _this113.userList.push(response.meter.user);
             });
           }
 
@@ -17889,10 +18000,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var registro = response.Registros[i];
                 registro.numero = i + 1;
 
-                _this110.registerList.push(registro);
+                _this113.registerList.push(registro);
               }
 
-              _this110.registerList.sort(function (a, b) {
+              _this113.registerList.sort(function (a, b) {
                 var fecha1 = moment__WEBPACK_IMPORTED_MODULE_6__(a.month + 1 + '-01-' + a.year);
                 var fecha2 = moment__WEBPACK_IMPORTED_MODULE_6__(b.month + 1 + '-01-' + b.year);
                 var difference = fecha1.diff(fecha2, 'months');
@@ -17901,9 +18012,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (difference == 0) return 0;
               });
 
-              _this110.bufferRegisters = _this110.registerList;
+              _this113.bufferRegisters = _this113.registerList;
             } else {
-              _this110.registerList = null;
+              _this113.registerList = null;
             }
           });
         }
@@ -17917,11 +18028,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMeters",
         value: function initMeters() {
-          var _this111 = this;
+          var _this114 = this;
 
           this.loading = false;
           this.meterService.showMetersForConsulting().subscribe(function (response) {
-            _this111.meters = response.Medidores;
+            _this114.meters = response.Medidores;
           }, function (error) {
             console.log(error);
           });
@@ -17943,10 +18054,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this112 = this;
+          var _this115 = this;
 
           this.userService.showForConsulting().subscribe(function (response) {
-            _this112.usuarios = response.Usuarios;
+            _this115.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
           });
@@ -18170,20 +18281,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loginUser",
         value: function loginUser(user) {
-          var _this113 = this;
+          var _this116 = this;
 
           this.userService.login(user).subscribe(function (response) {
-            _this113.identity = response.user;
-            console.log('respuesta' + _this113.identity);
+            _this116.identity = response.user;
+            console.log('respuesta' + _this116.identity);
 
-            if (_this113.identity && _this113.identity._id !== 'undefined') {
+            if (_this116.identity && _this116.identity._id !== 'undefined') {
               // localStorage.setItem('role_user', this.identity.role_user);
-              _this113.goToInicio(); // alert('El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', ha sido Ingresado');
+              _this116.goToInicio(); // alert('El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', ha sido Ingresado');
 
-            } else if (!_this113.identity && !_this113.identity._id) {
+            } else if (!_this116.identity && !_this116.identity._id) {
               alert('Error en la cuenta y/o contraseña');
-              console.log('respuesta' + _this113.identity);
-              _this113.status = false;
+              console.log('respuesta' + _this116.identity);
+              _this116.status = false;
             }
           }, function (error) {
             var errorMessage = error;
@@ -18208,15 +18319,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onRegister",
         value: function onRegister() {
-          var _this114 = this;
+          var _this117 = this;
 
           this.userService.register(this.user).subscribe(function (response) {
-            _this114.identity = response.User; // localStorage.setItem('identity', JSON.stringify(response.User));
+            _this117.identity = response.User; // localStorage.setItem('identity', JSON.stringify(response.User));
             // this.getToken();
             // console.log('redirigiendo?');
             // this.router.navigate(['/inicio']);
 
-            _this114.goToInicio();
+            _this117.goToInicio();
           }, function (error) {
             console.error(error);
             alert('Datos Duplicados, revise su cedula, su correo o su nombre de cuenta...');
@@ -18225,15 +18336,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getToken",
         value: function getToken() {
-          var _this115 = this;
+          var _this118 = this;
 
           this.userService.login(this.user, 'true').subscribe(function (response) {
-            _this115.token = response.token;
+            _this118.token = response.token;
 
-            if (!_this115.token) {
+            if (!_this118.token) {
               alert('Error en el correo y/o contraseña');
-            } else if (_this115.token) {
-              localStorage.setItem('token', JSON.stringify(_this115.token));
+            } else if (_this118.token) {
+              localStorage.setItem('token', JSON.stringify(_this118.token));
             }
           }, function (error) {
             var errorMessage = error;
@@ -18245,7 +18356,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onAdmin",
         value: function onAdmin() {
-          var _this116 = this;
+          var _this119 = this;
 
           this.counter++;
           console.log(this.counter);
@@ -18265,8 +18376,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           setTimeout(function () {
-            _this116.counter = 0;
-            console.log(_this116.counter);
+            _this119.counter = 0;
+            console.log(_this119.counter);
           }, 1000);
         }
       }, {
@@ -18465,27 +18576,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this117 = this;
+          var _this120 = this;
 
           this._messageService.addMessage(this.token, this.message).subscribe(function (response) {
             if (response) {
-              _this117.status = "success";
+              _this120.status = "success";
               form.reset();
               console.log("mensaje enviado correctamente");
             }
           }, function (error) {
-            _this117.status = "error";
+            _this120.status = "error";
             console.log(error);
           });
         }
       }, {
         key: "getMyFollows",
         value: function getMyFollows() {
-          var _this118 = this;
+          var _this121 = this;
 
           this._followService.getMyFollows(this.token).subscribe(function (response) {
             console.log(response);
-            _this118.follows = response.follows;
+            _this121.follows = response.follows;
           }, function (error) {
             console.log(error);
           });
@@ -18743,32 +18854,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "actualPage",
         value: function actualPage() {
-          var _this119 = this;
+          var _this122 = this;
 
           this.route.params.subscribe(function (params) {
             var page = +params['page'];
-            _this119.page = page;
-            if (!page || page == 1) _this119.page = 1, _this119.prevPage = null, _this119.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
-              _this119.nextPage = page + 1;
-              _this119.prevPage = page - 1;
-              if (_this119.prevPage <= 0) _this119.prevPage = 1;
+            _this122.page = page;
+            if (!page || page == 1) _this122.page = 1, _this122.prevPage = null, _this122.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
+              _this122.nextPage = page + 1;
+              _this122.prevPage = page - 1;
+              if (_this122.prevPage <= 0) _this122.prevPage = 1;
             } // devolver listado de mensajes
 
-            _this119.getMessages(_this119.page);
+            _this122.getMessages(_this122.page);
           });
         }
       }, {
         key: "getMessages",
         value: function getMessages(page) {
-          var _this120 = this;
+          var _this123 = this;
 
           if (page == null || page == 0) page = 1;
 
           this._messageService.getMyMessage(this.token, page).subscribe(function (response) {
-            _this120.pages = response.Pages;
-            _this120.total = response.Total;
-            _this120.messages = response.Messages;
-            console.log('Datos: -Pages: ' + _this120.pages + '. -Total [object]: ' + _this120.total + '. -Page: ' + _this120.page);
+            _this123.pages = response.Pages;
+            _this123.total = response.Total;
+            _this123.messages = response.Messages;
+            console.log('Datos: -Pages: ' + _this123.pages + '. -Total [object]: ' + _this123.total + '. -Page: ' + _this123.page);
             console.log(response);
           }, function (error) {
             console.log(error);
@@ -18922,32 +19033,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "actualPage",
         value: function actualPage() {
-          var _this121 = this;
+          var _this124 = this;
 
           this.route.params.subscribe(function (params) {
             var page = +params['page'];
-            _this121.page = page;
-            if (!page || page == 1) _this121.page = 1, _this121.prevPage = null, _this121.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
-              _this121.nextPage = page + 1;
-              _this121.prevPage = page - 1;
-              if (_this121.prevPage <= 0) _this121.prevPage = 1;
+            _this124.page = page;
+            if (!page || page == 1) _this124.page = 1, _this124.prevPage = null, _this124.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
+              _this124.nextPage = page + 1;
+              _this124.prevPage = page - 1;
+              if (_this124.prevPage <= 0) _this124.prevPage = 1;
             } // devolver listado de mensajes
 
-            _this121.getMessages(_this121.page);
+            _this124.getMessages(_this124.page);
           });
         }
       }, {
         key: "getMessages",
         value: function getMessages(page) {
-          var _this122 = this;
+          var _this125 = this;
 
           if (page == null || page == 0) page = 1;
 
           this._messageService.getEmittMessage(this.token, page).subscribe(function (response) {
-            _this122.pages = response.Pages;
-            _this122.total = response.Total;
-            _this122.messages = response.Messages;
-            console.log('Datos: -Pages: ' + _this122.pages + '. -Total [object]: ' + _this122.total + '. -Page: ' + _this122.page);
+            _this125.pages = response.Pages;
+            _this125.total = response.Total;
+            _this125.messages = response.Messages;
+            console.log('Datos: -Pages: ' + _this125.pages + '. -Total [object]: ' + _this125.total + '. -Page: ' + _this125.page);
             console.log(response);
           }, function (error) {
             console.log(error);
