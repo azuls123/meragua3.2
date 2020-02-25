@@ -583,7 +583,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <!-- left column -->\r\n  <div class=\"col-md-6 offset-lg-2\">\r\n    <!-- Horizontal Form -->\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /.card-header -->\r\n\r\n      <!-- form start -->\r\n      <form #meterForm=\"ngForm\" (ngSubmint)=\"onSubmit(meterForm)\" class=\"form-horizontal\">\r\n        <div class=\"card-body\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"clave\" class=\"col-sm-4 control-label\">Clave | N&ordm; Medidor</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <input #clave [(ngModel)]=\"medidor.clave\" id=\"clave\" type=\"number\" name=\"clave\" min=\"1\"\r\n                class=\"form-control default\" placeholder=\"__________\" [class.is-valid]=\"medidorOk===true\"\r\n                [class.is-invalid]=\"medidorOk===null\" [class.is-warning]=\"medidorOk===false\"\r\n                (keyup)=\"validarMedidor(clave.value)\" (change)=\"validarMedidor(clave.value)\" required />\r\n              <!-- << Input -->\r\n              <span *ngIf=\"!clave.valid && clave.touched\" class=\"\">\r\n                Clave Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-4 control-label\">Direccion</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <input #direccion=\"ngModel\" [(ngModel)]=\"medidor.direccion\" id=\"direccion\" type=\"text\" name=\"direccion\"\r\n                class=\"form-control default\" placeholder=\"Ingresar una direccion\" required />\r\n              <!-- << Input -->\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"BackGround Font Dark-mode\">\r\n                Direccion Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sector\" class=\"col-sm-4 control-label\">Sector</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-search-location\"></i>\r\n                  </span>\r\n                </div>\r\n                <select name=\"sector\" class=\"form-control default\" id=\"sector\" required #sector [(ngModel)]=\"medidor.sector\">\r\n                  <option value=\"{{sector._id}}\" *ngFor=\"let sector of sectores\">\r\n                    {{sector.codigo + ' - ' + sector.nombre}}\r\n                  </option>\r\n                </select>\r\n                <span *ngIf=\"!sector.valid && sector.touched\" class=\"BackGround Font Dark-mode\">\r\n                  Direccion Obligatoria!!\r\n                </span>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"Usuario\" class=\"col-sm-4 control-label\">Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group \">\r\n                <select name=\"user\" id=\"user\" #user=\"ngModel\" [(ngModel)]=\"medidor.user\" class=\"form-control default\"\r\n                  required>\r\n                  <option *ngFor=\"let usuario of users\" value=\"{{usuario._id}}\">\r\n                    {{usuario.cedula + ' | ' +  usuario.apellido.split(\" \", 1) + ' ' + usuario.nombre.split(\" \", 1)}}\r\n                  </option>\r\n                </select>\r\n                <div class=\"input-group-append\">\r\n                  <button class=\"btn btn-default\" (click)=\"cargarDatos()\">\r\n                    <span class=\"fas fa-redo-alt\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n              <span *ngIf=\"!user.valid && user.touched\">\r\n                Usuario Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"rate\" class=\"col-sm-4 control-label\">Tarifa</label>\r\n            <div class=\"col-sm-8\">\r\n              <select name=\"rate\" id=\"rate\" #rate=\"ngModel\" [(ngModel)]=\"medidor.rate\" class=\"form-control default\"\r\n                required>\r\n                <option *ngFor=\"let tarifa of tarifas\" value=\"{{tarifa._id}}\">{{tarifa.tarifa}}</option>\r\n              </select>\r\n              <span *ngIf=\"!rate.valid && rate.touched\">\r\n                Tarifa Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"croquis\" class=\"col-sm-4 control-label\">Imagen de Croquis</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- Input type File Custom -->\r\n              <span class=\"btn btn-primary btn-file\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\">\r\n                <i class=\"fa fa-upload\"></i> &nbsp; Subir archivo\r\n                <input id=\"file-upload\" type=\"file\" placeholder=\"Subir Croquis\" name=\"image\" class=\"btn-file\"\r\n                  (change)=\"fileChangeEvent($event)\" />\r\n              </span>\r\n              <label *ngIf=\"!image\" class=\"  control-label\"> &nbsp; Ning&uacute;n Croquis Subido</label>\r\n              <label *ngIf=\"image\" class=\"  control-label\"> &nbsp; {{image}}</label>\r\n              <!-- Fin del Input type File custom -->\r\n              <!-- <input type=\"file\" (change)=\"fileChangeEvent($event)\" class=\"for-control\" name=\"\" id=\"\" placeholder=\"Seleccionar una Imagen\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\"/> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"for-group row\">\r\n            <label for=\"new-user\" class=\"col-sm-4 control-label\">No Encuentra el Usuario?</label>\r\n            <div class=\"col-sm-8\">\r\n              <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-user\">\r\n                Ver Opciones\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- /.card-body -->\r\n        <div class=\"card-footer\">\r\n          <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-primary\" [disabled]=\"!meterForm.form.valid\"\r\n            (click)=\"onSubmit(meterForm)\" />\r\n          <button (click)=\"formReset(meterForm)\" class=\"btn btn-secondary float-right\">Cancelar | Limpiar</button>\r\n        </div>\r\n        <!-- /.card-footer -->\r\n      </form>\r\n    </div>\r\n    <!-- /.card -->\r\n\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-user\" name=\"modal-user\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Buscar Usuario</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <form action=\"\">\r\n          <div class=\"form-group row clearfix\">\r\n            <label for=\"termino\" class=\"col-sm-4 control-label\">Buscar Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <input #termino id=\"termino\" name=\"termino\" type=\"text\" class=\"form-control  default\"\r\n                placeholder=\"Ingresar un Termino de busqueda\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombres\" class=\"col-sm-1\">Por:</label>\r\n            <input #porNombre class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"nombre\" name=\"nombre\">\r\n            <label for=\"nombre\" class=\"col-sm-2\">Nombres</label>\r\n            <input #porCedula class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"cedula\" name=\"cedula\">\r\n            <label for=\"cedula\" class=\"col-sm-2\">Cédula </label>\r\n            <button class=\"btn btn-primary col-sm-2 pull-right\"\r\n              (click)=\"busquedaUsuario(termino.value, porNombre.checked, porCedula.checked)\">Buscar</button>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos >= 2\">\r\n              {{'Se Encontraron ' + conteos + ' usuarios'}}</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos == 1\"> {{'Se Encontro ' + conteos + ' usuario'}}</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"!conteos || conteos == 0\"> No se encontraron usuarios</label>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">O ingresar un nuevo Usuario</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmitUser(registerForm)\" class=\"col-lg-12 form-group\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombre\" class=\"col-sm-3\">Nombre</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"user.nombre\"\r\n                class=\"form-control default\" title=\"El campo Nombre es Obligatorio\" required />\r\n              <span *ngIf=\"!nombre.valid && nombre.touched\">\r\n                Nombre Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"apellido\" class=\"col-sm-3\">Apellido</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.apellido\" title=\"El campo Apellido es Obligatorio\" required />\r\n              <span *ngIf=\"!apellido.valid && apellido.touched\">\r\n                Apellido Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <label for=\"cedula\" class=\"col-sm-3\">Cédula</label>\r\n            <div class=\"col-sm-9\">\r\n              <div class=\"input-group default\">\r\n                <div class=\"input-group-prepend default\">\r\n                  <span class=\"input-group-text\"><i class=\"fa fa-address-card\"></i></span>\r\n                </div>\r\n                <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\"\r\n                  class=\"form-control default\" pattern=\"[0-9]{9}-[0-9]{1}\" placeholder=\"_________-_\"\r\n                  title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\" required />\r\n              </div>\r\n              <!-- /.input group -->\r\n              <span *ngIf=\"!cedula.valid && cedula.touched\">\r\n                Cédula Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-3\">Dirección</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.direccion\" required />\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\">\r\n                Dirección Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sexo\" class=\"col-sm-3\">Sexo</label>\r\n            <div class=\"col-sm-9\">\r\n              <select name=\"sexo\" id=\"sexo\" #sexo=ngModel [(ngModel)]=user.sexo class=\"form-control default\">\r\n                <option value=\"Masculino\">Masculino</option>\r\n                <option value=\"Femenino\">Femenino</option>\r\n                <option value=\"Indefinido\">Indefinido</option>\r\n              </select>\r\n              <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n              <span *ngIf=\"!sexo.valid && sexo.touched\">\r\n                Campo Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <input type=\"submit\" value=\"Agreagar Usuario\" class=\"btn btn-primary\" [disabled]=\"!registerForm.form.valid\" />\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <!-- left column -->\r\n  <div class=\"col-md-6 offset-lg-2\">\r\n    <!-- Horizontal Form -->\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /.card-header -->\r\n\r\n      <!-- form start -->\r\n      <form #meterForm=\"ngForm\" (ngSubmint)=\"onSubmit(meterForm)\" class=\"form-horizontal\">\r\n        <div class=\"card-body\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"clave\" class=\"col-sm-4 control-label\">Clave | N&ordm; Medidor</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <div class=\"input-group mb-3\">\r\n                <input #clave [(ngModel)]=\"medidor.clave\" id=\"clave\" type=\"number\" name=\"clave\" min=\"1\"\r\n                class=\"form-control default\"  placeholder=\"__________\" [class.is-valid]=\"medidorOk===true\"\r\n                [class.is-invalid]=\"medidorOk===null\" [class.is-warning]=\"medidorOk===false\"\r\n                (keyup)=\"validarMedidor(clave.value)\" (change)=\"validarMedidor(clave.value)\" required />\r\n                <div class=\"input-group-append\" style=\"cursor: pointer;\" title=\"Generar Clave aleatoria\" (click)=\"goRandom()\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-dice\"></i>\r\n                  </span>\r\n                </div>\r\n              </div>\r\n              \r\n              <!-- << Input -->\r\n              <span *ngIf=\"!clave.valid && clave.touched\" class=\"\">\r\n                Clave Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-4 control-label\">Direccion</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <input #direccion=\"ngModel\" [(ngModel)]=\"medidor.direccion\" id=\"direccion\" type=\"text\" name=\"direccion\"\r\n                class=\"form-control default\" placeholder=\"Ingresar una direccion\" required />\r\n              <!-- << Input -->\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"BackGround Font Dark-mode\">\r\n                Direccion Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sector\" class=\"col-sm-4 control-label\">Sector</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-search-location\"></i>\r\n                  </span>\r\n                </div>\r\n                <select name=\"sector\" class=\"form-control default\" id=\"sector\" required #sector [(ngModel)]=\"medidor.sector\">\r\n                  <option value=\"{{sector._id}}\" *ngFor=\"let sector of sectores\">\r\n                    {{sector.codigo + ' - ' + sector.nombre}}\r\n                  </option>\r\n                </select>\r\n                <span *ngIf=\"!sector.valid && sector.touched\" class=\"BackGround Font Dark-mode\">\r\n                  Direccion Obligatoria!!\r\n                </span>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"Usuario\" class=\"col-sm-4 control-label\">Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group \">\r\n                <select name=\"user\" id=\"user\" #user=\"ngModel\" [(ngModel)]=\"medidor.user\" class=\"form-control default\"\r\n                  required>\r\n                  <option *ngFor=\"let usuario of users\" value=\"{{usuario._id}}\">\r\n                    {{usuario.cedula + ' | ' +  usuario.apellido.split(\" \", 1) + ' ' + usuario.nombre.split(\" \", 1)}}\r\n                  </option>\r\n                </select>\r\n                <div class=\"input-group-append\">\r\n                  <button class=\"btn btn-default\" (click)=\"cargarDatos()\">\r\n                    <span class=\"fas fa-redo-alt\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n              <span *ngIf=\"!user.valid && user.touched\">\r\n                Usuario Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"rate\" class=\"col-sm-4 control-label\">Tarifa</label>\r\n            <div class=\"col-sm-8\">\r\n              <select name=\"rate\" id=\"rate\" #rate=\"ngModel\" [(ngModel)]=\"medidor.rate\" class=\"form-control default\"\r\n                required>\r\n                <option *ngFor=\"let tarifa of tarifas\" value=\"{{tarifa._id}}\">{{tarifa.tarifa}}</option>\r\n              </select>\r\n              <span *ngIf=\"!rate.valid && rate.touched\">\r\n                Tarifa Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"croquis\" class=\"col-sm-4 control-label\">Imagen de Croquis</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- Input type File Custom -->\r\n              <span class=\"btn btn-primary btn-file\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\">\r\n                <i class=\"fa fa-upload\"></i> &nbsp; Subir archivo\r\n                <input id=\"file-upload\" type=\"file\" placeholder=\"Subir Croquis\" name=\"image\" class=\"btn-file\"\r\n                  (change)=\"fileChangeEvent($event)\" />\r\n              </span>\r\n              <label *ngIf=\"!image\" class=\"  control-label\"> &nbsp; Ning&uacute;n Croquis Subido</label>\r\n              <label *ngIf=\"image\" class=\"  control-label\"> &nbsp; {{image}}</label>\r\n              <!-- Fin del Input type File custom -->\r\n              <!-- <input type=\"file\" (change)=\"fileChangeEvent($event)\" class=\"for-control\" name=\"\" id=\"\" placeholder=\"Seleccionar una Imagen\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\"/> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"for-group row\">\r\n            <label for=\"new-user\" class=\"col-sm-4 control-label\">No Encuentra el Usuario?</label>\r\n            <div class=\"col-sm-8\">\r\n              <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-user\">\r\n                Ver Opciones\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- /.card-body -->\r\n        <div class=\"card-footer\">\r\n          <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-primary\" [disabled]=\"!meterForm.form.valid\"\r\n            (click)=\"onSubmit(meterForm)\" />\r\n          <button (click)=\"formReset(meterForm)\" class=\"btn btn-secondary float-right\">Cancelar | Limpiar</button>\r\n        </div>\r\n        <!-- /.card-footer -->\r\n      </form>\r\n    </div>\r\n    <!-- /.card -->\r\n\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-user\" name=\"modal-user\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Buscar Usuario</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <form action=\"\">\r\n          <div class=\"form-group row clearfix\">\r\n            <label for=\"termino\" class=\"col-sm-4 control-label\">Buscar Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <input #termino id=\"termino\" name=\"termino\" type=\"text\" class=\"form-control  default\"\r\n                placeholder=\"Ingresar un Termino de busqueda\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombres\" class=\"col-sm-1\">Por:</label>\r\n            <input #porNombre class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"nombre\" name=\"nombre\">\r\n            <label for=\"nombre\" class=\"col-sm-2\">Nombres</label>\r\n            <input #porCedula class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"cedula\" name=\"cedula\">\r\n            <label for=\"cedula\" class=\"col-sm-2\">Cédula </label>\r\n            <button class=\"btn btn-primary col-sm-2 pull-right\"\r\n              (click)=\"busquedaUsuario(termino.value, porNombre.checked, porCedula.checked)\">Buscar</button>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos >= 2\">\r\n              {{'Se Encontraron ' + conteos + ' usuarios'}}</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos == 1\"> {{'Se Encontro ' + conteos + ' usuario'}}</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"!conteos || conteos == 0\"> No se encontraron usuarios</label>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">O ingresar un nuevo Usuario</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmitUser(registerForm)\" class=\"col-lg-12 form-group\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombre\" class=\"col-sm-3\">Nombre</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"user.nombre\"\r\n                class=\"form-control default\" title=\"El campo Nombre es Obligatorio\" required />\r\n              <span *ngIf=\"!nombre.valid && nombre.touched\">\r\n                Nombre Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"apellido\" class=\"col-sm-3\">Apellido</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.apellido\" title=\"El campo Apellido es Obligatorio\" required />\r\n              <span *ngIf=\"!apellido.valid && apellido.touched\">\r\n                Apellido Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <label for=\"cedula\" class=\"col-sm-3\">Cédula</label>\r\n            <div class=\"col-sm-9\">\r\n              <div class=\"input-group default\">\r\n                <div class=\"input-group-prepend default\">\r\n                  <span class=\"input-group-text\"><i class=\"fa fa-address-card\"></i></span>\r\n                </div>\r\n                <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\"\r\n                  class=\"form-control default\" pattern=\"[0-9]{9}-[0-9]{1}\" placeholder=\"_________-_\"\r\n                  title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\" required />\r\n              </div>\r\n              <!-- /.input group -->\r\n              <span *ngIf=\"!cedula.valid && cedula.touched\">\r\n                Cédula Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-3\">Dirección</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.direccion\" required />\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\">\r\n                Dirección Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sexo\" class=\"col-sm-3\">Sexo</label>\r\n            <div class=\"col-sm-9\">\r\n              <select name=\"sexo\" id=\"sexo\" #sexo=ngModel [(ngModel)]=user.sexo class=\"form-control default\">\r\n                <option value=\"Masculino\">Masculino</option>\r\n                <option value=\"Femenino\">Femenino</option>\r\n                <option value=\"Indefinido\">Indefinido</option>\r\n              </select>\r\n              <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n              <span *ngIf=\"!sexo.valid && sexo.touched\">\r\n                Campo Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <input type=\"submit\" value=\"Agreagar Usuario\" class=\"btn btn-primary\" [disabled]=\"!registerForm.form.valid\" />\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n";
     /***/
   },
 
@@ -623,7 +623,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-md-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{ title }}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\">\r\n              <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader\r\n          *ngIf=\"loading === true\"\r\n          style=\"margin: 80px !important;\"\r\n        ></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"medidores.length <= 0 && loading !== true\">\r\n        <div class=\"row\">\r\n          <label for=\"\">{{ descripcion }}</label>\r\n          <a [routerLink]=\"['/nuevo-medidor']\" class=\"btn btn-info\"\r\n            >Empezar a ingresar Medidores</a\r\n          >\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"medidores.length >= 1\">\r\n        <table id=\"example1\" class=\"table table-bordered table-hover\">\r\n          <!-- |>>>> Cabecera de Tabla -->\r\n          <thead>\r\n            <tr>\r\n              <th>#</th>\r\n              <th>Ver</th>\r\n              <th>Clave</th>\r\n              <th>Direccion</th>\r\n              <th>Tarifa</th>\r\n              <th>Base</th>\r\n              <th>Usuario</th>\r\n            </tr>\r\n          </thead>\r\n          <!-- |<<<< Cabecera de Tabla -->\r\n          <!-- |>>>> Contenido de Tabla -->\r\n          <tbody *ngIf=\"medidores\">\r\n            <tr\r\n              *ngFor=\"\r\n                let medidor of medidores\r\n                  | paginate\r\n                    : { id: 'medidores', itemsPerPage: 8, currentPage: page };\r\n                let i = index\r\n              \"\r\n            >\r\n              <th scope=\"row\">{{ i + 1 }}</th>\r\n              <td>\r\n                <button\r\n                  type=\"button\"\r\n                  class=\"btn btn-default\"\r\n                  (click)=\"loadMeter(medidor)\"\r\n                  data-toggle=\"modal\"\r\n                  data-target=\"#modal-meter\"\r\n                >\r\n                  <i class=\"fa fa-eye\"></i>\r\n                </button>\r\n              </td>\r\n              <td>\r\n                {{ medidor.clave }}\r\n              </td>\r\n              <td>\r\n                <span *ngIf=\"medidor.direccion\">\r\n                  <b>Calles: </b> {{ medidor.direccion }} <br>\r\n                </span>\r\n                <span *ngIf=\"!medidor.direccion\">\r\n                  <b>Sin Calles Registradas</b>\r\n                </span>\r\n                <span *ngIf=\"!medidor.sector\">\r\n                  <b>Sin Sector Registrado</b>\r\n                </span>\r\n                <span *ngIf=\"medidor.sector\">\r\n                  <b>Sector: </b> {{ medidor.sector.nombre + ' | Cod: ' + medidor.sector.codigo }}\r\n                </span>\r\n              </td>\r\n              <td>\r\n                {{ medidor.rate.tarifa }}\r\n              </td>\r\n              <td>\r\n                <span *ngIf=\"medidor.rate.percent_cost == false\">\r\n                  {{ medidor.rate.base | currency }}\r\n                </span>\r\n                <span *ngIf=\"medidor.rate.percent_cost == true\">\r\n                  {{ calcValorActual(medidor.rate.base) | currency }} ({{medidor.rate.base}}% R.M.U.V)\r\n                </span>\r\n              </td>\r\n              <td>\r\n                {{\r\n                  medidor.user.cedula +\r\n                    \" - \" +\r\n                    medidor.user.nombre.split(\" \", 1) +\r\n                    \" \" +\r\n                    medidor.user.apellido.split(\" \", 1)\r\n                }}\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n          <!-- |<<<< Contenido de Tabla -->\r\n          <tfoot>\r\n            <tr>\r\n              <th>#</th>\r\n              <th>Ver</th>\r\n              <th>Clave</th>\r\n              <th>Direccion</th>\r\n              <th>Tarifa</th>\r\n              <th>Base</th>\r\n              <th>Usuario</th>\r\n            </tr>\r\n          </tfoot>\r\n        </table>\r\n        <pagination-controls\r\n          id=\"medidores\"\r\n          (pageChange)=\"page = $event\"\r\n          maxSize=\"9\"\r\n          directionLinks=\"true\"\r\n          autoHide=\"true\"\r\n          responsive=\"true\"\r\n          previousLabel=\"Anterior\"\r\n          nextLabel=\"Siguiente\"\r\n          screenReaderPaginationLabel=\"Medidores\"\r\n          screenReaderPageLabel=\"Pagina\"\r\n          screenReaderCurrentLabel=\"Estas en la Pagina \"\r\n          previousClass=\"btn btn-success\"\r\n        >\r\n        </pagination-controls>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<!-- >llamado al modal -->\r\n<div class=\"modal fade\" id=\"modal-meter\" name=\"modal-meter\">\r\n  <!-- > formato interno -->\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <!-- > margenes -->\r\n    <div class=\"modal-content\">\r\n      <!-- >> Cabecera -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Detalles del Medidor</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-laber=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\"> &times;</span>\r\n        </button>\r\n      </div>\r\n      <!-- << Cabecera -->\r\n      <!-- >> Cuerpo -->\r\n      <div class=\"modal-body\" *ngIf=\"meter\">\r\n        <div class=\"card card-primary card-outline\">\r\n          <div class=\"card-body box profile\">\r\n            <div class=\"row\">\r\n              <div class=\"col-lg-12\">\r\n                <h3 class=\"profile-username text-center\">\r\n                  <a\r\n                    target=\"blank\"\r\n                    type=\"button\"\r\n                    (click)=\"showUser(meter.user._id)\"\r\n                    class=\"btn btn-default\"\r\n                    title=\"Ver perfil del Propietario\"\r\n                  >\r\n                    <i class=\"fa fa-eye\"></i>\r\n                    {{\r\n                      \"Propietario: \" +\r\n                      meter.user.nombre.split(\" \", 1) +\r\n                      \" \" +\r\n                      meter.user.apellido.split(\" \", 1)\r\n                    }}\r\n                    {{ meter.user.cedula }}\r\n                  </a>\r\n                </h3>\r\n                <div class=\"text-center\">\r\n                  <a\r\n                    href=\"{{ url + 'get-image/' + meter.image }}\"\r\n                    *ngIf=\"meter.image\"\r\n                    data-toggle=\"lightbox\"\r\n                    data-title=\"Croquis del Medidor\"\r\n                  >\r\n                    <img\r\n                      src=\"{{ url + 'get-image/' + meter.image }}\"\r\n                      class=\"img-fluid mb-2  profile-user-img img-fluid\"\r\n                      alt=\"Croquis del Medidor\"\r\n                    />\r\n                  </a>\r\n\r\n                  <!-- <img src=\"{{url + 'get-image/' + meter.image}}\" *ngIf=\"meter.image\" alt=\"Croquis del Medidor\" class=\"img-fluid mb-2 profile-user-img img-fluid\"> -->\r\n                  <p class=\"text-muted text-center\" *ngIf=\"!meter.image\">\r\n                    No hay imagen de Croquis\r\n                  </p>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-lg-6\">\r\n                <div class=\"col-lg-12\">\r\n                  <label class=\"text-center\"><i class=\"fas fa-tachometer-alt\"></i> &nbsp; Medidor</label>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Clave: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.clave }}\r\n                  </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Direccion: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.direccion }}\r\n                  </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Ultima Edicion: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{\r\n                      meter.updated_at\r\n                        | amFromUnix\r\n                        | amLocale: \"es\"\r\n                        | amTimeAgo\r\n                    }}. El\r\n                    {{\r\n                      meter.updated_at\r\n                        | amFromUnix\r\n                        | amLocale: \"es\"\r\n                        | date: \"longDate\"\r\n                    }}\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-lg-6\">\r\n                <div class=\"col-lg-12\">\r\n                  <label class=\"text-center\"><i class=\"fa fa-table\"></i> &nbsp; Tarifa: <a\r\n                    target=\"blank\"\r\n                    hidden\r\n                    type=\"button\"\r\n                    class=\"btn btn-default\"\r\n                    title=\"Ver perfil del Propietario\"\r\n                  >\r\n                    <i class=\"fa fa-eye\"></i> Ver Tarifas\r\n                  </a></label>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Nombre: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.rate.tarifa }}\r\n                  </div>\r\n                  <b class=\"col-sm-4\">Base: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.rate.base | currency }}\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-lg-12 text-center\" *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n                <a\r\n                [routerLink]=\"['/editar-medidor', meter._id]\"\r\n                class=\"btn btn-secondary\"\r\n                data-dismiss=\"modal\"\r\n                aria-laber=\"Close\"\r\n              >\r\n                Editar Medidor\r\n              </a>\r\n            </div>\r\n            <br>\r\n            <div class=\"col-lg-12 text-center\">\r\n              <app-show-registers [fromProfile]=\"fromProfile\" [meterId]=\"meterId\"></app-show-registers>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- << Cuerpo -->\r\n    </div>\r\n    <!-- < margenes -->\r\n  </div>\r\n  <!-- < formato interno  -->\r\n</div>\r\n<!-- <llamado al modal -->\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-md-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{ title }}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\">\r\n              <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader\r\n          *ngIf=\"loading === true\"\r\n          style=\"margin: 80px !important;\"\r\n        ></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"medidores.length <= 0 && loading !== true\">\r\n        <div class=\"row\">\r\n          <label for=\"\">{{ descripcion }}</label>\r\n          <a [routerLink]=\"['/nuevo-medidor']\" class=\"btn btn-info\"\r\n            >Empezar a ingresar Medidores</a\r\n          >\r\n        </div>\r\n      </div>\r\n      <!-- <button class=\"btn btn-sm btn-success\" (click)=\"test()\">\r\n        test?\r\n      </button> -->\r\n      <div class=\"card-body\" [style.font-size.px]=\"size\" *ngIf=\"medidores.length >= 1\">\r\n        <table id=\"example1\" class=\"table table-bordered table-hover\">\r\n          <!-- |>>>> Cabecera de Tabla -->\r\n          <thead>\r\n            <tr>\r\n              <th>#</th>\r\n              <th>Ver</th>\r\n              <th>Clave</th>\r\n              <th>Direccion</th>\r\n              <th>Tarifa</th>\r\n              <th>Base</th>\r\n              <th>Usuario</th>\r\n            </tr>\r\n          </thead>\r\n          <!-- |<<<< Cabecera de Tabla -->\r\n          <!-- |>>>> Contenido de Tabla -->\r\n          <tbody *ngIf=\"medidores\">\r\n            <tr\r\n              *ngFor=\"\r\n                let medidor of medidores\r\n                  | paginate\r\n                    : { id: 'medidores', itemsPerPage: 8, currentPage: page };\r\n                let i = index\r\n              \"\r\n            >\r\n              <th scope=\"row\">{{ i + 1 }}</th>\r\n              <td>\r\n                <button\r\n                  type=\"button\"\r\n                  class=\"btn btn-default\"\r\n                  (click)=\"loadMeter(medidor)\"\r\n                  data-toggle=\"modal\"\r\n                  data-target=\"#modal-meter\"\r\n                >\r\n                  <i class=\"fa fa-eye\"></i>\r\n                </button>\r\n              </td>\r\n              <td>\r\n                {{ medidor.clave }}\r\n              </td>\r\n              <td>\r\n                <span *ngIf=\"medidor.direccion\">\r\n                  <b>Calles: </b> {{ medidor.direccion }} <br>\r\n                </span>\r\n                <span *ngIf=\"!medidor.direccion\">\r\n                  <b>Sin Calles Registradas</b>\r\n                </span>\r\n                <span *ngIf=\"!medidor.sector\">\r\n                  <b>Sin Sector Registrado</b>\r\n                </span>\r\n                <span *ngIf=\"medidor.sector\">\r\n                  <b>Sector: </b> {{ medidor.sector.nombre + ' | Cod: ' + medidor.sector.codigo }}\r\n                </span>\r\n              </td>\r\n              <td>\r\n                {{ medidor.rate.tarifa }}\r\n              </td>\r\n              <td>\r\n                <span *ngIf=\"medidor.rate.percent_cost == false\">\r\n                  {{ medidor.rate.base | currency }}\r\n                </span>\r\n                <span *ngIf=\"medidor.rate.percent_cost == true\">\r\n                  {{ calcValorActual(medidor.rate.base) | currency }} ({{medidor.rate.base}}% R.M.U.V)\r\n                </span>\r\n              </td>\r\n              <td>\r\n                {{\r\n                  medidor.user.cedula +\r\n                    \" - \" +\r\n                    medidor.user.nombre.split(\" \", 1) +\r\n                    \" \" +\r\n                    medidor.user.apellido.split(\" \", 1)\r\n                }}\r\n              </td>\r\n            </tr>\r\n          </tbody>\r\n          <!-- |<<<< Contenido de Tabla -->\r\n          <tfoot>\r\n            <tr>\r\n              <th>#</th>\r\n              <th>Ver</th>\r\n              <th>Clave</th>\r\n              <th>Direccion</th>\r\n              <th>Tarifa</th>\r\n              <th>Base</th>\r\n              <th>Usuario</th>\r\n            </tr>\r\n          </tfoot>\r\n        </table>\r\n        <pagination-controls\r\n          id=\"medidores\"\r\n          (pageChange)=\"page = $event\"\r\n          maxSize=\"9\"\r\n          directionLinks=\"true\"\r\n          autoHide=\"true\"\r\n          responsive=\"true\"\r\n          previousLabel=\"Anterior\"\r\n          nextLabel=\"Siguiente\"\r\n          screenReaderPaginationLabel=\"Medidores\"\r\n          screenReaderPageLabel=\"Pagina\"\r\n          screenReaderCurrentLabel=\"Estas en la Pagina \"\r\n          previousClass=\"btn btn-success\"\r\n        >\r\n        </pagination-controls>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<!-- >llamado al modal -->\r\n<div class=\"modal fade\" id=\"modal-meter\" name=\"modal-meter\">\r\n  <!-- > formato interno -->\r\n  <div class=\"modal-dialog modal-lg\">\r\n    <!-- > margenes -->\r\n    <div class=\"modal-content\">\r\n      <!-- >> Cabecera -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Detalles del Medidor</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-laber=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\"> &times;</span>\r\n        </button>\r\n      </div>\r\n      <!-- << Cabecera -->\r\n      <!-- >> Cuerpo -->\r\n      <div class=\"modal-body\" *ngIf=\"meter\">\r\n        <div class=\"card card-primary card-outline\">\r\n          <div class=\"card-body box profile\">\r\n            <div class=\"row\">\r\n              <div class=\"col-lg-12\">\r\n                <h3 class=\"profile-username text-center\">\r\n                  <a\r\n                    target=\"blank\"\r\n                    type=\"button\"\r\n                    (click)=\"showUser(meter.user._id)\"\r\n                    class=\"btn btn-default\"\r\n                    title=\"Ver perfil del Propietario\"\r\n                  >\r\n                    <i class=\"fa fa-eye\"></i>\r\n                    {{\r\n                      \"Propietario: \" +\r\n                      meter.user.nombre.split(\" \", 1) +\r\n                      \" \" +\r\n                      meter.user.apellido.split(\" \", 1)\r\n                    }}\r\n                    {{ meter.user.cedula }}\r\n                  </a>\r\n                </h3>\r\n                <div class=\"text-center\">\r\n                  <a\r\n                    href=\"{{ url + 'get-image/' + meter.image }}\"\r\n                    *ngIf=\"meter.image\"\r\n                    data-toggle=\"lightbox\"\r\n                    data-title=\"Croquis del Medidor\"\r\n                  >\r\n                    <img\r\n                      src=\"{{ url + 'get-image/' + meter.image }}\"\r\n                      class=\"img-fluid mb-2  profile-user-img img-fluid\"\r\n                      alt=\"Croquis del Medidor\"\r\n                    />\r\n                  </a>\r\n\r\n                  <!-- <img src=\"{{url + 'get-image/' + meter.image}}\" *ngIf=\"meter.image\" alt=\"Croquis del Medidor\" class=\"img-fluid mb-2 profile-user-img img-fluid\"> -->\r\n                  <p class=\"text-muted text-center\" *ngIf=\"!meter.image\">\r\n                    No hay imagen de Croquis\r\n                  </p>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-lg-6\">\r\n                <div class=\"col-lg-12\">\r\n                  <label class=\"text-center\"><i class=\"fas fa-tachometer-alt\"></i> &nbsp; Medidor</label>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Clave: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.clave }}\r\n                  </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Direccion: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.direccion }}\r\n                  </div>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Ultima Edicion: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{\r\n                      meter.updated_at\r\n                        | amFromUnix\r\n                        | amLocale: \"es\"\r\n                        | amTimeAgo\r\n                    }}. El\r\n                    {{\r\n                      meter.updated_at\r\n                        | amFromUnix\r\n                        | amLocale: \"es\"\r\n                        | date: \"longDate\"\r\n                    }}\r\n                  </div>\r\n                </div>\r\n              </div>\r\n              <div class=\"col-lg-6\">\r\n                <div class=\"col-lg-12\">\r\n                  <label class=\"text-center\"><i class=\"fa fa-table\"></i> &nbsp; Tarifa: <a\r\n                    target=\"blank\"\r\n                    hidden\r\n                    type=\"button\"\r\n                    class=\"btn btn-default\"\r\n                    title=\"Ver perfil del Propietario\"\r\n                  >\r\n                    <i class=\"fa fa-eye\"></i> Ver Tarifas\r\n                  </a></label>\r\n                </div>\r\n                <div class=\"row\">\r\n                  <b class=\"col-sm-4\">Nombre: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.rate.tarifa }}\r\n                  </div>\r\n                  <b class=\"col-sm-4\">Base: </b>\r\n                  <div class=\"col-sm-8\">\r\n                    {{ meter.rate.base | currency }}\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"col-lg-12 text-center\" *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n                <a\r\n                [routerLink]=\"['/editar-medidor', meter._id]\"\r\n                class=\"btn btn-secondary\"\r\n                data-dismiss=\"modal\"\r\n                aria-laber=\"Close\"\r\n              >\r\n                Editar Medidor\r\n              </a>\r\n            </div>\r\n            <br>\r\n            <div class=\"col-lg-12 text-center\">\r\n              <app-show-registers [fromProfile]=\"fromProfile\" [meterId]=\"meterId\"></app-show-registers>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- << Cuerpo -->\r\n    </div>\r\n    <!-- < margenes -->\r\n  </div>\r\n  <!-- < formato interno  -->\r\n</div>\r\n<!-- <llamado al modal -->\r\n";
     /***/
   },
 
@@ -763,7 +763,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"card card-blue\">\r\n          <div class=\"card-header\">\r\n            <h3 class=\"card-title\">{{ title }}</h3>\r\n            <div class=\"card-tools\" *ngIf=\"!rateEdit\">\r\n              <div class=\"toolbox\">\r\n                <button class=\"btn btn-info\" (click)=\"return()\">\r\n                  <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n                </button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <form #rateForm=\"ngForm\" (ngSubmit)=\"onSubmit(rateForm)\" class=\"form-horizontal\"\r\n            (keypress)=\"keyPressOnForm($event)\">\r\n            <div class=\"card-body row\">\r\n    \r\n              <div class=\"col-sm-12\">\r\n                <div class=\"col-sm-12\">\r\n                  <label>Ingreso de Nuevas Tarifas</label>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label for=\"tarifa\" class=\"col-sm-4 control-label\">Nombre de la tarifa</label>\r\n                  <div class=\"col-sm-8\">\r\n                    <input type=\"text\" #tarifa=\"ngModel\" [(ngModel)]=\"rate.tarifa\" id=\"tarifa\" name=\"tarifa\"\r\n                      class=\"form-control default\" required />\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label for=\"base\" class=\"col-sm-4 control-label\">Ingresar Base</label>\r\n                  <div class=\"col-sm-8\">\r\n                    <input type=\"number\" name=\"base\" id=\"base\" #base=\"ngModel\" [(ngModel)]=\"rate.base\"\r\n                      class=\"form-control default\" step=\"0.01\" required />\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label class=\"col-sm-4\">Tipo de Costo</label>\r\n                  <div class=\"col-sm-8\">\r\n                    <select class=\"form-control\" name=\"percent_cost\" id=\"percent_cost\" #percent_cost=\"ngModel\"\r\n                      [(ngModel)]=\"rate.percent_cost\" title=\"Seleccion de Costo a Aplicar\">\r\n                      <option value=\"true\"\r\n                        title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                        RMUV</option>\r\n                      <option value=\"false\">Centavos de Dolar</option>\r\n                    </select>\r\n                  </div>\r\n                </div>\r\n                <div class=\"form-group row\">\r\n                  <label for=\"limits\" class=\"col-sm-4 control-label\">Limites</label>\r\n                </div>\r\n                <!--      ||  ||              //||       -->\r\n                <!--      ||                 // ||       -->\r\n                <!--  //==||  ||  ||   ||       ||       -->\r\n                <!-- ||   ||  ||   || ||        ||       -->\r\n                <!--  \\\\==||  ||    |||       ======     -->\r\n                <div class=\"form-group row\" *ngFor=\"let limit of limits; let i = index\">\r\n                  <div class=\"col-sm-1\">\r\n                    <i class=\"fa fa-check\"></i>\r\n                  </div>\r\n                  <div class=\"col-sm-3\">desde: {{ limit.limit_from }}m&#179;</div>\r\n                  <div class=\"col-sm-3\">hasta: {{ limit.limit_to }}m&#179;</div>\r\n                  <div class=\"col-sm-3\">\r\n                    costo: <i *ngIf=\"limit.percent_cost == false\">$</i>{{ limit.cost | currency\r\n                      }}<i *ngIf=\"limit.percent_cost == true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">% R.M.U.V.</i>\r\n                  </div>\r\n                  <div class=\"col-sm-1\">\r\n                    <label class=\"btn btn-block btn-danger btn-sm\" (click)=\"removeLimits(i)\">&times;</label>\r\n                  </div>\r\n                </div>\r\n                <!--      ||  ||               //==\\\\     -->\r\n                <!--      ||                  ||    ||    -->\r\n                <!--  //==||  ||  ||   ||         //      -->\r\n                <!-- ||   ||  ||   || ||        //        -->\r\n                <!--  \\\\==||  ||    |||       ||====//    -->\r\n                <div class=\"form-group row\">\r\n                  <div class=\"col-sm-2\">\r\n                    <label class=\"\">desde</label>\r\n                    <div class=\"col-sm-12\">\r\n                      <input type=\"number\" class=\"form-control default\" name=\"limit_from\" id=\"limit_from\" #limit_from\r\n                        [(ngModel)]=\"nextLimit.limit_from\" disabled />\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-2\">\r\n                    <label class=\"\">hasta</label>\r\n                    <div class=\"col-sm-12\">\r\n                      <input type=\"number\" name=\"limit_to\" id=\"limit_to\" class=\"form-control default\"\r\n                        [(ngModel)]=\"nextLimit.limit_to\" [disabled]=\"noMoreLimits\" #limit_to />\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-2\">\r\n                    <label class=\"\">costo</label>\r\n                    <div class=\"col-sm-12\">\r\n                      <input type=\"number\" class=\"form-control default\" [(ngModel)]=\"nextLimit.cost\" name=\"cost\" id=\"cost\"\r\n                        #cost step=\"0.01\"\r\n                        title=\"El costo del primer limite Siempre Ser&aacute; 0 debido a que el precio sera la Base sin excesos\"\r\n                        [disabled]=\"!limitAnterior || noMoreLimits\" />\r\n                    </div>\r\n                  </div>\r\n                  <div class=\"col-sm-6\">\r\n                    <label class=\"\">Tipo de Costo</label>\r\n                    <select class=\"form-control\" name=\"tipo\" id=\"tipo\" #tipo=\"ngModel\" [(ngModel)]=\"nextLimit.percent_cost\"\r\n                      title=\"Seleccion de Costo a Aplicar\" [disabled]=\"limitAnterior || noMoreLimits\">\r\n                      <option value=\"true\"\r\n                        title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                        RMUV</option>\r\n                      <option value=\"false\">Centavos de Dolar</option>\r\n                    </select>\r\n                  </div>\r\n                </div>\r\n                <label class=\"btn btn-info\" (click)=\"addLimits()\">\r\n                  <i class=\"fa fa-plus\"></i>&nbsp; Añadir Limite </label>&nbsp;&nbsp;\r\n                <label class=\"btn btn-warning\" (click)=\"finishLimits()\">\r\n                  <i class=\"fas fa-hand-paper\"></i>&nbsp; Ultimo Limite\r\n                </label>\r\n              </div>\r\n              <!-- <label class=\"text-muted\">*Para dejar de ingresar registros y definir el rango 'hasta' como sin limite ingresar '-1'</label> -->\r\n            </div>\r\n            <!--      ||  ||              //==\\\\    -->\r\n            <!--      ||                 ||    ||   -->\r\n            <!--  //==||  ||  ||   ||       ==<<    -->\r\n            <!-- ||   ||  ||   || ||     ||    ||   -->\r\n            <!--  \\\\==||  ||    |||       \\\\==//    -->\r\n            <div class=\"card-footer\">\r\n              <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-success\"\r\n                [disabled]=\"!rateForm.form.valid || limits.length <= 0\" />\r\n              <button *ngIf=\"!rateEdit\" type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"limpiar()\">\r\n                Cancelar | Limpiar\r\n              </button>\r\n            </div>\r\n          </form>\r\n        </div>\r\n    </div>\r\n\r\n  </div>\r\n  <app-list-rate class=\"col-md-6\"></app-list-rate>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"card card-blue\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"card-title\">{{ title }}</h3>\r\n          <div class=\"card-tools\" *ngIf=\"!rateEdit\">\r\n            <div class=\"toolbox\">\r\n              <button class=\"btn btn-info\" (click)=\"return()\">\r\n                <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <form #rateForm=\"ngForm\" (ngSubmit)=\"onSubmit(rateForm)\" class=\"form-horizontal\"\r\n          (keypress)=\"keyPressOnForm($event)\">\r\n          <div class=\"card-body row\">\r\n\r\n            <div class=\"col-sm-12\">\r\n              <div class=\"col-sm-12\">\r\n                <label>Ingreso de Nuevas Tarifas</label>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"tarifa\" class=\"col-sm-4 control-label\">Nombre de la tarifa</label>\r\n                <div class=\"col-sm-8\">\r\n                  <input type=\"text\" #tarifa=\"ngModel\" [(ngModel)]=\"rate.tarifa\" id=\"tarifa\" name=\"tarifa\"\r\n                    class=\"form-control default\" required />\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"base\" class=\"col-sm-4 control-label\">Ingresar Base</label>\r\n                <div class=\"col-sm-8\">\r\n                  <input type=\"number\" name=\"base\" id=\"base\" #base=\"ngModel\" [(ngModel)]=\"rate.base\"\r\n                    class=\"form-control default\" step=\"0.01\" required />\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-4\">Tipo de Costo</label>\r\n                <div class=\"col-sm-8\">\r\n                  <select class=\"form-control\" name=\"percent_cost\" id=\"percent_cost\" #percent_cost=\"ngModel\"\r\n                    [(ngModel)]=\"rate.percent_cost\" title=\"Seleccion de Costo a Aplicar\">\r\n                    <option value=\"true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                      RMUV</option>\r\n                    <option value=\"false\">Centavos de Dolar</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"limits\" class=\"col-sm-4 control-label\">Limites</label>\r\n              </div>\r\n              <!--      ||  ||              //||       -->\r\n              <!--      ||                 // ||       -->\r\n              <!--  //==||  ||  ||   ||       ||       -->\r\n              <!-- ||   ||  ||   || ||        ||       -->\r\n              <!--  \\\\==||  ||    |||       ======     -->\r\n              <div class=\"form-group row\" *ngFor=\"let limit of limits; let i = index\">\r\n                <div class=\"col-sm-1\">\r\n                  <i class=\"fa fa-check\"></i>\r\n                </div>\r\n                <div class=\"col-sm-3\">desde: {{ limit.limit_from }}m&#179;</div>\r\n                <div class=\"col-sm-3\" *ngIf=\"limit.limit_to >= 999999999\">En Adelante</div>\r\n                <div class=\"col-sm-3\" *ngIf=\"limit.limit_to < 999999999\">hasta: {{ limit.limit_to }}m&#179;</div>\r\n                <div class=\"col-sm-3\">\r\n                  costo: <span *ngIf=\"limit.cost > 0\">\r\n                    <i *ngIf=\"limit.percent_cost == false\">{{ limit.cost.toFixed(2) | currency }}</i><i\r\n                      *ngIf=\"limit.percent_cost == true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">{{ limit.cost.toFixed(2) }}%\r\n                      R.M.U.V.</i>\r\n                  </span> <span *ngIf=\"limit.cost == 0\">\r\n                    Base\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-1\">\r\n                  <label class=\"btn btn-block btn-danger btn-sm\" (click)=\"removeLimits(i)\">&times;</label>\r\n                </div>\r\n              </div>\r\n              <!--      ||  ||               //==\\\\     -->\r\n              <!--      ||                  ||    ||    -->\r\n              <!--  //==||  ||  ||   ||         //      -->\r\n              <!-- ||   ||  ||   || ||        //        -->\r\n              <!--  \\\\==||  ||    |||       ||====//    -->\r\n              <div class=\"form-group row\" *ngIf=\"nextLimit.limit_to != 999999999\">\r\n                <div class=\"col-sm-2\">\r\n                  <label class=\"\">desde</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" class=\"form-control default\" name=\"limit_from\" id=\"limit_from\" #limit_from\r\n                      [(ngModel)]=\"nextLimit.limit_from\" disabled />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                  <label class=\"\">hasta</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" name=\"limit_to\" id=\"limit_to\" class=\"form-control default\"\r\n                      [(ngModel)]=\"nextLimit.limit_to\" [disabled]=\"noMoreLimits\" #limit_to />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                  <label class=\"\">costo</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" *ngIf=\"nextLimit.cost > 0 || limits.length > 0\" class=\"form-control default\"\r\n                      [(ngModel)]=\"nextLimit.cost\" name=\"cost\" id=\"cost\" #cost step=\"0.01\"\r\n                      title=\"El costo del primer limite Siempre Ser&aacute; 0 debido a que el precio sera la Base sin excesos\"\r\n                      [disabled]=\"!limitAnterior || noMoreLimits\" />\r\n                    <span *ngIf=\"nextLimit.cost <= 0 && limits.length <= 0\" class=\"form-control default\">\r\n                      Base\r\n                    </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-6\">\r\n                  <label class=\"\">Tipo de Costo</label>\r\n                  <select class=\"form-control\" name=\"tipo\" id=\"tipo\" #tipo=\"ngModel\"\r\n                    [(ngModel)]=\"nextLimit.percent_cost\" title=\"Seleccion de Costo a Aplicar\"\r\n                    [disabled]=\"limitAnterior || noMoreLimits\">\r\n                    <option value=\"true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                      RMUV</option>\r\n                    <option value=\"false\">Centavos de Dolar</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <label class=\"btn btn-info\" *ngIf=\"nextLimit.limit_to != 999999999\" (click)=\"addLimits()\">\r\n                <i class=\"fa fa-plus\"></i>&nbsp; Añadir Limite </label>&nbsp;&nbsp;\r\n              <label class=\"btn btn-warning\" *ngIf=\"nextLimit.limit_to != 999999999\" (click)=\"finishLimits()\">\r\n                <i class=\"fas fa-hand-paper\"></i>&nbsp; Ultimo Limite\r\n              </label>\r\n            </div>\r\n            <!-- <label class=\"text-muted\">*Para dejar de ingresar registros y definir el rango 'hasta' como sin limite ingresar '-1'</label> -->\r\n          </div>\r\n          <!--      ||  ||              //==\\\\    -->\r\n          <!--      ||                 ||    ||   -->\r\n          <!--  //==||  ||  ||   ||       ==<<    -->\r\n          <!-- ||   ||  ||   || ||     ||    ||   -->\r\n          <!--  \\\\==||  ||    |||       \\\\==//    -->\r\n          <div class=\"card-footer\">\r\n            <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-success\"\r\n              [disabled]=\"!rateForm.form.valid || limits.length <= 0\" />\r\n            <button *ngIf=\"!rateEdit\" type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"limpiar()\">\r\n              Cancelar | Limpiar\r\n            </button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n  <app-list-rate class=\"col-md-6\"></app-list-rate>\r\n</div>\r\n";
     /***/
   },
 
@@ -823,7 +823,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\n  <div class=\"card card-blue\">\n    <div class=\"card-header\">\n      <h3 class=\"card-title\">{{title}}</h3>\n      <div class=\"card-tools\">\n        <div class=\"toolbox\">\n          <button class=\"btn btn-info\" (click)=\"return()\">\n            <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\n          </button>\n        </div>\n      </div>\n    </div>\n    <div class=\"card-body\">\n      <table class=\"table table-hover table-borderer table-active\" *ngIf=\"rates.length >= 1\">\n        <thead>\n          <tr>\n            <th class=\"text-center\">Nombre</th>\n            <th class=\"text-center\">Base</th>\n            <th class=\"text-center\">Info.</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let tarifa of rates\">\n            <td>{{ tarifa.tarifa }}</td>\n            <td *ngIf=\"tarifa.percent_cost == true\"\n              title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">\n              {{ tarifa.base }}%R.M.U.V.\n            </td>\n            <td *ngIf=\"tarifa.percent_cost == false\">\n              {{ tarifa.base | currency }}\n            </td>\n            <td>\n              <ul class=\"navbar-nav ml-auto\">\n                <li class=\"nav-item dropdown\">\n                  <a data-toggle=\"dropdown\" class=\"nav-icon btn btn-secondary btn-sm\">\n                    <i class=\"fas fa-info\"></i>\n                  </a>\n                  <div class=\"dropdown-menu dropdown-menu-right\">\n                    <span class=\"dropdown-item dropdown-header\">\n                      Limites\n                    </span>\n                    <i class=\"dropdown-item\" *ngFor=\"let limite of tarifa.limits\">\n                      <div *ngIf=\"limite.limit_from >=1\">\n                        desde {{limite.limit_from}}m&#179;,\n                        <span *ngIf=\"limite.limit_to < 999999999\">hasta {{limite.limit_to}}m&#179;</span>\n                        <span *ngIf=\"limite.limit_to == 999999999\"> en adelante</span>,\n                        costo <span *ngIf=\"limite.percent_cost == false\">$</span>{{limite.cost}}<span\n                          *ngIf=\"limite.percent_cost == true\">%</span> por m&#179;\n                      </div>\n                    </i>\n                    <div class=\"dropdown-divider\"></div>\n                    <span class=\"dropdown-item dropdown-header\">\n                      Ingresado\n                    </span>\n                    <span class=\"dropdown-item\">\n                      Por: <i>{{tarifa.created_by.cuenta}}</i> |\n                      {{tarifa.created_by.nombre + ' ' + tarifa.created_by.apellido}} - {{tarifa.created_by.cedula}}\n                    </span>\n                    <span class=\"dropdown-item\">\n                      El: {{(tarifa.created_at | amFromUnix) | date: fulldate}} a las\n                      {{(tarifa.created_at | amFromUnix) | date: \"HH:mm\"}} Horas.\n                    </span>\n                    <div *ngIf=\"tarifa.updated_at && tarifa.updated_by\" class=\"dropdown-divider\"></div>\n                    <div *ngIf=\"tarifa.updated_at && tarifa.updated_by\">\n                      <span class=\"dropdown-item dropdown-header\">\n                        Editado\n                      </span>\n                      <span class=\"dropdown-item\">\n                        Por: <i>{{tarifa.updated_by.cuenta}}</i> |\n                        {{tarifa.updated_by.nombre + ' ' + tarifa.updated_by.apellido}} - {{tarifa.updated_by.cedula}}\n                      </span>\n                      <span class=\"dropdown-item\">\n                        El: {{(tarifa.updated_at | amFromUnix) | date: fulldate}} a las\n                        {{(tarifa.updated_at | amFromUnix) | date: \"HH:mm\"}} Horas.\n                      </span>\n                    </div>\n                  </div>\n                </li>\n              </ul>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\n  <div class=\"card card-blue\">\n    <div class=\"card-header\">\n      <h3 class=\"card-title\">{{title}}</h3>\n      <div class=\"card-tools\">\n        <div class=\"toolbox\">\n          <button class=\"btn btn-info\" (click)=\"return()\">\n            <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\n          </button>\n        </div>\n      </div>\n    </div>\n    <div class=\"card-body\">\n      <table class=\"table table-hover table-borderer table-active\" *ngIf=\"rates.length >= 1\">\n        <thead>\n          <tr>\n            <th class=\"text-center\">Nombre</th>\n            <th class=\"text-center\">Base</th>\n            <th class=\"text-center\">Info.</th>\n          </tr>\n        </thead>\n        <tbody>\n          <tr *ngFor=\"let tarifa of rates\">\n            <td>{{ tarifa.tarifa }}</td>\n            <td *ngIf=\"tarifa.percent_cost == true\"\n              title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">\n              {{ tarifa.base }}%R.M.U.V.\n            </td>\n            <td *ngIf=\"tarifa.percent_cost == false\">\n              {{ tarifa.base | currency }}\n            </td>\n            <td>\n              <ul class=\"navbar-nav ml-auto\">\n                <li class=\"nav-item dropdown\">\n                  <a data-toggle=\"dropdown\" class=\"nav-icon btn btn-secondary btn-sm\">\n                    <i class=\"fas fa-info\"></i>\n                  </a>\n                  <div class=\"dropdown-menu dropdown-menu-right\">\n                    <span class=\"dropdown-item dropdown-header\">\n                      Limites\n                    </span>\n                    <i class=\"dropdown-item\" *ngFor=\"let limite of tarifa.limits\">\n                      <div *ngIf=\"limite.limit_from >=1\">\n                        desde {{limite.limit_from}}m&#179;,\n                        <span *ngIf=\"limite.limit_to < 999999999\">hasta {{limite.limit_to}}m&#179;</span>\n                        <span *ngIf=\"limite.limit_to == 999999999\"> en adelante</span>,\n                        costo <span *ngIf=\"limite.percent_cost == false\">$</span>{{limite.cost.toFixed(2)}}<span\n                          *ngIf=\"limite.percent_cost == true\">%</span> por m&#179;\n                      </div>\n                    </i>\n                    <div class=\"dropdown-divider\"></div>\n                    <span class=\"dropdown-item dropdown-header\">\n                      Ingresado\n                    </span>\n                    <span class=\"dropdown-item\">\n                      Por: <i>{{tarifa.created_by.cuenta}}</i> |\n                      {{tarifa.created_by.nombre + ' ' + tarifa.created_by.apellido}} - {{tarifa.created_by.cedula}}\n                    </span>\n                    <span class=\"dropdown-item\">\n                      El: {{(tarifa.created_at | amFromUnix) | date: fulldate}} a las\n                      {{(tarifa.created_at | amFromUnix) | date: \"HH:mm\"}} Horas.\n                    </span>\n                    <div *ngIf=\"tarifa.updated_at && tarifa.updated_by\" class=\"dropdown-divider\"></div>\n                    <div *ngIf=\"tarifa.updated_at && tarifa.updated_by\">\n                      <span class=\"dropdown-item dropdown-header\">\n                        Editado\n                      </span>\n                      <span class=\"dropdown-item\">\n                        Por: <i>{{tarifa.updated_by.cuenta}}</i> |\n                        {{tarifa.updated_by.nombre + ' ' + tarifa.updated_by.apellido}} - {{tarifa.updated_by.cedula}}\n                      </span>\n                      <span class=\"dropdown-item\">\n                        El: {{(tarifa.updated_at | amFromUnix) | date: fulldate}} a las\n                        {{(tarifa.updated_at | amFromUnix) | date: \"HH:mm\"}} Horas.\n                      </span>\n                    </div>\n                  </div>\n                </li>\n              </ul>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n</div>\n";
     /***/
   },
 
@@ -3648,6 +3648,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._datoFacturaService = _datoFacturaService;
         this.title = 'Cargando';
         this.cargando = true;
+        window.document.title = 'MerAgua - Datos de Facturas';
         this.initDatoFactura();
         this.initDatosFacturas();
       }
@@ -3965,6 +3966,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._location = _location; // pruebas
 
         this.titulo = 'generar pdf con angular';
+        window.document.title = 'MerAgua - Facturación Electrónica';
         this.today = new Date();
         this.cargando = true;
         this.identity = JSON.parse(localStorage.getItem('identity'));
@@ -6928,6 +6930,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.router = router;
         this.users = [];
         this.identity = JSON.parse(localStorage.getItem('identity'));
+        window.document.title = 'MerAgua - Agregar Medidor';
         if (this.identity.role_user.toLowerCase() == 'operador') this.router.navigate(['/inicio']);
         this.title = 'Agregar Nuevo Medidor';
         this.token = this.userService.getToken();
@@ -6948,6 +6951,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           '', // rate
           '', //
           '');
+        }
+      }, {
+        key: "goRandom",
+        value: function goRandom() {
+          // let chars = '0123456789';
+          // let size = 10;
+          // let cadena = '';
+          sweetalert2__WEBPACK_IMPORTED_MODULE_11___default.a.fire({
+            title: 'Generando Clave aleatoria',
+            icon: 'info',
+            showConfirmButton: false,
+            position: 'top',
+            grow: 'row',
+            toast: true,
+            backdrop: false
+          });
+          var max = 9999999999;
+          var min = 999999;
+          var cadena = Math.random() * (max - min) + min;
+          cadena = parseInt(cadena.toFixed(0), 0);
+          this.validarMedidor(cadena);
+          this.medidor.clave = cadena;
         }
       }, {
         key: "InitClaves",
@@ -7114,7 +7139,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "validarMedidor",
         value: function validarMedidor(clave) {
-          console.log(clave);
           this.InitClaves();
 
           if (clave !== undefined) {
@@ -7162,8 +7186,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               if (count >= 1) {
                 this.medidorOk = false;
                 this.launchAlert('error', 'Clave Incorrecta, ', 'Clave de medidor repetida: Ya existe un medidor con esa clave!', null, false, 1500, false, 'top', 'row', true);
+                console.log('clave incorrecta');
               } else if (count === 0) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_11___default.a.fire({
+                  title: 'Clave correcta!',
+                  icon: 'success',
+                  showConfirmButton: false,
+                  position: 'top',
+                  grow: 'row',
+                  toast: true,
+                  backdrop: false
+                });
                 this.medidorOk = true;
+                console.log('clave correcta');
               }
             }
           }
@@ -7454,6 +7489,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.users = [];
         this.title = 'Edicion de Medidores...';
         this.url = _service_global__WEBPACK_IMPORTED_MODULE_3__["Global"].url + 'meter/';
+        window.document.title = 'MerAgua - Editando Datos del Medidor';
         this.token = this.userService.getToken();
         this.user = new _models_user__WEBPACK_IMPORTED_MODULE_8__["User"]('', // "_id"
         null, // "cuenta"
@@ -7476,6 +7512,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           _this36.meterService.getMeterSimple(id).subscribe(function (response) {
             console.log('medidor Obtenido!');
             _this36.medidor = response.meter;
+            window.document.title = 'MerAgua - Editando Datos del Medidor' + _this36.medidor.clave;
           }, function (error) {
             console.log(error);
           });
@@ -7848,12 +7885,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._extraService = _extraService;
         this.medidores = [];
         this.identity = JSON.parse(localStorage.getItem('identity'));
+        window.document.title = 'MerAgua - Datos del Medidores';
         this.title = 'Cargando....';
         this.descripcion = 'Cargando....';
         this.url = _service_global__WEBPACK_IMPORTED_MODULE_4__["Global"].url + 'meter/';
-        this.loading = true;
+        this.loading = true; // this.test = true;
+
         this.initExtras();
-      }
+      } // public size = 12;
+      // change() {
+      //   this.test==true ? this.size = 6 : this.size = 12;
+      //   this.test==true ? this.test = false : this.test = true; 
+      // }
+
 
       _createClass(GetMedidorComponent, [{
         key: "initExtras",
@@ -9275,7 +9319,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.router = router;
         this.devolverCambios = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
         this.identity = JSON.parse(localStorage.getItem('identity'));
+        window.document.title = 'MerAgua - Agregar Tarifa';
         this.listar = true;
+        this.mostrando = true;
         if (this.identity.role_user.toLowerCase() == 'operador') this.router.navigate(['/inicio']);
         this.title = 'Control de Tarifas';
         this.initRate();
@@ -9302,20 +9348,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "recargarVista",
+        value: function recargarVista() {
+          var _this53 = this;
+
+          this.mostrando = false;
+          setTimeout(function () {
+            _this53.mostrando = true;
+          }, 250);
+        }
+      }, {
         key: "limpiar",
         value: function limpiar() {
           var _ref2,
-              _this53 = this;
+              _this54 = this;
 
           this.limits = (_ref2 = [], _ref2);
           this.noMoreLimits = null;
           setTimeout(function () {
-            _this53.limitAnterior = null;
-            _this53.nextLimit.limit_to = 1;
-            _this53.nextLimit.limit_from = 0;
-            _this53.nextLimit.cost = 0;
+            _this54.limitAnterior = null;
+            _this54.nextLimit.limit_to = 1;
+            _this54.nextLimit.limit_from = 0;
+            _this54.nextLimit.cost = 0;
           }, 1);
           console.log(this.nextLimit);
+          this.recargarVista();
         }
       }, {
         key: "initRate",
@@ -9336,7 +9393,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "ngOnChanges",
         value: function ngOnChanges() {
-          var _this54 = this;
+          var _this55 = this;
 
           if (this.rateEdit) {
             this.rate = this.rateEdit;
@@ -9349,15 +9406,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
 
               if (response.Limits.length <= 0) {
-                _this54.limitsEditeds = true;
-                _this54.newLimits = true;
+                _this55.limitsEditeds = true;
+                _this55.newLimits = true;
               } else {
-                _this54.limits = response.Limits;
-                _this54.noMoreLimits = true;
-                _this54.nextLimit.limit_to = null;
-                _this54.nextLimit.limit_from = null;
-                _this54.nextLimit.cost = null;
-                _this54.nextLimit.percent_cost = _this54.limits[0].percent_cost;
+                _this55.limits = response.Limits;
+                _this55.noMoreLimits = true;
+                _this55.nextLimit.limit_to = null;
+                _this55.nextLimit.limit_from = null;
+                _this55.nextLimit.cost = null;
+                _this55.nextLimit.percent_cost = _this55.limits[0].percent_cost;
               }
             });
           }
@@ -9397,11 +9454,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.limits.splice(index, 1);
           }
 
+          if (this.limits.length && this.limits.length >= 1) {
+            this.limits[0].cost = 0;
+          }
+
           if (this.limits.length <= 0) {
+            var _ref3;
+
             this.limitAnterior = null;
+            this.noMoreLimits = null;
             this.nextLimit.limit_to = 1;
             this.nextLimit.limit_from = 0;
             this.nextLimit.cost = 0;
+            this.limits = (_ref3 = [], _ref3);
           }
         }
       }, {
@@ -9449,7 +9514,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this55 = this;
+          var _this56 = this;
 
           if (!this.rateEdit) {
             this.rateService.save(this.rate).subscribe(function (response) {
@@ -9457,10 +9522,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               alert(response.Message);
               var id = response.Tarifa._id;
 
-              _this55.saveLimits(id);
+              _this56.saveLimits(id);
 
               form.reset();
-              _this55.limits = [], [];
+              _this56.limits = [], [];
             }, function (error) {
               console.log(error);
             });
@@ -9472,7 +9537,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               console.log('respuesta del servidor', response);
               var id = response.Tarifa._id;
 
-              _this55.dropOldLimits(response.Tarifa._id); // if (this.limitsEditeds && !this.newLimits) {
+              _this56.dropOldLimits(response.Tarifa._id); // if (this.limitsEditeds && !this.newLimits) {
               //   this.limitService.deleteLimits(this.rate._id).subscribe(
               //     responseLimits => {
               //       console.log('limites borrados');
@@ -9491,7 +9556,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           setTimeout(function () {
-            _this55.devolverCambios.emit();
+            _this56.devolverCambios.emit();
           }, 500);
         }
       }, {
@@ -9502,13 +9567,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "dropOldLimits",
         value: function dropOldLimits(id) {
-          var _this56 = this;
+          var _this57 = this;
 
           console.log('borrando limites');
           this.limitService.deleteLimits(id).subscribe(function (response) {
             console.log(response);
 
-            _this56.saveLimits(id);
+            _this57.saveLimits(id);
           }, function (error) {
             console.log(error);
           });
@@ -9520,12 +9585,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           for (var index = 0; index < this.limits.length; index++) {
             var limit = this.limits[index];
+            limit.cost = parseFloat(limit.cost.toFixed(2));
+            console.log(limit);
             this.limitService.save(limit, id).subscribe(function (responseLimitsedited) {
               console.log(responseLimitsedited.Message);
             }, function (error) {
               console.log(error);
             });
           }
+
+          this.recargarVista();
         }
       }]);
 
@@ -9654,7 +9723,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this57 = this;
+          var _this58 = this;
 
           console.log(this.rate);
           console.log(form);
@@ -9663,14 +9732,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             alert(response.Message);
           }, function (error) {
             console.log(error);
-            _this57.errorCatched.description = error.toString();
-            _this57.errorCatched.table = 'Rate';
-            _this57.errorCatched.action = 'editRate';
-            _this57.errorCatched.title = 'Error al editar la Tarifa';
-            _this57.errorCatched.zone = 'edit-rate';
-            _this57.errorCatched.code = _this57.errorCatched.zone + '-' + _this57.errorCatched.action + '-' + _this57.errorCatched.table;
+            _this58.errorCatched.description = error.toString();
+            _this58.errorCatched.table = 'Rate';
+            _this58.errorCatched.action = 'editRate';
+            _this58.errorCatched.title = 'Error al editar la Tarifa';
+            _this58.errorCatched.zone = 'edit-rate';
+            _this58.errorCatched.code = _this58.errorCatched.zone + '-' + _this58.errorCatched.action + '-' + _this58.errorCatched.table;
 
-            _this57.errorCatcherService.saveError(_this57.errorCatched).subscribe(function (response) {
+            _this58.errorCatcherService.saveError(_this58.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -9806,6 +9875,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._router = _router;
         this.extras = [];
         this.title = 'Cargando...';
+        window.document.title = 'MerAgua - Ingresar Datos de R.M.U.V.';
         this.identity = JSON.parse(localStorage.getItem('identity'));
         if (this.identity.role_user.toLowerCase() == 'operador') this._router.navigate(['/inicio']);
         if (this.identity.role_user.toLowerCase() == 'secretario') this._router.navigate(['/inicio']);
@@ -9836,20 +9906,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadExtras",
         value: function loadExtras() {
-          var _this58 = this;
+          var _this59 = this;
 
           this.extraService.getExtra().subscribe(function (response) {
-            _this58.extras = response.extra; // this.extras.sort((a: any, b: any) =>
+            _this59.extras = response.extra; // this.extras.sort((a: any, b: any) =>
             // new Date(a.date).getTime() - new Date(b.date).getTime())
 
-            _this58.loading = false;
+            _this59.loading = false;
 
             if (response.extra.length <= 0) {
-              _this58.title = 'Aun no hay Registros de RMUV Ingresados....';
-              _this58.description = 'Por favor, para continuar Ingresar los registros de la "Remuneracion Mensual Unificada Vigente [R.M.U.V]"';
+              _this59.title = 'Aun no hay Registros de RMUV Ingresados....';
+              _this59.description = 'Por favor, para continuar Ingresar los registros de la "Remuneracion Mensual Unificada Vigente [R.M.U.V]"';
             } else {
-              _this58.description = 'Recuerde ingresar los datos de la "Remuneracion Mensual Unificade Vigente [R.M.U.V]" de forma periodica';
-              _this58.title = 'Registros de RMUV Ingresados....';
+              _this59.description = 'Recuerde ingresar los datos de la "Remuneracion Mensual Unificade Vigente [R.M.U.V]" de forma periodica';
+              _this59.title = 'Registros de RMUV Ingresados....';
             }
           });
         }
@@ -9861,7 +9931,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getDate",
         value: function getDate(event) {
-          var _this59 = this;
+          var _this60 = this;
 
           // this.extra.date = event.year+'-'+event.monthIndex;
           this.extra.date = new Date(event.year, event.monthIndex);
@@ -9871,17 +9941,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var _iteratorError22 = undefined;
 
             try {
-              for (var _iterator22 = _this59.extras[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
+              for (var _iterator22 = _this60.extras[Symbol.iterator](), _step22; !(_iteratorNormalCompletion22 = (_step22 = _iterator22.next()).done); _iteratorNormalCompletion22 = true) {
                 var extra = _step22.value;
                 var date1 = moment__WEBPACK_IMPORTED_MODULE_3___default()(new Date(extra.date));
-                var date2 = moment__WEBPACK_IMPORTED_MODULE_3___default()(_this59.extra.date);
+                var date2 = moment__WEBPACK_IMPORTED_MODULE_3___default()(_this60.extra.date);
                 var diferencia = date2.diff(date1, 'months');
 
                 if (diferencia <= 0) {
-                  _this59.noChange = true;
+                  _this60.noChange = true;
                   return alert('fecha ya ingresada');
                 } else if (diferencia >= 1) {
-                  _this59.noChange = false;
+                  _this60.noChange = false;
                 }
               }
             } catch (err) {
@@ -9903,14 +9973,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this60 = this;
+          var _this61 = this;
 
           this.extraService.save(this.extra).subscribe(function (response) {
-            _this60.launchAlert('success', 'Valores Guardados Correctamente!', response.Message, null, null, 3500, false, 'top', 'row', true);
+            _this61.launchAlert('success', 'Valores Guardados Correctamente!', response.Message, null, null, 3500, false, 'top', 'row', true);
 
-            _this60.loadExtras();
+            _this61.loadExtras();
           }, function (error) {
-            _this60.launchAlert('error', 'Errorl Al Guardar los Valores', error, null, null, 3500, false, 'top', 'row', true);
+            _this61.launchAlert('error', 'Errorl Al Guardar los Valores', error, null, null, 3500, false, 'top', 'row', true);
           });
         }
       }, {
@@ -10045,7 +10115,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(ListRateComponent, [{
         key: "initRates",
         value: function initRates() {
-          var _this61 = this;
+          var _this62 = this;
 
           var tempRates;
 
@@ -10060,7 +10130,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var _loop = function _loop() {
                   var rate = _step23.value;
 
-                  _this61._limitService.getLimits(rate._id).subscribe(function (response) {
+                  _this62._limitService.getLimits(rate._id).subscribe(function (response) {
                     rate.limits = response.Limits;
                     rate.limits.sort(function (menor, mayor) {
                       return menor.limit_from - mayor.limit_from;
@@ -10089,10 +10159,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
 
-              _this61.rates = tempRates;
-              _this61.title = 'Lista de Tarifas Registradas:';
+              _this62.rates = tempRates;
+              _this62.title = 'Lista de Tarifas Registradas:';
             } else {
-              _this61.title = 'Lista de Tarifas Registradas: Aun no hay tarifas';
+              _this62.title = 'Lista de Tarifas Registradas: Aun no hay tarifas';
             }
           }, function (error) {
             console.log(error);
@@ -10233,6 +10303,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._extraService = _extraService;
         this.rates = [];
         this.limits = [];
+        window.document.title = 'MerAgua - Lista de Tarifas';
         this.title = 'Lista de Tarifas';
         this.description = 'Cargando....';
         this.loading = true;
@@ -10249,7 +10320,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initExtras",
         value: function initExtras() {
-          var _this62 = this;
+          var _this63 = this;
 
           this._extraService.getExtra().subscribe(function (response) {
             response.extra.sort(function (menor, mayor) {
@@ -10268,7 +10339,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 return 0;
               }
             });
-            _this62.extra = response.extra[0];
+            _this63.extra = response.extra[0];
           });
         }
       }, {
@@ -10276,7 +10347,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function calcValorActual(costo) {
           var valor;
           costo = costo / 100;
-          console.log(this.extra);
 
           if (this.extra) {
             valor = costo * this.extra.rmuv;
@@ -10305,19 +10375,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getLimits",
         value: function getLimits() {
-          var _this63 = this;
+          var _this64 = this;
 
           this.limitService.getAllLimits().subscribe(function (response) {
             if (response.Limits.length >= 1) {
-              _this63.description = 'Lista de tarifas Ingresadas en el sistema.';
-              _this63.loading = false;
-              _this63.limits = response.Limits;
+              _this64.description = 'Lista de tarifas Ingresadas en el sistema.';
+              _this64.loading = false;
+              _this64.limits = response.Limits;
 
-              _this63.limits.sort(function (a, b) {
+              _this64.limits.sort(function (a, b) {
                 return a.limit_from - b.limit_from;
               });
 
-              _this63.limits.sort(function (a, b) {
+              _this64.limits.sort(function (a, b) {
                 if (a.rate_id > b.rate_id) {
                   return 1;
                 }
@@ -10329,8 +10399,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 return 0;
               });
             } else {
-              _this63.description = 'Aun no existen tarifas ingresadas.';
-              _this63.loading = false;
+              _this64.description = 'Aun no existen tarifas ingresadas.';
+              _this64.loading = false;
             }
           }, function (error) {
             console.log(error);
@@ -10339,39 +10409,39 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getData",
         value: function getData() {
-          var _this64 = this;
+          var _this65 = this;
 
           this.rateService.getRate().subscribe(function (response) {
-            _this64.rates = response.Rates;
+            _this65.rates = response.Rates;
           }, function (error) {
             console.log(error);
-            _this64.errorCatched.description = error.toString();
-            _this64.errorCatched.table = 'Rate';
-            _this64.errorCatched.action = 'showRate';
-            _this64.errorCatched.title = 'Error al mostrar las Tarifas';
-            _this64.errorCatched.zone = 'show-rate';
-            _this64.errorCatched.code = _this64.errorCatched.zone + '-' + _this64.errorCatched.action + '-' + _this64.errorCatched.table;
+            _this65.errorCatched.description = error.toString();
+            _this65.errorCatched.table = 'Rate';
+            _this65.errorCatched.action = 'showRate';
+            _this65.errorCatched.title = 'Error al mostrar las Tarifas';
+            _this65.errorCatched.zone = 'show-rate';
+            _this65.errorCatched.code = _this65.errorCatched.zone + '-' + _this65.errorCatched.action + '-' + _this65.errorCatched.table;
 
-            _this64.errorCatcherService.saveError(_this64.errorCatched).subscribe(function (response) {
+            _this65.errorCatcherService.saveError(_this65.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
           this.limitService.getAllLimits().subscribe(function (response) {
             if (response.Limits.length >= 1) {
-              _this64.limits = response.Limits;
+              _this65.limits = response.Limits;
             } else {
-              _this64.limits = null;
+              _this65.limits = null;
             }
           }, function (error) {
             console.log(error);
-            _this64.errorCatched.description = error.toString();
-            _this64.errorCatched.table = 'Limits';
-            _this64.errorCatched.action = 'showAllLimits';
-            _this64.errorCatched.title = 'Error al mostrar los Limites';
-            _this64.errorCatched.zone = 'show-rate';
-            _this64.errorCatched.code = _this64.errorCatched.zone + '-' + _this64.errorCatched.action + '-' + _this64.errorCatched.table;
+            _this65.errorCatched.description = error.toString();
+            _this65.errorCatched.table = 'Limits';
+            _this65.errorCatched.action = 'showAllLimits';
+            _this65.errorCatched.title = 'Error al mostrar los Limites';
+            _this65.errorCatched.zone = 'show-rate';
+            _this65.errorCatched.code = _this65.errorCatched.zone + '-' + _this65.errorCatched.action + '-' + _this65.errorCatched.table;
 
-            _this64.errorCatcherService.saveError(_this64.errorCatched).subscribe(function (response) {
+            _this65.errorCatcherService.saveError(_this65.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -10501,6 +10571,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._statisticService = _statisticService;
         this._location = _location;
         this._billService = _billService;
+        window.document.title = 'MerAgua - Reportes';
         this.identity = JSON.parse(localStorage.getItem('identity'));
 
         if (this.identity === null || this.identity === undefined || this.identity === 'null' || this.identity === 'undefined') {
@@ -10525,7 +10596,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(RecordsComponent, [{
         key: "initFacturaChart",
         value: function initFacturaChart() {
-          var _this65 = this;
+          var _this66 = this;
 
           this._billService.getAll().subscribe(function (response) {
             console.log(response.Bill);
@@ -10581,10 +10652,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               pago.tipo = pago.tipo.toLocaleUpperCase() + ': ' + count;
               counters.push(count);
 
-              _this65.facturaChart.barChartLabels.push(pago.tipo);
+              _this66.facturaChart.barChartLabels.push(pago.tipo);
             }
 
-            _this65.facturaChart.barChartData.push({
+            _this66.facturaChart.barChartData.push({
               data: counters,
               label: 'Facturas'
             }); // this.facturaChart.barChartData = [
@@ -10594,8 +10665,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             // ];
 
 
-            _this65.facturaChart.barChartType = 'polarArea';
-            console.log('opciones del chart', _this65.facturaChart);
+            _this66.facturaChart.barChartType = 'polarArea';
+            console.log('opciones del chart', _this66.facturaChart);
           });
         }
       }, {
@@ -10610,17 +10681,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initStatistics",
         value: function initStatistics() {
-          var _this66 = this;
+          var _this67 = this;
 
           this._statisticService.getGlobals().subscribe(function (response) {
             console.log(response);
-            _this66.statistics = response.statistics;
+            _this67.statistics = response.statistics;
           });
 
           this._statisticService.getGlobalStatistics().subscribe(function (responseGlobal) {
             var tarifas;
-            _this66.globals = responseGlobal.globals;
-            tarifas = _this66.globals.tarifas;
+            _this67.globals = responseGlobal.globals;
+            tarifas = _this67.globals.tarifas;
             tarifas.medidores = [];
             var medidores = [];
             var _iteratorNormalCompletion25 = true;
@@ -10628,7 +10699,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var _iteratorError25 = undefined;
 
             try {
-              for (var _iterator25 = _this66.globals.medidores[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
+              for (var _iterator25 = _this67.globals.medidores[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
                 var medidor = _step25.value;
                 medidor.registros = [];
                 medidor.consumo = 0;
@@ -10638,7 +10709,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var _iteratorError27 = undefined;
 
                 try {
-                  for (var _iterator27 = _this66.globals.registros[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
+                  for (var _iterator27 = _this67.globals.registros[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
                     var registro = _step27.value;
 
                     if (medidor._id == registro.meter) {
@@ -10694,7 +10765,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var _iteratorError28 = undefined;
 
                 try {
-                  for (var _iterator28 = _this66.globals.medidores[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
+                  for (var _iterator28 = _this67.globals.medidores[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
                     var _medidor = _step28.value;
 
                     if (_medidor.rate == tarifa._id) {
@@ -10734,12 +10805,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
 
-            _this66.rateStatistics = tarifas;
-            _this66.rateStatistics.consumoTotal = consumoTotal;
-            _this66.rateStatistics = _this66.rateStatistics.sort(function (a, b) {
+            _this67.rateStatistics = tarifas;
+            _this67.rateStatistics.consumoTotal = consumoTotal;
+            _this67.rateStatistics = _this67.rateStatistics.sort(function (a, b) {
               return a.consumoTotal - b.consumoTotal;
             });
-            console.log('estadisticas', _this66.globals);
+            console.log('estadisticas', _this67.globals);
           }, function (error) {
             console.error(error);
           });
@@ -10893,6 +10964,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.verNoPagadas = true;
         this.byEmit = false;
         this.byCons = false;
+        window.document.title = 'MerAgua - Reportes';
         this.validDate = false;
         this.byMeter = false;
         this.byNum = false;
@@ -11016,16 +11088,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByMeter",
         value: function orderByMeter() {
-          var _this67 = this;
+          var _this68 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this67.byMeter) {
+            if (_this68.byMeter) {
               aM = parseInt(a.medidor.clave);
               bM = parseInt(b.medidor.clave);
-            } else if (!_this67.byMeter) {
+            } else if (!_this68.byMeter) {
               bM = parseInt(a.medidor.clave);
               aM = parseInt(b.medidor.clave);
             }
@@ -11040,7 +11112,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByNumber",
         value: function orderByNumber() {
-          var _this68 = this;
+          var _this69 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
@@ -11048,10 +11120,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (!a.numero || a.numero == null) a.numero = 0;
             if (!b.numero || b.numero == null) b.numero = 0;
 
-            if (_this68.byNum) {
+            if (_this69.byNum) {
               aM = parseInt(a.numero);
               bM = parseInt(b.numero);
-            } else if (!_this68.byNum) {
+            } else if (!_this69.byNum) {
               bM = parseInt(a.numero);
               aM = parseInt(b.numero);
             }
@@ -11066,16 +11138,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByUser",
         value: function orderByUser() {
-          var _this69 = this;
+          var _this70 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this69.byUser) {
+            if (_this70.byUser) {
               aM = a.usuario.nombre;
               bM = b.usuario.nombre;
-            } else if (!_this69.byUser) {
+            } else if (!_this70.byUser) {
               bM = a.usuario.nombre;
               aM = b.usuario.nombre;
             }
@@ -11090,16 +11162,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByValue",
         value: function orderByValue() {
-          var _this70 = this;
+          var _this71 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this70.byVal) {
+            if (_this71.byVal) {
               aM = parseInt(a.total);
               bM = parseInt(b.total);
-            } else if (!_this70.byVal) {
+            } else if (!_this71.byVal) {
               bM = parseInt(a.total);
               aM = parseInt(b.total);
             }
@@ -11114,17 +11186,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByEmitt",
         value: function orderByEmitt() {
-          var _this71 = this;
+          var _this72 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
             var diff;
 
-            if (_this71.byEmit) {
+            if (_this72.byEmit) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(a.fecha);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(b.fecha);
-            } else if (!_this71.byEmit) {
+            } else if (!_this72.byEmit) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(b.fecha);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(a.fecha);
             }
@@ -11140,7 +11212,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByCons",
         value: function orderByCons() {
-          var _this72 = this;
+          var _this73 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
@@ -11149,10 +11221,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var fecha1String = a.registro.month + 1 + '-01-' + a.registro.year;
             var fecha2String = b.registro.month + 1 + '-01-' + b.registro.year;
 
-            if (_this72.byCons) {
+            if (_this73.byCons) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha1String);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha2String);
-            } else if (!_this72.byCons) {
+            } else if (!_this73.byCons) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha2String);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha1String);
             }
@@ -11206,20 +11278,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initFacturas",
         value: function initFacturas() {
-          var _this73 = this;
+          var _this74 = this;
 
           this._billService.getAll().subscribe(function (response) {
             console.log(response);
 
             if (response.Bill) {
-              _this73.bufferFacturas = response.Bill;
-              _this73.facturas = []; //  this.facturas = response.Bill;
+              _this74.bufferFacturas = response.Bill;
+              _this74.facturas = []; //  this.facturas = response.Bill;
 
               for (var i = 0; i < response.Bill.length; i++) {
                 var factura = response.Bill[i];
                 factura.index = i + 1;
 
-                _this73.facturas.push(factura);
+                _this74.facturas.push(factura);
               }
             }
           });
@@ -11465,6 +11537,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.today = new Date();
         this.fatalError = true;
         this.title = 'Cargando......';
+        window.document.title = 'MerAgua - Buscar Registro de Consumo';
         this.initMedidor();
         this.initMedidores();
         this.initErrorCatched();
@@ -11538,33 +11611,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initExtras",
         value: function initExtras() {
-          var _this74 = this;
+          var _this75 = this;
 
           this._extraService.getExtra().subscribe(function (response) {
-            _this74.extras = response.extra;
+            _this75.extras = response.extra;
 
             if (response.extra.length <= 0) {
-              _this74.fatalError = true;
-              _this74.loading = false;
+              _this75.fatalError = true;
+              _this75.loading = false;
 
-              _this74.launchAlert('info', 'Sin Datos de RMUV', 'Al parecer no existen datos de la Remuneracion Unificada Vigente, por favor, Ingresarlos antes de continuar', '<a href="/extras" target="blank">Ingresar Ahora!!<a>', true, null, null, null, null, null); // alert('no existen los datos de RMUV... por favor ingresarlos antes de continuar con los registros de consumo');
+              _this75.launchAlert('info', 'Sin Datos de RMUV', 'Al parecer no existen datos de la Remuneracion Unificada Vigente, por favor, Ingresarlos antes de continuar', '<a href="/extras" target="blank">Ingresar Ahora!!<a>', true, null, null, null, null, null); // alert('no existen los datos de RMUV... por favor ingresarlos antes de continuar con los registros de consumo');
 
             } else if (response.extra.length >= 1) {
-              _this74.fatalError = false;
-              _this74.loading = false;
+              _this75.fatalError = false;
+              _this75.loading = false;
             }
           }, function (error) {
-            _this74.loading = false;
+            _this75.loading = false;
             console.log(error);
-            _this74.errorCatched.description = error.toString();
-            _this74.errorCatched.table = 'Extra';
-            _this74.errorCatched.action = 'getExtras';
-            _this74.errorCatched.title = 'Error en la Obtencion de Los datos Extras';
-            _this74.errorCatched.zone = 'addRegister';
-            _this74.errorCatched.code = _this74.errorCatched.zone + '-' + _this74.errorCatched.action + '-' + _this74.errorCatched.table;
+            _this75.errorCatched.description = error.toString();
+            _this75.errorCatched.table = 'Extra';
+            _this75.errorCatched.action = 'getExtras';
+            _this75.errorCatched.title = 'Error en la Obtencion de Los datos Extras';
+            _this75.errorCatched.zone = 'addRegister';
+            _this75.errorCatched.code = _this75.errorCatched.zone + '-' + _this75.errorCatched.action + '-' + _this75.errorCatched.table;
 
-            _this74.errorCatcherService.saveError(_this74.errorCatched).subscribe(function (response) {
-              _this74.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de la RMUV' + response.Message, '<a href="/errores" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this75.errorCatcherService.saveError(_this75.errorCatched).subscribe(function (response) {
+              _this75.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de la RMUV' + response.Message, '<a href="/errores" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11576,21 +11649,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMedidores",
         value: function initMedidores() {
-          var _this75 = this;
+          var _this76 = this;
 
           this.meterService.showMeters().subscribe(function (response) {
-            _this75.medidores = response.Medidores;
+            _this76.medidores = response.Medidores;
           }, function (error) {
             console.log(error);
-            _this75.errorCatched.description = error.toString();
-            _this75.errorCatched.table = 'Meter';
-            _this75.errorCatched.action = 'showMeters';
-            _this75.errorCatched.title = 'Error en la Obtencion de Medidores';
-            _this75.errorCatched.zone = 'addRegister';
-            _this75.errorCatched.code = _this75.errorCatched.zone + '-' + _this75.errorCatched.action + '-' + _this75.errorCatched.table;
+            _this76.errorCatched.description = error.toString();
+            _this76.errorCatched.table = 'Meter';
+            _this76.errorCatched.action = 'showMeters';
+            _this76.errorCatched.title = 'Error en la Obtencion de Medidores';
+            _this76.errorCatched.zone = 'addRegister';
+            _this76.errorCatched.code = _this76.errorCatched.zone + '-' + _this76.errorCatched.action + '-' + _this76.errorCatched.table;
 
-            _this75.errorCatcherService.saveError(_this75.errorCatched).subscribe(function (response) {
-              _this75.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this76.errorCatcherService.saveError(_this76.errorCatched).subscribe(function (response) {
+              _this76.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11602,21 +11675,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this76 = this;
+          var _this77 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this76.usuarios = response.Usuarios;
+            _this77.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
-            _this76.errorCatched.description = error.toString();
-            _this76.errorCatched.table = 'User';
-            _this76.errorCatched.action = 'getUsers';
-            _this76.errorCatched.title = 'Error en la Obtencion de Usuarios';
-            _this76.errorCatched.zone = 'addRegister';
-            _this76.errorCatched.code = _this76.errorCatched.zone + '-' + _this76.errorCatched.action + '-' + _this76.errorCatched.table;
+            _this77.errorCatched.description = error.toString();
+            _this77.errorCatched.table = 'User';
+            _this77.errorCatched.action = 'getUsers';
+            _this77.errorCatched.title = 'Error en la Obtencion de Usuarios';
+            _this77.errorCatched.zone = 'addRegister';
+            _this77.errorCatched.code = _this77.errorCatched.zone + '-' + _this77.errorCatched.action + '-' + _this77.errorCatched.table;
 
-            _this76.errorCatcherService.saveError(_this76.errorCatched).subscribe(function (response) {
-              _this76.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los Usuarios' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this77.errorCatcherService.saveError(_this77.errorCatched).subscribe(function (response) {
+              _this77.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los Usuarios' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11678,25 +11751,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initLimits",
         value: function initLimits(rate) {
-          var _this77 = this;
+          var _this78 = this;
 
           this.limitService.getLimits(rate).subscribe(function (response) {
-            _this77.limites = response.Limits;
+            _this78.limites = response.Limits;
 
-            _this77.limites.sort(function (b, a) {
+            _this78.limites.sort(function (b, a) {
               return b.limit_from - a.limit_from;
             });
           }, function (error) {
             console.log(error);
-            _this77.errorCatched.description = error.toString();
-            _this77.errorCatched.table = 'Limit';
-            _this77.errorCatched.action = 'GetLimits';
-            _this77.errorCatched.title = 'Error en la Obtencion de los Limites';
-            _this77.errorCatched.zone = 'addRegister';
-            _this77.errorCatched.code = _this77.errorCatched.zone + '-' + _this77.errorCatched.action + '-' + _this77.errorCatched.table;
+            _this78.errorCatched.description = error.toString();
+            _this78.errorCatched.table = 'Limit';
+            _this78.errorCatched.action = 'GetLimits';
+            _this78.errorCatched.title = 'Error en la Obtencion de los Limites';
+            _this78.errorCatched.zone = 'addRegister';
+            _this78.errorCatched.code = _this78.errorCatched.zone + '-' + _this78.errorCatched.action + '-' + _this78.errorCatched.table;
 
-            _this77.errorCatcherService.saveError(_this77.errorCatched).subscribe(function (response) {
-              _this77.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los limites de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this78.errorCatcherService.saveError(_this78.errorCatched).subscribe(function (response) {
+              _this78.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los limites de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11838,35 +11911,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadRegisters",
         value: function loadRegisters(id) {
-          var _this78 = this;
+          var _this79 = this;
 
           this.dateMessage = null;
 
           this._registerService.getRegisters(id).subscribe(function (response) {
             if (!response.registers) {
-              _this78.isRegistered = null;
-              _this78.registroAnterior = null;
-              _this78.nuevoRegistro = true;
-              _this78.registros = null;
+              _this79.isRegistered = null;
+              _this79.registroAnterior = null;
+              _this79.nuevoRegistro = true;
+              _this79.registros = null;
             } else {
               console.log(response);
-              _this78.registros = response.registers;
+              _this79.registros = response.registers;
 
-              _this78.registros.sort(function (a, b) {
+              _this79.registros.sort(function (a, b) {
                 return b.month - a.month;
               });
 
-              _this78.registros.sort(function (a, b) {
+              _this79.registros.sort(function (a, b) {
                 return b.year - a.year;
               });
 
-              _this78.registroAnterior = _this78.registros[0];
-              console.log(_this78.registroAnterior);
-              _this78.registro.lecturaAnterior = _this78.registroAnterior.lectura;
-              _this78.registroAnterior._id = null;
-              _this78.isRegistered = new Date(_this78.registroAnterior.year, _this78.registroAnterior.month);
+              _this79.registroAnterior = _this79.registros[0];
+              console.log(_this79.registroAnterior);
+              _this79.registro.lecturaAnterior = _this79.registroAnterior.lectura;
+              _this79.registroAnterior._id = null;
+              _this79.isRegistered = new Date(_this79.registroAnterior.year, _this79.registroAnterior.month);
 
-              _this78.valiDate();
+              _this79.valiDate();
             }
           });
         }
@@ -12002,7 +12075,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this79 = this;
+          var _this80 = this;
 
           console.log('guardando registro');
           console.log(this.registro);
@@ -12012,25 +12085,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._registerService.save(this.registro).subscribe(function (response) {
             console.log(response); // alert(response.Message);
 
-            _this79.launchAlert('success', 'Registro Guardado Con Exito!', null, null, true, 1500, false, 'top-end', 'row', true);
+            _this80.launchAlert('success', 'Registro Guardado Con Exito!', null, null, true, 1500, false, 'top-end', 'row', true);
 
-            _this79.clave_medidor = null;
+            _this80.clave_medidor = null;
 
-            _this79.limpiar();
+            _this80.limpiar();
           }, function (error) {
             console.log(error);
             setTimeout(function () {
-              _this79.errorCatched.description = error.toString();
-              _this79.errorCatched.table = 'Registers';
-              _this79.errorCatched.action = 'saveRegisters';
-              _this79.errorCatched.title = 'Error al Guardar el Registro';
-              _this79.errorCatched.zone = 'addRegister';
-              _this79.errorCatched.code = _this79.errorCatched.zone + '-' + _this79.errorCatched.action + '-' + _this79.errorCatched.table;
+              _this80.errorCatched.description = error.toString();
+              _this80.errorCatched.table = 'Registers';
+              _this80.errorCatched.action = 'saveRegisters';
+              _this80.errorCatched.title = 'Error al Guardar el Registro';
+              _this80.errorCatched.zone = 'addRegister';
+              _this80.errorCatched.code = _this80.errorCatched.zone + '-' + _this80.errorCatched.action + '-' + _this80.errorCatched.table;
 
-              _this79.errorCatcherService.saveError(_this79.errorCatched).subscribe(function (response) {
+              _this80.errorCatcherService.saveError(_this80.errorCatched).subscribe(function (response) {
                 alert(response.Message);
 
-                _this79.launchAlert('error', 'Error al Guardar', 'Error: ' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+                _this80.launchAlert('error', 'Error al Guardar', 'Error: ' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
               });
             }, 500);
           });
@@ -12223,6 +12296,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         /** Conjunto de Usuarios @type User [ ] = [ ] */
 
         this.usuarios = [];
+        window.document.title = 'MerAgua - Buscar Registro de Consumo';
         this.title = 'Listado de Registros';
         this.identity = JSON.parse(localStorage.getItem('identity'));
         if (this.identity.role_user.toLowerCase() == 'operador') this.router.navigate(['/inicio']);
@@ -12361,16 +12435,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchRegisters",
         value: function searchRegisters() {
-          var _this80 = this;
+          var _this81 = this;
 
           this.registerList = null;
           this.registerList = [];
 
           if (!this.userList || this.userList.length <= 0) {
             this.meterService.getMeter(this.medidorActual).subscribe(function (response) {
-              _this80.userList = [];
+              _this81.userList = [];
 
-              _this80.userList.push(response.meter.user);
+              _this81.userList.push(response.meter.user);
             });
           }
 
@@ -12382,10 +12456,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var registro = response.Registros[i];
                 registro.numero = i + 1;
 
-                _this80.registerList.push(registro);
+                _this81.registerList.push(registro);
               }
 
-              _this80.registerList.sort(function (a, b) {
+              _this81.registerList.sort(function (a, b) {
                 var fecha1 = moment__WEBPACK_IMPORTED_MODULE_8__(a.month + 1 + '-01-' + a.year);
                 var fecha2 = moment__WEBPACK_IMPORTED_MODULE_8__(b.month + 1 + '-01-' + b.year);
                 var difference = fecha1.diff(fecha2, 'months');
@@ -12394,9 +12468,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (difference == 0) return 0;
               });
 
-              _this80.bufferRegisters = _this80.registerList;
+              _this81.bufferRegisters = _this81.registerList;
             } else {
-              _this80.registerList = null;
+              _this81.registerList = null;
             }
           });
         }
@@ -12489,11 +12563,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMeters",
         value: function initMeters() {
-          var _this81 = this;
+          var _this82 = this;
 
           this.loading = false;
           this.meterService.showMeters().subscribe(function (response) {
-            _this81.meters = response.Medidores;
+            _this82.meters = response.Medidores;
           }, function (error) {
             console.log(error);
           });
@@ -12520,20 +12594,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this82 = this;
+          var _this83 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this82.usuarios = response.Usuarios;
+            _this83.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
-            _this82.errorCatched.description = error.toString();
-            _this82.errorCatched.table = 'User';
-            _this82.errorCatched.action = 'getUsers';
-            _this82.errorCatched.title = 'Error en la Obtencion de Usuarios';
-            _this82.errorCatched.zone = 'addRegister';
-            _this82.errorCatched.code = _this82.errorCatched.zone + '-' + _this82.errorCatched.action + '-' + _this82.errorCatched.table;
+            _this83.errorCatched.description = error.toString();
+            _this83.errorCatched.table = 'User';
+            _this83.errorCatched.action = 'getUsers';
+            _this83.errorCatched.title = 'Error en la Obtencion de Usuarios';
+            _this83.errorCatched.zone = 'addRegister';
+            _this83.errorCatched.code = _this83.errorCatched.zone + '-' + _this83.errorCatched.action + '-' + _this83.errorCatched.table;
 
-            _this82.errorCatcherService.saveError(_this82.errorCatched).subscribe(function (response) {
+            _this83.errorCatcherService.saveError(_this83.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -12666,15 +12740,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "findRegisters",
         value: function findRegisters() {
-          var _this83 = this;
+          var _this84 = this;
 
           if (this.meterId) {
             this._registerService.getRegisters(this.meterId).subscribe(function (response) {
               if (response.registers) {
                 console.log(response.registers);
-                _this83.registers = response.registers;
+                _this84.registers = response.registers;
               } else {
-                _this83.registers = null;
+                _this84.registers = null;
               }
             }, function (error) {
               console.log(error);
@@ -12825,6 +12899,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.location = location;
         this._sectorService = _sectorService;
         this._router = _router;
+        window.document.title = 'MerAgua - Sectores';
         this.title = 'Cargando';
         this.identity = JSON.parse(localStorage.getItem('identity'));
         if (this.identity.role_user.toLowerCase() == 'operador') this._router.navigate(['/inicio']);
@@ -12845,10 +12920,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "initSector",
         value: function initSector() {
           this.sector = {
-            _id: '',
-            nombre: '',
-            referencia: '',
-            codigo: '',
+            _id: null,
+            nombre: null,
+            referencia: null,
+            codigo: null,
             activa: true
           };
           this.cargando = false;
@@ -12977,7 +13052,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (element.length > 3) {
               for (var id = 0; id <= ind; id++) {
-                console.log('id', id, ' ind', ind);
                 cod += element[id].toUpperCase();
               }
             } // if ((element.length - 1) <= 1) ind = element.length -1;
@@ -13010,43 +13084,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onNew",
         value: function onNew(form) {
-          var _this84 = this;
-
-          this._sectorService.saveSectores(this.sector).subscribe(function (response) {
-            // response.Message y response.sector
-            if (response.sector && response.sector._id) {
-              _this84.editar = false;
-
-              _this84.launchAlert('success', 'Ingreso de Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
-            }
-
-            _this84.initSector();
-
-            _this84.codigo = _this84.codigoAutom();
-          }, function (error) {
-            console.error(error);
-          });
-
-          setTimeout(function () {
-            _this84.showSectores = true;
-          }, 1000);
-        }
-      }, {
-        key: "onEdit",
-        value: function onEdit(form) {
           var _this85 = this;
 
           console.log(this.sector);
 
-          this._sectorService.updateSectores(this.sector).subscribe(function (response) {
+          this._sectorService.saveSectores(this.sector).subscribe(function (response) {
             // response.Message y response.sector
-            console.log(response);
-
             if (response.sector && response.sector._id) {
-              _this85.editar = false;
+              _this85.editar = null;
 
-              _this85.launchAlert('success', 'Edición del Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
+              _this85.launchAlert('success', 'Ingreso de Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
             }
+
+            _this85.codigo = _this85.codigoAutom();
 
             _this85.initSector();
           }, function (error) {
@@ -13055,6 +13105,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           setTimeout(function () {
             _this85.showSectores = true;
+          }, 1000);
+        }
+      }, {
+        key: "onEdit",
+        value: function onEdit(form) {
+          var _this86 = this;
+
+          console.log(this.sector);
+
+          this._sectorService.updateSectores(this.sector).subscribe(function (response) {
+            // response.Message y response.sector
+            console.log(response);
+
+            if (response.sector && response.sector._id) {
+              _this86.editar = false;
+
+              _this86.launchAlert('success', 'Edición del Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
+            }
+
+            _this86.initSector();
+          }, function (error) {
+            console.error(error);
+          });
+
+          setTimeout(function () {
+            _this86.showSectores = true;
           }, 1000);
         }
       }, {
@@ -13222,7 +13298,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onChange",
         value: function onChange(sector) {
-          var _this86 = this;
+          var _this87 = this;
 
           var tempSector = sector;
           var estado;
@@ -13238,13 +13314,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (sector.activa) estado = 'Reactivar';
             if (!sector.activa) estado = 'Desactivar';
 
-            _this86.launchAlert('success', 'Cambio Estado', 'Exito al ' + estado + ' el sector', null, null, 3500, false, 'top', 'row', true);
+            _this87.launchAlert('success', 'Cambio Estado', 'Exito al ' + estado + ' el sector', null, null, 3500, false, 'top', 'row', true);
           }, function (error) {
             if (sector.activa) estado = 'Reactivar';
             if (!sector.activa) estado = 'Desactivar';
             sector = tempSector;
 
-            _this86.launchAlert('error', 'Error al ' + estado + ' el sector', error, null, null, 3500, false, 'top', 'row', true);
+            _this87.launchAlert('error', 'Error al ' + estado + ' el sector', error, null, null, 3500, false, 'top', 'row', true);
           });
         }
       }, {
@@ -13260,7 +13336,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initSectores",
         value: function initSectores() {
-          var _this87 = this;
+          var _this88 = this;
 
           this._sectorService.getSectores().subscribe(function (response) {
             console.log(response);
@@ -13272,7 +13348,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var _loop2 = function _loop2() {
                 var sector = _step33.value;
 
-                _this87._statisticService.getMedidoresSector(sector._id).subscribe(function (responseCounters) {
+                _this88._statisticService.getMedidoresSector(sector._id).subscribe(function (responseCounters) {
                   sector.meters = responseCounters.meters;
                 });
               };
@@ -13295,7 +13371,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
 
-            _this87.sectores = response.sectores;
+            _this88.sectores = response.sectores;
           }, function (error) {
             console.error(error);
           });
@@ -13608,18 +13684,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this88 = this;
+          var _this89 = this;
 
           // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
           this.userService.showRaw().subscribe( // respuesta del servidor //
           function (response) {
             console.log(response); // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
-            _this88.usuarios = response.Usuarios; // bifurcador if para comprobar si la variable local "users" esta vacia //
+            _this89.usuarios = response.Usuarios; // bifurcador if para comprobar si la variable local "users" esta vacia //
 
-            if (_this88.users.length <= 0) {
+            if (_this89.users.length <= 0) {
               // en caso de que "users" este vacia se procede a llenar con la coleccion "Usuarios" almacenada en "response" //
-              _this88.users = response.Usuarios;
+              _this89.users = response.Usuarios;
             }
           }, // error del servidor //
           function (error) {
@@ -13642,7 +13718,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "busqueda",
         value: function busqueda(termino, parametro) {
-          var _this89 = this;
+          var _this90 = this;
 
           // preparacion de variables //
           // ------ Uso de la funcion to lower case [a minusculas] para evitar confuciones en el proceso
@@ -13663,7 +13739,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               case 'null':
                 {
                   // Se hace un llamado a la funcion "getUsers" que carga los usuarios almacenados en el servidor //
-                  _this89.getUsers(); // Se termina la Ejecucion del bifurcador Switch //
+                  _this90.getUsers(); // Se termina la Ejecucion del bifurcador Switch //
 
 
                   break;
@@ -13679,7 +13755,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13702,7 +13778,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13724,7 +13800,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13746,7 +13822,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13768,7 +13844,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this89.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13877,14 +13953,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onChange",
         value: function onChange(event) {
-          var _this90 = this;
+          var _this91 = this;
 
           this.selectedYearAsText = event.year.toString();
           this.selectedMonthIndex = event.monthIndex;
           this.selectedMonthAsText = moment__WEBPACK_IMPORTED_MODULE_4___default()().month(event.monthIndex).format('MMMM');
           setTimeout(function () {
-            _this90.year = event.year;
-            _this90.month = event.monthIndex + 1;
+            _this91.year = event.year;
+            _this91.month = event.monthIndex + 1;
           }, 75);
         }
       }, {
@@ -13895,18 +13971,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initNumeros",
         value: function initNumeros() {
-          var _this91 = this;
+          var _this92 = this;
 
           this.numerosService.showRaw().subscribe(function (response) {
-            _this91.numeros = response.Numeros;
+            _this92.numeros = response.Numeros;
 
-            _this91.aumentarNumero();
+            _this92.aumentarNumero();
           });
         }
       }, {
         key: "aumentarNumero",
         value: function aumentarNumero() {
-          var _this92 = this;
+          var _this93 = this;
 
           this.numeros.sort(function (a, b) {
             return b.num_min - a.num_min;
@@ -13944,7 +14020,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(numerosValidos);
           this.statisticsService.getBillsNumbers().subscribe(function (response) {
             console.log(response);
-            _this92.numero = numerosValidos[0].num_min;
+            _this93.numero = numerosValidos[0].num_min;
 
             if (response.numeros) {
               var nuevo = false;
@@ -13958,9 +14034,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   for (var _iterator35 = response.numeros[Symbol.iterator](), _step35; !(_iteratorNormalCompletion35 = (_step35 = _iterator35.next()).done); _iteratorNormalCompletion35 = true) {
                     var numero = _step35.value;
 
-                    if (_this92.numero == numero.numero) {
+                    if (_this93.numero == numero.numero) {
                       nuevo = false;
-                      _this92.numero++;
+                      _this93.numero++;
                     } else {
                       nuevo = true;
                     }
@@ -14145,27 +14221,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this93 = this;
+          var _this94 = this;
 
           if (!this.SearchedUsers) {
             // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
             this.userService.showRaw().subscribe( // respuesta del servidor //
             function (response) {
-              if (_this93.employees) {
-                _this93.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
+              if (_this94.employees) {
+                _this94.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
 
                 for (var index = 0; index < response.Usuarios.length; index++) {
                   var usuario = response.Usuarios[index];
 
                   if (usuario.role_user.toLowerCase() !== 'simple' && usuario.role_user.toLowerCase() !== 'common') {
-                    _this93.usuarios.push(usuario);
+                    _this94.usuarios.push(usuario);
                   }
                 }
-              } else if (!_this93.employees) {
+              } else if (!_this94.employees) {
                 var users = JSON.stringify(response.Usuarios);
-                _this93.usuarios = response.Usuarios;
+                _this94.usuarios = response.Usuarios;
 
-                _this93.EnvioDeUsuarios.emit(users);
+                _this94.EnvioDeUsuarios.emit(users);
               } // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
             }, // error del servidor //
@@ -14335,6 +14411,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this._router = _router;
         this.meters = [];
         this.title = 'Perfil de Empleado';
+        window.document.title = 'MerAgua - Mi Perfil';
         this.url = _service_global__WEBPACK_IMPORTED_MODULE_6__["Global"].url + 'user/';
         this.identity = JSON.parse(localStorage.getItem('identity'));
         this.bufferUser = JSON.parse(localStorage.getItem('identity'));
@@ -14352,11 +14429,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MyProfileComponent, [{
         key: "initStatistics",
         value: function initStatistics(id) {
-          var _this94 = this;
+          var _this95 = this;
 
           this._statisticsService.getUserStatistics(id).subscribe(function (response) {
             console.log(response);
-            _this94.statistics = response;
+            _this95.statistics = response;
           });
         }
       }, {
@@ -14367,7 +14444,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "desactivarCuenta",
         value: function desactivarCuenta(pass) {
-          var _this95 = this;
+          var _this96 = this;
 
           var userpass = {
             contrase: pass
@@ -14378,22 +14455,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (response.check == true) {
               var user;
-              if (_this95.identity.activa == true) user = {
+              if (_this96.identity.activa == true) user = {
                 activa: false
               };
-              if (_this95.identity.activa == false) user = {
+              if (_this96.identity.activa == false) user = {
                 activa: true
               };
 
-              _this95._userService.changeActiva(_this95.identity, _this95.identity._id).subscribe(function (response) {
-                _this95.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
+              _this96._userService.changeActiva(_this96.identity, _this96.identity._id).subscribe(function (response) {
+                _this96.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
 
-                _this95.identity = response.user;
+                _this96.identity = response.user;
                 localStorage.clear();
 
-                _this95._router.navigate(['/login']);
+                _this96._router.navigate(['/login']);
 
-                console.log(_this95.identity);
+                console.log(_this96.identity);
               });
             }
           });
@@ -14581,6 +14658,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.billService = billService;
         this.detailService = detailService;
         this.meters = [];
+        window.document.title = 'MerAgua - Perfil de Usuario';
         this.loading = true;
         this.loadingFacturas = true;
         this.loadingMedidores = true;
@@ -14612,7 +14690,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUser",
         value: function initUser() {
-          var _this96 = this;
+          var _this97 = this;
 
           this.route.params.subscribe(function (params) {
             var id;
@@ -14620,35 +14698,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (params.id) id = params.id;
 
             if (id != undefined) {
-              _this96.userService.getUser(id).subscribe(function (response) {
+              _this97.userService.getUser(id).subscribe(function (response) {
                 if (response.user) {
-                  _this96.user = response.user;
-                  _this96.title = 'Perfil del Usuario ';
+                  _this97.user = response.user;
+                  _this97.title = 'Perfil del Usuario ';
 
-                  _this96.initMedidores(id);
+                  _this97.initMedidores(id);
 
-                  _this96.initFacturas(id);
+                  _this97.initFacturas(id);
 
-                  console.log(_this96.user);
+                  console.log(_this97.user);
 
-                  if (_this96.user.fecha_nacimiento) {
-                    var convertAge = new Date(_this96.user.fecha_nacimiento);
+                  if (_this97.user.fecha_nacimiento) {
+                    var convertAge = new Date(_this97.user.fecha_nacimiento);
                     var timeDiff = Math.abs(Date.now() - convertAge.getTime());
-                    _this96.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
-                    console.log(_this96.age);
+                    _this97.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
+                    console.log(_this97.age);
                   }
                 } else {
-                  _this96.title = 'No se encuentra el perfil del usuario';
-                  _this96.loading = false;
+                  _this97.title = 'No se encuentra el perfil del usuario';
+                  _this97.loading = false;
                   alert('no se encuentra el usuario....');
                 }
               }, function (error) {
-                _this96.loading = false;
-                _this96.title = 'Error al buscar el usuario';
+                _this97.loading = false;
+                _this97.title = 'Error al buscar el usuario';
                 console.log(error);
               });
             } else {
-              _this96.loading = false;
+              _this97.loading = false;
             }
           });
         }
@@ -14667,22 +14745,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initFacturas",
         value: function initFacturas(id) {
-          var _this97 = this;
+          var _this98 = this;
 
           this.billService.getFacturaByUser(id).subscribe(function (response) {
             console.log(response);
 
             if (response.bills) {
-              _this97.bills = response.bills;
-              _this97.sinFacturas = false;
+              _this98.bills = response.bills;
+              _this98.sinFacturas = false;
 
-              _this97.initDetails();
+              _this98.initDetails();
             } else {
-              _this97.sinFacturas = true;
-              _this97.loadingFacturas = false;
+              _this98.sinFacturas = true;
+              _this98.loadingFacturas = false;
             }
 
-            _this97.launchAlert('success', 'Carga de Facturas Exitosa!', response.Message, null, false, 3500, false, 'top-end', 'row', true);
+            _this98.launchAlert('success', 'Carga de Facturas Exitosa!', response.Message, null, false, 3500, false, 'top-end', 'row', true);
           }, function (error) {
             console.log(error);
           });
@@ -14690,7 +14768,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initDetails",
         value: function initDetails() {
-          var _this98 = this;
+          var _this99 = this;
 
           var _iteratorNormalCompletion36 = true;
           var _didIteratorError36 = false;
@@ -14715,7 +14793,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 subtotal: bill.registro.subtotal.toFixed(2)
               }];
 
-              _this98.detailService.getDetalle(id).subscribe(function (response) {
+              _this99.detailService.getDetalle(id).subscribe(function (response) {
                 if (response.Detalles) {
                   details = response.Detalles;
                   bill.detalles = details;
@@ -14747,16 +14825,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMedidores",
         value: function initMedidores(id) {
-          var _this99 = this;
+          var _this100 = this;
 
           this.meterService.getUsersMeters(id).subscribe(function (response) {
-            _this99.meters = response.Medidores; // this.meters.sort((a, b) => (a.clave - b.clave));
+            _this100.meters = response.Medidores; // this.meters.sort((a, b) => (a.clave - b.clave));
 
-            _this99.loading = false;
-            console.log(_this99.meters);
+            _this100.loading = false;
+            console.log(_this100.meters);
           }, function (error) {
             console.error(error);
-            _this99.loading = false;
+            _this100.loading = false;
           });
         }
       }, {
@@ -14940,6 +15018,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.location = location;
         this.tablas = [];
         this.permisos = [];
+        window.document.title = 'MerAgua - Registro de Empleados';
         this.title = 'Registro de Empleados';
         this.identity = JSON.parse(localStorage.getItem('identity'));
         if (this.identity.role_user.toLowerCase() == 'operador') this.router.navigate(['/inicio']);
@@ -14966,10 +15045,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(RegisterEmployeesComponent, [{
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this100 = this;
+          var _this101 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this100.usuarios = response.Usuarios;
+            _this101.usuarios = response.Usuarios;
           });
         }
       }, {
@@ -15024,60 +15103,80 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this101 = this;
+          var _this102 = this;
 
           this.userService.register(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this101.status = true;
+              _this102.status = true;
               form.reset(); // alert(response.Message);
 
-              _this101.launchAlert('success', 'Se ha ingresado el nuevo Empleado!', 'Nombres: ' + response.User.nombre + ' ' + response.User.apellido + ', Cuenta: ' + response.User.cuenta, null, false, 1500, null, 'top', 'row', true);
+              _this102.launchAlert('success', 'Se ha ingresado el nuevo Empleado!', 'Nombres: ' + response.User.nombre + ' ' + response.User.apellido + ', Cuenta: ' + response.User.cuenta, null, false, 1500, null, 'top', 'row', true);
 
-              _this101.status = null; // this.ingresado = true;
+              _this102.status = null; // this.ingresado = true;
               // this.user = response.User;
             } else {
               alert('No se pudo ingresar este usuario');
-              _this101.status = false;
+              _this102.status = false;
             }
           }, function (error) {
             console.log(error.Message);
-            alert(error.error.Message);
-            _this101.status = false;
+            sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+              title: 'Error al Ingresar el Usuario',
+              icon: 'error',
+              showConfirmButton: false,
+              grow: 'row',
+              toast: true,
+              backdrop: false,
+              position: 'top',
+              timer: 1500
+            }); // alert(error.error.Message);
+
+            _this102.status = false;
             console.log(error);
           });
         }
       }, {
         key: "update",
         value: function update(form) {
-          var _this102 = this;
+          var _this103 = this;
 
           this.userService.updateUser(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this102.status = true;
+              _this103.status = true;
               alert(response.Message);
-              _this102.user = response.User;
-              _this102.onEdit = null;
+              _this103.user = response.User;
+              _this103.onEdit = null;
             } else {
               alert(response.Message);
             }
           }, function (error) {
-            console.log(error);
-            alert(error.Message);
+            console.log(error); // alert(error.message);
+
+            sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+              title: 'Error al Editar el Usuario',
+              icon: 'error',
+              showConfirmButton: false,
+              grow: 'row',
+              toast: true,
+              backdrop: false,
+              position: 'top',
+              timer: 1500
+            });
           });
         }
       }, {
         key: "loadTables",
         value: function loadTables() {
-          var _this103 = this;
+          var _this104 = this;
 
           this.tableService.getTables().subscribe(function (response) {
-            _this103.tablas = response.Tabla;
-            _this103.permisos = [], [];
+            _this104.tablas = response.Tabla;
+            _this104.permisos = [], [];
 
-            for (var index = 0; index < _this103.tablas.length; index++) {
-              var element = _this103.tablas[index];
+            for (var index = 0; index < _this104.tablas.length; index++) {
+              var element = _this104.tablas[index];
 
-              _this103.permisos.push({
+              _this104.permisos.push({
                 _id: null,
                 tabla: element._id,
                 crear: false,
@@ -15099,7 +15198,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "verifyCedula",
         value: function verifyCedula(cedula) {
-          var _this104 = this;
+          var _this105 = this;
 
           this.cedulaCorrecta = false;
 
@@ -15154,7 +15253,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                   var usuario = _step37.value;
 
                   if (cedula == usuario.cedula) {
-                    _this104.transformando = false;
+                    _this105.transformando = false;
 
                     if (usuario.role_user.toLowerCase() != 'common' && usuario.role_user.toLowerCase() != 'simple') {
                       sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
@@ -15174,10 +15273,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                         cancelButtonText: 'No, Ingresar otro.'
                       }).then(function (result) {
                         if (result.value) {
-                          _this104.transformando = true;
-                          _this104.user = usuario;
+                          _this105.transformando = true;
+                          _this105.user = usuario;
                         } else if (!result.value) {
-                          _this104.user.cedula = null;
+                          _this105.user.cedula = null;
                         }
                       });
                     }
@@ -15216,7 +15315,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "desactivarCuenta",
         value: function desactivarCuenta(pass) {
-          var _this105 = this;
+          var _this106 = this;
 
           var userpass = {
             contrase: pass
@@ -15226,18 +15325,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (response.check == true) {
               var user;
-              if (_this105.user.activa == true) user = {
+              if (_this106.user.activa == true) user = {
                 activa: false
               };
-              if (_this105.user.activa == false) user = {
+              if (_this106.user.activa == false) user = {
                 activa: true
               };
 
-              _this105.userService.changeActiva(user, _this105.user._id).subscribe(function (response) {
-                _this105.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
+              _this106.userService.changeActiva(user, _this106.user._id).subscribe(function (response) {
+                _this106.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
 
-                _this105.user = response.user;
-                console.log(_this105.user);
+                _this106.user = response.user;
+                console.log(_this106.user);
               });
             }
           });
@@ -15245,14 +15344,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cambiarContrase",
         value: function cambiarContrase(pass) {
-          var _this106 = this;
+          var _this107 = this;
 
           console.log(pass);
           var userpass = {
             contrase: pass
           };
           this.userService.updatePassword(userpass, this.user._id).subscribe(function (response) {
-            _this106.launchAlert('success', 'Clave del usuario Cambiada!', response.Message, null, false, 1500, null, 'top', 'row', true);
+            _this107.launchAlert('success', 'Clave del usuario Cambiada!', response.Message, null, false, 1500, null, 'top', 'row', true);
           });
         }
       }, {
@@ -15427,6 +15526,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.statisticsService = statisticsService;
         this.router = router;
         this.title = 'Registro de Usuarios Comunes';
+        window.document.title = 'MerAgua - Ingreso de Usuarios';
         this.identity = this.userService.getIdentity();
         if (this.identity.role_user.toLowerCase() != 'admin' && this.identity.role_user.toLowerCase() != 'secretario') this.router.navigate(['/inicio']);
         this.stats = this.userService.getStats();
@@ -15492,27 +15592,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this107 = this;
+          var _this108 = this;
 
           // llamado al servicio del usuario para enviar el nuevo objeto [user] a la base de datos
           this.userService.registerSimple(this.user).subscribe(function (response) {
             // en caso de que el backend responda con los datos del usuario editado se presenta un mensaje de correcto
             if (response.user && response.user._id) {
-              _this107.status = true;
+              _this108.status = true;
               form.reset();
 
-              _this107.launchAlert('success', 'Se ha Ingresado un Nuevo Usuario!', 'El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', Ha sido ingresado exitosamente!', null, false, 1500, null, 'top', 'row', true); // si el servidor no ha respondido con los parametros correctos (hubo un error), se presenta un mensaje de error
+              _this108.launchAlert('success', 'Se ha Ingresado un Nuevo Usuario!', 'El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', Ha sido ingresado exitosamente!', null, false, 1500, null, 'top', 'row', true); // si el servidor no ha respondido con los parametros correctos (hubo un error), se presenta un mensaje de error
 
             } else {
-              _this107.status = false;
+              _this108.status = false;
 
-              _this107.launchAlert('error', 'No se ha podido ingresar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this108.launchAlert('error', 'No se ha podido ingresar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
             }
           }, function (error) {
             // en caso de que el backend no responda o directamente arroje un error se presenta un mensaje de error
-            _this107.launchAlert('error', 'No se ha podido ingresar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
+            _this108.launchAlert('error', 'No se ha podido ingresar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
 
-            _this107.status = false;
+            _this108.status = false;
             console.log(error);
           });
         } // metodo de actualizacion de los datos del usuario
@@ -15520,26 +15620,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "update",
         value: function update(form) {
-          var _this108 = this;
+          var _this109 = this;
 
           // subscripcion al servicio de usuario para enviar los datos a editar
           this.userService.updateCommons(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this108.status = true;
+              _this109.status = true;
               form.reset();
 
-              _this108.launchAlert('success', 'Se ha Editado el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this109.launchAlert('success', 'Se ha Editado el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
 
-              _this108.onEdit = null;
+              _this109.onEdit = null;
             } else {
               console.log(response);
 
-              _this108.launchAlert('error', 'No se ha podido editar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this109.launchAlert('error', 'No se ha podido editar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
             }
           }, function (error) {
             console.log(error);
 
-            _this108.launchAlert('error', 'No se ha podido editar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
+            _this109.launchAlert('error', 'No se ha podido editar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
           });
         } // Metodo para conformar la edicion de la cedula
 
@@ -15657,10 +15757,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initCedulas",
         value: function initCedulas() {
-          var _this109 = this;
+          var _this110 = this;
 
           this.statisticsService.getCedulas().subscribe(function (response) {
-            _this109.cedulas = response.cedulas;
+            _this110.cedulas = response.cedulas;
             console.log(response.Message);
           });
         }
@@ -15902,33 +16002,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this110 = this;
+          var _this111 = this;
 
           this.userService.updateUser(this.user).subscribe(function (response) {
             if (!response.user) {
-              _this110.status = 'error';
+              _this111.status = 'error';
             } else {
-              _this110.status = 'success'; // localStorage.setItem('identity', JSON.stringify(this.user));
+              _this111.status = 'success'; // localStorage.setItem('identity', JSON.stringify(this.user));
 
-              _this110.uploadService.makeFileRequest(_this110.url + 'image/' + _this110.user._id, [], _this110.filesToUpload, _this110.token, 'image').then(function (result) {
+              _this111.uploadService.makeFileRequest(_this111.url + 'image/' + _this111.user._id, [], _this111.filesToUpload, _this111.token, 'image').then(function (result) {
                 console.log('dentro de makeFileRequest');
-                _this110.user.image = result.user.image;
-                _this110.identity = _this110.user;
-                localStorage.setItem('identity', JSON.stringify(_this110.identity));
+                _this111.user.image = result.user.image;
+                _this111.identity = _this111.user;
+                localStorage.setItem('identity', JSON.stringify(_this111.identity));
               }).catch(function (result) {
                 console.log('error' + result);
               });
             }
           }, function (error) {
             console.log(error);
-            _this110.errorCatched.description = error.toString();
-            _this110.errorCatched.table = 'User';
-            _this110.errorCatched.action = 'editUser';
-            _this110.errorCatched.title = 'Error al editar el usuario';
-            _this110.errorCatched.zone = 'user-edit';
-            _this110.errorCatched.code = _this110.errorCatched.zone + '-' + _this110.errorCatched.action + '-' + _this110.errorCatched.table;
+            _this111.errorCatched.description = error.toString();
+            _this111.errorCatched.table = 'User';
+            _this111.errorCatched.action = 'editUser';
+            _this111.errorCatched.title = 'Error al editar el usuario';
+            _this111.errorCatched.zone = 'user-edit';
+            _this111.errorCatched.code = _this111.errorCatched.zone + '-' + _this111.errorCatched.action + '-' + _this111.errorCatched.table;
 
-            _this110.errorCatcherService.saveError(_this110.errorCatched).subscribe(function (response) {
+            _this111.errorCatcherService.saveError(_this111.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -16047,6 +16147,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
         this.location = location;
         this.users = [];
+        window.document.title = 'MerAgua - Lista de Usuarios';
         this.title = 'Cargando....';
       }
 
@@ -16292,27 +16393,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this111 = this;
+          var _this112 = this;
 
           if (!this.SearchedUsers) {
             // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
             this.userService.showRaw().subscribe( // respuesta del servidor //
             function (response) {
-              if (_this111.employees) {
-                _this111.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
+              if (_this112.employees) {
+                _this112.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
 
                 for (var index = 0; index < response.Usuarios.length; index++) {
                   var usuario = response.Usuarios[index];
 
                   if (usuario.role_user.toLowerCase() !== 'simple' && usuario.role_user.toLowerCase() !== 'common') {
-                    _this111.usuarios.push(usuario);
+                    _this112.usuarios.push(usuario);
                   }
                 }
-              } else if (!_this111.employees) {
+              } else if (!_this112.employees) {
                 var users = JSON.stringify(response.Usuarios);
-                _this111.usuarios = response.Usuarios;
+                _this112.usuarios = response.Usuarios;
 
-                _this111.EnvioDeUsuarios.emit(users);
+                _this112.EnvioDeUsuarios.emit(users);
               } // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
             }, // error del servidor //
@@ -16733,16 +16834,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getShortMessages",
         value: function getShortMessages() {
-          var _this112 = this;
+          var _this113 = this;
 
           this.messageService.getMyMessage(this.token, 1).subscribe(function (response) {
             if (response.Pages >= 5) {
-              _this112.more = true;
+              _this113.more = true;
             }
 
-            _this112.total.emit(response.Total + '.' + response.Messages[0].created_at);
+            _this113.total.emit(response.Total + '.' + response.Messages[0].created_at);
 
-            _this112.messages = response.Messages;
+            _this113.messages = response.Messages;
           }, function (error) {
             console.log(error);
           });
@@ -17979,16 +18080,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchRegisters",
         value: function searchRegisters() {
-          var _this113 = this;
+          var _this114 = this;
 
           this.registerList = null;
           this.registerList = [];
 
           if (!this.userList || this.userList.length <= 0) {
             this.meterService.getMeterForConsulting(this.medidorActual).subscribe(function (response) {
-              _this113.userList = [];
+              _this114.userList = [];
 
-              _this113.userList.push(response.meter.user);
+              _this114.userList.push(response.meter.user);
             });
           }
 
@@ -18000,10 +18101,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var registro = response.Registros[i];
                 registro.numero = i + 1;
 
-                _this113.registerList.push(registro);
+                _this114.registerList.push(registro);
               }
 
-              _this113.registerList.sort(function (a, b) {
+              _this114.registerList.sort(function (a, b) {
                 var fecha1 = moment__WEBPACK_IMPORTED_MODULE_6__(a.month + 1 + '-01-' + a.year);
                 var fecha2 = moment__WEBPACK_IMPORTED_MODULE_6__(b.month + 1 + '-01-' + b.year);
                 var difference = fecha1.diff(fecha2, 'months');
@@ -18012,9 +18113,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (difference == 0) return 0;
               });
 
-              _this113.bufferRegisters = _this113.registerList;
+              _this114.bufferRegisters = _this114.registerList;
             } else {
-              _this113.registerList = null;
+              _this114.registerList = null;
             }
           });
         }
@@ -18028,11 +18129,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMeters",
         value: function initMeters() {
-          var _this114 = this;
+          var _this115 = this;
 
           this.loading = false;
           this.meterService.showMetersForConsulting().subscribe(function (response) {
-            _this114.meters = response.Medidores;
+            _this115.meters = response.Medidores;
           }, function (error) {
             console.log(error);
           });
@@ -18054,10 +18155,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this115 = this;
+          var _this116 = this;
 
           this.userService.showForConsulting().subscribe(function (response) {
-            _this115.usuarios = response.Usuarios;
+            _this116.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
           });
@@ -18281,20 +18382,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loginUser",
         value: function loginUser(user) {
-          var _this116 = this;
+          var _this117 = this;
 
           this.userService.login(user).subscribe(function (response) {
-            _this116.identity = response.user;
-            console.log('respuesta' + _this116.identity);
+            _this117.identity = response.user;
+            console.log('respuesta' + _this117.identity);
 
-            if (_this116.identity && _this116.identity._id !== 'undefined') {
+            if (_this117.identity && _this117.identity._id !== 'undefined') {
               // localStorage.setItem('role_user', this.identity.role_user);
-              _this116.goToInicio(); // alert('El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', ha sido Ingresado');
+              _this117.goToInicio(); // alert('El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', ha sido Ingresado');
 
-            } else if (!_this116.identity && !_this116.identity._id) {
+            } else if (!_this117.identity && !_this117.identity._id) {
               alert('Error en la cuenta y/o contraseña');
-              console.log('respuesta' + _this116.identity);
-              _this116.status = false;
+              console.log('respuesta' + _this117.identity);
+              _this117.status = false;
             }
           }, function (error) {
             var errorMessage = error;
@@ -18319,15 +18420,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onRegister",
         value: function onRegister() {
-          var _this117 = this;
+          var _this118 = this;
 
           this.userService.register(this.user).subscribe(function (response) {
-            _this117.identity = response.User; // localStorage.setItem('identity', JSON.stringify(response.User));
+            _this118.identity = response.User; // localStorage.setItem('identity', JSON.stringify(response.User));
             // this.getToken();
             // console.log('redirigiendo?');
             // this.router.navigate(['/inicio']);
 
-            _this117.goToInicio();
+            _this118.goToInicio();
           }, function (error) {
             console.error(error);
             alert('Datos Duplicados, revise su cedula, su correo o su nombre de cuenta...');
@@ -18336,15 +18437,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getToken",
         value: function getToken() {
-          var _this118 = this;
+          var _this119 = this;
 
           this.userService.login(this.user, 'true').subscribe(function (response) {
-            _this118.token = response.token;
+            _this119.token = response.token;
 
-            if (!_this118.token) {
+            if (!_this119.token) {
               alert('Error en el correo y/o contraseña');
-            } else if (_this118.token) {
-              localStorage.setItem('token', JSON.stringify(_this118.token));
+            } else if (_this119.token) {
+              localStorage.setItem('token', JSON.stringify(_this119.token));
             }
           }, function (error) {
             var errorMessage = error;
@@ -18356,7 +18457,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onAdmin",
         value: function onAdmin() {
-          var _this119 = this;
+          var _this120 = this;
 
           this.counter++;
           console.log(this.counter);
@@ -18376,8 +18477,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           setTimeout(function () {
-            _this119.counter = 0;
-            console.log(_this119.counter);
+            _this120.counter = 0;
+            console.log(_this120.counter);
           }, 1000);
         }
       }, {
@@ -18576,27 +18677,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this120 = this;
+          var _this121 = this;
 
           this._messageService.addMessage(this.token, this.message).subscribe(function (response) {
             if (response) {
-              _this120.status = "success";
+              _this121.status = "success";
               form.reset();
               console.log("mensaje enviado correctamente");
             }
           }, function (error) {
-            _this120.status = "error";
+            _this121.status = "error";
             console.log(error);
           });
         }
       }, {
         key: "getMyFollows",
         value: function getMyFollows() {
-          var _this121 = this;
+          var _this122 = this;
 
           this._followService.getMyFollows(this.token).subscribe(function (response) {
             console.log(response);
-            _this121.follows = response.follows;
+            _this122.follows = response.follows;
           }, function (error) {
             console.log(error);
           });
@@ -18854,32 +18955,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "actualPage",
         value: function actualPage() {
-          var _this122 = this;
+          var _this123 = this;
 
           this.route.params.subscribe(function (params) {
             var page = +params['page'];
-            _this122.page = page;
-            if (!page || page == 1) _this122.page = 1, _this122.prevPage = null, _this122.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
-              _this122.nextPage = page + 1;
-              _this122.prevPage = page - 1;
-              if (_this122.prevPage <= 0) _this122.prevPage = 1;
+            _this123.page = page;
+            if (!page || page == 1) _this123.page = 1, _this123.prevPage = null, _this123.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
+              _this123.nextPage = page + 1;
+              _this123.prevPage = page - 1;
+              if (_this123.prevPage <= 0) _this123.prevPage = 1;
             } // devolver listado de mensajes
 
-            _this122.getMessages(_this122.page);
+            _this123.getMessages(_this123.page);
           });
         }
       }, {
         key: "getMessages",
         value: function getMessages(page) {
-          var _this123 = this;
+          var _this124 = this;
 
           if (page == null || page == 0) page = 1;
 
           this._messageService.getMyMessage(this.token, page).subscribe(function (response) {
-            _this123.pages = response.Pages;
-            _this123.total = response.Total;
-            _this123.messages = response.Messages;
-            console.log('Datos: -Pages: ' + _this123.pages + '. -Total [object]: ' + _this123.total + '. -Page: ' + _this123.page);
+            _this124.pages = response.Pages;
+            _this124.total = response.Total;
+            _this124.messages = response.Messages;
+            console.log('Datos: -Pages: ' + _this124.pages + '. -Total [object]: ' + _this124.total + '. -Page: ' + _this124.page);
             console.log(response);
           }, function (error) {
             console.log(error);
@@ -19033,32 +19134,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "actualPage",
         value: function actualPage() {
-          var _this124 = this;
+          var _this125 = this;
 
           this.route.params.subscribe(function (params) {
             var page = +params['page'];
-            _this124.page = page;
-            if (!page || page == 1) _this124.page = 1, _this124.prevPage = null, _this124.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
-              _this124.nextPage = page + 1;
-              _this124.prevPage = page - 1;
-              if (_this124.prevPage <= 0) _this124.prevPage = 1;
+            _this125.page = page;
+            if (!page || page == 1) _this125.page = 1, _this125.prevPage = null, _this125.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
+              _this125.nextPage = page + 1;
+              _this125.prevPage = page - 1;
+              if (_this125.prevPage <= 0) _this125.prevPage = 1;
             } // devolver listado de mensajes
 
-            _this124.getMessages(_this124.page);
+            _this125.getMessages(_this125.page);
           });
         }
       }, {
         key: "getMessages",
         value: function getMessages(page) {
-          var _this125 = this;
+          var _this126 = this;
 
           if (page == null || page == 0) page = 1;
 
           this._messageService.getEmittMessage(this.token, page).subscribe(function (response) {
-            _this125.pages = response.Pages;
-            _this125.total = response.Total;
-            _this125.messages = response.Messages;
-            console.log('Datos: -Pages: ' + _this125.pages + '. -Total [object]: ' + _this125.total + '. -Page: ' + _this125.page);
+            _this126.pages = response.Pages;
+            _this126.total = response.Total;
+            _this126.messages = response.Messages;
+            console.log('Datos: -Pages: ' + _this126.pages + '. -Total [object]: ' + _this126.total + '. -Page: ' + _this126.page);
             console.log(response);
           }, function (error) {
             console.log(error);
@@ -20408,9 +20509,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     "./node_modules/tslib/tslib.es6.js");
 
     var Global = {
-      url: 'http://157.245.247.130:3800/' // url: 'http://157.245.234.218:3800/'
-      // url: 'http://localhost:3800/'
-
+      // url: 'http://157.245.247.130:3800/'
+      // url: 'http://157.245.234.218:3800/'
+      url: 'http://157.245.247.130:3800/'
     };
     /***/
   },
