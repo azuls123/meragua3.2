@@ -9,10 +9,10 @@ var Rate = require('../models/rate');
 var Register = require('../models/register');
 var Sector = require('../models/sector');
 var Detalle = require('../models/detalleFactura');
+
+
 function getStaticsByUser(req, res) {
     var id = req.params.id;
-    console.log('generando estadisticas');
-
     getCountsGeneratedsByUser(id).then((countsGenerateds) => {
         getCountsOnwedByUser(id).then((countsOwneds) => {
             getCountsGlobal().then((countGlobal) => {
@@ -25,7 +25,6 @@ function getStaticsByUser(req, res) {
             })
         })
     })
-
 }
 async function getCountsGeneratedsByUser(id) {
     var users = await User.countDocuments({
@@ -159,7 +158,7 @@ function getBillsNumbers(req, res) {
 }
 
 function getCedulas(req, res) {
-    User.find({}, {cedula: 1, _id:0}, (err, response) => {
+    User.find({}, {cedula: 1, cuenta: 1, correo: 1, _id:0}, (err, response) => {
         if (err) return res.status(500).send({Message: 'Error al Ejecutar la peticion de cedulas', Error: err});
         if (!response) return res.status(404).send({Message: 'Error al devolver las cedulas'});
         if (response.length<=0) return res.status(404).send({Message: 'No se registra ninguna cedula'});

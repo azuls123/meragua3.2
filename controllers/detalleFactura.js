@@ -53,8 +53,17 @@ function getDetalle(req, res) {
         return res.status(200).send({Message: 'Detalles Cargados.', Detalles: response});
     });
 }
+function getDetalles(req, res) {
+    Detalle.find().populate('importe factura').exec((error, response) => {
+        if (error) return res.status(500).send({Message: 'Error ejecutando la peticion...', Error: error});
+        if (!response) return res.status(404).send({Message: 'El servidor no ha respondido', response});
+        if (response && response.length<=0) return res.status(200).send({Message: 'No existen detalles de esta factura...', response});
+        return res.status(200).send({Message: 'Detalles Cargados.', Detalles: response});
+    });
+}
 
 module.exports = {
     saveAll,
-    getDetalle
+    getDetalle,
+    getDetalles
 }

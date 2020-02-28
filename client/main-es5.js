@@ -483,7 +483,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\r\n  <!-- Content Header (Page header) -->\r\n  <div class=\"content-header\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"row mb-2\">\r\n        <div class=\"col-sm-6\">\r\n          <h1 class=\"m-0 text-dark\">P&aacute;gina Principal</h1>\r\n        </div><!-- /.col -->\r\n        <div class=\"col-sm-6\">\r\n          <ol class=\"breadcrumb float-sm-right\">\r\n            <li class=\"breadcrumb-item\"><a (click)=\"return()\" style=\"cursor: pointer;\">Atr&aacute;s</a></li>\r\n            <li class=\"breadcrumb-item active\">Inicio</li>\r\n          </ol>\r\n        </div><!-- /.col -->\r\n      </div><!-- /.row -->\r\n    </div><!-- /.container-fluid -->\r\n  </div>\r\n  <!-- /.content-header -->\r\n\r\n  <!-- Main content -->\r\n  <section class=\"content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"col-lg-8 text-center offset-lg-2\" >\r\n            <div class=\"jumbotron\">\r\n                <img src=\"{{logo}}\" alt=\"logo\" class=\"home-logo\">\r\n                <p class=\"underline\">Pagina de inicio del sistema de control de agua potable del GAD de Mera</p>\r\n            </div>\r\n        </div>\r\n        <!-- Small boxes (Stat box) -->\r\n        <div class=\"row\">\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-success\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>{{statistics.facturas}}</h3>\r\n                <p>Facturas Generadas <br>Sin Pagar: {{statistics.facturaSinPagar}}. Pagadas: {{statistics.facturasPagadas}}</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fas fa-file-invoice-dollar\"></i>\r\n              </div>\r\n              <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a>\r\n              <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-info\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>\r\n                  {{statistics.medidores}}\r\n                </h3>\r\n                <br>\r\n                <!-- <sup style=\"font-size: 20px\">%</sup> -->\r\n                <p>Medidores</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fas fa-tachometer-alt\"></i>\r\n              </div>\r\n              <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a>\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-warning\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>{{statistics.usuarios}}</h3>\r\n                <br>\r\n\r\n                <p>Usuarios de Medidores</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fa fa-user\"></i>\r\n              </div>\r\n              <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a>\r\n              <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-danger\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>{{statistics.sectores}}</h3>\r\n                <p>Sectores <br>Activos: {{statistics.sectoresActivos}}. Inactivos: {{statistics.sectoresInactivos}}</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fas fa-map-marked-alt\"></i>\r\n              </div>\r\n              <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a>\r\n              <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n        </div>\r\n        <!-- /.row -->\r\n        <div class=\"row\" hidden>\r\n          <section class=\"col-lg-6 connectedSortable\">\r\n            <div>\r\n\r\n              <label for=\"\" class=\"text-center form-control col-lg-12\" *ngIf=\"statistics\">Total de Facturas: {{statistics.facturas}}\r\n                <button class=\"btn btn-info btn-sm float-right\" (click)=\"verChartFactura()\">Cambiar Gr&aacute;fico</button>\r\n              </label>\r\n              <div style=\"display: block;\" *ngIf=\"facturaChart.barChartType != null\">\r\n                <canvas baseChart\r\n                  [datasets]=\"facturaChart.barChartData\"\r\n                  [labels]=\"facturaChart.barChartLabels\"\r\n                  [options]=\"facturaChart.barChartOptions\"\r\n                  [legend]=\"facturaChart.barChartLegend\"\r\n                  [chartType]=\"facturaChart.barChartType\">\r\n                </canvas>\r\n              </div>\r\n            </div>\r\n          </section>\r\n        </div>\r\n        <!-- Main row -->\r\n        <div class=\"row\" hidden>\r\n          <!-- Left col -->\r\n          <section class=\"col-lg-7 connectedSortable\">\r\n            <div>\r\n              <button class=\"btn btn-success\" (click)=\"changeType()\">Mostrando: {{barChartType}}</button>\r\n              <div style=\"display: block;\">\r\n                <canvas baseChart\r\n                  [datasets]=\"barChartData\"\r\n                  [labels]=\"barChartLabels\"\r\n                  [options]=\"barChartOptions\"\r\n                  [legend]=\"barChartLegend\"\r\n                  [chartType]=\"barChartType\">\r\n                </canvas>\r\n              </div>\r\n            </div>\r\n          </section>\r\n          <!-- /.Left col -->\r\n          <!-- right col -->\r\n        </div>\r\n        <!-- /.row (main row) -->\r\n      </div><!-- /.container-fluid -->\r\n    </section>\r\n    <!-- /.content -->\r\n<!-- <app-publication></app-publication> -->\r\n";
+    __webpack_exports__["default"] = "\r\n  <!-- Content Header (Page header) -->\r\n  <div class=\"content-header\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"row mb-2\">\r\n        <div class=\"col-sm-6\">\r\n          <h1 class=\"m-0 text-dark\">P&aacute;gina Principal</h1>\r\n        </div><!-- /.col -->\r\n        <div class=\"col-sm-6\">\r\n          <ol class=\"breadcrumb float-sm-right\">\r\n            <li class=\"breadcrumb-item\"><a (click)=\"return()\" style=\"cursor: pointer;\">Atr&aacute;s</a></li>\r\n            <li class=\"breadcrumb-item active\">Inicio</li>\r\n          </ol>\r\n        </div><!-- /.col -->\r\n      </div><!-- /.row -->\r\n    </div><!-- /.container-fluid -->\r\n  </div>\r\n  <!-- /.content-header -->\r\n\r\n  <!-- Main content -->\r\n  <section class=\"content\">\r\n    <div class=\"container-fluid\">\r\n        <div class=\"col-lg-8 text-center offset-lg-2\" >\r\n            <div class=\"jumbotron\">\r\n                <img src=\"{{logo}}\" alt=\"logo\" class=\"home-logo\">\r\n                <p class=\"underline\">Pagina de inicio del sistema de control de agua potable del GAD de Mera</p>\r\n            </div>\r\n        </div>\r\n        <!-- Small boxes (Stat box) -->\r\n        <div class=\"row\">\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-success\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>{{statistics.facturas}}</h3>\r\n                <p>Facturas Generadas <br>Sin Pagar: {{statistics.facturaSinPagar}}. Pagadas: {{statistics.facturasPagadas}}</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fas fa-file-invoice-dollar\"></i>\r\n              </div>\r\n              <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n              <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-info\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>\r\n                  {{statistics.medidores}}\r\n                </h3>\r\n                <br>\r\n                <!-- <sup style=\"font-size: 20px\">%</sup> -->\r\n                <p>Medidores</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fas fa-tachometer-alt\"></i>\r\n              </div>\r\n              <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-warning\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>{{statistics.usuarios}}</h3>\r\n                <br>\r\n\r\n                <p>Usuarios de Medidores</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fa fa-user\"></i>\r\n              </div>\r\n              <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n              <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n          <div class=\"col-lg-3 col-6\">\r\n            <!-- small box -->\r\n            <div class=\"small-box bg-danger\" *ngIf=\"statistics\">\r\n              <div class=\"inner\">\r\n                <h3>{{statistics.sectores}}</h3>\r\n                <p>Sectores <br>Activos: {{statistics.sectoresActivos}}. Inactivos: {{statistics.sectoresInactivos}}</p>\r\n              </div>\r\n              <div class=\"icon\">\r\n                <i class=\"fas fa-map-marked-alt\"></i>\r\n              </div>\r\n              <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n              <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\r\n            </div>\r\n          </div>\r\n          <!-- ./col -->\r\n        </div>\r\n        <!-- /.row -->\r\n        <div class=\"row\" hidden>\r\n          <section class=\"col-lg-6 connectedSortable\">\r\n            <div>\r\n\r\n              <label for=\"\" class=\"text-center form-control col-lg-12\" *ngIf=\"statistics\">Total de Facturas: {{statistics.facturas}}\r\n                <button class=\"btn btn-info btn-sm float-right\" (click)=\"verChartFactura()\">Cambiar Gr&aacute;fico</button>\r\n              </label>\r\n              <div style=\"display: block;\" *ngIf=\"facturaChart.barChartType != null\">\r\n                <canvas baseChart\r\n                  [datasets]=\"facturaChart.barChartData\"\r\n                  [labels]=\"facturaChart.barChartLabels\"\r\n                  [options]=\"facturaChart.barChartOptions\"\r\n                  [legend]=\"facturaChart.barChartLegend\"\r\n                  [chartType]=\"facturaChart.barChartType\">\r\n                </canvas>\r\n              </div>\r\n            </div>\r\n          </section>\r\n        </div>\r\n        <!-- Main row -->\r\n        <div class=\"row\" hidden>\r\n          <!-- Left col -->\r\n          <section class=\"col-lg-7 connectedSortable\">\r\n            <div>\r\n              <button class=\"btn btn-success\" (click)=\"changeType()\">Mostrando: {{barChartType}}</button>\r\n              <div style=\"display: block;\">\r\n                <canvas baseChart\r\n                  [datasets]=\"barChartData\"\r\n                  [labels]=\"barChartLabels\"\r\n                  [options]=\"barChartOptions\"\r\n                  [legend]=\"barChartLegend\"\r\n                  [chartType]=\"barChartType\">\r\n                </canvas>\r\n              </div>\r\n            </div>\r\n          </section>\r\n          <!-- /.Left col -->\r\n          <!-- right col -->\r\n        </div>\r\n        <!-- /.row (main row) -->\r\n      </div><!-- /.container-fluid -->\r\n    </section>\r\n    <!-- /.content -->\r\n<!-- <app-publication></app-publication> -->\r\n";
     /***/
   },
 
@@ -503,7 +503,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader style=\"margin-top: 500px;\"></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === false\">\r\n        <div class=\"form-group row\">\r\n          <label class=\"form-control\">{{description}}</label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <label class=\"col-sm-5\">\r\n            <h3 class=\"text-success\">Ingreso</h3>\r\n          </label>\r\n          <label class=\"col-sm-7\">\r\n            <h3 class=\"text-info\">Vista</h3>\r\n          </label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-sm-5\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Nombre del Importe</label>\r\n              <div class=\"col-sm-7\">\r\n                <input type=\"text\" #nombre name=\"nombre\" id=\"nombre\" [(ngModel)]=\"importe.nombre\"\r\n                  class=\"form-control\" />\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Costo</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\"  *ngIf=\"!importe.percent || (importe.percent == 'false' || importe.percent == false)\">\r\n                    <span class=\"input-group-text\">$</span>\r\n                  </div>\r\n                  <input type=\"number\" #costo name=\"costo\" id=\"costo\" [(ngModel)]=\"importe.costo\" class=\"form-control\"\r\n                    style=\"text-align:right\">\r\n                  <div class=\"input-group-append\" *ngIf=\"importe.percent && (importe.percent == 'true' || importe.percent == true)\">\r\n                      <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Porcentaje del total?</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\">\r\n                    <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                  <select name=\"percent\" id=\"percent\" #percent [disabled]=\"importe.descuento && importe.descuento.toString() == 'true'\"  (click)=\"onDescuento()\" (change)=\"onDescuento()\" [(ngModel)]=\"importe.percent\" class=\"form-control\">\r\n                    <option value=\"true\">S&iacute;</option>\r\n                    <option value=\"false\">No</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-sm-5\">Tipo: </label>\r\n              <div class=\"col-sm-7\">\r\n                <select name=\"descuento\" id=\"descuento\" (click)=\"onDescuento()\" (change)=\"onDescuento()\" #descuento [(ngModel)]=\"importe.descuento\" class=\"form-control\">\r\n                  <option value=\"true\">Descuento</option>\r\n                  <option value=\"false\">Importe</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-5 offset-1\">\r\n                <button class=\"btn btn-success form-control\" [disabled]=\"(importe.descuento && importe.descuento.toString() == 'true') && importe.costo > 75\" (click)=\"onSubmit()\"><i *ngIf=\"editing===true\">Editar</i><i\r\n                    *ngIf=\"editing===false\">Guardar</i></button>\r\n              </div>\r\n              <div class=\"col-sm-5\">\r\n                <button class=\"btn btn-info  form-control\" (click)=\"onClear()\"><i *ngIf=\"editing===true\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"editing===false\">Limpiar</i></button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7\" *ngIf=\"reload==false\">\r\n            <app-show-importes (importEdit)=\"onEdit($event)\"></app-show-importes>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader style=\"margin-top: 500px;\"></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === false\">\r\n        <div class=\"form-group row\">\r\n          <label class=\"form-control\">{{description}}</label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <label class=\"col-sm-5\">\r\n            <h3 class=\"text-success\">Ingreso</h3>\r\n          </label>\r\n          <label class=\"col-sm-7\">\r\n            <h3 class=\"text-info\">Vista</h3>\r\n          </label>\r\n        </div>\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-sm-5\">\r\n            <div class=\"form-group row\">\r\n              <label title=\"Campo Obligatorio\" class=\"col-sm-5\">Nombre del Importe*</label>\r\n              <div class=\"col-sm-7\">\r\n                <input type=\"text\" #nombre name=\"nombre\" id=\"nombre\" [(ngModel)]=\"importe.nombre\"\r\n                  class=\"form-control\" />\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label title=\"Campo Obligatorio\"  class=\"col-sm-5\">Costo*</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\"  *ngIf=\"!importe.percent || (importe.percent == 'false' || importe.percent == false)\">\r\n                    <span class=\"input-group-text\">$</span>\r\n                  </div>\r\n                  <input type=\"number\" #costo name=\"costo\" id=\"costo\" [(ngModel)]=\"importe.costo\" class=\"form-control\"\r\n                    style=\"text-align:right\">\r\n                  <div class=\"input-group-append\" *ngIf=\"importe.percent && (importe.percent == 'true' || importe.percent == true)\">\r\n                      <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label title=\"Campo Obligatorio\" class=\"col-sm-5\">Porcentaje del total?*</label>\r\n              <div class=\"col-sm-7\">\r\n                <div class=\"input-group\">\r\n                  <div class=\"input-group-prepend\">\r\n                    <span class=\"input-group-text\">%</span>\r\n                  </div>\r\n                  <select name=\"percent\" id=\"percent\" #percent [disabled]=\"importe.descuento && importe.descuento.toString() == 'true'\"  (click)=\"onDescuento()\" (change)=\"onDescuento()\" [(ngModel)]=\"importe.percent\" class=\"form-control\">\r\n                    <option value=\"true\">S&iacute;</option>\r\n                    <option value=\"false\">No</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <label title=\"Campo Obligatorio\" class=\"col-sm-5\">Tipo*</label>\r\n              <div class=\"col-sm-7\">\r\n                <select name=\"descuento\" id=\"descuento\" (click)=\"onDescuento()\" (change)=\"onDescuento()\" #descuento [(ngModel)]=\"importe.descuento\" class=\"form-control\">\r\n                  <option value=\"true\">Descuento</option>\r\n                  <option value=\"false\">Importe</option>\r\n                </select>\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <div class=\"col-sm-5 offset-1\">\r\n                <button class=\"btn btn-success form-control\" [disabled]=\"(importe.descuento && importe.descuento.toString() == 'true') && importe.costo > 75\" (click)=\"onSubmit()\"><i *ngIf=\"editing===true\">Editar</i><i\r\n                    *ngIf=\"editing===false\">Guardar</i></button>\r\n              </div>\r\n              <div class=\"col-sm-5\">\r\n                <button class=\"btn btn-info  form-control\" (click)=\"onClear()\"><i *ngIf=\"editing===true\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"editing===false\">Limpiar</i></button>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-7\" *ngIf=\"reload==false\">\r\n            <app-show-importes (importEdit)=\"onEdit($event)\"></app-show-importes>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -583,7 +583,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <!-- left column -->\r\n  <div class=\"col-md-6 offset-lg-2\">\r\n    <!-- Horizontal Form -->\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /.card-header -->\r\n\r\n      <!-- form start -->\r\n      <form #meterForm=\"ngForm\" (ngSubmint)=\"onSubmit(meterForm)\" class=\"form-horizontal\">\r\n        <div class=\"card-body\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"clave\" class=\"col-sm-4 control-label\">Clave | N&ordm; Medidor</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <div class=\"input-group mb-3\">\r\n                <input #clave [(ngModel)]=\"medidor.clave\" id=\"clave\" type=\"number\" name=\"clave\" min=\"1\"\r\n                class=\"form-control default\"  placeholder=\"__________\" [class.is-valid]=\"medidorOk===true\"\r\n                [class.is-invalid]=\"medidorOk===null\" [class.is-warning]=\"medidorOk===false\"\r\n                (keyup)=\"validarMedidor(clave.value)\" (change)=\"validarMedidor(clave.value)\" required />\r\n                <div class=\"input-group-append\" style=\"cursor: pointer;\" title=\"Generar Clave aleatoria\" (click)=\"goRandom()\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-dice\"></i>\r\n                  </span>\r\n                </div>\r\n              </div>\r\n              \r\n              <!-- << Input -->\r\n              <span *ngIf=\"!clave.valid && clave.touched\" class=\"\">\r\n                Clave Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-4 control-label\">Direccion</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <input #direccion=\"ngModel\" [(ngModel)]=\"medidor.direccion\" id=\"direccion\" type=\"text\" name=\"direccion\"\r\n                class=\"form-control default\" placeholder=\"Ingresar una direccion\" required />\r\n              <!-- << Input -->\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"BackGround Font Dark-mode\">\r\n                Direccion Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sector\" class=\"col-sm-4 control-label\">Sector</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-search-location\"></i>\r\n                  </span>\r\n                </div>\r\n                <select name=\"sector\" class=\"form-control default\" id=\"sector\" required #sector [(ngModel)]=\"medidor.sector\">\r\n                  <option value=\"{{sector._id}}\" *ngFor=\"let sector of sectores\">\r\n                    {{sector.codigo + ' - ' + sector.nombre}}\r\n                  </option>\r\n                </select>\r\n                <span *ngIf=\"!sector.valid && sector.touched\" class=\"BackGround Font Dark-mode\">\r\n                  Direccion Obligatoria!!\r\n                </span>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"Usuario\" class=\"col-sm-4 control-label\">Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group \">\r\n                <select name=\"user\" id=\"user\" #user=\"ngModel\" [(ngModel)]=\"medidor.user\" class=\"form-control default\"\r\n                  required>\r\n                  <option *ngFor=\"let usuario of users\" value=\"{{usuario._id}}\">\r\n                    {{usuario.cedula + ' | ' +  usuario.apellido.split(\" \", 1) + ' ' + usuario.nombre.split(\" \", 1)}}\r\n                  </option>\r\n                </select>\r\n                <div class=\"input-group-append\">\r\n                  <button class=\"btn btn-default\" (click)=\"cargarDatos()\">\r\n                    <span class=\"fas fa-redo-alt\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n              <span *ngIf=\"!user.valid && user.touched\">\r\n                Usuario Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"rate\" class=\"col-sm-4 control-label\">Tarifa</label>\r\n            <div class=\"col-sm-8\">\r\n              <select name=\"rate\" id=\"rate\" #rate=\"ngModel\" [(ngModel)]=\"medidor.rate\" class=\"form-control default\"\r\n                required>\r\n                <option *ngFor=\"let tarifa of tarifas\" value=\"{{tarifa._id}}\">{{tarifa.tarifa}}</option>\r\n              </select>\r\n              <span *ngIf=\"!rate.valid && rate.touched\">\r\n                Tarifa Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"croquis\" class=\"col-sm-4 control-label\">Imagen de Croquis</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- Input type File Custom -->\r\n              <span class=\"btn btn-primary btn-file\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\">\r\n                <i class=\"fa fa-upload\"></i> &nbsp; Subir archivo\r\n                <input id=\"file-upload\" type=\"file\" placeholder=\"Subir Croquis\" name=\"image\" class=\"btn-file\"\r\n                  (change)=\"fileChangeEvent($event)\" />\r\n              </span>\r\n              <label *ngIf=\"!image\" class=\"  control-label\"> &nbsp; Ning&uacute;n Croquis Subido</label>\r\n              <label *ngIf=\"image\" class=\"  control-label\"> &nbsp; {{image}}</label>\r\n              <!-- Fin del Input type File custom -->\r\n              <!-- <input type=\"file\" (change)=\"fileChangeEvent($event)\" class=\"for-control\" name=\"\" id=\"\" placeholder=\"Seleccionar una Imagen\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\"/> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"for-group row\">\r\n            <label for=\"new-user\" class=\"col-sm-4 control-label\">No Encuentra el Usuario?</label>\r\n            <div class=\"col-sm-8\">\r\n              <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-user\">\r\n                Ver Opciones\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- /.card-body -->\r\n        <div class=\"card-footer\">\r\n          <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-primary\" [disabled]=\"!meterForm.form.valid\"\r\n            (click)=\"onSubmit(meterForm)\" />\r\n          <button (click)=\"formReset(meterForm)\" class=\"btn btn-secondary float-right\">Cancelar | Limpiar</button>\r\n        </div>\r\n        <!-- /.card-footer -->\r\n      </form>\r\n    </div>\r\n    <!-- /.card -->\r\n\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-user\" name=\"modal-user\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Buscar Usuario</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <form action=\"\">\r\n          <div class=\"form-group row clearfix\">\r\n            <label for=\"termino\" class=\"col-sm-4 control-label\">Buscar Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <input #termino id=\"termino\" name=\"termino\" type=\"text\" class=\"form-control  default\"\r\n                placeholder=\"Ingresar un Termino de busqueda\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombres\" class=\"col-sm-1\">Por:</label>\r\n            <input #porNombre class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"nombre\" name=\"nombre\">\r\n            <label for=\"nombre\" class=\"col-sm-2\">Nombres</label>\r\n            <input #porCedula class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"cedula\" name=\"cedula\">\r\n            <label for=\"cedula\" class=\"col-sm-2\">Cédula </label>\r\n            <button class=\"btn btn-primary col-sm-2 pull-right\"\r\n              (click)=\"busquedaUsuario(termino.value, porNombre.checked, porCedula.checked)\">Buscar</button>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos >= 2\">\r\n              {{'Se Encontraron ' + conteos + ' usuarios'}}</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos == 1\"> {{'Se Encontro ' + conteos + ' usuario'}}</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"!conteos || conteos == 0\"> No se encontraron usuarios</label>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">O ingresar un nuevo Usuario</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmitUser(registerForm)\" class=\"col-lg-12 form-group\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombre\" class=\"col-sm-3\">Nombre</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"user.nombre\"\r\n                class=\"form-control default\" title=\"El campo Nombre es Obligatorio\" required />\r\n              <span *ngIf=\"!nombre.valid && nombre.touched\">\r\n                Nombre Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"apellido\" class=\"col-sm-3\">Apellido</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.apellido\" title=\"El campo Apellido es Obligatorio\" required />\r\n              <span *ngIf=\"!apellido.valid && apellido.touched\">\r\n                Apellido Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <label for=\"cedula\" class=\"col-sm-3\">Cédula</label>\r\n            <div class=\"col-sm-9\">\r\n              <div class=\"input-group default\">\r\n                <div class=\"input-group-prepend default\">\r\n                  <span class=\"input-group-text\"><i class=\"fa fa-address-card\"></i></span>\r\n                </div>\r\n                <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\"\r\n                  class=\"form-control default\" pattern=\"[0-9]{9}-[0-9]{1}\" placeholder=\"_________-_\"\r\n                  title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\" required />\r\n              </div>\r\n              <!-- /.input group -->\r\n              <span *ngIf=\"!cedula.valid && cedula.touched\">\r\n                Cédula Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-3\">Dirección</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.direccion\" required />\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\">\r\n                Dirección Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sexo\" class=\"col-sm-3\">Sexo</label>\r\n            <div class=\"col-sm-9\">\r\n              <select name=\"sexo\" id=\"sexo\" #sexo=ngModel [(ngModel)]=user.sexo class=\"form-control default\">\r\n                <option value=\"Masculino\">Masculino</option>\r\n                <option value=\"Femenino\">Femenino</option>\r\n                <option value=\"Indefinido\">Indefinido</option>\r\n              </select>\r\n              <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n              <span *ngIf=\"!sexo.valid && sexo.touched\">\r\n                Campo Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <input type=\"submit\" value=\"Agreagar Usuario\" class=\"btn btn-primary\" [disabled]=\"!registerForm.form.valid\" />\r\n        </form>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <!-- left column -->\r\n  <div class=\"col-md-6 offset-lg-2\">\r\n    <!-- Horizontal Form -->\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- /.card-header -->\r\n\r\n      <!-- form start -->\r\n      <form #meterForm=\"ngForm\" (ngSubmint)=\"onSubmit(meterForm)\" class=\"form-horizontal\">\r\n        <div class=\"card-body\">\r\n          <div class=\"form-group row\">\r\n            <label title=\"Campo Obligatorio\" for=\"clave\" class=\"col-sm-4 control-label\">Clave | N&ordm; Medidor*</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <div class=\"input-group mb-3\">\r\n                <input #clave [(ngModel)]=\"medidor.clave\" id=\"clave\" type=\"number\" name=\"clave\" min=\"1\"\r\n                class=\"form-control default\"  placeholder=\"__________\" [class.is-valid]=\"medidorOk===true\"\r\n                [class.is-invalid]=\"medidorOk===null\" [class.is-warning]=\"medidorOk===false\"\r\n                (keyup)=\"validarMedidor(clave.value)\" (change)=\"validarMedidor(clave.value)\" required />\r\n                <div class=\"input-group-append\" style=\"cursor: pointer;\" title=\"Generar Clave aleatoria\" (click)=\"goRandom()\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-dice\"></i>\r\n                  </span>\r\n                </div>\r\n              </div>\r\n              \r\n              <!-- << Input -->\r\n              <span *ngIf=\"!clave.valid && clave.touched\" class=\"\">\r\n                Clave Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label title=\"Campo Obligatorio\" for=\"direccion\" class=\"col-sm-4 control-label\">Direcci&oacute;n*</label>\r\n            <div class=\"col-sm-8\">\r\n              <!-- >> Input -->\r\n              <input #direccion=\"ngModel\" [(ngModel)]=\"medidor.direccion\" id=\"direccion\" type=\"text\" name=\"direccion\"\r\n                class=\"form-control default\" placeholder=\"Ingresar una direccion\" required />\r\n              <!-- << Input -->\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"BackGround Font Dark-mode\">\r\n                Direcci&oacute;n Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sector\" title=\"Campo Obligatorio\" class=\"col-sm-4 control-label\">Sector*</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\">\r\n                    <i class=\"fas fa-search-location\"></i>\r\n                  </span>\r\n                </div>\r\n                <select name=\"sector\" class=\"form-control default\" id=\"sector\" required #sector [(ngModel)]=\"medidor.sector\">\r\n                  <option value=\"{{sector._id}}\" *ngFor=\"let sector of sectores\">\r\n                    {{sector.codigo + ' - ' + sector.nombre}}\r\n                  </option>\r\n                </select>\r\n                <span *ngIf=\"!sector.valid && sector.touched\" class=\"BackGround Font Dark-mode\">\r\n                  Sector Obligatorio!!\r\n                </span>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label  title=\"Campo Obligatorio\" for=\"Usuario\" class=\"col-sm-4 control-label\">Usuario*</label>\r\n            <div class=\"col-sm-8\">\r\n              <div class=\"input-group \">\r\n                <select name=\"user\" id=\"user\" #user=\"ngModel\" [(ngModel)]=\"medidor.user\" class=\"form-control default\"\r\n                  required>\r\n                  <option *ngFor=\"let usuario of users\" value=\"{{usuario._id}}\">\r\n                    {{usuario.cedula + ' | ' +  usuario.apellido.split(\" \", 1) + ' ' + usuario.nombre.split(\" \", 1)}}\r\n                  </option>\r\n                </select>\r\n                <div class=\"input-group-append\">\r\n                  <button class=\"btn btn-default\" (click)=\"cargarDatos()\">\r\n                    <span class=\"fas fa-redo-alt\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n              <span *ngIf=\"!user.valid && user.touched\">\r\n                Usuario Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label title=\"Campo Obligatorio\" for=\"rate\" class=\"col-sm-4 control-label\">Tarifa*</label>\r\n            <div class=\"col-sm-8\">\r\n              <select name=\"rate\" id=\"rate\" #rate=\"ngModel\" [(ngModel)]=\"medidor.rate\" class=\"form-control default\"\r\n                required>\r\n                <option *ngFor=\"let tarifa of tarifas\" value=\"{{tarifa._id}}\">{{tarifa.tarifa}}</option>\r\n              </select>\r\n              <span *ngIf=\"!rate.valid && rate.touched\">\r\n                Tarifa Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <!-- <div class=\"form-group row\">\r\n            <label for=\"croquis\" class=\"col-sm-4 control-label\">Imagen de Croquis</label>\r\n            <div class=\"col-sm-8\"> -->\r\n              <!-- Input type File Custom -->\r\n\r\n              <!-- <span class=\"btn btn-primary btn-file\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\">\r\n                <i class=\"fa fa-upload\"></i> &nbsp; Subir archivo\r\n                <input id=\"file-upload\" type=\"file\" placeholder=\"Subir Croquis\" name=\"image\" class=\"btn-file\"\r\n                  (change)=\"fileChangeEvent($event)\" />\r\n              </span>\r\n              <label *ngIf=\"!image\" class=\"  control-label\"> &nbsp; Ning&uacute;n Croquis Subido</label>\r\n              <label *ngIf=\"image\" class=\"  control-label\"> &nbsp; {{image}}</label> -->\r\n\r\n              <!-- Fin del Input type File custom -->\r\n              <!-- <input type=\"file\" (change)=\"fileChangeEvent($event)\" class=\"for-control\" name=\"\" id=\"\" placeholder=\"Seleccionar una Imagen\" title=\"Extensiones adminitdas: 'JPEG', 'JPG' o 'PNG'\"/> -->\r\n            \r\n            <!-- </div>\r\n          </div> -->\r\n          <div class=\"for-group row\">\r\n            <label for=\"new-user\" class=\"col-sm-4 control-label\">No Encuentra el Usuario?</label>\r\n            <div class=\"col-sm-8\">\r\n              <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#modal-user\">\r\n                Ver Opciones\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!-- /.card-body -->\r\n        <div class=\"card-footer\">\r\n          <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-primary\" [disabled]=\"!meterForm.form.valid\"\r\n            (click)=\"onSubmit(meterForm)\" />\r\n          <button (click)=\"formReset(meterForm)\" class=\"btn btn-secondary float-right\">Cancelar | Limpiar</button>\r\n        </div>\r\n        <!-- /.card-footer -->\r\n      </form>\r\n    </div>\r\n    <!-- /.card -->\r\n\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-user\" name=\"modal-user\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Buscar Usuario</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <form action=\"\">\r\n          <div class=\"form-group row clearfix\">\r\n            <label for=\"termino\" class=\"col-sm-4 control-label\">Buscar Usuario</label>\r\n            <div class=\"col-sm-8\">\r\n              <input #termino id=\"termino\" name=\"termino\" type=\"text\" class=\"form-control  default\"\r\n                placeholder=\"Ingresar un Termino de busqueda\" />\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombres\" class=\"col-sm-1\">Por:</label>\r\n            <input #porNombre class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"nombre\" name=\"nombre\">\r\n            <label for=\"nombre\" class=\"col-sm-2\">Nombres</label>\r\n            <input #porCedula class=\"icheck-primary d-inline col-sm-1\" type=\"checkbox\" id=\"cedula\" name=\"cedula\">\r\n            <label for=\"cedula\" class=\"col-sm-2\">Cédula </label>\r\n            <button class=\"btn btn-primary col-sm-2 pull-right\"\r\n              (click)=\"busquedaUsuario(termino.value, porNombre.checked, porCedula.checked)\">Buscar</button>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos >= 2\">\r\n              {{'Se Encontraron ' + conteos + ' usuarios'}}, Revisar la Lista desplegable para seleccionarlo.</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"conteos && conteos == 1\"> {{'Se Encontro ' + conteos + ' usuario'}}, Revisar la Lista desplegable para seleccionarlo.</label>\r\n            <label class=\"col-sm-12\" *ngIf=\"!conteos || conteos == 0\"> No se encontraron usuarios</label>\r\n          </div>\r\n        </form>\r\n      </div>\r\n      <!-- <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">O ingresar un nuevo Usuario</h4>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmitUser(registerForm)\" class=\"col-lg-12 form-group\">\r\n          <div class=\"form-group row\">\r\n            <label for=\"nombre\" class=\"col-sm-3\">Nombre</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\" [(ngModel)]=\"user.nombre\"\r\n                class=\"form-control default\" title=\"El campo Nombre es Obligatorio\" required />\r\n              <span *ngIf=\"!nombre.valid && nombre.touched\">\r\n                Nombre Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"apellido\" class=\"col-sm-3\">Apellido</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.apellido\" title=\"El campo Apellido es Obligatorio\" required />\r\n              <span *ngIf=\"!apellido.valid && apellido.touched\">\r\n                Apellido Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <label for=\"cedula\" class=\"col-sm-3\">Cédula</label>\r\n            <div class=\"col-sm-9\">\r\n              <div class=\"input-group default\">\r\n                <div class=\"input-group-prepend default\">\r\n                  <span class=\"input-group-text\"><i class=\"fa fa-address-card\"></i></span>\r\n                </div>\r\n                <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\"\r\n                  class=\"form-control default\" pattern=\"[0-9]{9}-[0-9]{1}\" placeholder=\"_________-_\"\r\n                  title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\" required />\r\n              </div>\r\n              <span *ngIf=\"!cedula.valid && cedula.touched\">\r\n                Cédula Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"direccion\" class=\"col-sm-3\">Dirección</label>\r\n            <div class=\"col-sm-9\">\r\n              <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" class=\"form-control default\"\r\n                [(ngModel)]=\"user.direccion\" required />\r\n              <span *ngIf=\"!direccion.valid && direccion.touched\">\r\n                Dirección Obligatoria!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label for=\"sexo\" class=\"col-sm-3\">Sexo</label>\r\n            <div class=\"col-sm-9\">\r\n              <select name=\"sexo\" id=\"sexo\" #sexo=ngModel [(ngModel)]=user.sexo class=\"form-control default\">\r\n                <option value=\"Masculino\">Masculino</option>\r\n                <option value=\"Femenino\">Femenino</option>\r\n                <option value=\"Indefinido\">Indefinido</option>\r\n              </select>\r\n              <span *ngIf=\"!sexo.valid && sexo.touched\">\r\n                Campo Obligatorio!!\r\n              </span>\r\n            </div>\r\n          </div>\r\n          <input type=\"submit\" value=\"Agreagar Usuario\" class=\"btn btn-primary\" [disabled]=\"!registerForm.form.valid\" />\r\n        </form>\r\n      </div> -->\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n";
     /***/
   },
 
@@ -763,7 +763,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"card card-blue\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"card-title\">{{ title }}</h3>\r\n          <div class=\"card-tools\" *ngIf=\"!rateEdit\">\r\n            <div class=\"toolbox\">\r\n              <button class=\"btn btn-info\" (click)=\"return()\">\r\n                <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <form #rateForm=\"ngForm\" (ngSubmit)=\"onSubmit(rateForm)\" class=\"form-horizontal\"\r\n          (keypress)=\"keyPressOnForm($event)\">\r\n          <div class=\"card-body row\">\r\n\r\n            <div class=\"col-sm-12\">\r\n              <div class=\"col-sm-12\">\r\n                <label>Ingreso de Nuevas Tarifas</label>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"tarifa\" class=\"col-sm-4 control-label\">Nombre de la tarifa</label>\r\n                <div class=\"col-sm-8\">\r\n                  <input type=\"text\" #tarifa=\"ngModel\" [(ngModel)]=\"rate.tarifa\" id=\"tarifa\" name=\"tarifa\"\r\n                    class=\"form-control default\" required />\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"base\" class=\"col-sm-4 control-label\">Ingresar Base</label>\r\n                <div class=\"col-sm-8\">\r\n                  <input type=\"number\" name=\"base\" id=\"base\" #base=\"ngModel\" [(ngModel)]=\"rate.base\"\r\n                    class=\"form-control default\" step=\"0.01\" required />\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label class=\"col-sm-4\">Tipo de Costo</label>\r\n                <div class=\"col-sm-8\">\r\n                  <select class=\"form-control\" name=\"percent_cost\" id=\"percent_cost\" #percent_cost=\"ngModel\"\r\n                    [(ngModel)]=\"rate.percent_cost\" title=\"Seleccion de Costo a Aplicar\">\r\n                    <option value=\"true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                      RMUV</option>\r\n                    <option value=\"false\">Centavos de Dolar</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"limits\" class=\"col-sm-4 control-label\">Limites</label>\r\n              </div>\r\n              <!--      ||  ||              //||       -->\r\n              <!--      ||                 // ||       -->\r\n              <!--  //==||  ||  ||   ||       ||       -->\r\n              <!-- ||   ||  ||   || ||        ||       -->\r\n              <!--  \\\\==||  ||    |||       ======     -->\r\n              <div class=\"form-group row\" *ngFor=\"let limit of limits; let i = index\">\r\n                <div class=\"col-sm-1\">\r\n                  <i class=\"fa fa-check\"></i>\r\n                </div>\r\n                <div class=\"col-sm-3\">desde: {{ limit.limit_from }}m&#179;</div>\r\n                <div class=\"col-sm-3\" *ngIf=\"limit.limit_to >= 999999999\">En Adelante</div>\r\n                <div class=\"col-sm-3\" *ngIf=\"limit.limit_to < 999999999\">hasta: {{ limit.limit_to }}m&#179;</div>\r\n                <div class=\"col-sm-3\">\r\n                  costo: <span *ngIf=\"limit.cost > 0\">\r\n                    <i *ngIf=\"limit.percent_cost == false\">{{ limit.cost.toFixed(2) | currency }}</i><i\r\n                      *ngIf=\"limit.percent_cost == true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">{{ limit.cost.toFixed(2) }}%\r\n                      R.M.U.V.</i>\r\n                  </span> <span *ngIf=\"limit.cost == 0\">\r\n                    Base\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-1\">\r\n                  <label class=\"btn btn-block btn-danger btn-sm\" (click)=\"removeLimits(i)\">&times;</label>\r\n                </div>\r\n              </div>\r\n              <!--      ||  ||               //==\\\\     -->\r\n              <!--      ||                  ||    ||    -->\r\n              <!--  //==||  ||  ||   ||         //      -->\r\n              <!-- ||   ||  ||   || ||        //        -->\r\n              <!--  \\\\==||  ||    |||       ||====//    -->\r\n              <div class=\"form-group row\" *ngIf=\"nextLimit.limit_to != 999999999\">\r\n                <div class=\"col-sm-2\">\r\n                  <label class=\"\">desde</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" class=\"form-control default\" name=\"limit_from\" id=\"limit_from\" #limit_from\r\n                      [(ngModel)]=\"nextLimit.limit_from\" disabled />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                  <label class=\"\">hasta</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" name=\"limit_to\" id=\"limit_to\" class=\"form-control default\"\r\n                      [(ngModel)]=\"nextLimit.limit_to\" [disabled]=\"noMoreLimits\" #limit_to />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                  <label class=\"\">costo</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" *ngIf=\"nextLimit.cost > 0 || limits.length > 0\" class=\"form-control default\"\r\n                      [(ngModel)]=\"nextLimit.cost\" name=\"cost\" id=\"cost\" #cost step=\"0.01\"\r\n                      title=\"El costo del primer limite Siempre Ser&aacute; 0 debido a que el precio sera la Base sin excesos\"\r\n                      [disabled]=\"!limitAnterior || noMoreLimits\" />\r\n                    <span *ngIf=\"nextLimit.cost <= 0 && limits.length <= 0\" class=\"form-control default\">\r\n                      Base\r\n                    </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-6\">\r\n                  <label class=\"\">Tipo de Costo</label>\r\n                  <select class=\"form-control\" name=\"tipo\" id=\"tipo\" #tipo=\"ngModel\"\r\n                    [(ngModel)]=\"nextLimit.percent_cost\" title=\"Seleccion de Costo a Aplicar\"\r\n                    [disabled]=\"limitAnterior || noMoreLimits\">\r\n                    <option value=\"true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                      RMUV</option>\r\n                    <option value=\"false\">Centavos de Dolar</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <label class=\"btn btn-info\" *ngIf=\"nextLimit.limit_to != 999999999\" (click)=\"addLimits()\">\r\n                <i class=\"fa fa-plus\"></i>&nbsp; Añadir Limite </label>&nbsp;&nbsp;\r\n              <label class=\"btn btn-warning\" *ngIf=\"nextLimit.limit_to != 999999999\" (click)=\"finishLimits()\">\r\n                <i class=\"fas fa-hand-paper\"></i>&nbsp; Ultimo Limite\r\n              </label>\r\n            </div>\r\n            <!-- <label class=\"text-muted\">*Para dejar de ingresar registros y definir el rango 'hasta' como sin limite ingresar '-1'</label> -->\r\n          </div>\r\n          <!--      ||  ||              //==\\\\    -->\r\n          <!--      ||                 ||    ||   -->\r\n          <!--  //==||  ||  ||   ||       ==<<    -->\r\n          <!-- ||   ||  ||   || ||     ||    ||   -->\r\n          <!--  \\\\==||  ||    |||       \\\\==//    -->\r\n          <div class=\"card-footer\">\r\n            <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-success\"\r\n              [disabled]=\"!rateForm.form.valid || limits.length <= 0\" />\r\n            <button *ngIf=\"!rateEdit\" type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"limpiar()\">\r\n              Cancelar | Limpiar\r\n            </button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n  <app-list-rate class=\"col-md-6\"></app-list-rate>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <div class=\"container-fluid\">\r\n      <div class=\"card card-blue\">\r\n        <div class=\"card-header\">\r\n          <h3 class=\"card-title\">{{ title }}</h3>\r\n          <div class=\"card-tools\" *ngIf=\"!rateEdit\">\r\n            <div class=\"toolbox\">\r\n              <button class=\"btn btn-info\" (click)=\"return()\">\r\n                <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <form #rateForm=\"ngForm\" (ngSubmit)=\"onSubmit(rateForm)\" class=\"form-horizontal\"\r\n          (keypress)=\"keyPressOnForm($event)\">\r\n          <div class=\"card-body row\">\r\n\r\n            <div class=\"col-sm-12\">\r\n              <div class=\"col-sm-12\">\r\n                <label>Ingreso de Nuevas Tarifas</label>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"tarifa\" title=\"Campo Obligatorio\" class=\"col-sm-4 control-label\">Nombre de la tarifa*</label>\r\n                <div class=\"col-sm-8\">\r\n                  <input type=\"text\" #tarifa=\"ngModel\" [(ngModel)]=\"rate.tarifa\" id=\"tarifa\" name=\"tarifa\"\r\n                    class=\"form-control default\" required />\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label title=\"Campo Obligatorio\" for=\"base\" class=\"col-sm-4 control-label\">Ingresar Base*</label>\r\n                <div class=\"col-sm-8\">\r\n                  <input type=\"number\" name=\"base\" id=\"base\" #base=\"ngModel\" [(ngModel)]=\"rate.base\"\r\n                    class=\"form-control default\" step=\"0.01\" required />\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label title=\"Campo Obligatorio\" class=\"col-sm-4\">Tipo de Costo *</label>\r\n                <div class=\"col-sm-8\">\r\n                  <select class=\"form-control\" name=\"percent_cost\" id=\"percent_cost\" #percent_cost=\"ngModel\"\r\n                    [(ngModel)]=\"rate.percent_cost\" title=\"Seleccion de Costo a Aplicar\">\r\n                    <option value=\"true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                      RMUV</option>\r\n                    <option value=\"false\">Centavos de Dolar</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <div class=\"form-group row\">\r\n                <label for=\"limits\" class=\"col-sm-4 control-label\">Limites</label>\r\n              </div>\r\n              <!--      ||  ||              //||       -->\r\n              <!--      ||                 // ||       -->\r\n              <!--  //==||  ||  ||   ||       ||       -->\r\n              <!-- ||   ||  ||   || ||        ||       -->\r\n              <!--  \\\\==||  ||    |||       ======     -->\r\n              <div class=\"form-group row\" *ngFor=\"let limit of limits; let i = index\">\r\n                <div class=\"col-sm-1\">\r\n                  <i class=\"fa fa-check\"></i>\r\n                </div>\r\n                <div class=\"col-sm-3\">desde: {{ limit.limit_from }}m&#179;</div>\r\n                <div class=\"col-sm-3\" *ngIf=\"limit.limit_to >= 999999999\">En Adelante</div>\r\n                <div class=\"col-sm-3\" *ngIf=\"limit.limit_to < 999999999\">hasta: {{ limit.limit_to }}m&#179;</div>\r\n                <div class=\"col-sm-3\">\r\n                  costo: <span *ngIf=\"limit.cost > 0\">\r\n                    <i *ngIf=\"limit.percent_cost == false\">{{ limit.cost.toFixed(2) | currency }}</i><i\r\n                      *ngIf=\"limit.percent_cost == true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">{{ limit.cost.toFixed(2) }}%\r\n                      R.M.U.V.</i>\r\n                  </span> <span *ngIf=\"limit.cost == 0\">\r\n                    Base\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-1\">\r\n                  <label class=\"btn btn-block btn-danger btn-sm\" (click)=\"removeLimits(i)\">&times;</label>\r\n                </div>\r\n              </div>\r\n              <!--      ||  ||               //==\\\\     -->\r\n              <!--      ||                  ||    ||    -->\r\n              <!--  //==||  ||  ||   ||         //      -->\r\n              <!-- ||   ||  ||   || ||        //        -->\r\n              <!--  \\\\==||  ||    |||       ||====//    -->\r\n              <div class=\"form-group row\" *ngIf=\"nextLimit.limit_to != 999999999\">\r\n                <div class=\"col-sm-2\">\r\n                  <label title=\"Campo Obligatorio\" class=\"\">Desde*</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" class=\"form-control default\" name=\"limit_from\" id=\"limit_from\" #limit_from\r\n                      [(ngModel)]=\"nextLimit.limit_from\" disabled />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                  <label title=\"Campo Obligatorio\" class=\"\">Hasta*</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" name=\"limit_to\" id=\"limit_to\" class=\"form-control default\"\r\n                      [(ngModel)]=\"nextLimit.limit_to\" [disabled]=\"noMoreLimits\" #limit_to />\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-2\">\r\n                  <label title=\"Campo Obligatorio\"class=\"\">Costo*</label>\r\n                  <div class=\"col-sm-12\">\r\n                    <input type=\"number\" *ngIf=\"nextLimit.cost > 0 || limits.length > 0\" class=\"form-control default\"\r\n                      [(ngModel)]=\"nextLimit.cost\" name=\"cost\" id=\"cost\" #cost step=\"0.01\"\r\n                      title=\"El costo del primer limite Siempre Ser&aacute; 0 debido a que el precio sera la Base sin excesos\"\r\n                      [disabled]=\"!limitAnterior || noMoreLimits\" />\r\n                    <span *ngIf=\"nextLimit.cost <= 0 && limits.length <= 0\" class=\"form-control default\">\r\n                      Base\r\n                    </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-6\">\r\n                  <label title=\"Campo Obligatorio\" class=\"\">Tipo de Costo*</label>\r\n                  <select class=\"form-control\" name=\"tipo\" id=\"tipo\" #tipo=\"ngModel\"\r\n                    [(ngModel)]=\"nextLimit.percent_cost\" title=\"Seleccion de Costo a Aplicar\"\r\n                    [disabled]=\"limitAnterior || noMoreLimits\">\r\n                    <option value=\"true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\">Porcentaje de\r\n                      RMUV</option>\r\n                    <option value=\"false\">Centavos de Dolar</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <label class=\"btn btn-info\" *ngIf=\"nextLimit.limit_to != 999999999\" (click)=\"addLimits()\">\r\n                <i class=\"fa fa-plus\"></i>&nbsp; Añadir Limite </label>&nbsp;&nbsp;\r\n              <label class=\"btn btn-warning\" *ngIf=\"nextLimit.limit_to != 999999999\" (click)=\"finishLimits()\">\r\n                <i class=\"fas fa-hand-paper\"></i>&nbsp; Ultimo Limite\r\n              </label>\r\n            </div>\r\n            <!-- <label class=\"text-muted\">*Para dejar de ingresar registros y definir el rango 'hasta' como sin limite ingresar '-1'</label> -->\r\n          </div>\r\n          <!--      ||  ||              //==\\\\    -->\r\n          <!--      ||                 ||    ||   -->\r\n          <!--  //==||  ||  ||   ||       ==<<    -->\r\n          <!-- ||   ||  ||   || ||     ||    ||   -->\r\n          <!--  \\\\==||  ||    |||       \\\\==//    -->\r\n          <div class=\"card-footer\">\r\n            <input type=\"submit\" value=\"Ingresar\" class=\"btn btn-success\"\r\n              [disabled]=\"!rateForm.form.valid || limits.length <= 0\" />\r\n            <button *ngIf=\"!rateEdit\" type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"limpiar()\">\r\n              Cancelar | Limpiar\r\n            </button>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n  <app-list-rate class=\"col-md-6\"></app-list-rate>\r\n</div>\r\n";
     /***/
   },
 
@@ -863,7 +863,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"content-header\">\n  <div class=\"container-fluid\">\n    <div class=\"row mb-2\">\n      <div class=\"col-sm-6\">\n        <h1 class=\"m-0 text-dark\">P&aacute;gina de Reportes</h1>\n      </div>\n      <div class=\"col-sm-6\">\n        <ol class=\"breadcrumb float-sm-right\">\n          <li class=\"breadcrumb-item\"><a style=\"cursor: pointer;\" (click)=\"return()\">Atr&aacute;s</a></li>\n          <li class=\"breadcrumb-item\"><a [routerLink]=\"['/inicio']\" routerLinkActive=\"router-link-active\">Inicio</a>\n          </li>\n          <li class=\"breadcrumb-item active\">Reportes</li>\n        </ol>\n      </div>\n    </div>\n  </div>\n</div>\n<section class=\"content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-success\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>{{statistics.facturas}}</h3>\n            <p>Facturas Generadas <br>Sin Pagar: {{statistics.facturaSinPagar}}. Pagadas: {{statistics.facturasPagadas}}\n            </p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fas fa-file-invoice-dollar\"></i>\n          </div>\n          <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a>\n          <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- ./col -->\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-info\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>\n              {{statistics.medidores}}\n            </h3>\n            <br>\n            <!-- <sup style=\"font-size: 20px\">%</sup> -->\n            <p>Medidores</p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fas fa-tachometer-alt\"></i>\n          </div>\n          <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a>\n        </div>\n      </div>\n      <!-- ./col -->\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-warning\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>{{statistics.usuarios}}</h3>\n            <br>\n\n            <p>Usuarios de Medidores</p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fa fa-user\"></i>\n          </div>\n          <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a>\n          <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- ./col -->\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-danger\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>{{statistics.sectores}}</h3>\n            <p>Sectores <br>Activos: {{statistics.sectoresActivos}}. Inactivos: {{statistics.sectoresInactivos}}</p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fas fa-map-marked-alt\"></i>\n          </div>\n          <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a>\n          <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- Aqui Acaban los recuadros -->\n      <!-- ./col -->\n      <div class=\"col-md-6\">\n        <div class=\"card\" *ngIf=\"rateStatistics\">\n          <div class=\"card-header\">\n            <h3 class=\"card-title\">Tarifas Totales - Promedio de Consumo mensual\n              {{rateStatistics.consumoTotal.toFixed(2)}}m³</h3>\n          </div>\n          <!-- /.card-header -->\n          <div class=\"card-body p-0\">\n            <table class=\"table\">\n              <thead>\n                <tr>\n                  <th style=\"width: 10px\">#</th>\n                  <th>Tarifa</th>\n                  <th title=\"Cantidad total consumida\">Promedio Mensual</th>\n                  <th title=\"Cantidad de metros cubicos Consumidos\">Consumo m³</th>\n                  <th title=\"Cantidad de Medidores Registrados\">Medidores</th>\n                </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let tarifa of rateStatistics; let i = index\">\n                  <td>{{i+1}}</td>\n                  <td>{{tarifa.tarifa}}</td>\n                  <td>\n                    <div class=\"progress progress-xs\">\n                      <div title=\"Cantidad total consumida\" class=\"progress-bar progress-bar-danger\"\n                        [style.width.%]=\"calcularPorcentaje(tarifa.consumo, rateStatistics.consumoTotal)\"\n                        style=\"width: 100%\"></div>\n                    </div>\n                  </td>\n                  <td><span title=\"Cantidad de metros cubicos Consumidos\">{{tarifa.consumo | number: '3.1-2'}}m³ -\n                      {{calcularPorcentaje(tarifa.consumo, rateStatistics.consumoTotal)}}%</span></td>\n                  <td>{{tarifa.medidores}}</td>\n                </tr>\n\n                <!-- <tr>\n                  <td>2.</td>\n                  <td>Clean database</td>\n                  <td>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-warning\" style=\"width: 70%\"></div>\n                    </div>\n                  </td>\n                  <td><span class=\"badge bg-warning\">70%</span></td>\n                </tr>\n                <tr>\n                  <td>3.</td>\n                  <td>Cron job running</td>\n                  <td>\n                    <div class=\"progress progress-xs progress-striped active\">\n                      <div class=\"progress-bar bg-primary\" style=\"width: 30%\"></div>\n                    </div>\n                  </td>\n                  <td><span class=\"badge bg-primary\">30%</span></td>\n                </tr>\n                <tr>\n                  <td>4.</td>\n                  <td>Fix and squish bugs</td>\n                  <td>\n                    <div class=\"progress progress-xs progress-striped active\">\n                      <div class=\"progress-bar bg-success\" style=\"width: 90%\"></div>\n                    </div>\n                  </td>\n                  <td><span class=\"badge bg-success\">90%</span></td>\n                </tr> -->\n              </tbody>\n            </table>\n\n          </div>\n          <!-- /.card-body -->\n        </div>\n        <div class=\"card\" *ngIf=\"!rateStatistics\" style=\"padding-top: 10px; padding-left: 15px;\">\n          <app-my-loader></app-my-loader>\n        </div>\n      </div>\n      <div class=\"col-md-6\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h3 class=\"card-title\">Esquema de Pagos</h3>\n          </div>\n          <div class=\"card-body p-2\">\n            <div class=\"row\">\n              <section class=\"col-lg-12 connectedSortable\">\n                <div>\n\n                  <label for=\"\" class=\"text-center form-control col-lg-12\" *ngIf=\"statistics\">Total de Facturas:\n                    {{statistics.facturas}}\n                    <button class=\"btn btn-info btn-sm float-right\" (click)=\"verChartFactura()\">Cambiar\n                      Gr&aacute;fico</button>\n                  </label>\n                  <div style=\"display: block;\" *ngIf=\"facturaChart.barChartType != null\">\n                    <canvas baseChart [datasets]=\"facturaChart.barChartData\" [labels]=\"facturaChart.barChartLabels\"\n                      [options]=\"facturaChart.barChartOptions\" [legend]=\"facturaChart.barChartLegend\"\n                      [chartType]=\"facturaChart.barChartType\">\n                    </canvas>\n                  </div>\n                </div>\n              </section>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n  </div>\n</section>\n";
+    __webpack_exports__["default"] = "<div class=\"content-header\">\n  <div class=\"container-fluid\">\n    <div class=\"row mb-2\">\n      <div class=\"col-sm-6\">\n        <h1 class=\"m-0 text-dark\">P&aacute;gina de Reportes</h1>\n      </div>\n      <div class=\"col-sm-6\">\n        <ol class=\"breadcrumb float-sm-right\">\n          <li class=\"breadcrumb-item\"><a style=\"cursor: pointer;\" (click)=\"return()\">Atr&aacute;s</a></li>\n          <li class=\"breadcrumb-item\"><a [routerLink]=\"['/inicio']\" routerLinkActive=\"router-link-active\">Inicio</a>\n          </li>\n          <li class=\"breadcrumb-item active\">Reportes</li>\n        </ol>\n      </div>\n    </div>\n  </div>\n</div>\n<section class=\"content\">\n  <div class=\"container-fluid\">\n    <div class=\"row\">\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-success\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>{{statistics.facturas}}</h3>\n            <p>Facturas Generadas <br>Sin Pagar: {{statistics.facturaSinPagar}}. Pagadas: {{statistics.facturasPagadas}}\n            </p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fas fa-file-invoice-dollar\"></i>\n          </div>\n          <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a> -->\n          <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- ./col -->\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-info\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>\n              {{statistics.medidores}}\n            </h3>\n            <br>\n            <!-- <sup style=\"font-size: 20px\">%</sup> -->\n            <p>Medidores</p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fas fa-tachometer-alt\"></i>\n          </div>\n          <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- ./col -->\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-warning\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>{{statistics.usuarios}}</h3>\n            <br>\n\n            <p>Usuarios de Medidores</p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fa fa-user\"></i>\n          </div>\n          <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a> -->\n          <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- ./col -->\n      <div class=\"col-lg-3 col-6\">\n        <!-- small box -->\n        <div class=\"small-box bg-danger\" *ngIf=\"statistics\">\n          <div class=\"inner\">\n            <h3>{{statistics.sectores}}</h3>\n            <p>Sectores <br>Activos: {{statistics.sectoresActivos}}. Inactivos: {{statistics.sectoresInactivos}}</p>\n          </div>\n          <div class=\"icon\">\n            <i class=\"fas fa-map-marked-alt\"></i>\n          </div>\n          <!-- <a href=\"#\" *ngIf=\"identity.role_user.toLowerCase() == 'admin'\" class=\"small-box-footer\">Ver Reporte <i\n              class=\"fas fa-arrow-circle-right\"></i></a> -->\n          <!-- <a href=\"#\" class=\"small-box-footer\">More info <i class=\"fas fa-arrow-circle-right\"></i></a> -->\n        </div>\n      </div>\n      <!-- Aqui Acaban los recuadros -->\n      <!-- ./col -->\n      <div class=\"col-md-6\">\n        <div class=\"card\" *ngIf=\"rateStatistics\">\n          <div class=\"card-header\">\n            <h3 class=\"card-title\">Tarifas Totales - Promedio de Consumo mensual\n              {{rateStatistics.consumoTotal.toFixed(2)}}m³, Ingreso Total:\n              {{rateStatistics.costoTotal.toFixed(2) | currency}}</h3>\n          </div>\n          <!-- /.card-header -->\n          <div class=\"card-body p-0\">\n            <table class=\"table\">\n              <thead>\n                <tr>\n                  <th style=\"width: 10px\">#</th>\n                  <th>Tarifa</th>\n                  <th title=\"Cantidad total consumida\">Promedio Mensual</th>\n                  <th title=\"Cantidad de metros cubicos Consumidos\">Consumo m³</th>\n                  <th title=\"Cantidad de Medidores Registrados\">Medidores</th>\n                  <th title=\"Promedio de Ingresos\">Costo de Ingreso</th>\n                </tr>\n              </thead>\n              <tbody *ngFor=\"let tarifa of rateStatistics; let i = index\">\n                <tr\n                  title=\"La tarifa {{tarifa.tarifa}} provee el {{calcularPorcentaje(tarifa.consumo, rateStatistics.consumoTotal)}}% ({{tarifa.consumo | number: '3.1-2'}}m³) del consumo de agua total generando un ingreso de {{tarifa.costo | currency}}\">\n                  <td>{{i+1}}</td>\n                  <td>{{tarifa.tarifa}}</td>\n                  <td>\n                    <div class=\"progress progress-xs\">\n                      <div title=\"Cantidad total consumida\" class=\"progress-bar progress-bar-danger\"\n                        [style.width.%]=\"calcularPorcentaje(tarifa.consumo, rateStatistics.consumoTotal)\"\n                        style=\"width: 100%\"></div>\n                    </div>\n                  </td>\n                  <td><span title=\"Cantidad de metros cubicos Consumidos\">{{tarifa.consumo | number: '3.1-2'}}m³ -\n                      {{calcularPorcentaje(tarifa.consumo, rateStatistics.consumoTotal)}}%</span></td>\n                  <td>{{tarifa.medidores}}</td>\n                  <td> {{tarifa.costo | currency}} </td>\n                </tr>\n\n                <!-- <tr>\n                  <td>2.</td>\n                  <td>Clean database</td>\n                  <td>\n                    <div class=\"progress progress-xs\">\n                      <div class=\"progress-bar bg-warning\" style=\"width: 70%\"></div>\n                    </div>\n                  </td>\n                  <td><span class=\"badge bg-warning\">70%</span></td>\n                </tr>\n                <tr>\n                  <td>3.</td>\n                  <td>Cron job running</td>\n                  <td>\n                    <div class=\"progress progress-xs progress-striped active\">\n                      <div class=\"progress-bar bg-primary\" style=\"width: 30%\"></div>\n                    </div>\n                  </td>\n                  <td><span class=\"badge bg-primary\">30%</span></td>\n                </tr>\n                <tr>\n                  <td>4.</td>\n                  <td>Fix and squish bugs</td>\n                  <td>\n                    <div class=\"progress progress-xs progress-striped active\">\n                      <div class=\"progress-bar bg-success\" style=\"width: 90%\"></div>\n                    </div>\n                  </td>\n                  <td><span class=\"badge bg-success\">90%</span></td>\n                </tr> -->\n              </tbody>\n            </table>\n\n          </div>\n          <!-- /.card-body -->\n        </div>\n        <div class=\"card\" *ngIf=\"!rateStatistics\" style=\"padding-top: 10px; padding-left: 15px;\">\n          <app-my-loader></app-my-loader>\n        </div>\n      </div>\n      <div class=\"col-md-6\">\n        <div class=\"card\">\n          <div class=\"card-header\">\n            <h3 class=\"card-title\">Esquema de Pagos</h3>\n          </div>\n          <div class=\"card-body p-2\">\n            <div class=\"row\">\n              <section class=\"col-lg-12 connectedSortable\">\n                <div>\n\n                  <label for=\"\" class=\"text-center form-control col-lg-12\" *ngIf=\"statistics\">Total de Facturas:\n                    {{statistics.facturas}}\n                    <button class=\"btn btn-info btn-sm float-right\" (click)=\"verChartFactura()\">Cambiar\n                      Gr&aacute;fico</button>\n                  </label>\n                  <div style=\"display: block;\" *ngIf=\"facturaChart.barChartType != null\">\n                    <canvas baseChart [datasets]=\"facturaChart.barChartData\" [labels]=\"facturaChart.barChartLabels\"\n                      [options]=\"facturaChart.barChartOptions\" [legend]=\"facturaChart.barChartLegend\"\n                      [chartType]=\"facturaChart.barChartType\">\n                    </canvas>\n                  </div>\n                </div>\n              </section>\n            </div>\n          </div>\n        </div>\n      </div>\n\n    </div>\n    <div class=\"row\">\n      <div class=\"card\" *ngIf=\"importes && importes.costoTotal\">\n        <div class=\"card-header\">\n          <h3 class=\"card-title\">Importes - Promedio de Ingreso Total:\n            {{importes.costoTotal.toFixed(2) | currency}}</h3>\n        </div>\n        <div class=\"card-body p-0\">\n          <table class=\"table\">\n            <thead>\n              <tr>\n                <th style=\"width: 10px\">#</th>\n                <th>Importe o Descuento</th>\n                <th title=\"Costo\">Costo</th>\n                <th title=\"Promedio de Ingreso\">Propmedio de Ingresos</th>\n                <th title=\"Promedio de Ingresos\">Costo de Ingreso</th>\n              </tr>\n            </thead>\n            <tbody *ngFor=\"let importe of importes; let i = index\">\n              <tr>\n                <td>{{i+1}}</td>\n                <td>{{importe.nombre}}</td>\n                <td>\n                  <span class=\"\"><i *ngIf=\"importe.descuento === false\">+</i><i\n                    *ngIf=\"importe.descuento === true\">-</i><i *ngIf=\"importe.percent === false\">$</i>{{importe.costo}} <i\n                    *ngIf=\"importe.percent === true\">% Total</i></span>\n                </td>\n                <td>\n                  <div class=\"progress progress-xs\">\n                    <div title=\"Cantidad total consumida\" class=\"progress-bar progress-bar-danger\"\n                      [style.width.%]=\"calcularPorcentaje(importe.costoConsumo, importes.costoTotal)\"\n                      style=\"width: 100%\"></div>\n                  </div>\n                </td>\n                <!-- <td><span title=\"Cantidad de metros cubicos Consumidos\">{{importes.costo | number: '3.1-2'}}m³ -\n                    {{calcularPorcentaje(importes.costo, importes.costoTotal)}}%</span></td> -->\n                <!-- <td>{{tarifa.medidores}}</td> -->\n                <td > {{importe.costoConsumo | currency}} </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n";
     /***/
   },
 
@@ -883,7 +883,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"col-md-12\">\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <h3 class=\"card-title\">\n        Reportes Facturas\n      </h3>\n    </div>\n    <div class=\"card-body p-4\">\n      <h4>Ver reportes de Factiraci&oacute;n</h4>\n      <div class=\"row p-4  no-print\">\n        <div class=\"form-group\">\n          <div class=\"custom-control custom-switch\">\n            <input type=\"checkbox\" class=\"custom-control-input\" (click)=\"altPayed()\" (change)=\"altPayed()\" id=\"verPagadasSw\" name=\"verPagadasSw\" #verPagadasSw [(ngModel)]=\"verNoPagadas\" >\n            <label class=\"custom-control-label\" for=\"verPagadasSw\">\n              Mostrando \n              <span *ngIf=\"verNoPagadas\">\n                Solo Pagadas\n              </span>\n              <span *ngIf=\"!verNoPagadas\">\n                Todas\n              </span>\n            </label>\n          </div>\n        </div>\n        &nbsp;\n        <div class=\"form-group offset-1\">\n          <div class=\"custom-control custom-switch\">\n            <input type=\"checkbox\" class=\"custom-control-input\" (click)=\"switchDate()\" (change)=\"switchDate()\" id=\"onConsSw\" name=\"onConsSw\" #onConsSw [(ngModel)]=\"onCons\" >\n            <label class=\"custom-control-label\" for=\"onConsSw\">\n              <span *ngIf=\"!onCons\">\n                Filtrando por fecha de Emisi&oacute;n\n              </span>\n              <span *ngIf=\"onCons\">\n                Filtrando por fecha de Consumo\n              </span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-2\">\n          <label for=\"\" class=\"label-form\">Fecha desde:</label>\n        </div>\n        <div class=\"col-sm-2\">\n          <input type=\"date\" name=\"desdeRF\" id=\"desdeRF\" #desdeRF (click)=\"validateDate()\" (change)=\"validateDate()\" [(ngModel)]=\"desde\" class=\"form-control\">\n        </div>\n        <div class=\"col-sm-2\">\n          <label for=\"\" class=\"label-form\">Fecha hasta:</label>\n        </div>\n        <div class=\"col-sm-2\">\n          <input type=\"date\" name=\"hastaRF\" id=\"hastaRF\" #hastaRF  (click)=\"validateDate()\" (change)=\"validateDate()\" [(ngModel)]=\"hasta\" class=\"form-control\">\n        </div>\n        <div class=\"col row no-print\">\n          <div class=\"col-sm-4 text-center\">\n            <button class=\"btn btn-sm btn-success\" [disabled]=\"!desde || !hasta || !validDate\" (click)=\"filterByDate()\">\n              <i class=\"fa fa-search\"></i>\n              Buscar\n            </button>\n          </div>\n          <div class=\"col\">\n            <button class=\"btn btn-sm btn-secondary\" (click)=\"limpiar()\">\n              <i class=\"fa fa-trash\"></i>\n              Limpiar / Ver Todo\n            </button>\n          </div>\n        </div>\n      </div>\n      <div class=\"row no-print\">\n        <div class=\"col pull-right rightcol right text-right\">\n          <button (click)=\"imprimir()\" class=\"btn btn-sm btn-default  pull-right rightcol right text-right\">\n            <i class=\"fa fa-print\"></i>\n            Imprimir\n          </button>\n        </div>\n      </div>\n      <div class=\"row\">\n        <table class=\"table table-active table-condensed\">\n          <thead>\n            <tr>\n              <th class=\"text-center\">\n                #\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha Emitida\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByEmitt()\">\n                  <i *ngIf=\"byEmit\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byEmit\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha de Consumo\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByCons()\">\n                  <i *ngIf=\"byCons\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byCons\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-tachometer-alt\"></i>\n                Medidor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByMeter()\">\n                  <i *ngIf=\"byMeter\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byMeter\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-file-invoice\"></i>\n                N&uacute;mero de Factura\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByNumber()\">\n                  <i *ngIf=\"byNum\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byNum\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-user\"></i>\n                Facturado Por\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByUser()\">\n                  <i *ngIf=\"byUser\" class=\"fas fa-sort-alpha-up\"></i>\n                  <i *ngIf=\"!byUser\" class=\"fas fa-sort-alpha-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-dollar-sign\"></i>\n                Valor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByValue()\">\n                  <i *ngIf=\"byVal\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byVal\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th class=\"text-center no-print\">\n                <i class=\"fa fa-eye\"></i>\n                Ver\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr  *ngFor=\"let factura of facturas\">\n              <td class=\"text-right\">\n                {{factura.index}}\n              </td>\n              <td>\n                {{factura.fecha | date: 'medium'}}\n              </td>\n              <td>\n                {{getDate(factura.registro.month, factura.registro.year) | date: 'MMMM yyyy'}}\n              </td>\n              <td>\n                {{factura.medidor.clave}}\n              </td>\n              <td>\n                <span *ngIf=\"factura.numero\">\n                  {{getInvoiceNumber(factura.numero) | mask: '000-000-000'}}\n                </span>\n                <span *ngIf=\"!factura.numero\"> \n                  No Pagada A&uacute;n\n                </span>\n              </td>\n              <td>\n                 {{factura.usuario.cedula | mask: '000000000-0'}} - {{factura.usuario.nombre}} {{factura.usuario.apellido}}\n              </td>\n              <td>\n                {{factura.total | currency}}\n              </td>\n              <td class=\"text-center center align-content-center  no-print\">\n                <button class=\"btn btn-sm btn-primary text-center\">\n                  <i class=\"fa fa-eye\"></i>\n                  Ver\n                </button>\n              </td>\n            </tr>\n          </tbody>\n          <tfoot>\n            <tr>\n              <th class=\"text-center\">\n                #\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha Emitida\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByEmitt()\">\n                  <i *ngIf=\"byEmit\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byEmit\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha de Consumo\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByCons()\">\n                  <i *ngIf=\"byCons\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byCons\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-tachometer-alt\"></i>\n                Medidor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByMeter()\">\n                  <i *ngIf=\"byMeter\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byMeter\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-file-invoice\"></i>\n                N&uacute;mero de Factura\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByNumber()\">\n                  <i *ngIf=\"byNum\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byNum\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-user\"></i>\n                Facturado Por\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByUser()\">\n                  <i *ngIf=\"byUser\" class=\"fas fa-sort-alpha-up\"></i>\n                  <i *ngIf=\"!byUser\" class=\"fas fa-sort-alpha-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-dollar-sign\"></i>\n                Valor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByValue()\">\n                  <i *ngIf=\"byVal\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byVal\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th class=\"text-center no-print\">\n                <i class=\"fa fa-eye\"></i>\n                Ver\n              </th>\n            </tr>\n          </tfoot>\n        </table>\n      </div>\n    </div>\n  </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"col-md-12\">\n  <div class=\"card\">\n    <div class=\"card-header\">\n      <h3 class=\"card-title\">\n        Reportes Facturas\n      </h3>\n    </div>\n    <div class=\"card-body p-4\">\n      <h4>Ver reportes de Factiraci&oacute;n</h4>\n      <div class=\"row p-4  no-print\">\n        <div class=\"form-group\">\n          <div class=\"custom-control custom-switch\">\n            <input type=\"checkbox\" class=\"custom-control-input\" (click)=\"altPayed()\" (change)=\"altPayed()\" id=\"verPagadasSw\" name=\"verPagadasSw\" #verPagadasSw [(ngModel)]=\"verNoPagadas\" >\n            <label class=\"custom-control-label\" for=\"verPagadasSw\">\n              Mostrando \n              <span *ngIf=\"verNoPagadas\">\n                Solo Pagadas\n              </span>\n              <span *ngIf=\"!verNoPagadas\">\n                Todas\n              </span>\n            </label>\n          </div>\n        </div>\n        &nbsp;\n        <div class=\"form-group offset-1\">\n          <div class=\"custom-control custom-switch\">\n            <input type=\"checkbox\" class=\"custom-control-input\" (click)=\"switchDate()\" (change)=\"switchDate()\" id=\"onConsSw\" name=\"onConsSw\" #onConsSw [(ngModel)]=\"onCons\" >\n            <label class=\"custom-control-label\" for=\"onConsSw\">\n              <span *ngIf=\"!onCons\">\n                Filtrando por fecha de Emisi&oacute;n\n              </span>\n              <span *ngIf=\"onCons\">\n                Filtrando por fecha de Consumo\n              </span>\n            </label>\n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-2\">\n          <label for=\"\" class=\"label-form\">Fecha desde:</label>\n        </div>\n        <div class=\"col-sm-2\">\n          <input type=\"date\" name=\"desdeRF\" id=\"desdeRF\" #desdeRF (click)=\"validateDate()\" (change)=\"validateDate()\" [(ngModel)]=\"desde\" class=\"form-control\">\n        </div>\n        <div class=\"col-sm-2\">\n          <label for=\"\" class=\"label-form\">Fecha hasta:</label>\n        </div>\n        <div class=\"col-sm-2\">\n          <input type=\"date\" name=\"hastaRF\" id=\"hastaRF\" #hastaRF  (click)=\"validateDate()\" (change)=\"validateDate()\" [(ngModel)]=\"hasta\" class=\"form-control\">\n        </div>\n        <div class=\"col row no-print\">\n          <div class=\"col-sm-4 text-center\">\n            <button class=\"btn btn-sm btn-success\" [disabled]=\"!desde || !hasta || !validDate\" (click)=\"filterByDate()\">\n              <i class=\"fa fa-search\"></i>\n              Buscar\n            </button>\n          </div>\n          <div class=\"col\">\n            <button class=\"btn btn-sm btn-secondary\" (click)=\"limpiar()\">\n              <i class=\"fa fa-trash\"></i>\n              Limpiar / Ver Todo\n            </button>\n          </div>\n        </div>\n      </div>\n      <div class=\"row no-print\">\n        <div class=\"col pull-right rightcol right text-right\">\n          <button (click)=\"imprimir()\" class=\"btn btn-sm btn-default  pull-right rightcol right text-right\">\n            <i class=\"fa fa-print\"></i>\n            Imprimir\n          </button>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div>\n          Total de Ingresos: {{total}}\n        </div>\n        <table class=\"table table-active table-condensed\">\n          <thead>\n            <tr>\n              <th class=\"text-center\">\n                #\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha Emitida\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByEmitt()\">\n                  <i *ngIf=\"byEmit\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byEmit\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha de Consumo\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByCons()\">\n                  <i *ngIf=\"byCons\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byCons\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-tachometer-alt\"></i>\n                Medidor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByMeter()\">\n                  <i *ngIf=\"byMeter\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byMeter\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-file-invoice\"></i>\n                N&uacute;mero de Factura\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByNumber()\">\n                  <i *ngIf=\"byNum\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byNum\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-user\"></i>\n                Facturado Por\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByUser()\">\n                  <i *ngIf=\"byUser\" class=\"fas fa-sort-alpha-up\"></i>\n                  <i *ngIf=\"!byUser\" class=\"fas fa-sort-alpha-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-dollar-sign\"></i>\n                Valor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByValue()\">\n                  <i *ngIf=\"byVal\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byVal\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th class=\"text-center no-print\">\n                <i class=\"fa fa-eye\"></i>\n                Ver\n              </th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr  *ngFor=\"let factura of facturas\">\n              <td class=\"text-right\">\n                {{factura.index}}\n              </td>\n              <td>\n                {{factura.fecha | date: 'medium'}}\n              </td>\n              <td>\n                {{getDate(factura.registro.month, factura.registro.year) | date: 'MMMM yyyy'}}\n              </td>\n              <td>\n                {{factura.medidor.clave}}\n              </td>\n              <td>\n                <span *ngIf=\"factura.numero\">\n                  {{getInvoiceNumber(factura.numero) | mask: '000-000-000'}}\n                </span>\n                <span *ngIf=\"!factura.numero\"> \n                  No Pagada A&uacute;n\n                </span>\n              </td>\n              <td>\n                 {{factura.usuario.cedula | mask: '000000000-0'}} - {{factura.usuario.nombre}} {{factura.usuario.apellido}}\n              </td>\n              <td>\n                {{factura.total | currency}}\n              </td>\n              <td class=\"text-center center align-content-center  no-print\">\n                <button class=\"btn btn-sm btn-primary text-center\">\n                  <i class=\"fa fa-eye\"></i>\n                  Ver\n                </button>\n              </td>\n            </tr>\n          </tbody>\n          <tfoot>\n            <tr>\n              <th class=\"text-center\">\n                #\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha Emitida\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByEmitt()\">\n                  <i *ngIf=\"byEmit\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byEmit\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-calendar-alt\"></i>\n                Fecha de Consumo\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByCons()\">\n                  <i *ngIf=\"byCons\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byCons\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-tachometer-alt\"></i>\n                Medidor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByMeter()\">\n                  <i *ngIf=\"byMeter\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byMeter\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fas fa-file-invoice\"></i>\n                N&uacute;mero de Factura\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByNumber()\">\n                  <i *ngIf=\"byNum\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byNum\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-user\"></i>\n                Facturado Por\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByUser()\">\n                  <i *ngIf=\"byUser\" class=\"fas fa-sort-alpha-up\"></i>\n                  <i *ngIf=\"!byUser\" class=\"fas fa-sort-alpha-down-alt\"></i>\n                </button>\n              </th>\n              <th>\n                <i class=\"fa fa-dollar-sign\"></i>\n                Valor\n                <button class=\"btn btn-sm btn-outline-secondary no-print\" (click)=\"orderByValue()\">\n                  <i *ngIf=\"byVal\" class=\"fas fa-sort-numeric-up\"></i>\n                  <i *ngIf=\"!byVal\" class=\"fas fa-sort-numeric-down-alt\"></i>\n                </button>\n              </th>\n              <th class=\"text-center no-print\">\n                <i class=\"fa fa-eye\"></i>\n                Ver\n              </th>\n            </tr>\n          </tfoot>\n        </table>\n      </div>\n    </div>\n  </div>\n</div>";
     /***/
   },
 
@@ -903,7 +903,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <!-- Encabezado -->\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{ title }}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\">\r\n              <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- Fin Encabezado  -->\r\n\r\n      <!-- Cuerpo -->\r\n\r\n      <div class=\"card-body\" *ngIf=\"loading === false && fatalError === true\">\r\n        <h3>\r\n          Aun no se ha ingresado datos de la RMUV.... no se puede realizar la\r\n          asignacion de costos...\r\n        </h3>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader\r\n          style=\"margin-top: 300px !important; padding-top: 150px !important;\"\r\n        ></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === false && fatalError === false\">\r\n        <!--      ||  ||              //||       -->\r\n        <!--      ||                 // ||       -->\r\n        <!--  //==||  ||  ||   ||       ||       -->\r\n        <!-- ||   ||  ||   || ||        ||       -->\r\n        <!--  \\\\==||  ||    |||       ======     -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-6\">\r\n            <label for=\"clave\" class=\"col-sm-5 control-label\"\r\n              >Clave de Medidor:\r\n            </label>\r\n            <div class=\"col-sm-7\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text form-control\"\r\n                    ><i class=\"fas fa-tachometer-alt\"></i\r\n                  ></span>\r\n                </div>\r\n                <input\r\n                  #clave\r\n                  type=\"number\"\r\n                  id=\"clave\"\r\n                  name=\"clave\"\r\n                  class=\"form-control default\"\r\n                  placeholder=\"___________\"\r\n                  [(ngModel)]=\"clave_medidor\"\r\n                  (keyup)=\"FindMeter(clave.value)\"\r\n                  minlength=\"6\"\r\n                  maxlength=\"10\"\r\n                  [class.is-valid]=\"encontrado == true\"\r\n                  [class.is-invalid]=\"encontrado == false\"\r\n                  [class.is-warning]=\"encontrado == null\"\r\n                  title=\"Ingresar la Clave Catastral del Medidor Minimo 6 D&iacute;gitos\"\r\n                />\r\n                <div class=\"input-group-append\">\r\n                  <button\r\n                    class=\"btn bg-gradient-primary\"\r\n                    data-toggle=\"modal\"\r\n                    data-target=\"#modal-meter\"\r\n                    title=\"Buscar Medidor Por Usuarios\"\r\n                  >\r\n                    <span class=\"fa fa-search\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row col-sm-6\">\r\n            <label\r\n              class=\"col-sm-6 control-label\"\r\n              *ngIf=\"medidor.user != '' && medidor.user != null\"\r\n            >\r\n              Propietario:\r\n              <span>{{\r\n                medidor.user.nombre + \" \" + medidor.user.apellido\r\n              }}</span>\r\n            </label>\r\n            <label\r\n              class=\"col-sm-4 control-label\"\r\n              *ngIf=\"medidor.user != '' && medidor.user != null\"\r\n            >\r\n              C&eacute;dula: <span>{{ medidor.user.cedula }}</span>\r\n            </label>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||               //==\\\\     -->\r\n        <!--      ||                  ||    ||    -->\r\n        <!--  //==||  ||  ||   ||         //      -->\r\n        <!-- ||   ||  ||   || ||        //        -->\r\n        <!--  \\\\==||  ||    |||       ||====//    -->\r\n        <div class=\"form-group row\" *ngIf=\"medidor.clave\">\r\n          <div class=\"row col-sm-6\">\r\n            <label class=\"col-sm-5 control-label\" title=\"Fecha del Mes Actual\">\r\n              Fecha Actual:\r\n            </label>\r\n            <div class=\"col-sm-7\">\r\n              <div class=\"input-group\" title=\"Fecha del Mes Actual\">\r\n                <div class=\"input-group-prepend  \">\r\n                  <span class=\"input-group-text form-control\"\r\n                    ><i class=\"fa fa-calendar\"></i\r\n                  ></span>\r\n                </div>\r\n                <label for=\"monthpicker\"\r\n                  class=\"form-control\"\r\n                  [class.text-danger]=\"dateDanger == true\"\r\n                  [class.text-warning]=\"dateDanger == false\"\r\n                >\r\n                  {{ isSelect | date: \"MMMM y\" }}\r\n              </label>\r\n                <div class=\"input-group-append\">\r\n                  <app-month-picker #monthpicker name=\"monthpicker\" id=\"monthpicker\"\r\n                    (change)=\"getDate($event)\"\r\n                    title=\"Ingresar otra Fecha\"\r\n                  ></app-month-picker>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n            <span\r\n              class=\"offset-4\"\r\n              *ngIf=\"dateMessage\"\r\n              [class.text-danger]=\"dateDanger == true\"\r\n              [class.text-warning]=\"dateDanger == false\"\r\n              >{{ dateMessage }}</span\r\n            >\r\n          </div>\r\n          <div class=\"row col-sm-6\">\r\n            <label class=\"col-sm-5 control-label\" *ngIf=\"registroAnterior\">\r\n              Ultimo Registro:\r\n              <span>{{ isRegistered | date: \"MMMM y\" }}</span></label\r\n            >\r\n            <label\r\n              class=\"col-sm-5 control-label text-success\"\r\n              *ngIf=\"nuevoRegistro\"\r\n            >\r\n              Primer Registro</label\r\n            >\r\n            <label\r\n              class=\"col-sm-6 control-label\"\r\n              *ngIf=\"medidor.direccion != '' && medidor.direccion != null\"\r\n            >\r\n              Direcci&oacute;n: <span>{{ medidor.direccion }}</span>\r\n            </label>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||              //==\\\\    -->\r\n        <!--      ||                 ||    ||   -->\r\n        <!--  //==||  ||  ||   ||       ==<<    -->\r\n        <!-- ||   ||  ||   || ||     ||    ||   -->\r\n        <!--  \\\\==||  ||    |||       \\\\==//    -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-6\">\r\n            <label\r\n              class=\"col-sm-5 control-label\"\r\n              *ngIf=\"registroAnterior && this.dateDanger != true\"\r\n              title=\"Ingresar Lectura, Lectura anterior {{\r\n                registroAnterior.lectura\r\n              }}\"\r\n              >Lectura Actual:</label\r\n            >\r\n            <label\r\n              class=\"col-sm-5 control-label\"\r\n              *ngIf=\"nuevoRegistro\"\r\n              title=\"Ingresar Nueva Lectura\"\r\n              >Lectura Nueva:</label\r\n            >\r\n            <div\r\n              class=\"col-sm-7\"\r\n              *ngIf=\"\r\n                (nuevoRegistro || registroAnterior) && this.dateDanger != true\r\n              \"\r\n            >\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\"\r\n                    ><i class=\"fa fa-barcode\"></i\r\n                  ></span>\r\n                </div>\r\n                <input\r\n                  #lectura\r\n                  type=\"number\"\r\n                  id=\"lectura\"\r\n                  name=\"lectura\"\r\n                  class=\"form-control default\"\r\n                  placeholder=\"_______\"\r\n                  [(ngModel)]=\"lectura_actual\"\r\n                  minlength=\"6\"\r\n                  maxlength=\"10\"\r\n                  [class.is-valid]=\"consumo_correcto == true\"\r\n                  [class.is-invalid]=\"consumo_correcto == false\"\r\n                  [class.is-warning]=\"consumo_correcto == null\"\r\n                  (keyup)=\"consumo(lectura.value)\"\r\n                  title=\"Ingresar Lectura\"\r\n                  required\r\n                />\r\n                <div class=\"input-group-append\">\r\n                  <button\r\n                    class=\"btn bg-gradient-info\"\r\n                    data-toggle=\"modal\"\r\n                    data-target=\"#modal-info\"\r\n                    title=\"Ver Detalles de los Registros\"\r\n                  >\r\n                    <span class=\"fa fa-question\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <span\r\n              class=\"offset-4\"\r\n              *ngIf=\"consumo_correcto == false\"\r\n              class=\"text-danger\"\r\n              >Lectura Invalida, menor a {{ registroAnterior.lectura }}\r\n            </span>\r\n          </div>\r\n          <div class=\"row col-sm-6\"  *ngIf=\"registroAnterior\">\r\n            <label class=\"col-sm-4 control-label\" *ngIf=\"registroAnterior\"\r\n              >Lectura Anterior:\r\n              <span>{{ registroAnterior.lectura + \"m&#179;\" }}</span>\r\n            </label>\r\n            <label class=\"col-sm-4 control-label\" *ngIf=\"!registroAnterior\"\r\n              >Lectura Anterior: <span>Sin registros Anteriores</span>\r\n            </label>\r\n            <div class=\"col-sm-2\">\r\n              <button\r\n                class=\"btn bg-gradient-primary\"\r\n                data-toggle=\"modal\"\r\n                data-target=\"#modal-last-register\"\r\n                title=\"Ver los Datos de la Ultima Lectura\"\r\n              >\r\n                <span class=\"fa fa-info\"></span>\r\n              </button>\r\n            </div>\r\n            <div\r\n              class=\"row col-sm-4\"\r\n              *ngIf=\"medidor.rate\"\r\n            >\r\n              <label class=\" control-label\">\r\n                Tarifa: <span>{{ medidor.rate.tarifa.split(\" \", 1) }}</span>\r\n              </label>\r\n            </div>\r\n            <div class=\"col-sm-2\" *ngIf=\"medidor.rate\">\r\n              <button\r\n                class=\"btn bg-gradient-primary\"\r\n                data-toggle=\"modal\"\r\n                data-target=\"#modal-rate\"\r\n                title=\"Ver los Datos de la Tarifa\"\r\n              >\r\n                <span class=\"fa fa-info\"></span>\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||              //||    -->\r\n        <!--      ||                 // ||    -->\r\n        <!--  //==||  ||  ||   ||   //  ||    -->\r\n        <!-- ||   ||  ||   || ||   ||===||==  -->\r\n        <!--  \\\\==||  ||    |||         ||    -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-8\" *ngIf=\"registro.consumo && lectura_actual >=1 \">\r\n            <div\r\n              class=\"row col-sm-6\"\r\n              *ngIf=\"medidor.rate != '' && medidor.rate != null\"\r\n            >\r\n              <label class=\"col-sm-6 control-label  text-success\"> Base:</label>\r\n              <label class=\"col-sm-6 control-label  text-success\">\r\n                <!-- <span>${{ medidor.rate.base }}</span> -->\r\n                <span *ngIf=\"tarifa.percent_cost\"> {{registro.base | currency}} ({{tarifa.base}}% de {{extras[0].rmuv | currency}}) </span>\r\n              </label>\r\n            </div>\r\n            <div class=\"form-group row col-sm-6\">\r\n              <label class=\"col-sm-7 control-label text-success\"\r\n                >Consumo Actual:\r\n              </label>\r\n              <label class=\"col-sm-5 control-label text-success\">\r\n                <span>{{ registro.consumo + \"m&#179;\" }}</span>\r\n              </label>\r\n            </div>\r\n          </div>\r\n          <div class=\"row col-sm-8\" *ngIf=\"registro.excessConsumo >= 1\">\r\n            <div class=\"form-group row col-sm-6\">\r\n              <label class=\"col-sm-6 control-label \">Costo/m&#179;: </label>\r\n              <span class=\"col-sm-6 control-label \"\r\n                >{{ registro.excessM3 | currency }}x{{\r\n                  registro.excessConsumo + \"m&#179;\"\r\n                }}\r\n              </span>\r\n            </div>\r\n            <div class=\"form-group row col-sm-6\">\r\n              <label class=\"col-sm-7 control-label\">Exceso: </label>\r\n              <label class=\"col-sm-5 control-label\"\r\n                ><span>{{ registro.excessConsumo + \"m&#179;\" }}</span></label\r\n              >\r\n            </div>\r\n          </div>\r\n          <div\r\n            class=\"row col-sm-4 offset-2\"\r\n            *ngIf=\"registro.subtotal && registro.subtotal >= 1 && lectura_actual >=1\"\r\n          >\r\n            <div class=\"form-group row col-sm-12\">\r\n              <label\r\n                class=\"col-sm-6  control-label text-primary\"\r\n                *ngIf=\"registro.excessCosto != 0\"\r\n                >Costo Exceso:\r\n              </label>\r\n              <span\r\n                class=\"col-sm-6 control-label  text-primary\"\r\n                *ngIf=\"registro.excessCosto != 0\"\r\n                >{{ registro.excessCosto | currency }}\r\n              </span>\r\n            </div>\r\n            <div class=\"form-group row col-sm-12\">\r\n              <label class=\"col-sm-6 control-label  text-success\"\r\n                >Subtotal:\r\n              </label>\r\n              <span class=\"col-sm-6 control-label  text-success\"\r\n                >{{ registro.subtotal | currency }}\r\n              </span>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||             ||=====\\\\  -->\r\n        <!--      ||                 ||         -->\r\n        <!--  //==||  ||  ||   ||    \\\\=====\\\\  -->\r\n        <!-- ||   ||  ||   || ||            ||  -->\r\n        <!--  \\\\==||  ||    |||      \\\\====//   -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-6\">\r\n            <div class=\"col-sm-8\">\r\n              <Label></Label>\r\n            </div>\r\n            <div class=\"col-sm-4\" *ngIf=\"completado == true\">\r\n              <button class=\"btn btn-success\" (click)=\"onSubmit()\">\r\n                <span class=\"fa fa-check\"></span> Ingresar\r\n              </button>\r\n            </div>\r\n          </div>\r\n          <div class=\"row col-sm-6\">\r\n            <div class=\"col-sm-4\">\r\n              <button\r\n                class=\"btn btn-secondary\"\r\n                (click)=\"limpiar(); clave_medidor = null\"\r\n              >\r\n                <span class=\"fa fa-eraser\"></span> Limpiar\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- Fin Cuerpo -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-meter\" name=\"modal-meter\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <!-- Cabecera -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Buscar Usuario</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <!-- fin Cabecera -->\r\n\r\n      <!-- Cuerpo -->\r\n      <div class=\"modal-body\">\r\n        <form action=\"\">\r\n          <div class=\"form-group row clearfix\">\r\n            <label for=\"termino\" class=\"col-sm-4 control-label\"\r\n              >Buscar Usuario por:</label\r\n            >\r\n            <label for=\"nombre\" class=\"radio-inline col-sm-3\">\r\n              Nombres\r\n              <input\r\n                class=\"icheck-primary d-inline\"\r\n                type=\"radio\"\r\n                [(ngModel)]=\"seleccion\"\r\n                id=\"seleccionNombre\"\r\n                name=\"seleccion\"\r\n                value=\"nombres\"\r\n              />\r\n            </label>\r\n            <label for=\"cedula\" class=\"radio-inline col-sm-3\">\r\n              Cédula\r\n              <input\r\n                class=\"icheck-primary d-inline\"\r\n                type=\"radio\"\r\n                [(ngModel)]=\"seleccion\"\r\n                id=\"seleccionCedula\"\r\n                name=\"seleccion\"\r\n                value=\"cedula\"\r\n              />\r\n            </label>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <label for=\"termino\" class=\"col-sm-4\"\r\n              >Ingresar un t&eacute;rmino\r\n            </label>\r\n            <div class=\"col-sm-8\">\r\n              <input\r\n                #termino\r\n                id=\"termino\"\r\n                name=\"termino\"\r\n                type=\"text\"\r\n                class=\"form-control default\"\r\n                placeholder=\"Ingresar un Termino de busqueda\"\r\n              />\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <button\r\n              class=\"btn btn-primary col-sm-4 offset-4\"\r\n              (click)=\"busquedaUsuario(termino.value, seleccion)\"\r\n            >\r\n              Buscar Usuario\r\n            </button>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"con-sm-12\" *ngIf=\"conteo_usuario == -1\">\r\n              Seleccione un Campo de Busqueda</label\r\n            >\r\n            <label\r\n              class=\"col-sm-12\"\r\n              *ngIf=\"conteo_usuario && conteo_usuario >= 2\"\r\n            >\r\n              {{ \"Se Encontraron \" + conteo_usuario + \" usuarios\" }}</label\r\n            >\r\n            <label\r\n              class=\"col-sm-12\"\r\n              *ngIf=\"conteo_usuario && conteo_usuario == 1\"\r\n            >\r\n              {{ \"Se Encontro \" + conteo_usuario + \" usuario\" }}</label\r\n            >\r\n            <label\r\n              class=\"col-sm-12\"\r\n              *ngIf=\"!conteo_usuario || conteo_usuario == 0\"\r\n            >\r\n              No se encontraron usuarios</label\r\n            >\r\n          </div>\r\n          <div\r\n            class=\"form-group row\"\r\n            *ngIf=\"conteo_usuario && conteo_usuario == 1\"\r\n          >\r\n            <label for=\"{{ usersBusq[0]._id }}\" class=\"col-sm-8\"\r\n              >Nombres:\r\n              {{\r\n                usersBusq[0].nombre.split(\" \", 1) +\r\n                  \" \" +\r\n                  usersBusq[0].apellido.split(\" \", 1)\r\n              }}</label\r\n            >\r\n            <button\r\n              class=\"btn btn-info btn-sm\"\r\n              (click)=\"getMeters(usersBusq[0]._id)\"\r\n              id=\"{{ usersBusq[0]._id }}\"\r\n            >\r\n              Ver Medidores\r\n            </button>\r\n          </div>\r\n          <div *ngFor=\"let user of usersBusq\">\r\n            <div\r\n              class=\"form-group row\"\r\n              *ngIf=\"conteo_usuario && conteo_usuario > 1\"\r\n            >\r\n              <label for=\"{{ user._id }}\" class=\"col-sm-8\"\r\n                >Nombres:\r\n                {{\r\n                  user.nombre.split(\" \", 1) + \" \" + user.apellido.split(\" \", 1)\r\n                }}, Cedula: {{ user.cedula }}</label\r\n              >\r\n              <button\r\n                class=\"btn btn-info btn-sm\"\r\n                (click)=\"getMeters(user._id)\"\r\n                id=\"{{ user._id }}\"\r\n              >\r\n                Ver Medidores\r\n              </button>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\" *ngIf=\"medidoresUser.length >= 1\">\r\n            <table class=\"table table-bordered table-hover\">\r\n              <thead>\r\n                <tr>\r\n                  <th>Clave</th>\r\n                  <th>Direccion</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody>\r\n                <tr\r\n                  *ngFor=\"let medidor of medidoresUser\"\r\n                  (click)=\"FindMeter(medidor.clave)\"\r\n                  data-dismiss=\"modal\"\r\n                >\r\n                  <td>\r\n                    {{ medidor.clave }}\r\n                  </td>\r\n                  <td *ngIf=\"medidor.direccion\">\r\n                    {{ medidor.direccion }}\r\n                  </td>\r\n                  <td *ngIf=\"!medidor.direccion\">\r\n                    Sin Direccion\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n          <div\r\n            class=\"form-group row\"\r\n            *ngIf=\"conteo_usuario && medidoresUser.length <= 0\"\r\n          >\r\n            <label class=\"col-sm-12\">El usuario no tiene medidores</label>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]            ///||||\\\\\\\\                                                                                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||           ////      \\\\\\\\                                                                           -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||           ||||       ||||                                                                           -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                     ////                                                                       -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  ////                                                                           -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||              ////                                                                            -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///    |||||        ///                                                                              -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||     |||||||||||||||                                                                                 -->\r\n\r\n<div class=\"modal fade\" id=\"modal-info\" name=\"modal-info\">\r\n  <div class=\"modal-dialog modal-xl\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Detalles de registros</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <app-show-registers [meterId]=\"meterId\"></app-show-registers>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--   |||||\\      /||||      ========      |||||====            |||||      [|||||]            ///||||\\\\\\\\                                                                                 -->\r\n<!--   |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||           ////      \\\\\\\\                                                                           -->\r\n<!--   |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||           ||||       ||||                                                                           -->\r\n<!--   |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                 ||||////                                                                    -->\r\n<!--   ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                     \\\\\\\\                                                                              -->\r\n<!--   |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||            ||||      ||||                                                                       -->\r\n<!--   |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///    \\\\\\\\      ||||                                                                              -->\r\n<!--   |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||       \\\\\\||||////                                                                         -->\r\n\r\n<div class=\"modal fade\" id=\"modal-rate\" name=\"modal-rate\" *ngIf=\"medidor.rate\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">\r\n          Detalle de la tarifa: {{ medidor.rate.tarifa }}\r\n        </h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-lg-12\">\r\n            <table class=\"table table-stripped table-hover table-bordered\">\r\n              <thead>\r\n                <tr>\r\n                  <th>\r\n                    Desde\r\n                  </th>\r\n                  <th>\r\n                    Hasta\r\n                  </th>\r\n                  <th>\r\n                    Costo\r\n                  </th>\r\n                </tr>\r\n              </thead>\r\n              <tbody>\r\n                <tr *ngFor=\"let limit of limites\">\r\n                  <td>{{limit.limit_from}}</td>\r\n                  <td>{{limit.limit_to}}</td>\r\n                  <td><i *ngIf=\"limit.percent_cost == false\">{{\r\n                      limit.cost | currency\r\n                    }}</i\r\n                    ><i\r\n                      *ngIf=\"limit.percent_cost == true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\"\r\n                      >{{ limit.cost }}% R.M.U.V.</i\r\n                    >\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n              <tfoot>\r\n                <tr>\r\n                  <th>\r\n                    Desde\r\n                  </th>\r\n                  <th>\r\n                    Hasta\r\n                  </th>\r\n                  <th>\r\n                    Costo\r\n                  </th>\r\n                </tr>\r\n              </tfoot>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!--    |||||\\      /||||      ========      |||||====            |||||      [|||||]                ////||||                                                                         -->\r\n<!--    |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||               ////  ||||                                                                   -->\r\n<!--    |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||              ////   ||||                                                                    -->\r\n<!--    |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||             ////    ||||                                                             -->\r\n<!--    ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||            ||||     ||||                                                                      -->\r\n<!--    |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||            ||||||||||||||||                                                                      -->\r\n<!--    |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///             ||||                                                                              -->\r\n<!--    |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||              ||||                                                              -->\r\n\r\n<div class=\"modal fade\" id=\"modal-last-register\" name=\"modal-last-register\" *ngIf=\"registroAnterior\">\r\n  <div class=\"modal-dialog modal-xl\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Detalles del registro Anterior</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <label>Estado:</label>\r\n        <br>\r\n        <span>{{registroAnterior.cancelado}}</span>\r\n        <br>\r\n        <label>Consumo:</label>\r\n        <br>\r\n        <span>{{registroAnterior.consumo}}</span>\r\n        <br>\r\n        <label>Exceso Consumido:</label>\r\n        <br>\r\n        <span>{{registroAnterior.excessConsumo}}</span>\r\n        <br>\r\n        <label>Costo exedido:</label>\r\n        <br>\r\n        <span>{{registroAnterior.excessCosto}}</span>\r\n        <br>\r\n        <label>Costo por metro excedido:</label>\r\n        <br>\r\n        <span>{{registroAnterior.excessM3}}</span>\r\n        <br>\r\n        <label>Lectura:</label>\r\n        <br>\r\n        <span>{{registroAnterior.lectura}}</span>\r\n        <br>\r\n        <label>Fecha:</label>\r\n        <br>\r\n        <span>{{\r\n            date(registroAnterior.year, registroAnterior.month) | date: \"MMMM y\"\r\n          }}</span>\r\n\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <!-- Encabezado -->\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{ title }}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\">\r\n              <i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar\r\n            </button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- Fin Encabezado  -->\r\n\r\n      <!-- Cuerpo -->\r\n\r\n      <div class=\"card-body\" *ngIf=\"loading === false && fatalError === true\">\r\n        <h3>\r\n          Aun no se ha ingresado datos de la RMUV.... no se puede realizar la\r\n          asignacion de costos...\r\n        </h3>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === true\">\r\n        <app-my-loader\r\n          style=\"margin-top: 300px !important; padding-top: 150px !important;\"\r\n        ></app-my-loader>\r\n      </div>\r\n      <div class=\"card-body\" *ngIf=\"loading === false && fatalError === false\">\r\n        <!--      ||  ||              //||       -->\r\n        <!--      ||                 // ||       -->\r\n        <!--  //==||  ||  ||   ||       ||       -->\r\n        <!-- ||   ||  ||   || ||        ||       -->\r\n        <!--  \\\\==||  ||    |||       ======     -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-6\">\r\n            <label for=\"clave\" class=\"col-sm-5 control-label\"\r\n              >Clave de Medidor:\r\n            </label>\r\n            <div class=\"col-sm-7\">\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text form-control\"\r\n                    ><i class=\"fas fa-tachometer-alt\"></i\r\n                  ></span>\r\n                </div>\r\n                <input\r\n                  #clave\r\n                  type=\"number\"\r\n                  id=\"clave\"\r\n                  name=\"clave\"\r\n                  class=\"form-control default\"\r\n                  placeholder=\"___________\"\r\n                  [(ngModel)]=\"clave_medidor\"\r\n                  (keyup)=\"FindMeter(clave.value)\"\r\n                  minlength=\"6\"\r\n                  maxlength=\"10\"\r\n                  [class.is-valid]=\"encontrado == true\"\r\n                  [class.is-invalid]=\"encontrado == false\"\r\n                  [class.is-warning]=\"encontrado == null\"\r\n                  title=\"Ingresar la Clave Catastral del Medidor Minimo 6 D&iacute;gitos\"\r\n                />\r\n                <div class=\"input-group-append\">\r\n                  <button\r\n                    class=\"btn bg-gradient-primary\"\r\n                    data-toggle=\"modal\"\r\n                    data-target=\"#modal-meter\"\r\n                    title=\"Buscar Medidor Por Usuarios\"\r\n                  >\r\n                    <span class=\"fa fa-search\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row col-sm-6\">\r\n            <label\r\n              class=\"col-sm-6 control-label\"\r\n              *ngIf=\"medidor.user != '' && medidor.user != null\"\r\n            >\r\n              Propietario:\r\n              <span>{{\r\n                medidor.user.nombre + \" \" + medidor.user.apellido\r\n              }}</span>\r\n            </label>\r\n            <label\r\n              class=\"col-sm-4 control-label\"\r\n              *ngIf=\"medidor.user != '' && medidor.user != null\"\r\n            >\r\n              C&eacute;dula: <span>{{ medidor.user.cedula }}</span>\r\n            </label>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||               //==\\\\     -->\r\n        <!--      ||                  ||    ||    -->\r\n        <!--  //==||  ||  ||   ||         //      -->\r\n        <!-- ||   ||  ||   || ||        //        -->\r\n        <!--  \\\\==||  ||    |||       ||====//    -->\r\n        <div class=\"form-group row\" *ngIf=\"medidor.clave\">\r\n          <div class=\"row col-sm-6\">\r\n            <label class=\"col-sm-5 control-label\" title=\"Fecha del Mes Actual (Campo Obligatorio)\">\r\n              Fecha Actual*:\r\n            </label>\r\n            <div class=\"col-sm-7\">\r\n              <div class=\"input-group\" title=\"Fecha del Mes Actual\">\r\n                <div class=\"input-group-prepend  \">\r\n                  <span class=\"input-group-text form-control\"\r\n                    ><i class=\"fa fa-calendar\"></i\r\n                  ></span>\r\n                </div>\r\n                <label for=\"monthpicker\"\r\n                  class=\"form-control\"\r\n                  [class.text-danger]=\"dateDanger == true\"\r\n                  [class.text-warning]=\"dateDanger == false\"\r\n                >\r\n                  {{ isSelect | date: \"MMMM y\" }}\r\n              </label>\r\n                <div class=\"input-group-append\">\r\n                  <app-month-picker #monthpicker name=\"monthpicker\" id=\"monthpicker\"\r\n                    (change)=\"getDate($event)\"\r\n                    title=\"Ingresar otra Fecha\"\r\n                  ></app-month-picker>\r\n                </div>\r\n              </div>\r\n            </div>\r\n\r\n            <span\r\n              class=\"offset-4\"\r\n              *ngIf=\"dateMessage\"\r\n              [class.text-danger]=\"dateDanger == true\"\r\n              [class.text-warning]=\"dateDanger == false\"\r\n              >{{ dateMessage }}</span\r\n            >\r\n          </div>\r\n          <div class=\"row col-sm-6\">\r\n            <label class=\"col-sm-5 control-label\" *ngIf=\"registroAnterior\">\r\n              Ultimo Registro:\r\n              <span>{{ isRegistered | date: \"MMMM y\" }}</span></label\r\n            >\r\n            <label\r\n              class=\"col-sm-5 control-label text-success\"\r\n              *ngIf=\"nuevoRegistro\"\r\n            >\r\n              Primer Registro</label\r\n            >\r\n            <label\r\n              class=\"col-sm-6 control-label\"\r\n              *ngIf=\"medidor.direccion != '' && medidor.direccion != null\"\r\n            >\r\n              Direcci&oacute;n: <span>{{ medidor.direccion }}</span>\r\n            </label>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||              //==\\\\    -->\r\n        <!--      ||                 ||    ||   -->\r\n        <!--  //==||  ||  ||   ||       ==<<    -->\r\n        <!-- ||   ||  ||   || ||     ||    ||   -->\r\n        <!--  \\\\==||  ||    |||       \\\\==//    -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-6\">\r\n            <label\r\n              class=\"col-sm-5 control-label\"\r\n              *ngIf=\"registroAnterior && this.dateDanger != true\"\r\n              title=\"Ingresar Lectura, Lectura anterior {{\r\n                registroAnterior.lectura\r\n              }} (Campo Obligatorio)\"\r\n              >Lectura Actual*:</label\r\n            >\r\n            <label\r\n              class=\"col-sm-5 control-label\"\r\n              *ngIf=\"nuevoRegistro\"\r\n              title=\"Ingresar Nueva Lectura\"\r\n              >Lectura Nueva:</label\r\n            >\r\n            <div\r\n              class=\"col-sm-7\"\r\n              *ngIf=\"\r\n                (nuevoRegistro || registroAnterior) && this.dateDanger != true\r\n              \"\r\n            >\r\n              <div class=\"input-group\">\r\n                <div class=\"input-group-prepend\">\r\n                  <span class=\"input-group-text\"\r\n                    ><i class=\"fa fa-barcode\"></i\r\n                  ></span>\r\n                </div>\r\n                <input\r\n                  #lectura\r\n                  type=\"number\"\r\n                  id=\"lectura\"\r\n                  name=\"lectura\"\r\n                  class=\"form-control default\"\r\n                  placeholder=\"_______\"\r\n                  [(ngModel)]=\"lectura_actual\"\r\n                  minlength=\"6\"\r\n                  maxlength=\"10\"\r\n                  [class.is-valid]=\"consumo_correcto == true\"\r\n                  [class.is-invalid]=\"consumo_correcto == false\"\r\n                  [class.is-warning]=\"consumo_correcto == null\"\r\n                  (keyup)=\"consumo(lectura.value)\"\r\n                  title=\"Ingresar Lectura\"\r\n                  required\r\n                />\r\n                <div class=\"input-group-append\">\r\n                  <button\r\n                    class=\"btn bg-gradient-info\"\r\n                    data-toggle=\"modal\"\r\n                    data-target=\"#modal-info\"\r\n                    title=\"Ver Detalles de los Registros\"\r\n                  >\r\n                    <span class=\"fa fa-question\"></span>\r\n                  </button>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <span\r\n              class=\"offset-4\"\r\n              *ngIf=\"consumo_correcto == false\"\r\n              class=\"text-danger\"\r\n              >Lectura Invalida, menor a {{ registroAnterior.lectura }}\r\n            </span>\r\n          </div>\r\n          <div class=\"row col-sm-6\"  *ngIf=\"registroAnterior\">\r\n            <label class=\"col-sm-4 control-label\" *ngIf=\"registroAnterior\"\r\n              >Lectura Anterior:\r\n              <span>{{ registroAnterior.lectura + \"m&#179;\" }}</span>\r\n            </label>\r\n            <label class=\"col-sm-4 control-label\" *ngIf=\"!registroAnterior\"\r\n              >Lectura Anterior: <span>Sin registros Anteriores</span>\r\n            </label>\r\n            <div class=\"col-sm-2\">\r\n              <button\r\n                class=\"btn bg-gradient-primary\"\r\n                data-toggle=\"modal\"\r\n                data-target=\"#modal-last-register\"\r\n                title=\"Ver los Datos de la Ultima Lectura\"\r\n              >\r\n                <span class=\"fa fa-info\"></span>\r\n              </button>\r\n            </div>\r\n            <div\r\n              class=\"row col-sm-4\"\r\n              *ngIf=\"medidor.rate\"\r\n            >\r\n              <label class=\" control-label\">\r\n                Tarifa: <span>{{ medidor.rate.tarifa.split(\" \", 1) }}</span>\r\n              </label>\r\n            </div>\r\n            <div class=\"col-sm-2\" *ngIf=\"medidor.rate\">\r\n              <button\r\n                class=\"btn bg-gradient-primary\"\r\n                data-toggle=\"modal\"\r\n                data-target=\"#modal-rate\"\r\n                title=\"Ver los Datos de la Tarifa\"\r\n              >\r\n                <span class=\"fa fa-info\"></span>\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||              //||    -->\r\n        <!--      ||                 // ||    -->\r\n        <!--  //==||  ||  ||   ||   //  ||    -->\r\n        <!-- ||   ||  ||   || ||   ||===||==  -->\r\n        <!--  \\\\==||  ||    |||         ||    -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-8\" *ngIf=\"registro.consumo && lectura_actual >=1 \">\r\n            <div\r\n              class=\"row col-sm-6\"\r\n              *ngIf=\"medidor.rate != '' && medidor.rate != null\"\r\n            >\r\n              <label class=\"col-sm-6 control-label  text-success\"> Base:</label>\r\n              <label class=\"col-sm-6 control-label  text-success\">\r\n                <!-- <span>${{ medidor.rate.base }}</span> -->\r\n                <span *ngIf=\"tarifa.percent_cost\"> {{registro.base | currency}} ({{tarifa.base}}% de {{extras[0].rmuv | currency}}) </span>\r\n              </label>\r\n            </div>\r\n            <div class=\"form-group row col-sm-6\">\r\n              <label class=\"col-sm-7 control-label text-success\"\r\n                >Consumo Actual:\r\n              </label>\r\n              <label class=\"col-sm-5 control-label text-success\">\r\n                <span>{{ registro.consumo + \"m&#179;\" }}</span>\r\n              </label>\r\n            </div>\r\n          </div>\r\n          <div class=\"row col-sm-8\" *ngIf=\"registro.excessConsumo >= 1\">\r\n            <div class=\"form-group row col-sm-6\">\r\n              <label class=\"col-sm-6 control-label \">Costo/m&#179;: </label>\r\n              <span class=\"col-sm-6 control-label \"\r\n                >{{ registro.excessM3 | currency }}x{{\r\n                  registro.excessConsumo + \"m&#179;\"\r\n                }}\r\n              </span>\r\n            </div>\r\n            <div class=\"form-group row col-sm-6\">\r\n              <label class=\"col-sm-7 control-label\">Exceso: </label>\r\n              <label class=\"col-sm-5 control-label\"\r\n                ><span>{{ registro.excessConsumo + \"m&#179;\" }}</span></label\r\n              >\r\n            </div>\r\n          </div>\r\n          <div\r\n            class=\"row col-sm-4 offset-2\"\r\n            *ngIf=\"registro.subtotal && registro.subtotal >= 1 && lectura_actual >=1\"\r\n          >\r\n            <div class=\"form-group row col-sm-12\">\r\n              <label\r\n                class=\"col-sm-6  control-label text-primary\"\r\n                *ngIf=\"registro.excessCosto != 0\"\r\n                >Costo Exceso:\r\n              </label>\r\n              <span\r\n                class=\"col-sm-6 control-label  text-primary\"\r\n                *ngIf=\"registro.excessCosto != 0\"\r\n                >{{ registro.excessCosto | currency }}\r\n              </span>\r\n            </div>\r\n            <div class=\"form-group row col-sm-12\">\r\n              <label class=\"col-sm-6 control-label  text-success\"\r\n                >Subtotal:\r\n              </label>\r\n              <span class=\"col-sm-6 control-label  text-success\"\r\n                >{{ registro.subtotal | currency }}\r\n              </span>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <!--      ||  ||             ||=====\\\\  -->\r\n        <!--      ||                 ||         -->\r\n        <!--  //==||  ||  ||   ||    \\\\=====\\\\  -->\r\n        <!-- ||   ||  ||   || ||            ||  -->\r\n        <!--  \\\\==||  ||    |||      \\\\====//   -->\r\n        <div class=\"form-group row\">\r\n          <div class=\"row col-sm-6\">\r\n            <div class=\"col-sm-8\">\r\n              <Label></Label>\r\n            </div>\r\n            <div class=\"col-sm-4\" *ngIf=\"completado == true\">\r\n              <button class=\"btn btn-success\" (click)=\"onSubmit()\">\r\n                <span class=\"fa fa-check\"></span> Ingresar\r\n              </button>\r\n            </div>\r\n          </div>\r\n          <div class=\"row col-sm-6\">\r\n            <div class=\"col-sm-4\">\r\n              <button\r\n                class=\"btn btn-secondary\"\r\n                (click)=\"limpiar(); clave_medidor = null\"\r\n              >\r\n                <span class=\"fa fa-eraser\"></span> Limpiar\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- Fin Cuerpo -->\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-meter\" name=\"modal-meter\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <!-- Cabecera -->\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Buscar Usuario</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <!-- fin Cabecera -->\r\n\r\n      <!-- Cuerpo -->\r\n      <div class=\"modal-body\">\r\n        <form action=\"\">\r\n          <div class=\"form-group row clearfix\">\r\n            <label for=\"termino\" class=\"col-sm-4 control-label\"\r\n              >Buscar Usuario por:</label\r\n            >\r\n            <label for=\"nombre\" class=\"radio-inline col-sm-3\">\r\n              Nombres\r\n              <input\r\n                class=\"icheck-primary d-inline\"\r\n                type=\"radio\"\r\n                [(ngModel)]=\"seleccion\"\r\n                id=\"seleccionNombre\"\r\n                name=\"seleccion\"\r\n                value=\"nombres\"\r\n              />\r\n            </label>\r\n            <label for=\"cedula\" class=\"radio-inline col-sm-3\">\r\n              Cédula\r\n              <input\r\n                class=\"icheck-primary d-inline\"\r\n                type=\"radio\"\r\n                [(ngModel)]=\"seleccion\"\r\n                id=\"seleccionCedula\"\r\n                name=\"seleccion\"\r\n                value=\"cedula\"\r\n              />\r\n            </label>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <label for=\"termino\" class=\"col-sm-4\"\r\n              >Ingresar un t&eacute;rmino\r\n            </label>\r\n            <div class=\"col-sm-8\">\r\n              <input\r\n                #termino\r\n                id=\"termino\"\r\n                name=\"termino\"\r\n                type=\"text\"\r\n                class=\"form-control default\"\r\n                placeholder=\"Ingresar un Termino de busqueda\"\r\n              />\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"form-group row\">\r\n            <button\r\n              class=\"btn btn-primary col-sm-4 offset-4\"\r\n              (click)=\"busquedaUsuario(termino.value, seleccion)\"\r\n            >\r\n              Buscar Usuario\r\n            </button>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"con-sm-12\" *ngIf=\"conteo_usuario == -1\">\r\n              Seleccione un Campo de Busqueda</label\r\n            >\r\n            <label\r\n              class=\"col-sm-12\"\r\n              *ngIf=\"conteo_usuario && conteo_usuario >= 2\"\r\n            >\r\n              {{ \"Se Encontraron \" + conteo_usuario + \" usuarios\" }}</label\r\n            >\r\n            <label\r\n              class=\"col-sm-12\"\r\n              *ngIf=\"conteo_usuario && conteo_usuario == 1\"\r\n            >\r\n              {{ \"Se Encontro \" + conteo_usuario + \" usuario\" }}</label\r\n            >\r\n            <label\r\n              class=\"col-sm-12\"\r\n              *ngIf=\"!conteo_usuario || conteo_usuario == 0\"\r\n            >\r\n              No se encontraron usuarios</label\r\n            >\r\n          </div>\r\n          <div\r\n            class=\"form-group row\"\r\n            *ngIf=\"conteo_usuario && conteo_usuario == 1\"\r\n          >\r\n            <label for=\"{{ usersBusq[0]._id }}\" class=\"col-sm-8\"\r\n              >Nombres:\r\n              {{\r\n                usersBusq[0].nombre.split(\" \", 1) +\r\n                  \" \" +\r\n                  usersBusq[0].apellido.split(\" \", 1)\r\n              }}</label\r\n            >\r\n            <button\r\n              class=\"btn btn-info btn-sm\"\r\n              (click)=\"getMeters(usersBusq[0]._id)\"\r\n              id=\"{{ usersBusq[0]._id }}\"\r\n            >\r\n              Ver Medidores\r\n            </button>\r\n          </div>\r\n          <div *ngFor=\"let user of usersBusq\">\r\n            <div\r\n              class=\"form-group row\"\r\n              *ngIf=\"conteo_usuario && conteo_usuario > 1\"\r\n            >\r\n              <label for=\"{{ user._id }}\" class=\"col-sm-8\"\r\n                >Nombres:\r\n                {{\r\n                  user.nombre.split(\" \", 1) + \" \" + user.apellido.split(\" \", 1)\r\n                }}, Cedula: {{ user.cedula }}</label\r\n              >\r\n              <button\r\n                class=\"btn btn-info btn-sm\"\r\n                (click)=\"getMeters(user._id)\"\r\n                id=\"{{ user._id }}\"\r\n              >\r\n                Ver Medidores\r\n              </button>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\" *ngIf=\"medidoresUser.length >= 1\">\r\n            <table class=\"table table-bordered table-hover\">\r\n              <thead>\r\n                <tr>\r\n                  <th>Clave</th>\r\n                  <th>Direccion</th>\r\n                </tr>\r\n              </thead>\r\n              <tbody>\r\n                <tr\r\n                  *ngFor=\"let medidor of medidoresUser\"\r\n                  (click)=\"FindMeter(medidor.clave)\"\r\n                  data-dismiss=\"modal\"\r\n                >\r\n                  <td>\r\n                    {{ medidor.clave }}\r\n                  </td>\r\n                  <td *ngIf=\"medidor.direccion\">\r\n                    {{ medidor.direccion }}\r\n                  </td>\r\n                  <td *ngIf=\"!medidor.direccion\">\r\n                    Sin Direccion\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n            </table>\r\n          </div>\r\n          <div\r\n            class=\"form-group row\"\r\n            *ngIf=\"conteo_usuario && medidoresUser.length <= 0\"\r\n          >\r\n            <label class=\"col-sm-12\">El usuario no tiene medidores</label>\r\n          </div>\r\n        </form>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]            ///||||\\\\\\\\                                                                                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||           ////      \\\\\\\\                                                                           -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||           ||||       ||||                                                                           -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                     ////                                                                       -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  ////                                                                           -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||              ////                                                                            -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///    |||||        ///                                                                              -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||     |||||||||||||||                                                                                 -->\r\n\r\n<div class=\"modal fade\" id=\"modal-info\" name=\"modal-info\">\r\n  <div class=\"modal-dialog modal-xl\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Detalles de registros</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <app-show-registers [meterId]=\"meterId\"></app-show-registers>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!--   |||||\\      /||||      ========      |||||====            |||||      [|||||]            ///||||\\\\\\\\                                                                                 -->\r\n<!--   |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||           ////      \\\\\\\\                                                                           -->\r\n<!--   |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||           ||||       ||||                                                                           -->\r\n<!--   |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                 ||||////                                                                    -->\r\n<!--   ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                     \\\\\\\\                                                                              -->\r\n<!--   |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||            ||||      ||||                                                                       -->\r\n<!--   |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///    \\\\\\\\      ||||                                                                              -->\r\n<!--   |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||       \\\\\\||||////                                                                         -->\r\n\r\n<div class=\"modal fade\" id=\"modal-rate\" name=\"modal-rate\" *ngIf=\"medidor.rate\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">\r\n          Detalle de la tarifa: {{ medidor.rate.tarifa }}\r\n        </h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <div class=\"col-lg-12\">\r\n            <table class=\"table table-stripped table-hover table-bordered\">\r\n              <thead>\r\n                <tr>\r\n                  <th>\r\n                    Desde\r\n                  </th>\r\n                  <th>\r\n                    Hasta\r\n                  </th>\r\n                  <th>\r\n                    Costo\r\n                  </th>\r\n                </tr>\r\n              </thead>\r\n              <tbody>\r\n                <tr *ngFor=\"let limit of limites\">\r\n                  <td>{{limit.limit_from}}</td>\r\n                  <td>{{limit.limit_to}}</td>\r\n                  <td><i *ngIf=\"limit.percent_cost == false\">{{\r\n                      limit.cost | currency\r\n                    }}</i\r\n                    ><i\r\n                      *ngIf=\"limit.percent_cost == true\"\r\n                      title=\"RMUV: Remuneraci&oacute;n Mensual Unificada Vigente, Salario B&aacute;sico\"\r\n                      >{{ limit.cost }}% R.M.U.V.</i\r\n                    >\r\n                  </td>\r\n                </tr>\r\n              </tbody>\r\n              <tfoot>\r\n                <tr>\r\n                  <th>\r\n                    Desde\r\n                  </th>\r\n                  <th>\r\n                    Hasta\r\n                  </th>\r\n                  <th>\r\n                    Costo\r\n                  </th>\r\n                </tr>\r\n              </tfoot>\r\n            </table>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<!--    |||||\\      /||||      ========      |||||====            |||||      [|||||]                ////||||                                                                         -->\r\n<!--    |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||               ////  ||||                                                                   -->\r\n<!--    |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||              ////   ||||                                                                    -->\r\n<!--    |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||             ////    ||||                                                             -->\r\n<!--    ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||            ||||     ||||                                                                      -->\r\n<!--    |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||            ||||||||||||||||                                                                      -->\r\n<!--    |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///             ||||                                                                              -->\r\n<!--    |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||              ||||                                                              -->\r\n\r\n<div class=\"modal fade\" id=\"modal-last-register\" name=\"modal-last-register\" *ngIf=\"registroAnterior\">\r\n  <div class=\"modal-dialog modal-xl\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Detalles del registro Anterior</h4>\r\n        <button\r\n          type=\"button\"\r\n          class=\"close\"\r\n          data-dismiss=\"modal\"\r\n          aria-label=\"Close\"\r\n        >\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n\r\n      <div class=\"modal-body\">\r\n        <label>Estado:</label>\r\n        <br>\r\n        <span>{{registroAnterior.cancelado}}</span>\r\n        <br>\r\n        <label>Consumo:</label>\r\n        <br>\r\n        <span>{{registroAnterior.consumo}}</span>\r\n        <br>\r\n        <label>Exceso Consumido:</label>\r\n        <br>\r\n        <span>{{registroAnterior.excessConsumo}}</span>\r\n        <br>\r\n        <label>Costo exedido:</label>\r\n        <br>\r\n        <span>{{registroAnterior.excessCosto}}</span>\r\n        <br>\r\n        <label>Costo por metro excedido:</label>\r\n        <br>\r\n        <span>{{registroAnterior.excessM3}}</span>\r\n        <br>\r\n        <label>Lectura:</label>\r\n        <br>\r\n        <span>{{registroAnterior.lectura}}</span>\r\n        <br>\r\n        <label>Fecha:</label>\r\n        <br>\r\n        <span>{{\r\n            date(registroAnterior.year, registroAnterior.month) | date: \"MMMM y\"\r\n          }}</span>\r\n\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -1023,7 +1023,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"dataTables_wrapper dt-bootstrap4\">\r\n\r\n  <table *ngIf=\"usuarios\" id=\"example1\" class=\"table table-bordered table-hover\">\r\n    <thead>\r\n      <tr>\r\n        <th><i class=\"fa fa-redo clickMe\" (click)=\"ngOnChanges()\" title=\"Actualizar Lista de Usuarios\"> &nbsp; &nbsp;\r\n          </i> Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"usuarios\">\r\n      <tr\r\n        *ngFor=\"let user of usuarios | paginate: { id: 'users', itemsPerPage: 7, currentPage: page }; let i = index\">\r\n        <td class=\"nickname\" style=\"font-weight: bold\">\r\n          {{user.cedula}}\r\n        </td>\r\n        <td>\r\n          <span *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">({{user.role_user}})&nbsp;-&nbsp;</span>{{ user.apellido + ' ' + user.nombre}}\r\n        </td>\r\n        <td *ngIf=\"employees\">\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'simple'\">Com&uacute;n</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'common'\">Com&uacute;n</span>\r\n          <span\r\n            *ngIf=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"><span *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</span> <span *ngIf=\"user.role_user.toLowerCase() !== 'admin'\">{{user.role_user}}</span> </span>\r\n        </td>\r\n        <td>\r\n          <div class=\"row text-center\">\r\n            <div class=\"col-sm-6\"  title=\"Ver Datos Completos del Usuario\">\r\n                <label class=\" btn btn-primary btn-sm\"  [routerLink]=\"['/perfil-usuario',user._id]\"><i\r\n                  class=\"fa fa-info-circle\"></i></label>\r\n            </div>\r\n            <div class=\"col-sm-6 \"\r\n              *ngIf=\"role_user.toLowerCase() !== 'common' && role_user.toLowerCase() !== 'operador'\">\r\n              <label class=\"btn btn-sm clickMe\"\r\n              [class.btn-warning] = \"user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple'\"\r\n              [class.btn-danger] = \"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"\r\n              (click)=\"editarUser(user)\">\r\n                <i class=\"far fa-edit\"\r\n                  style=\"color: white;\"></i></label>\r\n            </div>\r\n          </div>\r\n          <!-- <label class=\"badge badge-info\" *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</label> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n    <tfoot>\r\n      <tr>\r\n        <th>Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </tfoot>\r\n  </table>\r\n  <pagination-controls id=\"users\" (pageChange)=\"page=$event\" maxSize=\"9\" directionLinks=\"true\" autoHide=\"true\"\r\n    responsive=\"true\" previousLabel=\"Anterior\" nextLabel=\"Siguiente\" screenReaderPaginationLabel=\"Usuarios\"\r\n    screenReaderPageLabel=\"Pagina\" screenReaderCurrentLabel=\"Estas en la Pagina \">\r\n  </pagination-controls>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"dataTables_wrapper dt-bootstrap4\">\r\n\r\n  <table *ngIf=\"usuarios\" id=\"example1\" class=\"table table-bordered table-hover\">\r\n    <thead>\r\n      <tr>\r\n        <th><i class=\"fa fa-redo clickMe\" (click)=\"ngOnChanges()\" title=\"Actualizar Lista de Usuarios\"> &nbsp; &nbsp;\r\n          </i> Cedula</th>\r\n        <th>Nombres</th>\r\n        <th>Correo</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"usuarios\">\r\n      <tr *ngFor=\"let user of usuarios | paginate: { id: 'users', itemsPerPage: 7, currentPage: page }; let i = index\">\r\n        <td class=\"nickname\" style=\"font-weight: bold\">\r\n          {{user.cedula}}\r\n        </td>\r\n        <td>\r\n          <span\r\n            *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">({{user.role_user}})&nbsp;-&nbsp;</span>{{ user.apellido + ' ' + user.nombre}}\r\n        </td>\r\n        <td>\r\n          {{user.correo}}\r\n        </td>\r\n        <td *ngIf=\"employees\">\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'simple'\">Com&uacute;n</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'common'\">Com&uacute;n</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"><span\r\n              *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</span> <span\r\n              *ngIf=\"user.role_user.toLowerCase() !== 'admin'\">{{user.role_user}}</span> </span>\r\n        </td>\r\n        <td>\r\n          <div class=\"row text-center\">\r\n            <div class=\"col-sm-6\" title=\"Ver Datos Completos del Usuario\">\r\n              <label class=\" btn btn-primary btn-sm\" [routerLink]=\"['/perfil-usuario',user._id]\"><i\r\n                  class=\"fa fa-info-circle\"></i></label>\r\n            </div>\r\n            <div class=\"col-sm-6 \"\r\n              *ngIf=\"role_user.toLowerCase() !== 'common' && role_user.toLowerCase() !== 'operador'\">\r\n              <label class=\"btn btn-sm clickMe\"\r\n                [class.btn-warning]=\"user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple'\"\r\n                [class.btn-danger]=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"\r\n                (click)=\"editarUser(user)\">\r\n                <i class=\"far fa-edit\" style=\"color: white;\"></i></label>\r\n            </div>\r\n          </div>\r\n          <!-- <label class=\"badge badge-info\" *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</label> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n    <tfoot>\r\n      <tr>\r\n        <th>Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </tfoot>\r\n  </table>\r\n  <pagination-controls id=\"users\" (pageChange)=\"page=$event\" maxSize=\"9\" directionLinks=\"true\" autoHide=\"true\"\r\n    responsive=\"true\" previousLabel=\"Anterior\" nextLabel=\"Siguiente\" screenReaderPaginationLabel=\"Usuarios\"\r\n    screenReaderPageLabel=\"Pagina\" screenReaderCurrentLabel=\"Estas en la Pagina \">\r\n  </pagination-controls>\r\n</div>\r\n";
     /***/
   },
 
@@ -1083,7 +1083,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"card-body\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-lg-12\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Ingreso | Edicion de Usuarios</label>\r\n              <div class=\"alert alert-success Font Dark-Mode\" *ngIf=\"status == true\">\r\n                La cuenta {{user.cuenta}} ha sido añadida\r\n              </div>\r\n              <!-- *ngIf=\"status == false\" -->\r\n              <div class=\"alert alert-danger Font Dark-Mode \" *ngIf=\"status == false\">\r\n                Error al añadir la cuenta {{user.cuenta}}.\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <form #registerForm=\"ngForm\" class=\"col-lg-12 row of form-horizontal\">\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"nombre\">Nombre</label>\r\n                  <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\"\r\n                    placeholder=\"Nombre del Empleado\" [(ngModel)]=\"user.nombre\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Nombre es Obligatorio\" required />\r\n                  <span *ngIf=\"!nombre.valid && nombre.touched\" class=\"text-danger\">\r\n                    Nombre Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"apellido\">Apellido</label>\r\n                  <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\" [(ngModel)]=\"user.apellido\"\r\n                    placeholder=\"Apellido del Empleado\" class=\"form-control BackGround Font Dark-Mode\"\r\n                    title=\"El campo Apellido es Obligatorio\" required />\r\n                  <span *ngIf=\"!apellido.valid && apellido.touched\" class=\"text-danger\">\r\n                    Apellido Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <div class=\"form-group\">\r\n                    <label>Cédula de Identidad</label>\r\n                    <div class=\"input-group clickMe\" (click)=\"verifyEditCedula()\">\r\n                      <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\">\r\n                          <i class=\"fa fa-address-card\" *ngIf=\"cedulaWarning === false\"></i>\r\n                          <i class=\"fas fa-edit clickMe\" *ngIf=\"cedulaWarning === true\"></i>\r\n                        </span>\r\n                      </div>\r\n                      <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\" class=\"form-control\"\r\n                        (keyup)=\"verifyCedula(cedula.value)\" (change)=\"verifyCedula(cedula.value)\" placeholder=\"_________-_\" mask=\"000000000-0\"\r\n                        title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\"\r\n                        [class.is-valid]=\"cedulaCorrecta == true\" [class.is-warning]=\"cedulaCorrecta == null\"\r\n                        [class.is-invalid]=\"cedulaCorrecta == false\" [disabled]=\"cedulaWarning === true\" required />\r\n                    </div>\r\n                    <label class=\"col-sm-12\" [class.text-success]=\"cedulaCorrecta == true\"\r\n                      *ngIf=\"cedulaCorrecta == true\">Cédula Correcta!</label>\r\n                    <label class=\"col-sm-12\" [class.text-danger]=\"cedulaCorrecta == false\"\r\n                      *ngIf=\"cedulaCorrecta == false\">Cédula Incorrecta!, por favor revisela</label>\r\n                    <!-- /.input group -->\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"cuenta\" class=\"Font Dark-Mode\">Nombre de Cuenta</label>\r\n                  <input type=\"text\" placeholder=\"Cuenta de Ingreso\" name=\"cuenta\" #cuenta=\"ngModel\"\r\n                    [(ngModel)]=\"user.cuenta\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!cuenta.valid && cuenta.touched\">\r\n                    Nombre de Cuenta Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"correo\" class=\"Font Dark-Mode\">Correo Electrónico</label>\r\n                  <input type=\"email\" name=\"correo\" #correo=\"ngModel\" [(ngModel)]=\"user.correo\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required placeholder=\"ejemplo@ejem.com\" />\r\n                  <span *ngIf=\"!correo.valid && correo.touched\">\r\n                    Correo electrónico Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"fecha_nacimiento\">Fecha de Nacimiento</label>\r\n                  <input type=\"date\" name=\"fecha_nacimiento\" #fecha_nacimiento=\"ngModel\"\r\n                    [(ngModel)]=\"user.fecha_nacimiento\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!fecha_nacimiento.valid && fecha_nacimiento.touched\" class=\"text-danger\">\r\n                    Fecha de Nacimiento Obligatoria!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"direccion\">Dirección</label>\r\n                  <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" [(ngModel)]=\"user.direccion\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"text-danger\">\r\n                    Dirección Obligatoria!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label>Tel&eacute;fono</label>\r\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Numero de Teléfono\" title=\"Teléfono\"\r\n                    name=\"telefono\" id=\"telefono\" #telefono=\"ngModel\" [(ngModel)]=\"user.telefono\" required\r\n                    mask=\"(000) 000 0000\" />\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"sexo\">Sexo</label>\r\n                  <select name=\"sexo\" id=\"sexo\" #sexo=ngModel [(ngModel)]=user.sexo\r\n                    class=\"form-control BackGround Font Dark-Mode\">\r\n                    <option value=\"Masculino\">Masculino</option>\r\n                    <option value=\"Femenino\">Femenino</option>\r\n                    <option value=\"Indefinido\">Indefinido</option>\r\n                  </select>\r\n                  <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n                  <span *ngIf=\"!sexo.valid && sexo.touched\" class=\"text-danger\">\r\n                    Sexo Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label for=\"role_user\">Cargo</label>\r\n                  <select name=\"role_user\" id=\"role_user\" #role_user=ngModel [(ngModel)]=user.role_user\r\n                    class=\"form-control BackGround Font Dark-Mode\">\r\n                    <option value=\"Admin\">Administrador</option>\r\n                    <option value=\"Secretario\">Secretario/a</option>\r\n                    <option value=\"Operador\">Operador</option>\r\n                  </select>\r\n                  <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n                  <span *ngIf=\"!role_user.valid && role_user.touched\" class=\"text-danger\">\r\n                    Cargo Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\" *ngIf=\"!onEdit || onEdit != true\">\r\n                  <label for=\"contrase\">Contraseña</label>\r\n                  <input type=\"text\" placeholder=\"\" name=\"contrase\" #contrase=\"ngModel\" [(ngModel)]=\"user.contrase\"\r\n                  class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!contrase.valid && contrase.touched\" minlength=6>\r\n                    Contraseña Obligatoria!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\" *ngIf=\"onEdit == true && identity.role_user.toLowerCase() == 'admin'\">\r\n                  <label for=\"contrase\">Contraseña</label>\r\n                  <div class=\"text-center\">\r\n                    <span class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#modal-password\">\r\n                      Cambiar Contraseña?\r\n                    </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-4\" *ngIf=\"onEdit == true && identity.role_user.toLowerCase() == 'admin'\">\r\n                  <label class=\"col-sm-12\">Estado</label>\r\n                  <div class=\"text-center\">\r\n                      <span class=\"btn\"\r\n                      [class.btn-danger]=\"user.activa==true\"\r\n                      [class.btn-success]=\"user.activa==false\"\r\n                       data-toggle=\"modal\" data-target=\"#modal-desactivar\">\r\n                          <i *ngIf=\"user.activa == true\">Desactivar Cuenta?</i>\r\n                          <i *ngIf=\"user.activa == false\">Reactivar Cuenta?</i>\r\n                      </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"text-center\">\r\n                  <input type=\"submit\" (click)=\"onSubmit(registerForm)\" class=\"btn btn-success\" value=\"Registrar\"\r\n                  [disabled]=\"!registerForm.form.valid\" />\r\n                <button class=\"btn btn-secondary\" (click)=\"reset(registerForm)\"><i *ngIf=\"onEdit\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"!onEdit\">Cancelar | Limpiar</i></button>\r\n                </div>\r\n              </form>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-lg-12\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Lista de Usuarios</label>\r\n            </div>\r\n            <!-- <div class=\"form-group row\" *ngIf=\"ingresado\">\r\n              <div>\r\n                <label for=\"permisos\">Permisos</label>\r\n                <label class=\"btn btn-default col-lg-12 clickMe\" data-toggle=\"modal\" data-target=\"#modal-permiso\"\r\n                  (click)=\"loadTables()\">Seleccionar Permisos</label>\r\n              </div>\r\n            </div> -->\r\n            <div class=\"form-group row\">\r\n              <app-employees [employees]=\"employees\" (EnvioDeUsuario)=\"editarUser($event)\"></app-employees>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-permiso\" name=\"modal-permiso\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Asignar Permisos</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"form-group row\">\r\n          <label class=\"col-sm-4\">Tabla</label>\r\n          <label class=\"col-sm-2\">Crear</label>\r\n          <label class=\"col-sm-2\">Ver</label>\r\n          <label class=\"col-sm-2\">Editar</label>\r\n          <label class=\"col-sm-2\">Borrar</label>\r\n        </div>\r\n        <div class=\"form-group row\" *ngFor=\"let tabla of tablas; let i = index\">\r\n          <label class=\"col-sm-4 text-muted\">{{tabla.nombre}}</label>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" #crear=\"ngModel\" [(ngModel)]=\"permisos[i].crear\" name=\"crear\"\r\n                class=\"custom-control-input\" id=\"{{tabla.nombre+'create'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'create'}}\">|</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" class=\"custom-control-input\" id=\"{{tabla.nombre+'read'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'read'}}\">|</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" class=\"custom-control-input\" id=\"{{tabla.nombre+'update'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'update'}}\">|</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" class=\"custom-control-input\" id=\"{{tabla.nombre+'delete'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'delete'}}\"></label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button (click)=\"ingresar()\">Ingresar</button>\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-password\" name=\"modal-password\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Cambiar Contraseña</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <label class=\"col-lg-12\">Nueva Contraseña: </label>\r\n          <input type=\"password\" #password id=\"password\" name=\"password\" (keyup)=\"comprobarContrase(password.value, passwordConfirm.value)\" (change)=\"comprobarContrase(password.value, passwordConfirm.value)\" class=\"form-control\">\r\n        </div>\r\n        <div class=\"row\">\r\n          <label class=\"col-lg-12\">Confirmar Contraseña: </label>\r\n          <input type=\"password\"  #passwordConfirm id=\"passwordConfirm\" (keyup)=\"comprobarContrase(password.value, passwordConfirm.value)\" (change)=\"comprobarContrase(password.value, passwordConfirm.value)\"  name=\"passwordConfirm\" class=\"form-control\">\r\n        </div>\r\n        <div class=\"row\" *ngIf=\"passwordOk == false\">\r\n          <span class=\"text-danger\">Las Contraseñas no Coinciden!</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button (click)=\"cambiarContrase(password.value)\" class=\"btn btn-success\"\r\n        [disabled]=\"passwordOk != true\">Confirmar</button>\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-desactivar\" name=\"modal-desactivar\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\" *ngIf=\"user.activa === true\">Desactivar Cuenta?</h4>\r\n        <h4 class=\"modal-title\" *ngIf=\"user.activa === false\">Reactivar Cuenta?</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <label class=\"col-lg-12\">Ingresar Su Contraseña: </label>\r\n          <input type=\"password\" #passCon id=\"passCon\" name=\"passCon\" class=\"form-control\">\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button (click)=\"desactivarCuenta(passCon.value)\" class=\"btn btn-success\" data-dismiss=\"modal\">Confirmar</button>\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"card-body\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-lg-12\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Ingreso | Edicion de Usuarios</label>\r\n              <div class=\"alert alert-success Font Dark-Mode\" *ngIf=\"status == true\">\r\n                La cuenta {{user.cuenta}} ha sido añadida\r\n              </div>\r\n              <!-- *ngIf=\"status == false\" -->\r\n              <div class=\"alert alert-danger Font Dark-Mode \" *ngIf=\"status == false\">\r\n                Error al añadir la cuenta {{user.cuenta}}.\r\n              </div>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <form #registerForm=\"ngForm\" class=\"col-lg-12 row of form-horizontal\">\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"nombre\">Nombre*</label>\r\n                  <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\"\r\n                    placeholder=\"Nombre del Empleado\" [(ngModel)]=\"user.nombre\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Nombre es Obligatorio\" \r\n                    [class.is-valid]=\"nombre.valid\"\r\n                    [class.is-invalid]=\"!nombre.valid\"\r\n                    [class.is-warning]=\"!nombre.touched\"\r\n                    required />\r\n                  <span *ngIf=\"!nombre.valid && nombre.touched\" class=\"text-danger\">\r\n                    Nombre Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"apellido\">Apellido*</label>\r\n                  <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\" [(ngModel)]=\"user.apellido\"\r\n                    placeholder=\"Apellido del Empleado\" class=\"form-control BackGround Font Dark-Mode\"\r\n                    title=\"El campo Apellido es Obligatorio\" \r\n                    [class.is-valid]=\"apellido.valid\"\r\n                    [class.is-invalid]=\"!apellido.valid\"\r\n                    [class.is-warning]=\"!apellido.touched\"\r\n                    required />\r\n                  <span *ngIf=\"!apellido.valid && apellido.touched\" class=\"text-danger\">\r\n                    Apellido Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <div class=\"form-group\">\r\n                    <label title=\"Campo Obligatorio\" >Cédula de Identidad*</label>\r\n                    <div class=\"input-group clickMe\" (click)=\"verifyEditCedula()\">\r\n                      <div class=\"input-group-prepend\">\r\n                        <span class=\"input-group-text\">\r\n                          <i class=\"fa fa-address-card\" *ngIf=\"cedulaWarning === false\"></i>\r\n                          <i class=\"fas fa-edit clickMe\" *ngIf=\"cedulaWarning === true\"></i>\r\n                        </span>\r\n                      </div>\r\n                      <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\" class=\"form-control\"\r\n                        (keyup)=\"verifyCedula(cedula.value)\" (change)=\"verifyCedula(cedula.value)\" placeholder=\"_________-_\" mask=\"000000000-0\"\r\n                        title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\"\r\n                        [class.is-valid]=\"cedulaCorrecta == true\" [class.is-warning]=\"cedulaCorrecta == null\"\r\n                        [class.is-invalid]=\"cedulaCorrecta == false\" [disabled]=\"cedulaWarning === true\" required />\r\n                    </div>\r\n                    <label class=\"col-sm-12\" [class.text-success]=\"cedulaCorrecta == true\"\r\n                      *ngIf=\"cedulaCorrecta == true\">Cédula Correcta!</label>\r\n                    <label class=\"col-sm-12\" [class.text-danger]=\"cedulaCorrecta == false\"\r\n                      *ngIf=\"cedulaCorrecta == false\">Cédula Incorrecta!, por favor revisela</label>\r\n                    <!-- /.input group -->\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"cuenta\" class=\"Font Dark-Mode\">Nombre de Cuenta*</label>\r\n                  <input type=\"text\" placeholder=\"Cuenta de Ingreso\" (change)=\"checkUser(cuenta.value)\" (keyup)=\"checkUser(cuenta.value)\" name=\"cuenta\" #cuenta=\"ngModel\"\r\n                  [class.is-valid]=\"userCheck == true\"\r\n                  [class.is-invalid]=\"userCheck == false\"\r\n                  [class.is-warning]=\"!cuenta.touched || !userCheck\"  \r\n                  [(ngModel)]=\"user.cuenta\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!cuenta.valid && cuenta.touched\">\r\n                    Nombre de Cuenta Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"correo\" class=\"Font Dark-Mode\">Correo Electrónico*</label>\r\n                  <input type=\"email\" name=\"correo\" #correo=\"ngModel\" \r\n                  [class.is-valid]=\"mailCheck == true\"\r\n                  [class.is-invalid]=\"mailCheck == false\"\r\n                  [class.is-warning]=\"!correo.touched || !mailCheck\"  \r\n                  [(ngModel)]=\"user.correo\"\r\n                  (change)=\"checkMail(correo.value)\"\r\n                  (keyup)=\"checkMail(correo.value)\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required placeholder=\"ejemplo@ejem.com\" />\r\n                  <span *ngIf=\"!correo.valid && correo.touched\">\r\n                    Correo electrónico Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"fecha_nacimiento\">Fecha de Nacimiento*</label>\r\n                  <input type=\"date\" name=\"fecha_nacimiento\" #fecha_nacimiento=\"ngModel\"\r\n                    [(ngModel)]=\"user.fecha_nacimiento\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!fecha_nacimiento.valid && fecha_nacimiento.touched\" class=\"text-danger\">\r\n                    Fecha de Nacimiento Obligatoria!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"direccion\">Dirección*</label>\r\n                  <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" [(ngModel)]=\"user.direccion\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!direccion.valid && direccion.touched\" class=\"text-danger\">\r\n                    Dirección Obligatoria!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" >Tel&eacute;fono*</label>\r\n                  <input type=\"text\" class=\"form-control\" placeholder=\"Numero de Teléfono\" title=\"Teléfono\"\r\n                    name=\"telefono\" id=\"telefono\" #telefono=\"ngModel\" [(ngModel)]=\"user.telefono\" required\r\n                    mask=\"(000) 000 0000\" />\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"sexo\">Sexo*</label>\r\n                  <select name=\"sexo\" id=\"sexo\" #sexo=ngModel [(ngModel)]=user.sexo\r\n                    class=\"form-control BackGround Font Dark-Mode\">\r\n                    <option value=\"Masculino\">Masculino</option>\r\n                    <option value=\"Femenino\">Femenino</option>\r\n                    <option value=\"Indefinido\">Indefinido</option>\r\n                  </select>\r\n                  <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n                  <span *ngIf=\"!sexo.valid && sexo.touched\" class=\"text-danger\">\r\n                    Sexo Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\">\r\n                  <label title=\"Campo Obligatorio\" for=\"role_user\">Cargo*</label>\r\n                  <select name=\"role_user\" id=\"role_user\" #role_user=ngModel [(ngModel)]=user.role_user\r\n                    class=\"form-control BackGround Font Dark-Mode\">\r\n                    <option value=\"Admin\">Administrador</option>\r\n                    <option value=\"Secretario\">Secretario/a</option>\r\n                    <option value=\"Operador\">Operador</option>\r\n                  </select>\r\n                  <!-- <input type=\"text\" name=\"sexo\" #name=\"ngModel\" [(ngModel)]=\"user.sexo\" class=\"form-control BackGround Font Dark-Mode\" required/> -->\r\n                  <span *ngIf=\"!role_user.valid && role_user.touched\" class=\"text-danger\">\r\n                    Cargo Obligatorio!!\r\n                  </span>\r\n                </div>\r\n                <div title=\"Campo Obligatorio\" class=\"col-sm-4\" *ngIf=\"!onEdit || onEdit != true\">\r\n                  <label title=\"Campo Obligatorio\" for=\"contrase\">Contraseña*</label>\r\n                  <input type=\"password\" (change)=\"checkPass(contrase.value)\" (keyup)=\"checkPass(contrase.value)\" placeholder=\"\" name=\"contrase\" #contrase=\"ngModel\" [(ngModel)]=\"user.contrase\"\r\n                  class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"!contrase.valid && contrase.touched\" minlength=6>\r\n                    Contraseña Obligatoria!!\r\n                  </span>\r\n                </div>\r\n                <div class=\"col-sm-4\" *ngIf=\"onEdit == true && identity.role_user.toLowerCase() == 'admin'\">\r\n                  <label for=\"contrase\">Contraseña</label>\r\n                  <div class=\"text-center\">\r\n                    <span class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#modal-password\">\r\n                      Cambiar Contraseña?\r\n                    </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"col-sm-4\" *ngIf=\"onEdit == true && identity.role_user.toLowerCase() == 'admin'\">\r\n                  <label class=\"col-sm-12\">Estado</label>\r\n                  <div class=\"text-center\">\r\n                      <span class=\"btn\"\r\n                      [class.btn-danger]=\"user.activa==true\"\r\n                      [class.btn-success]=\"user.activa==false\"\r\n                       data-toggle=\"modal\" data-target=\"#modal-desactivar\">\r\n                          <i *ngIf=\"user.activa == true\">Desactivar Cuenta?</i>\r\n                          <i *ngIf=\"user.activa == false\">Reactivar Cuenta?</i>\r\n                      </span>\r\n                  </div>\r\n                </div>\r\n                <div class=\"text-center\">\r\n                  <input type=\"submit\" (click)=\"onSubmit(registerForm)\" class=\"btn btn-success\" value=\"Registrar\"\r\n                  [disabled]=\"!registerForm.form.valid || !userCheck || !mailCheck || !passCheck\" />\r\n                <button class=\"btn btn-secondary\" (click)=\"reset(registerForm)\"><i *ngIf=\"onEdit\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"!onEdit\">Cancelar | Limpiar</i></button>\r\n                </div>\r\n              </form>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-lg-12\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Lista de Usuarios</label>\r\n            </div>\r\n            <!-- <div class=\"form-group row\" *ngIf=\"ingresado\">\r\n              <div>\r\n                <label for=\"permisos\">Permisos</label>\r\n                <label class=\"btn btn-default col-lg-12 clickMe\" data-toggle=\"modal\" data-target=\"#modal-permiso\"\r\n                  (click)=\"loadTables()\">Seleccionar Permisos</label>\r\n              </div>\r\n            </div> -->\r\n            <div class=\"form-group row\">\r\n              <app-employees [employees]=\"employees\" (EnvioDeUsuario)=\"editarUser($event)\"></app-employees>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-permiso\" name=\"modal-permiso\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Asignar Permisos</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"form-group row\">\r\n          <label class=\"col-sm-4\">Tabla</label>\r\n          <label class=\"col-sm-2\">Crear</label>\r\n          <label class=\"col-sm-2\">Ver</label>\r\n          <label class=\"col-sm-2\">Editar</label>\r\n          <label class=\"col-sm-2\">Borrar</label>\r\n        </div>\r\n        <div class=\"form-group row\" *ngFor=\"let tabla of tablas; let i = index\">\r\n          <label class=\"col-sm-4 text-muted\">{{tabla.nombre}}</label>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" #crear=\"ngModel\" [(ngModel)]=\"permisos[i].crear\" name=\"crear\"\r\n                class=\"custom-control-input\" id=\"{{tabla.nombre+'create'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'create'}}\">|</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" class=\"custom-control-input\" id=\"{{tabla.nombre+'read'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'read'}}\">|</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" class=\"custom-control-input\" id=\"{{tabla.nombre+'update'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'update'}}\">|</label>\r\n            </div>\r\n          </div>\r\n          <div class=\"col-sm-2\">\r\n            <div class=\"custom-control custom-switch custom-switch-off-danger custom-switch-on-success\">\r\n              <input type=\"checkbox\" class=\"custom-control-input\" id=\"{{tabla.nombre+'delete'}}\">\r\n              <label class=\"custom-control-label\" for=\"{{tabla.nombre+'delete'}}\"></label>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button (click)=\"ingresar()\">Ingresar</button>\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-password\" name=\"modal-password\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\">Cambiar Contraseña</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <label class=\"col-lg-12\">Nueva Contraseña: </label>\r\n          <input type=\"password\" #password id=\"password\" name=\"password\" (keyup)=\"comprobarContrase(password.value, passwordConfirm.value)\" (change)=\"comprobarContrase(password.value, passwordConfirm.value)\" class=\"form-control\">\r\n        </div>\r\n        <div class=\"row\">\r\n          <label class=\"col-lg-12\">Confirmar Contraseña: </label>\r\n          <input type=\"password\"  #passwordConfirm id=\"passwordConfirm\" (keyup)=\"comprobarContrase(password.value, passwordConfirm.value)\" (change)=\"comprobarContrase(password.value, passwordConfirm.value)\"  name=\"passwordConfirm\" class=\"form-control\">\r\n        </div>\r\n        <div class=\"row\" *ngIf=\"passwordOk == false\">\r\n          <span class=\"text-danger\">Las Contraseñas no Coinciden!</span>\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button (click)=\"cambiarContrase(password.value)\" class=\"btn btn-success\"\r\n        [disabled]=\"passwordOk != true\">Confirmar</button>\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n\r\n<!--            |||||\\      /||||      ========      |||||====            |||||      [|||||]                 -->\r\n<!--            |||||\\\\    //||||    ////    \\\\\\\\    |||||    \\\\\\       ||||| \\\\\\     |||||                  -->\r\n<!--            |||||\\\\\\  ///||||   ||||      ||||   |||||     \\\\\\     |||||   \\\\\\    |||||                  -->\r\n<!--            |||||\\\\\\\\/// ||||   ||||      ||||   |||||      |||   |||||    ||||   |||||                  -->\r\n<!--            ||||| \\\\\\\\/  ||||   ||||      ||||   |||||      |||   |||||====||||   |||||                  -->\r\n<!--            |||||        ||||   ||||      ||||   |||||     ///    |||||====||||   |||||                  -->\r\n<!--            |||||        ||||    \\\\\\\\    ////    |||||    ///     |||||    ||||   |||||     ///          -->\r\n<!--            |||||        ||||      ========      |||||====        |||||    ||||   ||||||||||||           -->\r\n\r\n<div class=\"modal fade\" id=\"modal-desactivar\" name=\"modal-desactivar\">\r\n  <div class=\"modal-dialog\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\" *ngIf=\"user.activa === true\">Desactivar Cuenta?</h4>\r\n        <h4 class=\"modal-title\" *ngIf=\"user.activa === false\">Reactivar Cuenta?</h4>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <div class=\"row\">\r\n          <label class=\"col-lg-12\">Ingresar Su Contraseña: </label>\r\n          <input type=\"password\" #passCon id=\"passCon\" name=\"passCon\" class=\"form-control\">\r\n        </div>\r\n      </div>\r\n      <div class=\"modal-footer justify-content-between\">\r\n        <button (click)=\"desactivarCuenta(passCon.value)\" class=\"btn btn-success\" data-dismiss=\"modal\">Confirmar</button>\r\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Cerrar</button>\r\n      </div>\r\n    </div>\r\n    <!-- /.modal-content -->\r\n  </div>\r\n  <!-- /.modal-dialog -->\r\n</div>\r\n<!-- /.modal -->\r\n";
     /***/
   },
 
@@ -1103,7 +1103,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"card-body\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-lg-4\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Ingreso | Edicion de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmit(registerForm)\" class=\"col-lg-12 of form-horizontal\">\r\n                <p>\r\n                  <label for=\"nombre\" class=\"Font Dark-Mode\">Nombre</label>\r\n                  <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\"\r\n                    [(ngModel)]=\"user.nombre\"\r\n                    (change)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    (keyup)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Nombre es Obligatorio\" required />\r\n                  <span *ngIf=\"(!nombre.valid && nombre.touched || nombreCorrecto == false) && user.nombre\" class=\"text-danger\">\r\n                    Nombre Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"apellido\" class=\"Font Dark-Mode\">Apellido</label>\r\n                  <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\"\r\n                    (change)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    (keyup)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    [(ngModel)]=\"user.apellido\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Apellido es Obligatorio\" required />\r\n                  <span *ngIf=\"(!apellido.valid && apellido.touched || apellidoCorrecto == false ) && user.apellido\" class=\"text-danger\">\r\n                    Apellido Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <div class=\"form-group\">\r\n                  <label>Cédula de Identidad</label>\r\n                  <div class=\"input-group clickMe\" (click)=\"verifyEditCedula()\">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\">\r\n                        <i class=\"fa fa-address-card\" *ngIf=\"cedulaWarning === false || !cedulaWarning\"></i>\r\n                        <i class=\"fas fa-edit clickMe\" *ngIf=\"cedulaWarning === true\"></i>\r\n                      </span>\r\n                    </div>\r\n                    <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\" class=\"form-control\"\r\n                      placeholder=\"_________-_\" mask=\"000000000-0 0000\"\r\n                      (keyup)=\"verifyCedula(cedula.value)\" (change)=\"verifyCedula(cedula.value)\"\r\n                      title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\"\r\n                      [disabled]=\"cedulaWarning === true\" required />\r\n                  </div>\r\n                  <label class=\"col-sm-12\" [class.text-success]=\"cedulaCorrecta == true\"\r\n                    *ngIf=\"cedulaCorrecta == true && user.cedula \">Cédula o RUC Correcta!</label>\r\n                  <label class=\"col-sm-12\" [class.text-danger]=\"cedulaCorrecta == false\"\r\n                    *ngIf=\"cedulaCorrecta == false && user.cedula \">Cédula o RUC Incorrecta!, por favor revisela</label>\r\n                  <!-- /.input group -->\r\n                </div>\r\n                <p>\r\n                  <label for=\"fecha_nacimiento\" class=\"Font Dark-Mode\">Fecha de Nacimiento</label>\r\n                  <input type=\"date\" name=\"fecha_nacimiento\" #fecha_nacimiento=\"ngModel\"\r\n                    [(ngModel)]=\"user.fecha_nacimiento\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"(!fecha_nacimiento.valid && fecha_nacimiento.touched) && user.fecha_nacimiento\" class=\"text-danger\">\r\n                    Fecha de Nacimiento Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"direccion\" class=\"Font Dark-Mode\">Dirección</label>\r\n                  <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" (change)=\"comprobarCadena(direccion.value, 'direccion')\" (keyup)=\"comprobarCadena(direccion.value, 'direccion')\" [(ngModel)]=\"user.direccion\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"(!direccion.valid && direccion.touched) && user.direccion\" class=\"text-danger\">\r\n                    Dirección Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <input type=\"submit\" class=\"btn btn-success\" value=\"Registrarse\"\r\n                  [disabled]=\"!registerForm.form.valid || apellidoCorrecto == false || nombreCorrecto == false || direccionCorrecta == false\" />\r\n                <button type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"reset()\"><i *ngIf=\"onEdit\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"!onEdit\">Cancelar | Limpiar</i></button>\r\n              </form>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"col-lg-8\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Lista de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <app-users (EnvioDeUsuario)=\"editarUser($event)\"></app-users>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"container-fluid\">\r\n  <div class=\"col-md-10 offset-lg-1\">\r\n    <div class=\"card card-blue\">\r\n      <div class=\"card-header\">\r\n        <h3 class=\"card-title\">{{title}}</h3>\r\n        <div class=\"card-tools\">\r\n          <div class=\"toolbox\">\r\n            <button class=\"btn btn-info\" (click)=\"return()\"><i class=\"fa fa-arrow-left\"></i>&nbsp;Regresar</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"card-body\">\r\n        <div class=\"form-group row\">\r\n          <div class=\"col-lg-4\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Ingreso | Edicion de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <form #registerForm=\"ngForm\" (ngSubmit)=\"onSubmit(registerForm)\" class=\"col-lg-12 of form-horizontal\">\r\n                <p>\r\n                  <label for=\"nombre\" class=\"Font Dark-Mode\">Nombre</label>\r\n                  <input type=\"text\" name=\"nombre\" ngControl=\"nombre\" #nombre=\"ngModel\"\r\n                    [(ngModel)]=\"user.nombre\"\r\n                    (change)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    (keyup)=\"comprobarCadena(nombre.value, 'nombre')\"\r\n                    [class.is-valid]=\"nombre.valid\"\r\n                    [class.is-invalid]=\"!nombre.valid\"\r\n                    [class.is-warning]=\"!nombre.touched\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Nombre es Obligatorio\" required />\r\n                  <span *ngIf=\"(!nombre.valid && nombre.touched || nombreCorrecto == false) && user.nombre\" class=\"text-danger\">\r\n                    Nombre Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"apellido\" class=\"Font Dark-Mode\">Apellido</label>\r\n                  <input type=\"text\" name=\"apellido\" #apellido=\"ngModel\"\r\n                    (change)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    (keyup)=\"comprobarCadena(apellido.value, 'apellido')\"\r\n                    [(ngModel)]=\"user.apellido\"\r\n                    [class.is-valid]=\"apellido.valid\"\r\n                    [class.is-invalid]=\"!apellido.valid\"\r\n                    [class.is-warning]=\"!apellido.touched\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" title=\"El campo Apellido es Obligatorio\" required />\r\n                  <span *ngIf=\"(!apellido.valid && apellido.touched || apellidoCorrecto == false ) && user.apellido\" class=\"text-danger\">\r\n                    Apellido Obligatorio!!\r\n                  </span>\r\n                </p>\r\n                <div class=\"form-group\">\r\n                  <label>Cédula de Identidad</label>\r\n                  <div class=\"input-group clickMe\" (click)=\"verifyEditCedula()\">\r\n                    <div class=\"input-group-prepend\">\r\n                      <span class=\"input-group-text\">\r\n                        <i class=\"fa fa-address-card\" *ngIf=\"cedulaWarning === false || !cedulaWarning\"></i>\r\n                        <i class=\"fas fa-edit clickMe\" *ngIf=\"cedulaWarning === true\"></i>\r\n                      </span>\r\n                    </div>\r\n                    <input type=\"text\" name=\"cedula\" #cedula=\"ngModel\" [(ngModel)]=\"user.cedula\" class=\"form-control\"\r\n                      placeholder=\"_________-_\" mask=\"000000000-0 0000\"\r\n                      (keyup)=\"verifyCedula(cedula.value)\" (change)=\"verifyCedula(cedula.value)\"\r\n                      title=\"El formato de cédula es: xxxxxxxxx-x, ejem: 160056789-0\"\r\n                      [disabled]=\"cedulaWarning === true\" \r\n                      [class.is-valid]=\"cedulaCorrecta == true\"\r\n                      [class.is-invalid]=\"cedulaCorrecta == false\"\r\n                      [class.is-warning]=\"!cedulaCorrecta\"\r\n                      required />\r\n                  </div>\r\n                  <label class=\"col-sm-12\" [class.text-success]=\"cedulaCorrecta == true\"\r\n                    *ngIf=\"cedulaCorrecta == true && user.cedula \">Cédula o RUC Correcta!</label>\r\n                  <label class=\"col-sm-12\" [class.text-danger]=\"cedulaCorrecta == false\"\r\n                    *ngIf=\"cedulaCorrecta == false && user.cedula \">Cédula o RUC Incorrecta!, por favor revisela</label>\r\n                  <!-- /.input group -->\r\n                </div>\r\n                <p>\r\n                  <label for=\"fecha_nacimiento\" class=\"Font Dark-Mode\">Fecha de Nacimiento</label>\r\n                  <input type=\"date\" name=\"fecha_nacimiento\" #fecha_nacimiento=\"ngModel\"\r\n                  [class.is-valid]=\"fecha_nacimiento.valid\"\r\n                  [class.is-invalid]=\"!fecha_nacimiento.valid && fecha_nacimiento.touched\"\r\n                  [class.is-warning]=\"!fecha_nacimiento.touched\"\r\n                    [(ngModel)]=\"user.fecha_nacimiento\" class=\"form-control BackGround Font Dark-Mode\" required />\r\n                  <span *ngIf=\"(!fecha_nacimiento.valid && fecha_nacimiento.touched) && user.fecha_nacimiento\" class=\"text-danger\">\r\n                    Fecha de Nacimiento Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <p>\r\n                  <label for=\"direccion\" class=\"Font Dark-Mode\">Dirección</label>\r\n                  <input type=\"text\" name=\"direccion\" #direccion=\"ngModel\" (change)=\"comprobarCadena(direccion.value, 'direccion')\" (keyup)=\"comprobarCadena(direccion.value, 'direccion')\" [(ngModel)]=\"user.direccion\"\r\n                    class=\"form-control BackGround Font Dark-Mode\" \r\n                    [class.is-valid]=\"direccion.valid\"\r\n                    [class.is-invalid]=\"!direccion.valid && direccion.touched\"\r\n                    [class.is-warning]=\"!direccion.touched\"\r\n                    required />\r\n                  <span *ngIf=\"(!direccion.valid && direccion.touched) && user.direccion\" class=\"text-danger\">\r\n                    Dirección Obligatoria!!\r\n                  </span>\r\n                </p>\r\n                <input type=\"submit\" class=\"btn btn-success\" value=\"Registrarse\"\r\n                  [disabled]=\"!registerForm.form.valid || apellidoCorrecto == false || nombreCorrecto == false || direccionCorrecta == false\" />\r\n                <button type=\"reset\" class=\"btn btn-secondary float-right\" (click)=\"reset()\"><i *ngIf=\"onEdit\">Ingresar\r\n                    Nuevo</i><i *ngIf=\"!onEdit\">Cancelar | Limpiar</i></button>\r\n              </form>\r\n            </div>\r\n          </div>\r\n\r\n          <div class=\"col-lg-8\">\r\n            <div class=\"form-group row\">\r\n              <label class=\"col-lg-12\">Lista de Usuarios</label>\r\n            </div>\r\n            <div class=\"form-group row\">\r\n              <app-users (EnvioDeUsuario)=\"editarUser($event)\"></app-users>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n\r\n  </div>\r\n</div>\r\n";
     /***/
   },
 
@@ -1163,7 +1163,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"dataTables_wrapper dt-bootstrap4\">\r\n\r\n  <table *ngIf=\"usuarios\" id=\"example1\" class=\"table table-bordered table-hover table-striped\">\r\n    <thead>\r\n      <tr class=\"text-center\">\r\n        <th><i class=\"fa fa-redo clickMe\" (click)=\"ngOnChanges()\" title=\"Actualizar Lista de Usuarios\"> &nbsp; &nbsp;\r\n          </i> Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"usuarios\">\r\n      <tr\r\n        *ngFor=\"let user of usuarios | paginate: { id: 'users', itemsPerPage: 7, currentPage: page }; let i = index\">\r\n        <td class=\"nickname\" style=\"font-weight: bold\">\r\n\r\n          {{user.cedula | mask: '000000000-0'}}\r\n        </td>\r\n        <td>\r\n          <span *ngIf=\"user.updated_at && user.updated_by\" title=\"Usuario Editado\">\r\n            *\r\n          </span>\r\n          <span *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n            <span *ngIf=\"user.role_user.toLowerCase() === 'simple' || user.role_user.toLowerCase() === 'common'\">\r\n              <i class=\"fas fa-user\"></i>\r\n            </span>\r\n            <span *ngIf=\"user.role_user.toLowerCase() != 'simple' && user.role_user.toLowerCase() != 'common'\">\r\n              <i class=\"fas fa-user-tie\"></i>\r\n            </span>\r\n            <!-- {{getRoleUser(user.role_user)}} -->\r\n            &nbsp;-&nbsp;</span>{{ user.apellido + ' ' + user.nombre}}\r\n        </td>\r\n        <td *ngIf=\"employees\">\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'simple'\">Consumidor</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'common'\">Consumidor</span>\r\n          <span\r\n            *ngIf=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"><span *ngIf=\"user.role_user === 'admin'\">Administrador</span> <span *ngIf=\"user.role_user !== 'admin'\">{{user.role_user}}</span> </span>\r\n        </td>\r\n        <!-- <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label>Creado por:\r\n            <span *ngIf=\"user.created_by\">\r\n              {{'(' + user.created_by.cuenta + ') ' + user.created_by.apellido + ' ' + (user.created_by.nombre)}}\r\n            </span>\r\n            <span *ngIf=\"!user.created_by\">\r\n              Sin Datos de Creador\r\n            </span>\r\n          </label>\r\n          <label>Creado el\r\n            <span *ngIf=\"user.created_at\">\r\n              {{(user.created_at  | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.created_at | amFromUnix) | date: 'HH:mm'}} horas\r\n            </span>\r\n            <span *ngIf=\"!user.created_at\">\r\n              Sin Fecha de Creaci&oacute;n\r\n            </span>\r\n          </label>\r\n        </td>\r\n        <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label *ngIf=\"user.updated_at\">\r\n            <span>Editado por: ({{user.updated_by.cuenta}}) {{user.updated_by.apellido}} {{user.updated_by.nombre}}. El {{(user.updated_at | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.updated_at | amFromUnix) | date: 'HH:mm'}} horas </span>\r\n          </label>\r\n          <label *ngIf=\"!user.updated_at\">No editado A&uacute;n</label>\r\n        </td> -->\r\n        <td class=\"text-center\">\r\n          <div class=\"row text-center\"  style=\"place-content: center !important;\">\r\n            <div class=\"text-center\" title=\"Ver Datos Completos del Usuario\">\r\n                <a class=\" btn btn-primary btn-sm\" (click)=\"showUser(user._id)\"><i\r\n                  class=\"fa fa-info-circle\"></i></a>\r\n            </div>\r\n            <div\r\n              *ngIf=\"role_user.toLowerCase() !== 'common' && role_user.toLowerCase() !== 'operador'\"\r\n              [hidden]=\"role_user.toLowerCase() == 'operador'\">\r\n              <label class=\"btn btn-sm clickMe\"\r\n              [class.btn-warning] = \"user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple'\"\r\n              [class.btn-danger] = \"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"\r\n              (click)=\"editarUser(user)\">\r\n                <i class=\"far fa-edit\"\r\n                  style=\"color: white;\"></i></label>\r\n            </div>\r\n          </div>\r\n          <!-- <label class=\"badge badge-info\" *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</label> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n    <tfoot>\r\n      <tr>\r\n        <th>Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </tfoot>\r\n  </table>\r\n  <pagination-controls id=\"users\" (pageChange)=\"page=$event\" maxSize=\"9\" directionLinks=\"true\" autoHide=\"true\"\r\n    responsive=\"true\" previousLabel=\"Anterior\" nextLabel=\"Siguiente\" screenReaderPaginationLabel=\"Usuarios\"\r\n    screenReaderPageLabel=\"Pagina\" screenReaderCurrentLabel=\"Estas en la Pagina \">\r\n  </pagination-controls>\r\n</div>\r\n";
+    __webpack_exports__["default"] = "<div class=\"dataTables_wrapper dt-bootstrap4\">\r\n\r\n  <table *ngIf=\"usuarios\" id=\"example1\" class=\"table table-bordered table-hover table-striped\">\r\n    <thead>\r\n      <tr class=\"text-center\">\r\n        <th><i class=\"fa fa-redo clickMe\" (click)=\"ngOnChanges()\" title=\"Actualizar Lista de Usuarios\"> &nbsp; &nbsp;\r\n          </i> Cedula</th>\r\n        <th>Nombres</th>\r\n        <!-- <th>Correo</th> -->\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </thead>\r\n    <tbody *ngIf=\"usuarios\">\r\n      <tr\r\n        *ngFor=\"let user of usuarios | paginate: { id: 'users', itemsPerPage: 7, currentPage: page }; let i = index\">\r\n        <td class=\"nickname\" style=\"font-weight: bold\">\r\n\r\n          {{user.cedula | mask: '000000000-0'}}\r\n        </td>\r\n        <td>\r\n          <span *ngIf=\"user.updated_at && user.updated_by\" title=\"Usuario Editado\">\r\n            *\r\n          </span>\r\n          <span *ngIf=\"identity.role_user.toLowerCase() != 'operador'\">\r\n            <span *ngIf=\"user.role_user.toLowerCase() === 'simple' || user.role_user.toLowerCase() === 'common'\">\r\n              <i class=\"fas fa-user\"></i>\r\n            </span>\r\n            <span *ngIf=\"user.role_user.toLowerCase() != 'simple' && user.role_user.toLowerCase() != 'common'\">\r\n              <i class=\"fas fa-user-tie\"></i>\r\n            </span>\r\n            <!-- {{getRoleUser(user.role_user)}} -->\r\n            &nbsp;-&nbsp;</span>{{ user.apellido + ' ' + user.nombre}}\r\n        </td>\r\n        <!-- <td>\r\n          {{user.correo}}\r\n        </td> -->\r\n        <td *ngIf=\"employees\">\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'simple'\">Consumidor</span>\r\n          <span *ngIf=\"user.role_user.toLowerCase() === 'common'\">Consumidor</span>\r\n          <span\r\n            *ngIf=\"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"><span *ngIf=\"user.role_user === 'admin'\">Administrador</span> <span *ngIf=\"user.role_user !== 'admin'\">{{user.role_user}}</span> </span>\r\n        </td>\r\n        <!-- <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label>Creado por:\r\n            <span *ngIf=\"user.created_by\">\r\n              {{'(' + user.created_by.cuenta + ') ' + user.created_by.apellido + ' ' + (user.created_by.nombre)}}\r\n            </span>\r\n            <span *ngIf=\"!user.created_by\">\r\n              Sin Datos de Creador\r\n            </span>\r\n          </label>\r\n          <label>Creado el\r\n            <span *ngIf=\"user.created_at\">\r\n              {{(user.created_at  | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.created_at | amFromUnix) | date: 'HH:mm'}} horas\r\n            </span>\r\n            <span *ngIf=\"!user.created_at\">\r\n              Sin Fecha de Creaci&oacute;n\r\n            </span>\r\n          </label>\r\n        </td>\r\n        <td *ngIf=\"identity.role_user.toLowerCase() == 'admin'\">\r\n          <label *ngIf=\"user.updated_at\">\r\n            <span>Editado por: ({{user.updated_by.cuenta}}) {{user.updated_by.apellido}} {{user.updated_by.nombre}}. El {{(user.updated_at | amFromUnix) | date: 'dd MMMM yyyy'}} a las {{(user.updated_at | amFromUnix) | date: 'HH:mm'}} horas </span>\r\n          </label>\r\n          <label *ngIf=\"!user.updated_at\">No editado A&uacute;n</label>\r\n        </td> -->\r\n        <td class=\"text-center\">\r\n          <div class=\"row text-center\"  style=\"place-content: center !important;\">\r\n            <div class=\"text-center\" title=\"Ver Datos Completos del Usuario\">\r\n                <a class=\" btn btn-primary btn-sm\" (click)=\"showUser(user._id)\"><i\r\n                  class=\"fa fa-info-circle\"></i></a>\r\n            </div>\r\n            <div\r\n              *ngIf=\"role_user.toLowerCase() !== 'common' && role_user.toLowerCase() !== 'operador'\"\r\n              [hidden]=\"role_user.toLowerCase() == 'operador'\">\r\n              <label class=\"btn btn-sm clickMe\"\r\n              [class.btn-warning] = \"user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple'\"\r\n              [class.btn-danger] = \"user.role_user.toLowerCase() != 'common' && user.role_user.toLowerCase() != 'simple'\"\r\n              (click)=\"editarUser(user)\">\r\n                <i class=\"far fa-edit\"\r\n                  style=\"color: white;\"></i></label>\r\n            </div>\r\n          </div>\r\n          <!-- <label class=\"badge badge-info\" *ngIf=\"user.role_user.toLowerCase() === 'admin'\">Administrador</label> -->\r\n        </td>\r\n      </tr>\r\n    </tbody>\r\n    <tfoot>\r\n      <tr>\r\n        <th>Cedula</th>\r\n        <th>Nombres</th>\r\n        <th *ngIf=\"employees\">Perfil</th>\r\n        <!-- <th *ngIf=\"identity.role_user.toLowerCase() == 'admin' || identity.role_user.toLowerCase() == 'administrador'\" colspan=\"2\">Datos</th> -->\r\n        <th>Opciones</th>\r\n      </tr>\r\n    </tfoot>\r\n  </table>\r\n  <pagination-controls id=\"users\" (pageChange)=\"page=$event\" maxSize=\"9\" directionLinks=\"true\" autoHide=\"true\"\r\n    responsive=\"true\" previousLabel=\"Anterior\" nextLabel=\"Siguiente\" screenReaderPaginationLabel=\"Usuarios\"\r\n    screenReaderPageLabel=\"Pagina\" screenReaderCurrentLabel=\"Estas en la Pagina \">\r\n  </pagination-controls>\r\n</div>\r\n";
     /***/
   },
 
@@ -10552,7 +10552,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     var _service_bill_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ../../../../service/bill.service */
-    "./src/app/service/bill.service.ts"); // tslint:disable: triple-equals
+    "./src/app/service/bill.service.ts");
+    /* harmony import */
+
+
+    var _service_importe_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ../../../../service/importe.service */
+    "./src/app/service/importe.service.ts");
+    /* harmony import */
+
+
+    var _service_detalleFactura_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../../../service/detalleFactura.service */
+    "./src/app/service/detalleFactura.service.ts"); // tslint:disable: triple-equals
     // tslint:disable: curly
     // tslint:disable: no-redundant-jsdoc
     // tslint:disable: variable-name
@@ -10564,13 +10576,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var RecordsComponent =
     /*#__PURE__*/
     function () {
-      function RecordsComponent(_router, _statisticService, _location, _billService) {
+      function RecordsComponent(_router, _statisticService, _location, _billService, _importService, _detalleService) {
         _classCallCheck(this, RecordsComponent);
 
         this._router = _router;
         this._statisticService = _statisticService;
         this._location = _location;
         this._billService = _billService;
+        this._importService = _importService;
+        this._detalleService = _detalleService;
         window.document.title = 'MerAgua - Reportes';
         this.identity = JSON.parse(localStorage.getItem('identity'));
 
@@ -10589,85 +10603,112 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           barChartLegend: true,
           barChartType: null
         };
-        this.initStatistics();
-        this.initFacturaChart();
+        this.initDetalles();
+        this.initBills();
       }
 
       _createClass(RecordsComponent, [{
-        key: "initFacturaChart",
-        value: function initFacturaChart() {
+        key: "initDetalles",
+        value: function initDetalles() {
           var _this66 = this;
 
+          this._detalleService.getDetalles().subscribe(function (response) {
+            _this66.detalles = response.Detalles;
+
+            _this66.initImportes();
+          });
+        }
+      }, {
+        key: "initBills",
+        value: function initBills() {
+          var _this67 = this;
+
           this._billService.getAll().subscribe(function (response) {
-            console.log(response.Bill);
-            var facturas = [{
-              tipo: 'debe',
-              facturas: []
-            }];
-            facturas.push({
-              tipo: 'efectivo',
-              facturas: []
-            });
-            facturas.push({
-              tipo: 'tarjeta',
-              facturas: []
-            });
-            facturas.push({
-              tipo: 'transferencia',
-              facturas: []
-            });
-            var counters = [];
+            _this67.facturas = response.Bill;
 
-            for (var _i4 = 0, _facturas2 = facturas; _i4 < _facturas2.length; _i4++) {
-              var pago = _facturas2[_i4];
-              var count = 0;
-              var _iteratorNormalCompletion24 = true;
-              var _didIteratorError24 = false;
-              var _iteratorError24 = undefined;
+            _this67.initFacturaChart();
 
-              try {
-                for (var _iterator24 = response.Bill[Symbol.iterator](), _step24; !(_iteratorNormalCompletion24 = (_step24 = _iterator24.next()).done); _iteratorNormalCompletion24 = true) {
-                  var factura = _step24.value;
+            _this67.initStatistics();
+          });
+        }
+      }, {
+        key: "initImportes",
+        value: function initImportes() {
+          var _this68 = this;
 
-                  if (factura.pago.toLowerCase() == pago.tipo.toLowerCase()) {
-                    pago.facturas.push(factura);
-                    count++;
-                  }
-                }
-              } catch (err) {
-                _didIteratorError24 = true;
-                _iteratorError24 = err;
-              } finally {
-                try {
-                  if (!_iteratorNormalCompletion24 && _iterator24.return != null) {
-                    _iterator24.return();
-                  }
-                } finally {
-                  if (_didIteratorError24) {
-                    throw _iteratorError24;
-                  }
+          this._importService.getImportes().subscribe(function (response) {
+            _this68.importes = response.Importes;
+
+            _this68.getCostByImports();
+          });
+        }
+      }, {
+        key: "initFacturaChart",
+        value: function initFacturaChart() {
+          var facturas = [{
+            tipo: 'debe',
+            facturas: []
+          }];
+          facturas.push({
+            tipo: 'efectivo',
+            facturas: []
+          });
+          facturas.push({
+            tipo: 'tarjeta',
+            facturas: []
+          });
+          facturas.push({
+            tipo: 'transferencia',
+            facturas: []
+          });
+          var counters = [];
+
+          for (var _i4 = 0, _facturas2 = facturas; _i4 < _facturas2.length; _i4++) {
+            var pago = _facturas2[_i4];
+            var count = 0;
+            var _iteratorNormalCompletion24 = true;
+            var _didIteratorError24 = false;
+            var _iteratorError24 = undefined;
+
+            try {
+              for (var _iterator24 = this.facturas[Symbol.iterator](), _step24; !(_iteratorNormalCompletion24 = (_step24 = _iterator24.next()).done); _iteratorNormalCompletion24 = true) {
+                var factura = _step24.value;
+
+                if (factura.pago.toLowerCase() == pago.tipo.toLowerCase()) {
+                  pago.facturas.push(factura);
+                  count++;
                 }
               }
-
-              pago.tipo = pago.tipo.toLocaleUpperCase() + ': ' + count;
-              counters.push(count);
-
-              _this66.facturaChart.barChartLabels.push(pago.tipo);
+            } catch (err) {
+              _didIteratorError24 = true;
+              _iteratorError24 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion24 && _iterator24.return != null) {
+                  _iterator24.return();
+                }
+              } finally {
+                if (_didIteratorError24) {
+                  throw _iteratorError24;
+                }
+              }
             }
 
-            _this66.facturaChart.barChartData.push({
-              data: counters,
-              label: 'Facturas'
-            }); // this.facturaChart.barChartData = [
-            //   { data: [65, 23, 422, 123, 4, 445], label: 'Series A' },
-            //   { data: [555, 223, 42, 143, 55, 45], label: 'Series B' },
-            //   { data: [125, 255, 44, 244, 3, 25], label: 'Series C' }
-            // ];
+            pago.tipo = pago.tipo.toLocaleUpperCase() + ': ' + count;
+            counters.push(count);
+            this.facturaChart.barChartLabels.push(pago.tipo);
+          }
 
+          this.facturaChart.barChartData.push({
+            data: counters,
+            label: 'Facturas'
+          }); // this.facturaChart.barChartData = [
+          //   { data: [65, 23, 422, 123, 4, 445], label: 'Series A' },
+          //   { data: [555, 223, 42, 143, 55, 45], label: 'Series B' },
+          //   { data: [125, 255, 44, 244, 3, 25], label: 'Series C' }
+          // ];
 
-            _this66.facturaChart.barChartType = 'polarArea';
-            console.log('opciones del chart', _this66.facturaChart);
-          });
+          this.facturaChart.barChartType = 'polarArea';
         }
       }, {
         key: "verChartFactura",
@@ -10679,38 +10720,97 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
         }
       }, {
+        key: "getCostByImports",
+        value: function getCostByImports() {
+          var costoTotal = 0;
+          var costoConsumo;
+          var _iteratorNormalCompletion25 = true;
+          var _didIteratorError25 = false;
+          var _iteratorError25 = undefined;
+
+          try {
+            for (var _iterator25 = this.importes[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
+              var importe = _step25.value;
+              costoConsumo = 0;
+              var _iteratorNormalCompletion26 = true;
+              var _didIteratorError26 = false;
+              var _iteratorError26 = undefined;
+
+              try {
+                for (var _iterator26 = this.detalles[Symbol.iterator](), _step26; !(_iteratorNormalCompletion26 = (_step26 = _iterator26.next()).done); _iteratorNormalCompletion26 = true) {
+                  var detalle = _step26.value;
+
+                  if (detalle.importe && detalle.importe._id == importe._id) {
+                    costoConsumo += detalle.subtotal;
+                    costoTotal += detalle.subtotal;
+                  }
+                }
+              } catch (err) {
+                _didIteratorError26 = true;
+                _iteratorError26 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion26 && _iterator26.return != null) {
+                    _iterator26.return();
+                  }
+                } finally {
+                  if (_didIteratorError26) {
+                    throw _iteratorError26;
+                  }
+                }
+              }
+
+              importe.costoConsumo = costoConsumo;
+            }
+          } catch (err) {
+            _didIteratorError25 = true;
+            _iteratorError25 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion25 && _iterator25.return != null) {
+                _iterator25.return();
+              }
+            } finally {
+              if (_didIteratorError25) {
+                throw _iteratorError25;
+              }
+            }
+          }
+
+          this.importes.costoTotal = costoTotal;
+        }
+      }, {
         key: "initStatistics",
         value: function initStatistics() {
-          var _this67 = this;
+          var _this69 = this;
 
           this._statisticService.getGlobals().subscribe(function (response) {
-            console.log(response);
-            _this67.statistics = response.statistics;
+            _this69.statistics = response.statistics;
           });
 
           this._statisticService.getGlobalStatistics().subscribe(function (responseGlobal) {
             var tarifas;
-            _this67.globals = responseGlobal.globals;
-            tarifas = _this67.globals.tarifas;
+            _this69.globals = responseGlobal.globals;
+            tarifas = _this69.globals.tarifas;
             tarifas.medidores = [];
             var medidores = [];
-            var _iteratorNormalCompletion25 = true;
-            var _didIteratorError25 = false;
-            var _iteratorError25 = undefined;
+            var _iteratorNormalCompletion27 = true;
+            var _didIteratorError27 = false;
+            var _iteratorError27 = undefined;
 
             try {
-              for (var _iterator25 = _this67.globals.medidores[Symbol.iterator](), _step25; !(_iteratorNormalCompletion25 = (_step25 = _iterator25.next()).done); _iteratorNormalCompletion25 = true) {
-                var medidor = _step25.value;
+              for (var _iterator27 = _this69.globals.medidores[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
+                var medidor = _step27.value;
                 medidor.registros = [];
                 medidor.consumo = 0;
                 var count = 0;
-                var _iteratorNormalCompletion27 = true;
-                var _didIteratorError27 = false;
-                var _iteratorError27 = undefined;
+                var _iteratorNormalCompletion29 = true;
+                var _didIteratorError29 = false;
+                var _iteratorError29 = undefined;
 
                 try {
-                  for (var _iterator27 = _this67.globals.registros[Symbol.iterator](), _step27; !(_iteratorNormalCompletion27 = (_step27 = _iterator27.next()).done); _iteratorNormalCompletion27 = true) {
-                    var registro = _step27.value;
+                  for (var _iterator29 = _this69.globals.registros[Symbol.iterator](), _step29; !(_iteratorNormalCompletion29 = (_step29 = _iterator29.next()).done); _iteratorNormalCompletion29 = true) {
+                    var registro = _step29.value;
 
                     if (medidor._id == registro.meter) {
                       medidor.registros.push(registro);
@@ -10719,16 +10819,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                     }
                   }
                 } catch (err) {
-                  _didIteratorError27 = true;
-                  _iteratorError27 = err;
+                  _didIteratorError29 = true;
+                  _iteratorError29 = err;
                 } finally {
                   try {
-                    if (!_iteratorNormalCompletion27 && _iterator27.return != null) {
-                      _iterator27.return();
+                    if (!_iteratorNormalCompletion29 && _iterator29.return != null) {
+                      _iterator29.return();
                     }
                   } finally {
-                    if (_didIteratorError27) {
-                      throw _iteratorError27;
+                    if (_didIteratorError29) {
+                      throw _iteratorError29;
                     }
                   }
                 }
@@ -10736,54 +10836,83 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (count >= 1) medidor.consumo = medidor.consumo / count;
               }
             } catch (err) {
-              _didIteratorError25 = true;
-              _iteratorError25 = err;
+              _didIteratorError27 = true;
+              _iteratorError27 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion25 && _iterator25.return != null) {
-                  _iterator25.return();
+                if (!_iteratorNormalCompletion27 && _iterator27.return != null) {
+                  _iterator27.return();
                 }
               } finally {
-                if (_didIteratorError25) {
-                  throw _iteratorError25;
+                if (_didIteratorError27) {
+                  throw _iteratorError27;
                 }
               }
             }
 
             var consumoTotal = 0;
-            var _iteratorNormalCompletion26 = true;
-            var _didIteratorError26 = false;
-            var _iteratorError26 = undefined;
+            var costoTotal = 0;
+            var _iteratorNormalCompletion28 = true;
+            var _didIteratorError28 = false;
+            var _iteratorError28 = undefined;
 
             try {
-              for (var _iterator26 = tarifas[Symbol.iterator](), _step26; !(_iteratorNormalCompletion26 = (_step26 = _iterator26.next()).done); _iteratorNormalCompletion26 = true) {
-                var tarifa = _step26.value;
+              for (var _iterator28 = tarifas[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
+                var tarifa = _step28.value;
                 tarifa.consumo = 0;
                 tarifa.medidores = 0;
-                var _iteratorNormalCompletion28 = true;
-                var _didIteratorError28 = false;
-                var _iteratorError28 = undefined;
+                tarifa.costo = 0;
+                var _iteratorNormalCompletion30 = true;
+                var _didIteratorError30 = false;
+                var _iteratorError30 = undefined;
 
                 try {
-                  for (var _iterator28 = _this67.globals.medidores[Symbol.iterator](), _step28; !(_iteratorNormalCompletion28 = (_step28 = _iterator28.next()).done); _iteratorNormalCompletion28 = true) {
-                    var _medidor = _step28.value;
+                  for (var _iterator30 = _this69.globals.medidores[Symbol.iterator](), _step30; !(_iteratorNormalCompletion30 = (_step30 = _iterator30.next()).done); _iteratorNormalCompletion30 = true) {
+                    var _medidor = _step30.value;
 
                     if (_medidor.rate == tarifa._id) {
                       tarifa.medidores++;
                       tarifa.consumo = tarifa.consumo + _medidor.consumo;
+                      var _iteratorNormalCompletion31 = true;
+                      var _didIteratorError31 = false;
+                      var _iteratorError31 = undefined;
+
+                      try {
+                        for (var _iterator31 = _this69.facturas[Symbol.iterator](), _step31; !(_iteratorNormalCompletion31 = (_step31 = _iterator31.next()).done); _iteratorNormalCompletion31 = true) {
+                          var factura = _step31.value;
+
+                          if (factura.medidor.id == _medidor._id) {
+                            tarifa.costo += factura.total;
+                            costoTotal += factura.total;
+                          }
+                        }
+                      } catch (err) {
+                        _didIteratorError31 = true;
+                        _iteratorError31 = err;
+                      } finally {
+                        try {
+                          if (!_iteratorNormalCompletion31 && _iterator31.return != null) {
+                            _iterator31.return();
+                          }
+                        } finally {
+                          if (_didIteratorError31) {
+                            throw _iteratorError31;
+                          }
+                        }
+                      }
                     }
                   }
                 } catch (err) {
-                  _didIteratorError28 = true;
-                  _iteratorError28 = err;
+                  _didIteratorError30 = true;
+                  _iteratorError30 = err;
                 } finally {
                   try {
-                    if (!_iteratorNormalCompletion28 && _iterator28.return != null) {
-                      _iterator28.return();
+                    if (!_iteratorNormalCompletion30 && _iterator30.return != null) {
+                      _iterator30.return();
                     }
                   } finally {
-                    if (_didIteratorError28) {
-                      throw _iteratorError28;
+                    if (_didIteratorError30) {
+                      throw _iteratorError30;
                     }
                   }
                 }
@@ -10791,26 +10920,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 consumoTotal = consumoTotal + tarifa.consumo;
               }
             } catch (err) {
-              _didIteratorError26 = true;
-              _iteratorError26 = err;
+              _didIteratorError28 = true;
+              _iteratorError28 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion26 && _iterator26.return != null) {
-                  _iterator26.return();
+                if (!_iteratorNormalCompletion28 && _iterator28.return != null) {
+                  _iterator28.return();
                 }
               } finally {
-                if (_didIteratorError26) {
-                  throw _iteratorError26;
+                if (_didIteratorError28) {
+                  throw _iteratorError28;
                 }
               }
             }
 
-            _this67.rateStatistics = tarifas;
-            _this67.rateStatistics.consumoTotal = consumoTotal;
-            _this67.rateStatistics = _this67.rateStatistics.sort(function (a, b) {
+            _this69.rateStatistics = tarifas; // calcular el costo de ingreso promedio
+
+            _this69.rateStatistics.consumoTotal = consumoTotal;
+            _this69.rateStatistics.costoTotal = costoTotal;
+            _this69.rateStatistics = _this69.rateStatistics.sort(function (a, b) {
               return a.consumoTotal - b.consumoTotal;
             });
-            console.log('estadisticas', _this67.globals);
           }, function (error) {
             console.error(error);
           });
@@ -10844,6 +10974,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         type: _angular_common__WEBPACK_IMPORTED_MODULE_4__["Location"]
       }, {
         type: _service_bill_service__WEBPACK_IMPORTED_MODULE_5__["BillService"]
+      }, {
+        type: _service_importe_service__WEBPACK_IMPORTED_MODULE_6__["ImporteService"]
+      }, {
+        type: _service_detalleFactura_service__WEBPACK_IMPORTED_MODULE_7__["DetalleFacturaService"]
       }];
     };
 
@@ -10852,7 +10986,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./records.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/client/components/content/records/records.component.html")).default,
-      providers: [_service_statistics_service__WEBPACK_IMPORTED_MODULE_3__["StatisticsService"], _service_bill_service__WEBPACK_IMPORTED_MODULE_5__["BillService"]],
+      providers: [_service_statistics_service__WEBPACK_IMPORTED_MODULE_3__["StatisticsService"], _service_bill_service__WEBPACK_IMPORTED_MODULE_5__["BillService"], _service_importe_service__WEBPACK_IMPORTED_MODULE_6__["ImporteService"], _service_detalleFactura_service__WEBPACK_IMPORTED_MODULE_7__["DetalleFacturaService"]],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./records.component.scss */
       "./src/app/client/components/content/records/records.component.scss")).default]
@@ -10981,30 +11115,58 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.validateDate();
         }
       }, {
+        key: "getTotales",
+        value: function getTotales() {
+          this.total = 0;
+          var _iteratorNormalCompletion32 = true;
+          var _didIteratorError32 = false;
+          var _iteratorError32 = undefined;
+
+          try {
+            for (var _iterator32 = this.facturas[Symbol.iterator](), _step32; !(_iteratorNormalCompletion32 = (_step32 = _iterator32.next()).done); _iteratorNormalCompletion32 = true) {
+              var factura = _step32.value;
+              this.total = this.total + factura.total;
+            }
+          } catch (err) {
+            _didIteratorError32 = true;
+            _iteratorError32 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion32 && _iterator32.return != null) {
+                _iterator32.return();
+              }
+            } finally {
+              if (_didIteratorError32) {
+                throw _iteratorError32;
+              }
+            }
+          }
+        }
+      }, {
         key: "altPayed",
         value: function altPayed() {
           if (!this.verNoPagadas) {
             this.facturas = [];
-            var _iteratorNormalCompletion29 = true;
-            var _didIteratorError29 = false;
-            var _iteratorError29 = undefined;
+            var _iteratorNormalCompletion33 = true;
+            var _didIteratorError33 = false;
+            var _iteratorError33 = undefined;
 
             try {
-              for (var _iterator29 = this.bufferFacturas[Symbol.iterator](), _step29; !(_iteratorNormalCompletion29 = (_step29 = _iterator29.next()).done); _iteratorNormalCompletion29 = true) {
-                var factura = _step29.value;
+              for (var _iterator33 = this.bufferFacturas[Symbol.iterator](), _step33; !(_iteratorNormalCompletion33 = (_step33 = _iterator33.next()).done); _iteratorNormalCompletion33 = true) {
+                var factura = _step33.value;
                 if (factura.numero && factura.numero >= 1) this.facturas.push(factura);
               }
             } catch (err) {
-              _didIteratorError29 = true;
-              _iteratorError29 = err;
+              _didIteratorError33 = true;
+              _iteratorError33 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion29 && _iterator29.return != null) {
-                  _iterator29.return();
+                if (!_iteratorNormalCompletion33 && _iterator33.return != null) {
+                  _iterator33.return();
                 }
               } finally {
-                if (_didIteratorError29) {
-                  throw _iteratorError29;
+                if (_didIteratorError33) {
+                  throw _iteratorError33;
                 }
               }
             }
@@ -11043,13 +11205,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           this.bufferFacturasByDate = this.facturas;
           this.facturas = [];
-          var _iteratorNormalCompletion30 = true;
-          var _didIteratorError30 = false;
-          var _iteratorError30 = undefined;
+          var _iteratorNormalCompletion34 = true;
+          var _didIteratorError34 = false;
+          var _iteratorError34 = undefined;
 
           try {
-            for (var _iterator30 = this.bufferFacturasByDate[Symbol.iterator](), _step30; !(_iteratorNormalCompletion30 = (_step30 = _iterator30.next()).done); _iteratorNormalCompletion30 = true) {
-              var factura = _step30.value;
+            for (var _iterator34 = this.bufferFacturas[Symbol.iterator](), _step34; !(_iteratorNormalCompletion34 = (_step34 = _iterator34.next()).done); _iteratorNormalCompletion34 = true) {
+              var factura = _step34.value;
               var fechaDesde = moment__WEBPACK_IMPORTED_MODULE_4__(this.desde);
               var fechaHasta = moment__WEBPACK_IMPORTED_MODULE_4__(this.hasta);
               var fechaFactura = void 0;
@@ -11071,33 +11233,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError30 = true;
-            _iteratorError30 = err;
+            _didIteratorError34 = true;
+            _iteratorError34 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion30 && _iterator30.return != null) {
-                _iterator30.return();
+              if (!_iteratorNormalCompletion34 && _iterator34.return != null) {
+                _iterator34.return();
               }
             } finally {
-              if (_didIteratorError30) {
-                throw _iteratorError30;
+              if (_didIteratorError34) {
+                throw _iteratorError34;
               }
             }
           }
+
+          this.getTotales();
         }
       }, {
         key: "orderByMeter",
         value: function orderByMeter() {
-          var _this68 = this;
+          var _this70 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this68.byMeter) {
+            if (_this70.byMeter) {
               aM = parseInt(a.medidor.clave);
               bM = parseInt(b.medidor.clave);
-            } else if (!_this68.byMeter) {
+            } else if (!_this70.byMeter) {
               bM = parseInt(a.medidor.clave);
               aM = parseInt(b.medidor.clave);
             }
@@ -11112,7 +11276,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByNumber",
         value: function orderByNumber() {
-          var _this69 = this;
+          var _this71 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
@@ -11120,10 +11284,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (!a.numero || a.numero == null) a.numero = 0;
             if (!b.numero || b.numero == null) b.numero = 0;
 
-            if (_this69.byNum) {
+            if (_this71.byNum) {
               aM = parseInt(a.numero);
               bM = parseInt(b.numero);
-            } else if (!_this69.byNum) {
+            } else if (!_this71.byNum) {
               bM = parseInt(a.numero);
               aM = parseInt(b.numero);
             }
@@ -11138,16 +11302,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByUser",
         value: function orderByUser() {
-          var _this70 = this;
+          var _this72 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this70.byUser) {
+            if (_this72.byUser) {
               aM = a.usuario.nombre;
               bM = b.usuario.nombre;
-            } else if (!_this70.byUser) {
+            } else if (!_this72.byUser) {
               bM = a.usuario.nombre;
               aM = b.usuario.nombre;
             }
@@ -11162,16 +11326,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByValue",
         value: function orderByValue() {
-          var _this71 = this;
+          var _this73 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
 
-            if (_this71.byVal) {
+            if (_this73.byVal) {
               aM = parseInt(a.total);
               bM = parseInt(b.total);
-            } else if (!_this71.byVal) {
+            } else if (!_this73.byVal) {
               bM = parseInt(a.total);
               aM = parseInt(b.total);
             }
@@ -11186,17 +11350,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByEmitt",
         value: function orderByEmitt() {
-          var _this72 = this;
+          var _this74 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
             var bM;
             var diff;
 
-            if (_this72.byEmit) {
+            if (_this74.byEmit) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(a.fecha);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(b.fecha);
-            } else if (!_this72.byEmit) {
+            } else if (!_this74.byEmit) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(b.fecha);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(a.fecha);
             }
@@ -11212,7 +11376,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "orderByCons",
         value: function orderByCons() {
-          var _this73 = this;
+          var _this75 = this;
 
           this.facturas.sort(function (a, b) {
             var aM;
@@ -11221,10 +11385,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var fecha1String = a.registro.month + 1 + '-01-' + a.registro.year;
             var fecha2String = b.registro.month + 1 + '-01-' + b.registro.year;
 
-            if (_this73.byCons) {
+            if (_this75.byCons) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha1String);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha2String);
-            } else if (!_this73.byCons) {
+            } else if (!_this75.byCons) {
               aM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha2String);
               bM = moment__WEBPACK_IMPORTED_MODULE_4__(fecha1String);
             }
@@ -11274,25 +11438,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             var factura = this.facturas[i];
             factura.index = i + 1;
           }
+
+          this.getTotales();
         }
       }, {
         key: "initFacturas",
         value: function initFacturas() {
-          var _this74 = this;
+          var _this76 = this;
 
           this._billService.getAll().subscribe(function (response) {
             console.log(response);
 
             if (response.Bill) {
-              _this74.bufferFacturas = response.Bill;
-              _this74.facturas = []; //  this.facturas = response.Bill;
+              _this76.bufferFacturas = response.Bill;
+              _this76.facturas = []; //  this.facturas = response.Bill;
 
               for (var i = 0; i < response.Bill.length; i++) {
                 var factura = response.Bill[i];
                 factura.index = i + 1;
 
-                _this74.facturas.push(factura);
+                _this76.facturas.push(factura);
               }
+
+              _this76.getTotales();
             }
           });
         }
@@ -11611,33 +11779,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initExtras",
         value: function initExtras() {
-          var _this75 = this;
+          var _this77 = this;
 
           this._extraService.getExtra().subscribe(function (response) {
-            _this75.extras = response.extra;
+            _this77.extras = response.extra;
 
             if (response.extra.length <= 0) {
-              _this75.fatalError = true;
-              _this75.loading = false;
+              _this77.fatalError = true;
+              _this77.loading = false;
 
-              _this75.launchAlert('info', 'Sin Datos de RMUV', 'Al parecer no existen datos de la Remuneracion Unificada Vigente, por favor, Ingresarlos antes de continuar', '<a href="/extras" target="blank">Ingresar Ahora!!<a>', true, null, null, null, null, null); // alert('no existen los datos de RMUV... por favor ingresarlos antes de continuar con los registros de consumo');
+              _this77.launchAlert('info', 'Sin Datos de RMUV', 'Al parecer no existen datos de la Remuneracion Unificada Vigente, por favor, Ingresarlos antes de continuar', '<a href="/extras" target="blank">Ingresar Ahora!!<a>', true, null, null, null, null, null); // alert('no existen los datos de RMUV... por favor ingresarlos antes de continuar con los registros de consumo');
 
             } else if (response.extra.length >= 1) {
-              _this75.fatalError = false;
-              _this75.loading = false;
+              _this77.fatalError = false;
+              _this77.loading = false;
             }
           }, function (error) {
-            _this75.loading = false;
+            _this77.loading = false;
             console.log(error);
-            _this75.errorCatched.description = error.toString();
-            _this75.errorCatched.table = 'Extra';
-            _this75.errorCatched.action = 'getExtras';
-            _this75.errorCatched.title = 'Error en la Obtencion de Los datos Extras';
-            _this75.errorCatched.zone = 'addRegister';
-            _this75.errorCatched.code = _this75.errorCatched.zone + '-' + _this75.errorCatched.action + '-' + _this75.errorCatched.table;
+            _this77.errorCatched.description = error.toString();
+            _this77.errorCatched.table = 'Extra';
+            _this77.errorCatched.action = 'getExtras';
+            _this77.errorCatched.title = 'Error en la Obtencion de Los datos Extras';
+            _this77.errorCatched.zone = 'addRegister';
+            _this77.errorCatched.code = _this77.errorCatched.zone + '-' + _this77.errorCatched.action + '-' + _this77.errorCatched.table;
 
-            _this75.errorCatcherService.saveError(_this75.errorCatched).subscribe(function (response) {
-              _this75.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de la RMUV' + response.Message, '<a href="/errores" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this77.errorCatcherService.saveError(_this77.errorCatched).subscribe(function (response) {
+              _this77.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de la RMUV' + response.Message, '<a href="/errores" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11649,21 +11817,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMedidores",
         value: function initMedidores() {
-          var _this76 = this;
+          var _this78 = this;
 
           this.meterService.showMeters().subscribe(function (response) {
-            _this76.medidores = response.Medidores;
+            _this78.medidores = response.Medidores;
           }, function (error) {
             console.log(error);
-            _this76.errorCatched.description = error.toString();
-            _this76.errorCatched.table = 'Meter';
-            _this76.errorCatched.action = 'showMeters';
-            _this76.errorCatched.title = 'Error en la Obtencion de Medidores';
-            _this76.errorCatched.zone = 'addRegister';
-            _this76.errorCatched.code = _this76.errorCatched.zone + '-' + _this76.errorCatched.action + '-' + _this76.errorCatched.table;
+            _this78.errorCatched.description = error.toString();
+            _this78.errorCatched.table = 'Meter';
+            _this78.errorCatched.action = 'showMeters';
+            _this78.errorCatched.title = 'Error en la Obtencion de Medidores';
+            _this78.errorCatched.zone = 'addRegister';
+            _this78.errorCatched.code = _this78.errorCatched.zone + '-' + _this78.errorCatched.action + '-' + _this78.errorCatched.table;
 
-            _this76.errorCatcherService.saveError(_this76.errorCatched).subscribe(function (response) {
-              _this76.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this78.errorCatcherService.saveError(_this78.errorCatched).subscribe(function (response) {
+              _this78.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11675,21 +11843,21 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this77 = this;
+          var _this79 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this77.usuarios = response.Usuarios;
+            _this79.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
-            _this77.errorCatched.description = error.toString();
-            _this77.errorCatched.table = 'User';
-            _this77.errorCatched.action = 'getUsers';
-            _this77.errorCatched.title = 'Error en la Obtencion de Usuarios';
-            _this77.errorCatched.zone = 'addRegister';
-            _this77.errorCatched.code = _this77.errorCatched.zone + '-' + _this77.errorCatched.action + '-' + _this77.errorCatched.table;
+            _this79.errorCatched.description = error.toString();
+            _this79.errorCatched.table = 'User';
+            _this79.errorCatched.action = 'getUsers';
+            _this79.errorCatched.title = 'Error en la Obtencion de Usuarios';
+            _this79.errorCatched.zone = 'addRegister';
+            _this79.errorCatched.code = _this79.errorCatched.zone + '-' + _this79.errorCatched.action + '-' + _this79.errorCatched.table;
 
-            _this77.errorCatcherService.saveError(_this77.errorCatched).subscribe(function (response) {
-              _this77.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los Usuarios' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this79.errorCatcherService.saveError(_this79.errorCatched).subscribe(function (response) {
+              _this79.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los datos de los Usuarios' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11751,25 +11919,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initLimits",
         value: function initLimits(rate) {
-          var _this78 = this;
+          var _this80 = this;
 
           this.limitService.getLimits(rate).subscribe(function (response) {
-            _this78.limites = response.Limits;
+            _this80.limites = response.Limits;
 
-            _this78.limites.sort(function (b, a) {
+            _this80.limites.sort(function (b, a) {
               return b.limit_from - a.limit_from;
             });
           }, function (error) {
             console.log(error);
-            _this78.errorCatched.description = error.toString();
-            _this78.errorCatched.table = 'Limit';
-            _this78.errorCatched.action = 'GetLimits';
-            _this78.errorCatched.title = 'Error en la Obtencion de los Limites';
-            _this78.errorCatched.zone = 'addRegister';
-            _this78.errorCatched.code = _this78.errorCatched.zone + '-' + _this78.errorCatched.action + '-' + _this78.errorCatched.table;
+            _this80.errorCatched.description = error.toString();
+            _this80.errorCatched.table = 'Limit';
+            _this80.errorCatched.action = 'GetLimits';
+            _this80.errorCatched.title = 'Error en la Obtencion de los Limites';
+            _this80.errorCatched.zone = 'addRegister';
+            _this80.errorCatched.code = _this80.errorCatched.zone + '-' + _this80.errorCatched.action + '-' + _this80.errorCatched.table;
 
-            _this78.errorCatcherService.saveError(_this78.errorCatched).subscribe(function (response) {
-              _this78.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los limites de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+            _this80.errorCatcherService.saveError(_this80.errorCatched).subscribe(function (response) {
+              _this80.launchAlert('error', 'Error en la Carga', 'Se ha producido un error a la hora de cargar los limites de los medidores' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
             });
           });
         }
@@ -11911,35 +12079,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadRegisters",
         value: function loadRegisters(id) {
-          var _this79 = this;
+          var _this81 = this;
 
           this.dateMessage = null;
 
           this._registerService.getRegisters(id).subscribe(function (response) {
             if (!response.registers) {
-              _this79.isRegistered = null;
-              _this79.registroAnterior = null;
-              _this79.nuevoRegistro = true;
-              _this79.registros = null;
+              _this81.isRegistered = null;
+              _this81.registroAnterior = null;
+              _this81.nuevoRegistro = true;
+              _this81.registros = null;
             } else {
               console.log(response);
-              _this79.registros = response.registers;
+              _this81.registros = response.registers;
 
-              _this79.registros.sort(function (a, b) {
+              _this81.registros.sort(function (a, b) {
                 return b.month - a.month;
               });
 
-              _this79.registros.sort(function (a, b) {
+              _this81.registros.sort(function (a, b) {
                 return b.year - a.year;
               });
 
-              _this79.registroAnterior = _this79.registros[0];
-              console.log(_this79.registroAnterior);
-              _this79.registro.lecturaAnterior = _this79.registroAnterior.lectura;
-              _this79.registroAnterior._id = null;
-              _this79.isRegistered = new Date(_this79.registroAnterior.year, _this79.registroAnterior.month);
+              _this81.registroAnterior = _this81.registros[0];
+              console.log(_this81.registroAnterior);
+              _this81.registro.lecturaAnterior = _this81.registroAnterior.lectura;
+              _this81.registroAnterior._id = null;
+              _this81.isRegistered = new Date(_this81.registroAnterior.year, _this81.registroAnterior.month);
 
-              _this79.valiDate();
+              _this81.valiDate();
             }
           });
         }
@@ -12075,7 +12243,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this80 = this;
+          var _this82 = this;
 
           console.log('guardando registro');
           console.log(this.registro);
@@ -12085,25 +12253,25 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this._registerService.save(this.registro).subscribe(function (response) {
             console.log(response); // alert(response.Message);
 
-            _this80.launchAlert('success', 'Registro Guardado Con Exito!', null, null, true, 1500, false, 'top-end', 'row', true);
+            _this82.launchAlert('success', 'Registro Guardado Con Exito!', null, null, true, 1500, false, 'top-end', 'row', true);
 
-            _this80.clave_medidor = null;
+            _this82.clave_medidor = null;
 
-            _this80.limpiar();
+            _this82.limpiar();
           }, function (error) {
             console.log(error);
             setTimeout(function () {
-              _this80.errorCatched.description = error.toString();
-              _this80.errorCatched.table = 'Registers';
-              _this80.errorCatched.action = 'saveRegisters';
-              _this80.errorCatched.title = 'Error al Guardar el Registro';
-              _this80.errorCatched.zone = 'addRegister';
-              _this80.errorCatched.code = _this80.errorCatched.zone + '-' + _this80.errorCatched.action + '-' + _this80.errorCatched.table;
+              _this82.errorCatched.description = error.toString();
+              _this82.errorCatched.table = 'Registers';
+              _this82.errorCatched.action = 'saveRegisters';
+              _this82.errorCatched.title = 'Error al Guardar el Registro';
+              _this82.errorCatched.zone = 'addRegister';
+              _this82.errorCatched.code = _this82.errorCatched.zone + '-' + _this82.errorCatched.action + '-' + _this82.errorCatched.table;
 
-              _this80.errorCatcherService.saveError(_this80.errorCatched).subscribe(function (response) {
+              _this82.errorCatcherService.saveError(_this82.errorCatched).subscribe(function (response) {
                 alert(response.Message);
 
-                _this80.launchAlert('error', 'Error al Guardar', 'Error: ' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
+                _this82.launchAlert('error', 'Error al Guardar', 'Error: ' + response.Message, '<a href="/reportes" target="blank">Ir a la Ventana de Errores de Sistema? <a>', true, null, null, null, null, null);
               });
             }, 500);
           });
@@ -12117,6 +12285,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.completado = false;
           this.registroAnterior = null;
           this.limites = [], [];
+          this.consumo_correcto = null;
           this.lectura_actual = null;
           this.initMedidor();
           this.initRegistro();
@@ -12400,29 +12569,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "searchMeters",
         value: function searchMeters() {
           this.meterList = [];
-          var _iteratorNormalCompletion31 = true;
-          var _didIteratorError31 = false;
-          var _iteratorError31 = undefined;
+          var _iteratorNormalCompletion35 = true;
+          var _didIteratorError35 = false;
+          var _iteratorError35 = undefined;
 
           try {
-            for (var _iterator31 = this.meters[Symbol.iterator](), _step31; !(_iteratorNormalCompletion31 = (_step31 = _iterator31.next()).done); _iteratorNormalCompletion31 = true) {
-              var medidor = _step31.value;
+            for (var _iterator35 = this.meters[Symbol.iterator](), _step35; !(_iteratorNormalCompletion35 = (_step35 = _iterator35.next()).done); _iteratorNormalCompletion35 = true) {
+              var medidor = _step35.value;
 
               if (medidor.user._id == this.usuarioActual) {
                 this.meterList.push(medidor);
               }
             }
           } catch (err) {
-            _didIteratorError31 = true;
-            _iteratorError31 = err;
+            _didIteratorError35 = true;
+            _iteratorError35 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion31 && _iterator31.return != null) {
-                _iterator31.return();
+              if (!_iteratorNormalCompletion35 && _iterator35.return != null) {
+                _iterator35.return();
               }
             } finally {
-              if (_didIteratorError31) {
-                throw _iteratorError31;
+              if (_didIteratorError35) {
+                throw _iteratorError35;
               }
             }
           }
@@ -12435,16 +12604,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchRegisters",
         value: function searchRegisters() {
-          var _this81 = this;
+          var _this83 = this;
 
           this.registerList = null;
           this.registerList = [];
 
           if (!this.userList || this.userList.length <= 0) {
             this.meterService.getMeter(this.medidorActual).subscribe(function (response) {
-              _this81.userList = [];
+              _this83.userList = [];
 
-              _this81.userList.push(response.meter.user);
+              _this83.userList.push(response.meter.user);
             });
           }
 
@@ -12456,10 +12625,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var registro = response.Registros[i];
                 registro.numero = i + 1;
 
-                _this81.registerList.push(registro);
+                _this83.registerList.push(registro);
               }
 
-              _this81.registerList.sort(function (a, b) {
+              _this83.registerList.sort(function (a, b) {
                 var fecha1 = moment__WEBPACK_IMPORTED_MODULE_8__(a.month + 1 + '-01-' + a.year);
                 var fecha2 = moment__WEBPACK_IMPORTED_MODULE_8__(b.month + 1 + '-01-' + b.year);
                 var difference = fecha1.diff(fecha2, 'months');
@@ -12468,9 +12637,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (difference == 0) return 0;
               });
 
-              _this81.bufferRegisters = _this81.registerList;
+              _this83.bufferRegisters = _this83.registerList;
             } else {
-              _this81.registerList = null;
+              _this83.registerList = null;
             }
           });
         }
@@ -12511,13 +12680,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "filterByDate",
         value: function filterByDate() {
           this.registerList = [];
-          var _iteratorNormalCompletion32 = true;
-          var _didIteratorError32 = false;
-          var _iteratorError32 = undefined;
+          var _iteratorNormalCompletion36 = true;
+          var _didIteratorError36 = false;
+          var _iteratorError36 = undefined;
 
           try {
-            for (var _iterator32 = this.bufferRegisters[Symbol.iterator](), _step32; !(_iteratorNormalCompletion32 = (_step32 = _iterator32.next()).done); _iteratorNormalCompletion32 = true) {
-              var registro = _step32.value;
+            for (var _iterator36 = this.bufferRegisters[Symbol.iterator](), _step36; !(_iteratorNormalCompletion36 = (_step36 = _iterator36.next()).done); _iteratorNormalCompletion36 = true) {
+              var registro = _step36.value;
               var fechaDesde = moment__WEBPACK_IMPORTED_MODULE_8__(this.desde);
               var fechaHasta = moment__WEBPACK_IMPORTED_MODULE_8__(this.hasta);
               var fechaFactura = void 0;
@@ -12532,16 +12701,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError32 = true;
-            _iteratorError32 = err;
+            _didIteratorError36 = true;
+            _iteratorError36 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion32 && _iterator32.return != null) {
-                _iterator32.return();
+              if (!_iteratorNormalCompletion36 && _iterator36.return != null) {
+                _iterator36.return();
               }
             } finally {
-              if (_didIteratorError32) {
-                throw _iteratorError32;
+              if (_didIteratorError36) {
+                throw _iteratorError36;
               }
             }
           }
@@ -12563,11 +12732,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMeters",
         value: function initMeters() {
-          var _this82 = this;
+          var _this84 = this;
 
           this.loading = false;
           this.meterService.showMeters().subscribe(function (response) {
-            _this82.meters = response.Medidores;
+            _this84.meters = response.Medidores;
           }, function (error) {
             console.log(error);
           });
@@ -12594,20 +12763,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this83 = this;
+          var _this85 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this83.usuarios = response.Usuarios;
+            _this85.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
-            _this83.errorCatched.description = error.toString();
-            _this83.errorCatched.table = 'User';
-            _this83.errorCatched.action = 'getUsers';
-            _this83.errorCatched.title = 'Error en la Obtencion de Usuarios';
-            _this83.errorCatched.zone = 'addRegister';
-            _this83.errorCatched.code = _this83.errorCatched.zone + '-' + _this83.errorCatched.action + '-' + _this83.errorCatched.table;
+            _this85.errorCatched.description = error.toString();
+            _this85.errorCatched.table = 'User';
+            _this85.errorCatched.action = 'getUsers';
+            _this85.errorCatched.title = 'Error en la Obtencion de Usuarios';
+            _this85.errorCatched.zone = 'addRegister';
+            _this85.errorCatched.code = _this85.errorCatched.zone + '-' + _this85.errorCatched.action + '-' + _this85.errorCatched.table;
 
-            _this83.errorCatcherService.saveError(_this83.errorCatched).subscribe(function (response) {
+            _this85.errorCatcherService.saveError(_this85.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -12740,15 +12909,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "findRegisters",
         value: function findRegisters() {
-          var _this84 = this;
+          var _this86 = this;
 
           if (this.meterId) {
             this._registerService.getRegisters(this.meterId).subscribe(function (response) {
               if (response.registers) {
                 console.log(response.registers);
-                _this84.registers = response.registers;
+                _this86.registers = response.registers;
               } else {
-                _this84.registers = null;
+                _this86.registers = null;
               }
             }, function (error) {
               console.log(error);
@@ -13084,33 +13253,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onNew",
         value: function onNew(form) {
-          var _this85 = this;
+          var _this87 = this;
 
           console.log(this.sector);
 
           this._sectorService.saveSectores(this.sector).subscribe(function (response) {
             // response.Message y response.sector
             if (response.sector && response.sector._id) {
-              _this85.editar = null;
+              _this87.editar = null;
 
-              _this85.launchAlert('success', 'Ingreso de Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
+              _this87.launchAlert('success', 'Ingreso de Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
             }
 
-            _this85.codigo = _this85.codigoAutom();
+            _this87.codigo = _this87.codigoAutom();
 
-            _this85.initSector();
+            _this87.initSector();
           }, function (error) {
             console.error(error);
           });
 
           setTimeout(function () {
-            _this85.showSectores = true;
+            _this87.showSectores = true;
           }, 1000);
         }
       }, {
         key: "onEdit",
         value: function onEdit(form) {
-          var _this86 = this;
+          var _this88 = this;
 
           console.log(this.sector);
 
@@ -13119,18 +13288,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             console.log(response);
 
             if (response.sector && response.sector._id) {
-              _this86.editar = false;
+              _this88.editar = false;
 
-              _this86.launchAlert('success', 'Edición del Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
+              _this88.launchAlert('success', 'Edición del Sector', response.Message, null, null, 3500, false, 'top', 'row', true);
             }
 
-            _this86.initSector();
+            _this88.initSector();
           }, function (error) {
             console.error(error);
           });
 
           setTimeout(function () {
-            _this86.showSectores = true;
+            _this88.showSectores = true;
           }, 1000);
         }
       }, {
@@ -13298,7 +13467,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onChange",
         value: function onChange(sector) {
-          var _this87 = this;
+          var _this89 = this;
 
           var tempSector = sector;
           var estado;
@@ -13314,13 +13483,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (sector.activa) estado = 'Reactivar';
             if (!sector.activa) estado = 'Desactivar';
 
-            _this87.launchAlert('success', 'Cambio Estado', 'Exito al ' + estado + ' el sector', null, null, 3500, false, 'top', 'row', true);
+            _this89.launchAlert('success', 'Cambio Estado', 'Exito al ' + estado + ' el sector', null, null, 3500, false, 'top', 'row', true);
           }, function (error) {
             if (sector.activa) estado = 'Reactivar';
             if (!sector.activa) estado = 'Desactivar';
             sector = tempSector;
 
-            _this87.launchAlert('error', 'Error al ' + estado + ' el sector', error, null, null, 3500, false, 'top', 'row', true);
+            _this89.launchAlert('error', 'Error al ' + estado + ' el sector', error, null, null, 3500, false, 'top', 'row', true);
           });
         }
       }, {
@@ -13336,42 +13505,42 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initSectores",
         value: function initSectores() {
-          var _this88 = this;
+          var _this90 = this;
 
           this._sectorService.getSectores().subscribe(function (response) {
             console.log(response);
-            var _iteratorNormalCompletion33 = true;
-            var _didIteratorError33 = false;
-            var _iteratorError33 = undefined;
+            var _iteratorNormalCompletion37 = true;
+            var _didIteratorError37 = false;
+            var _iteratorError37 = undefined;
 
             try {
               var _loop2 = function _loop2() {
-                var sector = _step33.value;
+                var sector = _step37.value;
 
-                _this88._statisticService.getMedidoresSector(sector._id).subscribe(function (responseCounters) {
+                _this90._statisticService.getMedidoresSector(sector._id).subscribe(function (responseCounters) {
                   sector.meters = responseCounters.meters;
                 });
               };
 
-              for (var _iterator33 = response.sectores[Symbol.iterator](), _step33; !(_iteratorNormalCompletion33 = (_step33 = _iterator33.next()).done); _iteratorNormalCompletion33 = true) {
+              for (var _iterator37 = response.sectores[Symbol.iterator](), _step37; !(_iteratorNormalCompletion37 = (_step37 = _iterator37.next()).done); _iteratorNormalCompletion37 = true) {
                 _loop2();
               }
             } catch (err) {
-              _didIteratorError33 = true;
-              _iteratorError33 = err;
+              _didIteratorError37 = true;
+              _iteratorError37 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion33 && _iterator33.return != null) {
-                  _iterator33.return();
+                if (!_iteratorNormalCompletion37 && _iterator37.return != null) {
+                  _iterator37.return();
                 }
               } finally {
-                if (_didIteratorError33) {
-                  throw _iteratorError33;
+                if (_didIteratorError37) {
+                  throw _iteratorError37;
                 }
               }
             }
 
-            _this88.sectores = response.sectores;
+            _this90.sectores = response.sectores;
           }, function (error) {
             console.error(error);
           });
@@ -13684,18 +13853,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this89 = this;
+          var _this91 = this;
 
           // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
           this.userService.showRaw().subscribe( // respuesta del servidor //
           function (response) {
             console.log(response); // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
-            _this89.usuarios = response.Usuarios; // bifurcador if para comprobar si la variable local "users" esta vacia //
+            _this91.usuarios = response.Usuarios; // bifurcador if para comprobar si la variable local "users" esta vacia //
 
-            if (_this89.users.length <= 0) {
+            if (_this91.users.length <= 0) {
               // en caso de que "users" este vacia se procede a llenar con la coleccion "Usuarios" almacenada en "response" //
-              _this89.users = response.Usuarios;
+              _this91.users = response.Usuarios;
             }
           }, // error del servidor //
           function (error) {
@@ -13718,7 +13887,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "busqueda",
         value: function busqueda(termino, parametro) {
-          var _this90 = this;
+          var _this92 = this;
 
           // preparacion de variables //
           // ------ Uso de la funcion to lower case [a minusculas] para evitar confuciones en el proceso
@@ -13739,7 +13908,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               case 'null':
                 {
                   // Se hace un llamado a la funcion "getUsers" que carga los usuarios almacenados en el servidor //
-                  _this90.getUsers(); // Se termina la Ejecucion del bifurcador Switch //
+                  _this92.getUsers(); // Se termina la Ejecucion del bifurcador Switch //
 
 
                   break;
@@ -13755,7 +13924,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this92.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13778,7 +13947,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this92.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13800,7 +13969,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this92.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13822,7 +13991,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this92.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13844,7 +14013,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
                   if (busqueda.indexOf(termino, 0) >= 0) {
                     // En caso de que encuentre coincidencias dentro del conjunto de objetos, el objeto completo se almacena devuelta en la variable "users" //
-                    _this90.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
+                    _this92.users.push(item); // [Test] aumento de 1 en la variable conteo para saber cuantos objetos coincidieron con la busqueda //
 
 
                     conteo = conteo + 1; // [Test] impresion en la consola de los resultados de la comparacion de busqueda //
@@ -13953,14 +14122,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onChange",
         value: function onChange(event) {
-          var _this91 = this;
+          var _this93 = this;
 
           this.selectedYearAsText = event.year.toString();
           this.selectedMonthIndex = event.monthIndex;
           this.selectedMonthAsText = moment__WEBPACK_IMPORTED_MODULE_4___default()().month(event.monthIndex).format('MMMM');
           setTimeout(function () {
-            _this91.year = event.year;
-            _this91.month = event.monthIndex + 1;
+            _this93.year = event.year;
+            _this93.month = event.monthIndex + 1;
           }, 75);
         }
       }, {
@@ -13971,30 +14140,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initNumeros",
         value: function initNumeros() {
-          var _this92 = this;
+          var _this94 = this;
 
           this.numerosService.showRaw().subscribe(function (response) {
-            _this92.numeros = response.Numeros;
+            _this94.numeros = response.Numeros;
 
-            _this92.aumentarNumero();
+            _this94.aumentarNumero();
           });
         }
       }, {
         key: "aumentarNumero",
         value: function aumentarNumero() {
-          var _this93 = this;
+          var _this95 = this;
 
           this.numeros.sort(function (a, b) {
             return b.num_min - a.num_min;
           });
           var numerosValidos = [];
-          var _iteratorNormalCompletion34 = true;
-          var _didIteratorError34 = false;
-          var _iteratorError34 = undefined;
+          var _iteratorNormalCompletion38 = true;
+          var _didIteratorError38 = false;
+          var _iteratorError38 = undefined;
 
           try {
-            for (var _iterator34 = this.numeros[Symbol.iterator](), _step34; !(_iteratorNormalCompletion34 = (_step34 = _iterator34.next()).done); _iteratorNormalCompletion34 = true) {
-              var numero = _step34.value;
+            for (var _iterator38 = this.numeros[Symbol.iterator](), _step38; !(_iteratorNormalCompletion38 = (_step38 = _iterator38.next()).done); _iteratorNormalCompletion38 = true) {
+              var numero = _step38.value;
               var hoy = new Date();
               var fecha = new Date(numero.caduca);
 
@@ -14003,16 +14172,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError34 = true;
-            _iteratorError34 = err;
+            _didIteratorError38 = true;
+            _iteratorError38 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion34 && _iterator34.return != null) {
-                _iterator34.return();
+              if (!_iteratorNormalCompletion38 && _iterator38.return != null) {
+                _iterator38.return();
               }
             } finally {
-              if (_didIteratorError34) {
-                throw _iteratorError34;
+              if (_didIteratorError38) {
+                throw _iteratorError38;
               }
             }
           }
@@ -14020,38 +14189,38 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           console.log(numerosValidos);
           this.statisticsService.getBillsNumbers().subscribe(function (response) {
             console.log(response);
-            _this93.numero = numerosValidos[0].num_min;
+            _this95.numero = numerosValidos[0].num_min;
 
             if (response.numeros) {
               var nuevo = false;
 
               while (nuevo == false) {
-                var _iteratorNormalCompletion35 = true;
-                var _didIteratorError35 = false;
-                var _iteratorError35 = undefined;
+                var _iteratorNormalCompletion39 = true;
+                var _didIteratorError39 = false;
+                var _iteratorError39 = undefined;
 
                 try {
-                  for (var _iterator35 = response.numeros[Symbol.iterator](), _step35; !(_iteratorNormalCompletion35 = (_step35 = _iterator35.next()).done); _iteratorNormalCompletion35 = true) {
-                    var numero = _step35.value;
+                  for (var _iterator39 = response.numeros[Symbol.iterator](), _step39; !(_iteratorNormalCompletion39 = (_step39 = _iterator39.next()).done); _iteratorNormalCompletion39 = true) {
+                    var numero = _step39.value;
 
-                    if (_this93.numero == numero.numero) {
+                    if (_this95.numero == numero.numero) {
                       nuevo = false;
-                      _this93.numero++;
+                      _this95.numero++;
                     } else {
                       nuevo = true;
                     }
                   }
                 } catch (err) {
-                  _didIteratorError35 = true;
-                  _iteratorError35 = err;
+                  _didIteratorError39 = true;
+                  _iteratorError39 = err;
                 } finally {
                   try {
-                    if (!_iteratorNormalCompletion35 && _iterator35.return != null) {
-                      _iterator35.return();
+                    if (!_iteratorNormalCompletion39 && _iterator39.return != null) {
+                      _iterator39.return();
                     }
                   } finally {
-                    if (_didIteratorError35) {
-                      throw _iteratorError35;
+                    if (_didIteratorError39) {
+                      throw _iteratorError39;
                     }
                   }
                 }
@@ -14178,6 +14347,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _service_follow_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! ../../../../../service/follow.service */
     "./src/app/service/follow.service.ts");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! sweetalert2 */
+    "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+    /* harmony import */
+
+
+    var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
 
     var EmployeesComponent =
     /*#__PURE__*/
@@ -14221,27 +14402,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this94 = this;
+          var _this96 = this;
 
           if (!this.SearchedUsers) {
             // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
             this.userService.showRaw().subscribe( // respuesta del servidor //
             function (response) {
-              if (_this94.employees) {
-                _this94.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
+              if (_this96.employees) {
+                _this96.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
 
                 for (var index = 0; index < response.Usuarios.length; index++) {
                   var usuario = response.Usuarios[index];
 
                   if (usuario.role_user.toLowerCase() !== 'simple' && usuario.role_user.toLowerCase() !== 'common') {
-                    _this94.usuarios.push(usuario);
+                    _this96.usuarios.push(usuario);
                   }
                 }
-              } else if (!_this94.employees) {
+              } else if (!_this96.employees) {
                 var users = JSON.stringify(response.Usuarios);
-                _this94.usuarios = response.Usuarios;
+                _this96.usuarios = response.Usuarios;
 
-                _this94.EnvioDeUsuarios.emit(users);
+                _this96.EnvioDeUsuarios.emit(users);
               } // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
             }, // error del servidor //
@@ -14256,10 +14437,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "editarUser",
         value: function editarUser(user) {
+          var nombre = user.cuenta;
           user = JSON.stringify(user);
           this.EnvioDeUsuario.emit(user);
-
-          if (user.role_user.toLowerCase() == 'common' || user.role_user.toLowerCase() == 'simple') {} else {}
+          sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
+            icon: 'success',
+            title: 'Editando el Usuario: ' + nombre,
+            timer: 3500,
+            showConfirmButton: false,
+            grow: 'row',
+            backdrop: null,
+            toast: true,
+            position: 'top'
+          }); // if (user.role_user.toLowerCase() != 'admin') {
+          // } else {
+          //   Swal.fire({
+          //     icon: 'error',
+          //     title: 'No se Pueden Editar Administradores!',
+          //     timer: 3500,
+          //     showConfirmButton: false,
+          //     grow: 'row',
+          //     backdrop: null,
+          //     toast: true
+          //   });
+          // }
         }
       }]);
 
@@ -14429,11 +14630,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       _createClass(MyProfileComponent, [{
         key: "initStatistics",
         value: function initStatistics(id) {
-          var _this95 = this;
+          var _this97 = this;
 
           this._statisticsService.getUserStatistics(id).subscribe(function (response) {
             console.log(response);
-            _this95.statistics = response;
+            _this97.statistics = response;
           });
         }
       }, {
@@ -14444,7 +14645,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "desactivarCuenta",
         value: function desactivarCuenta(pass) {
-          var _this96 = this;
+          var _this98 = this;
 
           var userpass = {
             contrase: pass
@@ -14455,22 +14656,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (response.check == true) {
               var user;
-              if (_this96.identity.activa == true) user = {
+              if (_this98.identity.activa == true) user = {
                 activa: false
               };
-              if (_this96.identity.activa == false) user = {
+              if (_this98.identity.activa == false) user = {
                 activa: true
               };
 
-              _this96._userService.changeActiva(_this96.identity, _this96.identity._id).subscribe(function (response) {
-                _this96.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
+              _this98._userService.changeActiva(_this98.identity, _this98.identity._id).subscribe(function (response) {
+                _this98.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
 
-                _this96.identity = response.user;
+                _this98.identity = response.user;
                 localStorage.clear();
 
-                _this96._router.navigate(['/login']);
+                _this98._router.navigate(['/login']);
 
-                console.log(_this96.identity);
+                console.log(_this98.identity);
               });
             }
           });
@@ -14690,7 +14891,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUser",
         value: function initUser() {
-          var _this97 = this;
+          var _this99 = this;
 
           this.route.params.subscribe(function (params) {
             var id;
@@ -14698,35 +14899,35 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             if (params.id) id = params.id;
 
             if (id != undefined) {
-              _this97.userService.getUser(id).subscribe(function (response) {
+              _this99.userService.getUser(id).subscribe(function (response) {
                 if (response.user) {
-                  _this97.user = response.user;
-                  _this97.title = 'Perfil del Usuario ';
+                  _this99.user = response.user;
+                  _this99.title = 'Perfil del Usuario ';
 
-                  _this97.initMedidores(id);
+                  _this99.initMedidores(id);
 
-                  _this97.initFacturas(id);
+                  _this99.initFacturas(id);
 
-                  console.log(_this97.user);
+                  console.log(_this99.user);
 
-                  if (_this97.user.fecha_nacimiento) {
-                    var convertAge = new Date(_this97.user.fecha_nacimiento);
+                  if (_this99.user.fecha_nacimiento) {
+                    var convertAge = new Date(_this99.user.fecha_nacimiento);
                     var timeDiff = Math.abs(Date.now() - convertAge.getTime());
-                    _this97.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
-                    console.log(_this97.age);
+                    _this99.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
+                    console.log(_this99.age);
                   }
                 } else {
-                  _this97.title = 'No se encuentra el perfil del usuario';
-                  _this97.loading = false;
+                  _this99.title = 'No se encuentra el perfil del usuario';
+                  _this99.loading = false;
                   alert('no se encuentra el usuario....');
                 }
               }, function (error) {
-                _this97.loading = false;
-                _this97.title = 'Error al buscar el usuario';
+                _this99.loading = false;
+                _this99.title = 'Error al buscar el usuario';
                 console.log(error);
               });
             } else {
-              _this97.loading = false;
+              _this99.loading = false;
             }
           });
         }
@@ -14745,22 +14946,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initFacturas",
         value: function initFacturas(id) {
-          var _this98 = this;
+          var _this100 = this;
 
           this.billService.getFacturaByUser(id).subscribe(function (response) {
             console.log(response);
 
             if (response.bills) {
-              _this98.bills = response.bills;
-              _this98.sinFacturas = false;
+              _this100.bills = response.bills;
+              _this100.sinFacturas = false;
 
-              _this98.initDetails();
+              _this100.initDetails();
             } else {
-              _this98.sinFacturas = true;
-              _this98.loadingFacturas = false;
+              _this100.sinFacturas = true;
+              _this100.loadingFacturas = false;
             }
 
-            _this98.launchAlert('success', 'Carga de Facturas Exitosa!', response.Message, null, false, 3500, false, 'top-end', 'row', true);
+            _this100.launchAlert('success', 'Carga de Facturas Exitosa!', response.Message, null, false, 3500, false, 'top-end', 'row', true);
           }, function (error) {
             console.log(error);
           });
@@ -14768,15 +14969,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initDetails",
         value: function initDetails() {
-          var _this99 = this;
+          var _this101 = this;
 
-          var _iteratorNormalCompletion36 = true;
-          var _didIteratorError36 = false;
-          var _iteratorError36 = undefined;
+          var _iteratorNormalCompletion40 = true;
+          var _didIteratorError40 = false;
+          var _iteratorError40 = undefined;
 
           try {
             var _loop3 = function _loop3() {
-              var bill = _step36.value;
+              var bill = _step40.value;
               var id = bill._id;
               var details = void 0;
               bill.descripcion = [{
@@ -14793,7 +14994,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 subtotal: bill.registro.subtotal.toFixed(2)
               }];
 
-              _this99.detailService.getDetalle(id).subscribe(function (response) {
+              _this101.detailService.getDetalle(id).subscribe(function (response) {
                 if (response.Detalles) {
                   details = response.Detalles;
                   bill.detalles = details;
@@ -14801,20 +15002,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               });
             };
 
-            for (var _iterator36 = this.bills[Symbol.iterator](), _step36; !(_iteratorNormalCompletion36 = (_step36 = _iterator36.next()).done); _iteratorNormalCompletion36 = true) {
+            for (var _iterator40 = this.bills[Symbol.iterator](), _step40; !(_iteratorNormalCompletion40 = (_step40 = _iterator40.next()).done); _iteratorNormalCompletion40 = true) {
               _loop3();
             }
           } catch (err) {
-            _didIteratorError36 = true;
-            _iteratorError36 = err;
+            _didIteratorError40 = true;
+            _iteratorError40 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion36 && _iterator36.return != null) {
-                _iterator36.return();
+              if (!_iteratorNormalCompletion40 && _iterator40.return != null) {
+                _iterator40.return();
               }
             } finally {
-              if (_didIteratorError36) {
-                throw _iteratorError36;
+              if (_didIteratorError40) {
+                throw _iteratorError40;
               }
             }
           }
@@ -14825,16 +15026,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMedidores",
         value: function initMedidores(id) {
-          var _this100 = this;
+          var _this102 = this;
 
           this.meterService.getUsersMeters(id).subscribe(function (response) {
-            _this100.meters = response.Medidores; // this.meters.sort((a, b) => (a.clave - b.clave));
+            _this102.meters = response.Medidores; // this.meters.sort((a, b) => (a.clave - b.clave));
 
-            _this100.loading = false;
-            console.log(_this100.meters);
+            _this102.loading = false;
+            console.log(_this102.meters);
           }, function (error) {
             console.error(error);
-            _this100.loading = false;
+            _this102.loading = false;
           });
         }
       }, {
@@ -15018,37 +15219,696 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.location = location;
         this.tablas = [];
         this.permisos = [];
+        this.specials = '!#$%&()*+,-.:;=?@[]^_{}~';
+        this.Uppers = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÑ';
+        this.Lowers = this.Uppers.toLowerCase();
+        this.Numbers = '0123456789';
         window.document.title = 'MerAgua - Registro de Empleados';
         this.title = 'Registro de Empleados';
         this.identity = JSON.parse(localStorage.getItem('identity'));
         if (this.identity.role_user.toLowerCase() == 'operador') this.router.navigate(['/inicio']);
+        this.initUser();
         this.employees = true;
         this.cedulaWarning = false;
         this.initUsuarios();
-        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_3__["User"](null, // "_id"
-        null, // "cuenta"
-        null, // "contrase"
-        null, // "correo"
-        null, // "nombre"
-        null, // "image"
-        null, // "apellido"
-        null, // "cedula"
-        null, // "direccion"
-        null, // "telefono"
-        null, // "fecha_nacimiento"
-        null, // "sexo"
-        null, // "role_user"
-        true, // "activa"
-        null);
       }
 
       _createClass(RegisterEmployeesComponent, [{
+        key: "initUser",
+        value: function initUser() {
+          this.user = new _models_user__WEBPACK_IMPORTED_MODULE_3__["User"](null, // "_id"
+          null, // "cuenta"
+          null, // "contrase"
+          null, // "correo"
+          null, // "nombre"
+          null, // "image"
+          null, // "apellido"
+          null, // "cedula"
+          null, // "direccion"
+          null, // "telefono"
+          null, // "fecha_nacimiento"
+          null, // "sexo"
+          null, // "role_user"
+          true, // "activa"
+          null);
+        }
+      }, {
+        key: "checkMail",
+        value: function checkMail(mail) {
+          var countAt = 0;
+          var mailArr = mail.split('@', 2);
+          var domain = mailArr[1].split('.', 2);
+          var org;
+          var type;
+
+          if (mailArr[1].indexOf('.', 0) == 1) {
+            org = domain[0];
+            type = domain[1];
+          }
+
+          var _iteratorNormalCompletion41 = true;
+          var _didIteratorError41 = false;
+          var _iteratorError41 = undefined;
+
+          try {
+            for (var _iterator41 = mail[Symbol.iterator](), _step41; !(_iteratorNormalCompletion41 = (_step41 = _iterator41.next()).done); _iteratorNormalCompletion41 = true) {
+              var caracter = _step41.value;
+
+              if (caracter == '@') {
+                countAt++;
+              }
+            }
+          } catch (err) {
+            _didIteratorError41 = true;
+            _iteratorError41 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion41 && _iterator41.return != null) {
+                _iterator41.return();
+              }
+            } finally {
+              if (_didIteratorError41) {
+                throw _iteratorError41;
+              }
+            }
+          }
+
+          if (countAt > 1 || countAt == 0) {
+            this.mailCheck = false;
+          } else {
+            var countUpp = 0;
+            var countSpec = 0;
+            var countSpac = 0;
+            var _iteratorNormalCompletion42 = true;
+            var _didIteratorError42 = false;
+            var _iteratorError42 = undefined;
+
+            try {
+              for (var _iterator42 = this.Uppers[Symbol.iterator](), _step42; !(_iteratorNormalCompletion42 = (_step42 = _iterator42.next()).done); _iteratorNormalCompletion42 = true) {
+                var upp = _step42.value;
+
+                if (mail.indexOf(upp, 0) >= 0) {
+                  countUpp++;
+                }
+              }
+            } catch (err) {
+              _didIteratorError42 = true;
+              _iteratorError42 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion42 && _iterator42.return != null) {
+                  _iterator42.return();
+                }
+              } finally {
+                if (_didIteratorError42) {
+                  throw _iteratorError42;
+                }
+              }
+            }
+
+            var _iteratorNormalCompletion43 = true;
+            var _didIteratorError43 = false;
+            var _iteratorError43 = undefined;
+
+            try {
+              for (var _iterator43 = this.specials[Symbol.iterator](), _step43; !(_iteratorNormalCompletion43 = (_step43 = _iterator43.next()).done); _iteratorNormalCompletion43 = true) {
+                var spec = _step43.value;
+                var dirname = mailArr[0] + org + type;
+
+                if (dirname.indexOf(spec, 0) >= 0) {
+                  countSpec++;
+                }
+              }
+            } catch (err) {
+              _didIteratorError43 = true;
+              _iteratorError43 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion43 && _iterator43.return != null) {
+                  _iterator43.return();
+                }
+              } finally {
+                if (_didIteratorError43) {
+                  throw _iteratorError43;
+                }
+              }
+            }
+
+            if (mail.indexOf(' ', 0) >= 0) countSpac++;
+
+            if (countUpp >= 1) {
+              this.mailCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Correo Incorrecto',
+                text: 'el correo no puede contener mayúsculas',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+            } else if (countSpec >= 1) {
+              this.mailCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Correo Incorrecto',
+                text: 'el correo no puede contener carecteres especiales',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+            } else if (countSpac >= 1) {
+              this.mailCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Correo Incorrecto',
+                text: 'el correo no puede contener espacios',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+            } else if (countUpp == 0 && countSpac == 0 && countSpec == 0) {
+              var countRep = 0;
+              var _iteratorNormalCompletion44 = true;
+              var _didIteratorError44 = false;
+              var _iteratorError44 = undefined;
+
+              try {
+                for (var _iterator44 = this.usuarios[Symbol.iterator](), _step44; !(_iteratorNormalCompletion44 = (_step44 = _iterator44.next()).done); _iteratorNormalCompletion44 = true) {
+                  var usuario = _step44.value;
+
+                  if (usuario.correo == mail) {
+                    countRep++;
+                  }
+                }
+              } catch (err) {
+                _didIteratorError44 = true;
+                _iteratorError44 = err;
+              } finally {
+                try {
+                  if (!_iteratorNormalCompletion44 && _iterator44.return != null) {
+                    _iterator44.return();
+                  }
+                } finally {
+                  if (_didIteratorError44) {
+                    throw _iteratorError44;
+                  }
+                }
+              }
+
+              if (countRep >= 1) {
+                this.mailCheck = false;
+                sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                  icon: 'error',
+                  title: 'Correo Incorrecto',
+                  text: 'el correo no puede ser el de otro usuario',
+                  position: 'top',
+                  grow: 'row',
+                  toast: true,
+                  timer: 3500,
+                  showConfirmButton: false
+                });
+              } else {
+                this.mailCheck = true;
+                sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                  icon: 'success',
+                  title: 'Correo Correcto',
+                  text: 'El correo proporcionado es correcto',
+                  position: 'top',
+                  grow: 'row',
+                  toast: true,
+                  timer: 3500,
+                  showConfirmButton: false
+                });
+              }
+            }
+          }
+        }
+      }, {
+        key: "checkPass",
+        value: function checkPass(pass) {
+          var countSpe = 0;
+          var countUpp = 0;
+          var countLow = 0;
+          var countNum = 0; // Primera Comprobacion, Caracteres especiales
+
+          var _iteratorNormalCompletion45 = true;
+          var _didIteratorError45 = false;
+          var _iteratorError45 = undefined;
+
+          try {
+            for (var _iterator45 = this.specials[Symbol.iterator](), _step45; !(_iteratorNormalCompletion45 = (_step45 = _iterator45.next()).done); _iteratorNormalCompletion45 = true) {
+              var caracter = _step45.value;
+
+              if (pass.indexOf(caracter, 0) >= 0) {
+                countSpe++;
+              }
+            } // Segunda Comprobacion, Mayusculas
+
+          } catch (err) {
+            _didIteratorError45 = true;
+            _iteratorError45 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion45 && _iterator45.return != null) {
+                _iterator45.return();
+              }
+            } finally {
+              if (_didIteratorError45) {
+                throw _iteratorError45;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion46 = true;
+          var _didIteratorError46 = false;
+          var _iteratorError46 = undefined;
+
+          try {
+            for (var _iterator46 = this.Uppers[Symbol.iterator](), _step46; !(_iteratorNormalCompletion46 = (_step46 = _iterator46.next()).done); _iteratorNormalCompletion46 = true) {
+              var _caracter = _step46.value;
+
+              if (pass.indexOf(_caracter, 0) >= 0) {
+                countUpp++;
+              }
+            } // Tercera Comprobacion, Minusculas
+
+          } catch (err) {
+            _didIteratorError46 = true;
+            _iteratorError46 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion46 && _iterator46.return != null) {
+                _iterator46.return();
+              }
+            } finally {
+              if (_didIteratorError46) {
+                throw _iteratorError46;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion47 = true;
+          var _didIteratorError47 = false;
+          var _iteratorError47 = undefined;
+
+          try {
+            for (var _iterator47 = this.Lowers[Symbol.iterator](), _step47; !(_iteratorNormalCompletion47 = (_step47 = _iterator47.next()).done); _iteratorNormalCompletion47 = true) {
+              var _caracter2 = _step47.value;
+
+              if (pass.indexOf(_caracter2, 0) >= 0) {
+                countLow++;
+              }
+            } // Ultima Comprobacion, Numeros
+
+          } catch (err) {
+            _didIteratorError47 = true;
+            _iteratorError47 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion47 && _iterator47.return != null) {
+                _iterator47.return();
+              }
+            } finally {
+              if (_didIteratorError47) {
+                throw _iteratorError47;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion48 = true;
+          var _didIteratorError48 = false;
+          var _iteratorError48 = undefined;
+
+          try {
+            for (var _iterator48 = this.Numbers[Symbol.iterator](), _step48; !(_iteratorNormalCompletion48 = (_step48 = _iterator48.next()).done); _iteratorNormalCompletion48 = true) {
+              var _caracter3 = _step48.value;
+
+              if (pass.indexOf(_caracter3, 0) >= 0) {
+                countNum++;
+              }
+            }
+          } catch (err) {
+            _didIteratorError48 = true;
+            _iteratorError48 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion48 && _iterator48.return != null) {
+                _iterator48.return();
+              }
+            } finally {
+              if (_didIteratorError48) {
+                throw _iteratorError48;
+              }
+            }
+          }
+
+          switch (0) {
+            case countSpe:
+              this.passCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Contraseña Incorrecta',
+                text: 'La Contraseña debe contener al menos un caracter especial',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            case countUpp:
+              this.passCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Contraseña Incorrecta',
+                text: 'La Contraseña debe contener al menos una letra Mayúscula',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            case countNum:
+              this.passCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Contraseña Incorrecta',
+                text: 'La Contraseña debe contener al menos un número',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            case countLow:
+              this.passCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Contraseña Incorrecta',
+                text: 'La Contraseña debe contener al menos una letra Minúscula',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            default:
+              this.passCheck = true;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'success',
+                title: 'Contraseña Correcta',
+                text: null,
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+          }
+        }
+      }, {
+        key: "checkUser",
+        value: function checkUser(user) {
+          var countSpe = 0;
+          var countUpp = 0;
+          var countLow = 0;
+          var countNum = 0; // Primera Comprobacion, Caracteres especiales
+
+          var _iteratorNormalCompletion49 = true;
+          var _didIteratorError49 = false;
+          var _iteratorError49 = undefined;
+
+          try {
+            for (var _iterator49 = this.specials[Symbol.iterator](), _step49; !(_iteratorNormalCompletion49 = (_step49 = _iterator49.next()).done); _iteratorNormalCompletion49 = true) {
+              var caracter = _step49.value;
+
+              if (user.indexOf(caracter, 0) >= 0) {
+                countSpe++;
+              }
+            } // Segunda Comprobacion, Mayusculas
+
+          } catch (err) {
+            _didIteratorError49 = true;
+            _iteratorError49 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion49 && _iterator49.return != null) {
+                _iterator49.return();
+              }
+            } finally {
+              if (_didIteratorError49) {
+                throw _iteratorError49;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion50 = true;
+          var _didIteratorError50 = false;
+          var _iteratorError50 = undefined;
+
+          try {
+            for (var _iterator50 = this.Uppers[Symbol.iterator](), _step50; !(_iteratorNormalCompletion50 = (_step50 = _iterator50.next()).done); _iteratorNormalCompletion50 = true) {
+              var _caracter4 = _step50.value;
+
+              if (user.indexOf(_caracter4, 0) >= 0) {
+                countUpp++;
+              }
+            } // Tercera Comprobacion, Minusculas
+
+          } catch (err) {
+            _didIteratorError50 = true;
+            _iteratorError50 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion50 && _iterator50.return != null) {
+                _iterator50.return();
+              }
+            } finally {
+              if (_didIteratorError50) {
+                throw _iteratorError50;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion51 = true;
+          var _didIteratorError51 = false;
+          var _iteratorError51 = undefined;
+
+          try {
+            for (var _iterator51 = this.Lowers[Symbol.iterator](), _step51; !(_iteratorNormalCompletion51 = (_step51 = _iterator51.next()).done); _iteratorNormalCompletion51 = true) {
+              var _caracter5 = _step51.value;
+
+              if (user.indexOf(_caracter5, 0) >= 0) {
+                countLow++;
+              }
+            } // Ultima Comprobacion, Numeros
+
+          } catch (err) {
+            _didIteratorError51 = true;
+            _iteratorError51 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion51 && _iterator51.return != null) {
+                _iterator51.return();
+              }
+            } finally {
+              if (_didIteratorError51) {
+                throw _iteratorError51;
+              }
+            }
+          }
+
+          var _iteratorNormalCompletion52 = true;
+          var _didIteratorError52 = false;
+          var _iteratorError52 = undefined;
+
+          try {
+            for (var _iterator52 = this.Numbers[Symbol.iterator](), _step52; !(_iteratorNormalCompletion52 = (_step52 = _iterator52.next()).done); _iteratorNormalCompletion52 = true) {
+              var _caracter6 = _step52.value;
+
+              if (user.indexOf(_caracter6, 0) >= 0) {
+                countNum++;
+              }
+            }
+          } catch (err) {
+            _didIteratorError52 = true;
+            _iteratorError52 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion52 && _iterator52.return != null) {
+                _iterator52.return();
+              }
+            } finally {
+              if (_didIteratorError52) {
+                throw _iteratorError52;
+              }
+            }
+          }
+
+          switch (0) {
+            case countSpe:
+              this.userCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Nombre de Cuenta Incorrecta',
+                text: 'El usuario debe contener al menos un caracter especial',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            case countUpp:
+              this.userCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Nombre de Cuenta Incorrecta',
+                text: 'El usuario debe contener al menos una letra Mayúscula',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            case countNum:
+              this.userCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Nombre de Cuenta Incorrecta',
+                text: 'El Nombre de Cuenta debe contener al menos un número',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            case countLow:
+              this.userCheck = false;
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'warning',
+                title: 'Nombre de Cuenta Incorrecta',
+                text: 'El Nombre de Cuenta debe contener al menos una letra Minúscula',
+                position: 'top',
+                grow: 'row',
+                toast: true,
+                timer: 3500,
+                showConfirmButton: false
+              });
+              break;
+
+            default:
+              // this.userCheck = true;
+              // Swal.fire({
+              //   icon: 'success',
+              //   title: 'Cuenta de Usuario Correcta',
+              //   text: null,
+              //   position: 'top',
+              //   grow: 'row',
+              //   toast: true,
+              //   timer: 3500,
+              //   showConfirmButton: false
+              // });
+              var count = 0;
+
+              if (user.length >= 6 && user.length <= 24) {
+                if (this.usuarios && this.usuarios.length >= 1) {
+                  var _iteratorNormalCompletion53 = true;
+                  var _didIteratorError53 = false;
+                  var _iteratorError53 = undefined;
+
+                  try {
+                    for (var _iterator53 = this.usuarios[Symbol.iterator](), _step53; !(_iteratorNormalCompletion53 = (_step53 = _iterator53.next()).done); _iteratorNormalCompletion53 = true) {
+                      var usuario = _step53.value;
+
+                      if (usuario.cuenta == user) {
+                        count++;
+                      }
+                    }
+                  } catch (err) {
+                    _didIteratorError53 = true;
+                    _iteratorError53 = err;
+                  } finally {
+                    try {
+                      if (!_iteratorNormalCompletion53 && _iterator53.return != null) {
+                        _iterator53.return();
+                      }
+                    } finally {
+                      if (_didIteratorError53) {
+                        throw _iteratorError53;
+                      }
+                    }
+                  }
+                }
+
+                if (count == 0) {
+                  sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                    icon: 'success',
+                    title: 'Nombre de Cuenta Correcto!',
+                    text: 'El Nombre de Cuenta es nuevo en el sistema',
+                    position: 'top',
+                    grow: 'row',
+                    toast: true,
+                    timer: 3500,
+                    showConfirmButton: false
+                  });
+                  this.userCheck = true;
+                } else {
+                  this.userCheck = false;
+                }
+              } else if (user.length < 6) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                  icon: 'error',
+                  title: 'Error en el largo del Nombre de Cuenta!',
+                  text: 'El Nombre de Cuenta debe tener al menos 6 caracteres',
+                  position: 'top',
+                  grow: 'row',
+                  toast: true,
+                  timer: 3500,
+                  showConfirmButton: false
+                });
+              } else if (user.length > 24) {
+                sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                  icon: 'error',
+                  title: 'Error en el largo del Nombre de Cuenta!',
+                  text: 'El Nombre de Cuenta debe tener un máximo de 24 caracteres',
+                  position: 'top',
+                  grow: 'row',
+                  toast: true,
+                  timer: 3500,
+                  showConfirmButton: false
+                });
+              }
+
+              break;
+          }
+        }
+      }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this101 = this;
+          var _this103 = this;
 
           this.userService.showRaw().subscribe(function (response) {
-            _this101.usuarios = response.Usuarios;
+            _this103.usuarios = response.Usuarios;
           });
         }
       }, {
@@ -15088,6 +15948,28 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.onEdit = true;
           this.cedulaWarning = true;
           this.status = null; // this.EditicionDeUsuario.emit(user);
+
+          this.mailCheck = true;
+          this.userCheck = true;
+          this.passCheck = true;
+
+          for (var i = 0; i < this.usuarios.length; i++) {
+            var usuario = this.usuarios[i];
+
+            if (usuario.correo == user.correo) {
+              usuario.correo = '';
+            }
+
+            if (usuario.cuenta == user.cuenta) {
+              usuario.correo = '';
+            }
+
+            if (usuario.cedula == user.cedula) {
+              usuario.correo = '';
+            }
+          }
+
+          console.log(this.usuarios);
         }
       }, {
         key: "onSubmit",
@@ -15103,20 +15985,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this102 = this;
+          var _this104 = this;
 
           this.userService.register(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this102.status = true;
+              _this104.status = true;
               form.reset(); // alert(response.Message);
 
-              _this102.launchAlert('success', 'Se ha ingresado el nuevo Empleado!', 'Nombres: ' + response.User.nombre + ' ' + response.User.apellido + ', Cuenta: ' + response.User.cuenta, null, false, 1500, null, 'top', 'row', true);
+              _this104.launchAlert('success', 'Se ha ingresado el nuevo Empleado!', 'Nombres: ' + response.User.nombre + ' ' + response.User.apellido + ', Cuenta: ' + response.User.cuenta, null, false, 1500, null, 'top', 'row', true);
 
-              _this102.status = null; // this.ingresado = true;
+              _this104.status = null; // this.ingresado = true;
               // this.user = response.User;
             } else {
               alert('No se pudo ingresar este usuario');
-              _this102.status = false;
+              _this104.status = false;
             }
           }, function (error) {
             console.log(error.Message);
@@ -15131,26 +16013,50 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               timer: 1500
             }); // alert(error.error.Message);
 
-            _this102.status = false;
+            _this104.status = false;
             console.log(error);
           });
         }
       }, {
         key: "update",
         value: function update(form) {
-          var _this103 = this;
+          var _this105 = this;
 
           this.userService.updateUser(this.user).subscribe(function (response) {
-            if (response.User && response.User._id) {
-              _this103.status = true;
-              alert(response.Message);
-              _this103.user = response.User;
-              _this103.onEdit = null;
+            if (response.user && response.user._id) {
+              _this105.status = true; // alert(response.Message);
+
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'success',
+                title: 'Exito al Editar el Usuario',
+                timer: 3500,
+                showConfirmButton: false,
+                grow: 'row',
+                backdrop: null,
+                toast: true,
+                position: 'top'
+              });
+
+              _this105.initUser();
+
+              _this105.onEdit = null;
             } else {
-              alert(response.Message);
+              console.error(response);
+              sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
+                icon: 'success',
+                title: 'Exito al Editar el Usuario',
+                timer: 3500,
+                showConfirmButton: false,
+                grow: 'row',
+                backdrop: null,
+                toast: true,
+                position: 'top'
+              });
+
+              _this105.initUser();
             }
           }, function (error) {
-            console.log(error); // alert(error.message);
+            console.error(error); // alert(error.message);
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
               title: 'Error al Editar el Usuario',
@@ -15167,16 +16073,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loadTables",
         value: function loadTables() {
-          var _this104 = this;
+          var _this106 = this;
 
           this.tableService.getTables().subscribe(function (response) {
-            _this104.tablas = response.Tabla;
-            _this104.permisos = [], [];
+            _this106.tablas = response.Tabla;
+            _this106.permisos = [], [];
 
-            for (var index = 0; index < _this104.tablas.length; index++) {
-              var element = _this104.tablas[index];
+            for (var index = 0; index < _this106.tablas.length; index++) {
+              var element = _this106.tablas[index];
 
-              _this104.permisos.push({
+              _this106.permisos.push({
                 _id: null,
                 tabla: element._id,
                 crear: false,
@@ -15198,7 +16104,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "verifyCedula",
         value: function verifyCedula(cedula) {
-          var _this105 = this;
+          var _this107 = this;
 
           this.cedulaCorrecta = false;
 
@@ -15244,16 +16150,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             }
 
             if (this.cedulaCorrecta == true) {
-              var _iteratorNormalCompletion37 = true;
-              var _didIteratorError37 = false;
-              var _iteratorError37 = undefined;
+              var _iteratorNormalCompletion54 = true;
+              var _didIteratorError54 = false;
+              var _iteratorError54 = undefined;
 
               try {
                 var _loop4 = function _loop4() {
-                  var usuario = _step37.value;
+                  var usuario = _step54.value;
 
                   if (cedula == usuario.cedula) {
-                    _this105.transformando = false;
+                    _this107.transformando = false;
 
                     if (usuario.role_user.toLowerCase() != 'common' && usuario.role_user.toLowerCase() != 'simple') {
                       sweetalert2__WEBPACK_IMPORTED_MODULE_7___default.a.fire({
@@ -15273,30 +16179,30 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                         cancelButtonText: 'No, Ingresar otro.'
                       }).then(function (result) {
                         if (result.value) {
-                          _this105.transformando = true;
-                          _this105.user = usuario;
+                          _this107.transformando = true;
+                          _this107.user = usuario;
                         } else if (!result.value) {
-                          _this105.user.cedula = null;
+                          _this107.user.cedula = null;
                         }
                       });
                     }
                   }
                 };
 
-                for (var _iterator37 = this.usuarios[Symbol.iterator](), _step37; !(_iteratorNormalCompletion37 = (_step37 = _iterator37.next()).done); _iteratorNormalCompletion37 = true) {
+                for (var _iterator54 = this.usuarios[Symbol.iterator](), _step54; !(_iteratorNormalCompletion54 = (_step54 = _iterator54.next()).done); _iteratorNormalCompletion54 = true) {
                   _loop4();
                 }
               } catch (err) {
-                _didIteratorError37 = true;
-                _iteratorError37 = err;
+                _didIteratorError54 = true;
+                _iteratorError54 = err;
               } finally {
                 try {
-                  if (!_iteratorNormalCompletion37 && _iterator37.return != null) {
-                    _iterator37.return();
+                  if (!_iteratorNormalCompletion54 && _iterator54.return != null) {
+                    _iterator54.return();
                   }
                 } finally {
-                  if (_didIteratorError37) {
-                    throw _iteratorError37;
+                  if (_didIteratorError54) {
+                    throw _iteratorError54;
                   }
                 }
               }
@@ -15315,7 +16221,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "desactivarCuenta",
         value: function desactivarCuenta(pass) {
-          var _this106 = this;
+          var _this108 = this;
 
           var userpass = {
             contrase: pass
@@ -15325,18 +16231,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             if (response.check == true) {
               var user;
-              if (_this106.user.activa == true) user = {
+              if (_this108.user.activa == true) user = {
                 activa: false
               };
-              if (_this106.user.activa == false) user = {
+              if (_this108.user.activa == false) user = {
                 activa: true
               };
 
-              _this106.userService.changeActiva(user, _this106.user._id).subscribe(function (response) {
-                _this106.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
+              _this108.userService.changeActiva(user, _this108.user._id).subscribe(function (response) {
+                _this108.launchAlert('success', 'Estado del usuario Cambiado!', response.Message, null, false, 1500, null, 'top', 'row', true);
 
-                _this106.user = response.user;
-                console.log(_this106.user);
+                _this108.user = response.user;
+                console.log(_this108.user);
               });
             }
           });
@@ -15344,14 +16250,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "cambiarContrase",
         value: function cambiarContrase(pass) {
-          var _this107 = this;
+          var _this109 = this;
 
           console.log(pass);
           var userpass = {
             contrase: pass
           };
           this.userService.updatePassword(userpass, this.user._id).subscribe(function (response) {
-            _this107.launchAlert('success', 'Clave del usuario Cambiada!', response.Message, null, false, 1500, null, 'top', 'row', true);
+            _this109.launchAlert('success', 'Clave del usuario Cambiada!', response.Message, null, false, 1500, null, 'top', 'row', true);
           });
         }
       }, {
@@ -15592,27 +16498,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "save",
         value: function save(form) {
-          var _this108 = this;
+          var _this110 = this;
 
           // llamado al servicio del usuario para enviar el nuevo objeto [user] a la base de datos
           this.userService.registerSimple(this.user).subscribe(function (response) {
             // en caso de que el backend responda con los datos del usuario editado se presenta un mensaje de correcto
             if (response.user && response.user._id) {
-              _this108.status = true;
+              _this110.status = true;
               form.reset();
 
-              _this108.launchAlert('success', 'Se ha Ingresado un Nuevo Usuario!', 'El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', Ha sido ingresado exitosamente!', null, false, 1500, null, 'top', 'row', true); // si el servidor no ha respondido con los parametros correctos (hubo un error), se presenta un mensaje de error
+              _this110.launchAlert('success', 'Se ha Ingresado un Nuevo Usuario!', 'El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', Ha sido ingresado exitosamente!', null, false, 1500, null, 'top', 'row', true); // si el servidor no ha respondido con los parametros correctos (hubo un error), se presenta un mensaje de error
 
             } else {
-              _this108.status = false;
+              _this110.status = false;
 
-              _this108.launchAlert('error', 'No se ha podido ingresar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this110.launchAlert('error', 'No se ha podido ingresar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
             }
           }, function (error) {
             // en caso de que el backend no responda o directamente arroje un error se presenta un mensaje de error
-            _this108.launchAlert('error', 'No se ha podido ingresar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
+            _this110.launchAlert('error', 'No se ha podido ingresar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
 
-            _this108.status = false;
+            _this110.status = false;
             console.log(error);
           });
         } // metodo de actualizacion de los datos del usuario
@@ -15620,26 +16526,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "update",
         value: function update(form) {
-          var _this109 = this;
+          var _this111 = this;
 
           // subscripcion al servicio de usuario para enviar los datos a editar
           this.userService.updateCommons(this.user).subscribe(function (response) {
             if (response.User && response.User._id) {
-              _this109.status = true;
+              _this111.status = true;
               form.reset();
 
-              _this109.launchAlert('success', 'Se ha Editado el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this111.launchAlert('success', 'Se ha Editado el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
 
-              _this109.onEdit = null;
+              _this111.onEdit = null;
             } else {
               console.log(response);
 
-              _this109.launchAlert('error', 'No se ha podido editar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
+              _this111.launchAlert('error', 'No se ha podido editar el Usuario!', null, null, false, 1500, null, 'top', 'row', true);
             }
           }, function (error) {
             console.log(error);
 
-            _this109.launchAlert('error', 'No se ha podido editar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
+            _this111.launchAlert('error', 'No se ha podido editar el Usuario!', error.error.Message, null, false, 1500, null, 'top', 'row', true);
           });
         } // Metodo para conformar la edicion de la cedula
 
@@ -15711,13 +16617,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "ComprobarCedula",
         value: function ComprobarCedula(cedula) {
           var count = 0;
-          var _iteratorNormalCompletion38 = true;
-          var _didIteratorError38 = false;
-          var _iteratorError38 = undefined;
+          var _iteratorNormalCompletion55 = true;
+          var _didIteratorError55 = false;
+          var _iteratorError55 = undefined;
 
           try {
-            for (var _iterator38 = this.cedulas[Symbol.iterator](), _step38; !(_iteratorNormalCompletion38 = (_step38 = _iterator38.next()).done); _iteratorNormalCompletion38 = true) {
-              var almacenada = _step38.value;
+            for (var _iterator55 = this.cedulas[Symbol.iterator](), _step55; !(_iteratorNormalCompletion55 = (_step55 = _iterator55.next()).done); _iteratorNormalCompletion55 = true) {
+              var almacenada = _step55.value;
               almacenada.cedula = almacenada.cedula.replace(/-/gi, '');
 
               if (almacenada.cedula == cedula) {
@@ -15725,16 +16631,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError38 = true;
-            _iteratorError38 = err;
+            _didIteratorError55 = true;
+            _iteratorError55 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion38 && _iterator38.return != null) {
-                _iterator38.return();
+              if (!_iteratorNormalCompletion55 && _iterator55.return != null) {
+                _iterator55.return();
               }
             } finally {
-              if (_didIteratorError38) {
-                throw _iteratorError38;
+              if (_didIteratorError55) {
+                throw _iteratorError55;
               }
             }
           }
@@ -15757,10 +16663,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initCedulas",
         value: function initCedulas() {
-          var _this110 = this;
+          var _this112 = this;
 
           this.statisticsService.getCedulas().subscribe(function (response) {
-            _this110.cedulas = response.cedulas;
+            _this112.cedulas = response.cedulas;
             console.log(response.Message);
           });
         }
@@ -15774,29 +16680,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           if (origen == 'direccion') this.direccionCorrecta = true;
 
           if (cadena && cadena.length && cadena.length >= 3 && cadena.length <= 24) {
-            var _iteratorNormalCompletion39 = true;
-            var _didIteratorError39 = false;
-            var _iteratorError39 = undefined;
+            var _iteratorNormalCompletion56 = true;
+            var _didIteratorError56 = false;
+            var _iteratorError56 = undefined;
 
             try {
-              for (var _iterator39 = cadena[Symbol.iterator](), _step39; !(_iteratorNormalCompletion39 = (_step39 = _iterator39.next()).done); _iteratorNormalCompletion39 = true) {
-                var caracter = _step39.value;
+              for (var _iterator56 = cadena[Symbol.iterator](), _step56; !(_iteratorNormalCompletion56 = (_step56 = _iterator56.next()).done); _iteratorNormalCompletion56 = true) {
+                var caracter = _step56.value;
 
                 if (numeros.indexOf(caracter) != -1) {
                   hasNumbers = true;
                 }
               }
             } catch (err) {
-              _didIteratorError39 = true;
-              _iteratorError39 = err;
+              _didIteratorError56 = true;
+              _iteratorError56 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion39 && _iterator39.return != null) {
-                  _iterator39.return();
+                if (!_iteratorNormalCompletion56 && _iterator56.return != null) {
+                  _iterator56.return();
                 }
               } finally {
-                if (_didIteratorError39) {
-                  throw _iteratorError39;
+                if (_didIteratorError56) {
+                  throw _iteratorError56;
                 }
               }
             }
@@ -16002,33 +16908,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit() {
-          var _this111 = this;
+          var _this113 = this;
 
           this.userService.updateUser(this.user).subscribe(function (response) {
             if (!response.user) {
-              _this111.status = 'error';
+              _this113.status = 'error';
             } else {
-              _this111.status = 'success'; // localStorage.setItem('identity', JSON.stringify(this.user));
+              _this113.status = 'success'; // localStorage.setItem('identity', JSON.stringify(this.user));
 
-              _this111.uploadService.makeFileRequest(_this111.url + 'image/' + _this111.user._id, [], _this111.filesToUpload, _this111.token, 'image').then(function (result) {
+              _this113.uploadService.makeFileRequest(_this113.url + 'image/' + _this113.user._id, [], _this113.filesToUpload, _this113.token, 'image').then(function (result) {
                 console.log('dentro de makeFileRequest');
-                _this111.user.image = result.user.image;
-                _this111.identity = _this111.user;
-                localStorage.setItem('identity', JSON.stringify(_this111.identity));
+                _this113.user.image = result.user.image;
+                _this113.identity = _this113.user;
+                localStorage.setItem('identity', JSON.stringify(_this113.identity));
               }).catch(function (result) {
                 console.log('error' + result);
               });
             }
           }, function (error) {
             console.log(error);
-            _this111.errorCatched.description = error.toString();
-            _this111.errorCatched.table = 'User';
-            _this111.errorCatched.action = 'editUser';
-            _this111.errorCatched.title = 'Error al editar el usuario';
-            _this111.errorCatched.zone = 'user-edit';
-            _this111.errorCatched.code = _this111.errorCatched.zone + '-' + _this111.errorCatched.action + '-' + _this111.errorCatched.table;
+            _this113.errorCatched.description = error.toString();
+            _this113.errorCatched.table = 'User';
+            _this113.errorCatched.action = 'editUser';
+            _this113.errorCatched.title = 'Error al editar el usuario';
+            _this113.errorCatched.zone = 'user-edit';
+            _this113.errorCatched.code = _this113.errorCatched.zone + '-' + _this113.errorCatched.action + '-' + _this113.errorCatched.table;
 
-            _this111.errorCatcherService.saveError(_this111.errorCatched).subscribe(function (response) {
+            _this113.errorCatcherService.saveError(_this113.errorCatched).subscribe(function (response) {
               alert(response.Message);
             });
           });
@@ -16174,13 +17080,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           localSearch = [], [];
 
           if (this.users) {
-            var _iteratorNormalCompletion40 = true;
-            var _didIteratorError40 = false;
-            var _iteratorError40 = undefined;
+            var _iteratorNormalCompletion57 = true;
+            var _didIteratorError57 = false;
+            var _iteratorError57 = undefined;
 
             try {
-              for (var _iterator40 = this.users[Symbol.iterator](), _step40; !(_iteratorNormalCompletion40 = (_step40 = _iterator40.next()).done); _iteratorNormalCompletion40 = true) {
-                var user = _step40.value;
+              for (var _iterator57 = this.users[Symbol.iterator](), _step57; !(_iteratorNormalCompletion57 = (_step57 = _iterator57.next()).done); _iteratorNormalCompletion57 = true) {
+                var user = _step57.value;
                 var datos = user.nombre + user.apellido + user.direccion + user.cedula;
 
                 if (user.cuenta) {
@@ -16195,16 +17101,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 }
               }
             } catch (err) {
-              _didIteratorError40 = true;
-              _iteratorError40 = err;
+              _didIteratorError57 = true;
+              _iteratorError57 = err;
             } finally {
               try {
-                if (!_iteratorNormalCompletion40 && _iterator40.return != null) {
-                  _iterator40.return();
+                if (!_iteratorNormalCompletion57 && _iterator57.return != null) {
+                  _iterator57.return();
                 }
               } finally {
-                if (_didIteratorError40) {
-                  throw _iteratorError40;
+                if (_didIteratorError57) {
+                  throw _iteratorError57;
                 }
               }
             }
@@ -16393,27 +17299,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getUsers",
         value: function getUsers() {
-          var _this112 = this;
+          var _this114 = this;
 
           if (!this.SearchedUsers) {
             // llamado al servicio con el metodo ShowRaw que devuelve los usuarios sin paginar
             this.userService.showRaw().subscribe( // respuesta del servidor //
             function (response) {
-              if (_this112.employees) {
-                _this112.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
+              if (_this114.employees) {
+                _this114.usuarios = [], []; // tslint:disable-next-line: prefer-for-of
 
                 for (var index = 0; index < response.Usuarios.length; index++) {
                   var usuario = response.Usuarios[index];
 
                   if (usuario.role_user.toLowerCase() !== 'simple' && usuario.role_user.toLowerCase() !== 'common') {
-                    _this112.usuarios.push(usuario);
+                    _this114.usuarios.push(usuario);
                   }
                 }
-              } else if (!_this112.employees) {
+              } else if (!_this114.employees) {
                 var users = JSON.stringify(response.Usuarios);
-                _this112.usuarios = response.Usuarios;
+                _this114.usuarios = response.Usuarios;
 
-                _this112.EnvioDeUsuarios.emit(users);
+                _this114.EnvioDeUsuarios.emit(users);
               } // asignacion a la variable local "usuarios" de la coleccion de "Usuarios" almacenada en la respuesta [response]
 
             }, // error del servidor //
@@ -16834,16 +17740,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getShortMessages",
         value: function getShortMessages() {
-          var _this113 = this;
+          var _this115 = this;
 
           this.messageService.getMyMessage(this.token, 1).subscribe(function (response) {
             if (response.Pages >= 5) {
-              _this113.more = true;
+              _this115.more = true;
             }
 
-            _this113.total.emit(response.Total + '.' + response.Messages[0].created_at);
+            _this115.total.emit(response.Total + '.' + response.Messages[0].created_at);
 
-            _this113.messages = response.Messages;
+            _this115.messages = response.Messages;
           }, function (error) {
             console.log(error);
           });
@@ -17909,13 +18815,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "filterByDate",
         value: function filterByDate() {
           this.registerList = [];
-          var _iteratorNormalCompletion41 = true;
-          var _didIteratorError41 = false;
-          var _iteratorError41 = undefined;
+          var _iteratorNormalCompletion58 = true;
+          var _didIteratorError58 = false;
+          var _iteratorError58 = undefined;
 
           try {
-            for (var _iterator41 = this.bufferRegisters[Symbol.iterator](), _step41; !(_iteratorNormalCompletion41 = (_step41 = _iterator41.next()).done); _iteratorNormalCompletion41 = true) {
-              var registro = _step41.value;
+            for (var _iterator58 = this.bufferRegisters[Symbol.iterator](), _step58; !(_iteratorNormalCompletion58 = (_step58 = _iterator58.next()).done); _iteratorNormalCompletion58 = true) {
+              var registro = _step58.value;
               var fechaDesde = moment__WEBPACK_IMPORTED_MODULE_6__(this.desde);
               var fechaHasta = moment__WEBPACK_IMPORTED_MODULE_6__(this.hasta);
               var fechaFactura = void 0;
@@ -17930,16 +18836,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               }
             }
           } catch (err) {
-            _didIteratorError41 = true;
-            _iteratorError41 = err;
+            _didIteratorError58 = true;
+            _iteratorError58 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion41 && _iterator41.return != null) {
-                _iterator41.return();
+              if (!_iteratorNormalCompletion58 && _iterator58.return != null) {
+                _iterator58.return();
               }
             } finally {
-              if (_didIteratorError41) {
-                throw _iteratorError41;
+              if (_didIteratorError58) {
+                throw _iteratorError58;
               }
             }
           }
@@ -18045,29 +18951,29 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "searchMeters",
         value: function searchMeters() {
           this.meterList = [];
-          var _iteratorNormalCompletion42 = true;
-          var _didIteratorError42 = false;
-          var _iteratorError42 = undefined;
+          var _iteratorNormalCompletion59 = true;
+          var _didIteratorError59 = false;
+          var _iteratorError59 = undefined;
 
           try {
-            for (var _iterator42 = this.meters[Symbol.iterator](), _step42; !(_iteratorNormalCompletion42 = (_step42 = _iterator42.next()).done); _iteratorNormalCompletion42 = true) {
-              var medidor = _step42.value;
+            for (var _iterator59 = this.meters[Symbol.iterator](), _step59; !(_iteratorNormalCompletion59 = (_step59 = _iterator59.next()).done); _iteratorNormalCompletion59 = true) {
+              var medidor = _step59.value;
 
               if (medidor.user._id == this.usuarioActual) {
                 this.meterList.push(medidor);
               }
             }
           } catch (err) {
-            _didIteratorError42 = true;
-            _iteratorError42 = err;
+            _didIteratorError59 = true;
+            _iteratorError59 = err;
           } finally {
             try {
-              if (!_iteratorNormalCompletion42 && _iterator42.return != null) {
-                _iterator42.return();
+              if (!_iteratorNormalCompletion59 && _iterator59.return != null) {
+                _iterator59.return();
               }
             } finally {
-              if (_didIteratorError42) {
-                throw _iteratorError42;
+              if (_didIteratorError59) {
+                throw _iteratorError59;
               }
             }
           }
@@ -18080,16 +18986,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "searchRegisters",
         value: function searchRegisters() {
-          var _this114 = this;
+          var _this116 = this;
 
           this.registerList = null;
           this.registerList = [];
 
           if (!this.userList || this.userList.length <= 0) {
             this.meterService.getMeterForConsulting(this.medidorActual).subscribe(function (response) {
-              _this114.userList = [];
+              _this116.userList = [];
 
-              _this114.userList.push(response.meter.user);
+              _this116.userList.push(response.meter.user);
             });
           }
 
@@ -18101,10 +19007,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 var registro = response.Registros[i];
                 registro.numero = i + 1;
 
-                _this114.registerList.push(registro);
+                _this116.registerList.push(registro);
               }
 
-              _this114.registerList.sort(function (a, b) {
+              _this116.registerList.sort(function (a, b) {
                 var fecha1 = moment__WEBPACK_IMPORTED_MODULE_6__(a.month + 1 + '-01-' + a.year);
                 var fecha2 = moment__WEBPACK_IMPORTED_MODULE_6__(b.month + 1 + '-01-' + b.year);
                 var difference = fecha1.diff(fecha2, 'months');
@@ -18113,9 +19019,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
                 if (difference == 0) return 0;
               });
 
-              _this114.bufferRegisters = _this114.registerList;
+              _this116.bufferRegisters = _this116.registerList;
             } else {
-              _this114.registerList = null;
+              _this116.registerList = null;
             }
           });
         }
@@ -18129,11 +19035,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initMeters",
         value: function initMeters() {
-          var _this115 = this;
+          var _this117 = this;
 
           this.loading = false;
           this.meterService.showMetersForConsulting().subscribe(function (response) {
-            _this115.meters = response.Medidores;
+            _this117.meters = response.Medidores;
           }, function (error) {
             console.log(error);
           });
@@ -18155,10 +19061,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "initUsuarios",
         value: function initUsuarios() {
-          var _this116 = this;
+          var _this118 = this;
 
           this.userService.showForConsulting().subscribe(function (response) {
-            _this116.usuarios = response.Usuarios;
+            _this118.usuarios = response.Usuarios;
           }, function (error) {
             console.log(error);
           });
@@ -18382,20 +19288,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "loginUser",
         value: function loginUser(user) {
-          var _this117 = this;
+          var _this119 = this;
 
           this.userService.login(user).subscribe(function (response) {
-            _this117.identity = response.user;
-            console.log('respuesta' + _this117.identity);
+            _this119.identity = response.user;
+            console.log('respuesta' + _this119.identity);
 
-            if (_this117.identity && _this117.identity._id !== 'undefined') {
+            if (_this119.identity && _this119.identity._id !== 'undefined') {
               // localStorage.setItem('role_user', this.identity.role_user);
-              _this117.goToInicio(); // alert('El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', ha sido Ingresado');
+              _this119.goToInicio(); // alert('El Usuario: ' + response.user.nombre + ' ' + response.user.apellido + ', ha sido Ingresado');
 
-            } else if (!_this117.identity && !_this117.identity._id) {
+            } else if (!_this119.identity && !_this119.identity._id) {
               alert('Error en la cuenta y/o contraseña');
-              console.log('respuesta' + _this117.identity);
-              _this117.status = false;
+              console.log('respuesta' + _this119.identity);
+              _this119.status = false;
             }
           }, function (error) {
             var errorMessage = error;
@@ -18420,15 +19326,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onRegister",
         value: function onRegister() {
-          var _this118 = this;
+          var _this120 = this;
 
           this.userService.register(this.user).subscribe(function (response) {
-            _this118.identity = response.User; // localStorage.setItem('identity', JSON.stringify(response.User));
+            _this120.identity = response.User; // localStorage.setItem('identity', JSON.stringify(response.User));
             // this.getToken();
             // console.log('redirigiendo?');
             // this.router.navigate(['/inicio']);
 
-            _this118.goToInicio();
+            _this120.goToInicio();
           }, function (error) {
             console.error(error);
             alert('Datos Duplicados, revise su cedula, su correo o su nombre de cuenta...');
@@ -18437,15 +19343,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getToken",
         value: function getToken() {
-          var _this119 = this;
+          var _this121 = this;
 
           this.userService.login(this.user, 'true').subscribe(function (response) {
-            _this119.token = response.token;
+            _this121.token = response.token;
 
-            if (!_this119.token) {
+            if (!_this121.token) {
               alert('Error en el correo y/o contraseña');
-            } else if (_this119.token) {
-              localStorage.setItem('token', JSON.stringify(_this119.token));
+            } else if (_this121.token) {
+              localStorage.setItem('token', JSON.stringify(_this121.token));
             }
           }, function (error) {
             var errorMessage = error;
@@ -18457,7 +19363,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onAdmin",
         value: function onAdmin() {
-          var _this120 = this;
+          var _this122 = this;
 
           this.counter++;
           console.log(this.counter);
@@ -18477,8 +19383,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           }
 
           setTimeout(function () {
-            _this120.counter = 0;
-            console.log(_this120.counter);
+            _this122.counter = 0;
+            console.log(_this122.counter);
           }, 1000);
         }
       }, {
@@ -18677,27 +19583,27 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "onSubmit",
         value: function onSubmit(form) {
-          var _this121 = this;
+          var _this123 = this;
 
           this._messageService.addMessage(this.token, this.message).subscribe(function (response) {
             if (response) {
-              _this121.status = "success";
+              _this123.status = "success";
               form.reset();
               console.log("mensaje enviado correctamente");
             }
           }, function (error) {
-            _this121.status = "error";
+            _this123.status = "error";
             console.log(error);
           });
         }
       }, {
         key: "getMyFollows",
         value: function getMyFollows() {
-          var _this122 = this;
+          var _this124 = this;
 
           this._followService.getMyFollows(this.token).subscribe(function (response) {
             console.log(response);
-            _this122.follows = response.follows;
+            _this124.follows = response.follows;
           }, function (error) {
             console.log(error);
           });
@@ -18955,32 +19861,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "actualPage",
         value: function actualPage() {
-          var _this123 = this;
+          var _this125 = this;
 
           this.route.params.subscribe(function (params) {
             var page = +params['page'];
-            _this123.page = page;
-            if (!page || page == 1) _this123.page = 1, _this123.prevPage = null, _this123.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
-              _this123.nextPage = page + 1;
-              _this123.prevPage = page - 1;
-              if (_this123.prevPage <= 0) _this123.prevPage = 1;
+            _this125.page = page;
+            if (!page || page == 1) _this125.page = 1, _this125.prevPage = null, _this125.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
+              _this125.nextPage = page + 1;
+              _this125.prevPage = page - 1;
+              if (_this125.prevPage <= 0) _this125.prevPage = 1;
             } // devolver listado de mensajes
 
-            _this123.getMessages(_this123.page);
+            _this125.getMessages(_this125.page);
           });
         }
       }, {
         key: "getMessages",
         value: function getMessages(page) {
-          var _this124 = this;
+          var _this126 = this;
 
           if (page == null || page == 0) page = 1;
 
           this._messageService.getMyMessage(this.token, page).subscribe(function (response) {
-            _this124.pages = response.Pages;
-            _this124.total = response.Total;
-            _this124.messages = response.Messages;
-            console.log('Datos: -Pages: ' + _this124.pages + '. -Total [object]: ' + _this124.total + '. -Page: ' + _this124.page);
+            _this126.pages = response.Pages;
+            _this126.total = response.Total;
+            _this126.messages = response.Messages;
+            console.log('Datos: -Pages: ' + _this126.pages + '. -Total [object]: ' + _this126.total + '. -Page: ' + _this126.page);
             console.log(response);
           }, function (error) {
             console.log(error);
@@ -19134,32 +20040,32 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "actualPage",
         value: function actualPage() {
-          var _this125 = this;
+          var _this127 = this;
 
           this.route.params.subscribe(function (params) {
             var page = +params['page'];
-            _this125.page = page;
-            if (!page || page == 1) _this125.page = 1, _this125.prevPage = null, _this125.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
-              _this125.nextPage = page + 1;
-              _this125.prevPage = page - 1;
-              if (_this125.prevPage <= 0) _this125.prevPage = 1;
+            _this127.page = page;
+            if (!page || page == 1) _this127.page = 1, _this127.prevPage = null, _this127.nextPage = 2, console.log('pagina 1');else if (page && page >= 2) {
+              _this127.nextPage = page + 1;
+              _this127.prevPage = page - 1;
+              if (_this127.prevPage <= 0) _this127.prevPage = 1;
             } // devolver listado de mensajes
 
-            _this125.getMessages(_this125.page);
+            _this127.getMessages(_this127.page);
           });
         }
       }, {
         key: "getMessages",
         value: function getMessages(page) {
-          var _this126 = this;
+          var _this128 = this;
 
           if (page == null || page == 0) page = 1;
 
           this._messageService.getEmittMessage(this.token, page).subscribe(function (response) {
-            _this126.pages = response.Pages;
-            _this126.total = response.Total;
-            _this126.messages = response.Messages;
-            console.log('Datos: -Pages: ' + _this126.pages + '. -Total [object]: ' + _this126.total + '. -Page: ' + _this126.page);
+            _this128.pages = response.Pages;
+            _this128.total = response.Total;
+            _this128.messages = response.Messages;
+            console.log('Datos: -Pages: ' + _this128.pages + '. -Total [object]: ' + _this128.total + '. -Page: ' + _this128.page);
             console.log(response);
           }, function (error) {
             console.log(error);
@@ -20118,6 +21024,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var token = JSON.parse(localStorage.getItem('token'));
           var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json').set('Authorization', token);
           return this.http.get(this.url + 'detalle/' + id, {
+            headers: headers
+          });
+        }
+      }, {
+        key: "getDetalles",
+        value: function getDetalles() {
+          var token = JSON.parse(localStorage.getItem('token'));
+          var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]().set('Content-Type', 'application/json').set('Authorization', token);
+          return this.http.get(this.url + 'detalles', {
             headers: headers
           });
         }

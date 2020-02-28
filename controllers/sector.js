@@ -31,9 +31,11 @@ function save(req, res) {
                 sector.save((errSave, responseSave) => {
                     if (errSave) return res.status(500).send({Message: 'Error al ejecutar la peticion en el servidor!.', Error: err});
                     if (!responseSave) return res.status(404).send({Message: 'No se pudo guardar el sector...'});
-                    else return res.status(201).send({Message: 'El sector se ha guardado Correctamente!...', sector: responseSave});
+                    sector = new Sector;
+                    return res.status(201).send({Message: 'El sector se ha guardado Correctamente!...', sector: responseSave});
                 })
             }
+            return
         })
     }
 }

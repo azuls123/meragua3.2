@@ -12,5 +12,6 @@ var md_aut = require('../middleware/authenticate');
 api.post('/save', md_aut.ensureAuth, DetalleController.saveAll);
 
 api.get('/detalle/:id', md_aut.ensureAuth, DetalleController.getDetalle);
+api.get('/detalles', md_aut.ensureAuth, DetalleController.getDetalles);
 
 module.exports = api;

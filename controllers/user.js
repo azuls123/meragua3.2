@@ -189,7 +189,7 @@ function save(req, res) {
                         // Sentencia 'Si' para comprobar la existencia de valores dentro del Objeto //
                         if (userStored) {
                             // Se envian los datos del objeto mediante un send con el objeto mismo y un codigo 201 //
-                            res.status(201).send({
+                            return res.status(201).send({
                                 User: userStored,
                                 Message: 'Empleado Guardado'
                             });
@@ -197,7 +197,7 @@ function save(req, res) {
                         // Sentencia 'Entonces' complementaria al 'Si' para identificar un objeto vacio //
                         else {
                             // Se devuelve un error 404 al cliente indicando que el objeto se encuentra vacio //
-                            res.status(404).send({
+                            return res.status(404).send({
                                 Message: 'No se pudo Registrar el Empleado'
                             })
                         }
@@ -208,7 +208,7 @@ function save(req, res) {
     }
     // en caso de que los datos esten incompletos o dañados se envia un mensaje de error //
     else {
-        res.status(500).send({
+        return res.status(500).send({
             Message: 'Datos faltantes o erroneos'
         })
     }
@@ -491,13 +491,13 @@ function update(req, res) {
     // >>>> se elimina el campo contraseña
     // delete update.contrase;
     // >>> se determina si el usuario editado es el mismo que el logeado
-    if (userId != req.user.sub) {
-        // >>>> en caso de que no sean los mismos se retorna un estado 401 y el mensaje de sin acceso
-        return res.status(401).send({
-            Message: 'Sin Acceso a Edicion de Datos'
-        })
-        // >>> si el usuario a editar es el mismo que el logeado
-    } else {
+    // if (userId != req.user.sub) {
+    //     // >>>> en caso de que no sean los mismos se retorna un estado 401 y el mensaje de sin acceso
+    //     return res.status(401).send({
+    //         Message: 'Sin Acceso a Edicion de Datos'
+    //     })
+    //     // >>> si el usuario a editar es el mismo que el logeado
+    // } else {
         // >>>> se envian los datos unicos a la funcion unico para comprobar que los datos ingresados no se hayan repetido en otro usuario
         unico(userId, update.cuenta, update.correo, update.cedula).then((repetido) => {
             // >>>>> se revisa si alguno de los valores dio como resultado alguna repeticion dentro de la base de datos
@@ -538,7 +538,7 @@ function update(req, res) {
             }
         })
 
-    }
+    // }
 }
 // << Editar usuario
 

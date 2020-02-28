@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 
 // Morgan request viewer //
 var morgan = require('morgan');
-// =================Cargar Rutas //
+//=================Cargar Rutas //
 // User
 var UserRoutes = require('./routes/user');
 // rutas de Tarifa //

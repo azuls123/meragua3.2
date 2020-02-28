@@ -1,6 +1,6 @@
 {
   "name": "meragua-backend",
-  "version": "3.2.0",
+  "version": "1.2.0",
   "description": "Backend API para el Departamento de Agua Potable GAD Mera",
   "main": "index.js",
   "scripts": {
